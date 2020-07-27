@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Monday, July 27 2020, 10:00:57 +0300
+#  Created by d.trofimov @ Monday, July 27 2020, 11:19:43 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -206,6 +206,17 @@ Saved Mill_4-Axis_fanuc with NX/Post Builder Version 12.0.1.0 on Sat Jul 14 10:0
 Saved Mill_4-Axis_fanuc with NX/Post Builder Version 12.0.1.0 on Sat Jul 14 10:01:07 2018 +0300 by TrofimovDI.
 Created VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 10:00:46 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 10:00:57 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 10:06:40 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 10:06:59 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 10:12:05 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 10:13:39 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 10:13:45 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 10:17:16 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 10:20:35 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 10:46:50 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 11:06:19 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 11:16:21 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 11:19:43 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -475,7 +486,7 @@ Text              ""  0  "Text String"  0
 {Auto Tool Change}         {}  {$gPB(event,opr_start,auto_tc,name)}
 {Manual Tool Change}       {stop PB_CMD_m0_smena_instrum}  {$gPB(event,opr_start,manual_tc,name)}
 {Initial Move}             {PB_CMD_output_machine_mode PB_CMD_output_unclamp_code PB_CMD_output_tcp_code PB_CMD_force_output PB_CMD_output_init_position spindle_rpm init_move_adjust_len PB_CMD_SOG coolant_on}  {$gPB(event,opr_start,init_move,name)}
-{First Move}               {PB_CMD_output_machine_mode PB_CMD_output_unclamp_code PB_CMD_output_tcp_code PB_CMD_force_output PB_CMD_output_init_position spindle_rpm init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,fst_move,name)}
+{First Move}               {PB_CMD_output_machine_mode PB_CMD_output_unclamp_code PB_CMD_output_tcp_code PB_CMD_force_output PB_CMD_output_init_position spindle_rpm init_move_adjust_len}  {$gPB(event,opr_start,fst_move,name)}
 {Approach Move}            {}  {$gPB(event,opr_start,appro_move,name)}
 {Engage Move}              {}  {$gPB(event,opr_start,engage_move,name)}
 {First Cut}                {}  {$gPB(event,opr_start,fst_cut,name)}
@@ -1249,7 +1260,8 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_tool_preselect" "" "Custom Command"} \
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
-      {"PB_CMD_unset" "" "Custom Command"}
+      {"PB_CMD_unset" "" "Custom Command"} \
+      {"PB_CMD_Header_tool_list" "" "Custom Command"}
 {Operator_Message} \
       {"" "" ""}
 {PB_Spindle} \

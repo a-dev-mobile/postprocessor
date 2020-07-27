@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Monday, July 27 2020, 10:00:57 +0300
+#  Created by d.trofimov @ Monday, July 27 2020, 11:19:43 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1193,7 +1193,6 @@ proc MOM_first_move { } {
 
    MOM_force Once G_motion G_adjust Z H
    MOM_do_template init_move_adjust_len
-   PB_CMD_SOG
    catch { MOM_$mom_motion_event }
 
   # Configure turbo output settings
@@ -1913,6 +1912,71 @@ return $f
 
 
 #=============================================================
+proc PB_CMD_Header_tool_list { } {
+#=============================================================
+global ptp_file_name mom_definition_file_name mom_output_file_full_name
+global mom_output_file_directory mom_output_file_basename mom_output_file_suffix
+global mom_warning_info
+global mom_machine_time mom_group_name mom_operation_name mom_part_name
+global mom_tool_count mom_tool_use
+global mom_logname mom_ug_version mom_date mom_machine_name
+global coord_z
+global mom_machine_time
+global mom_tool_name
+global tool_data_diameter
+global tool_data_name
+global array_tool_name;
+global mom_tool_name;
+global mom_tool_number;
+global mom_tool_zmount
+global mom_tool_length
+set hours [format %2.0f [expr [format %2.0f $mom_machine_time] / 60]]
+set minutes [format %0.0f [expr $mom_machine_time - 60 * $hours]]
+set tm1 [clock seconds]
+set tm2 [clock format $tm1 -format "%M:%S"]
+MOM_log_message "MOM Start = $tm2 "
+
+set tmp_file_name "${ptp_file_name}_"
+
+if {[file exists $tmp_file_name]} {
+MOM_remove_file $tmp_file_name
+}
+MOM_close_output_file $ptp_file_name
+file rename $ptp_file_name $tmp_file_name
+
+set ifile [open $tmp_file_name r]
+set ofile [open $ptp_file_name w]
+
+set mom_tool_name [format "%1s" $mom_tool_name]
+set mom_tool_length [format "%-9.1f" $mom_tool_length]
+set mom_tool_number [format "%9d" $mom_tool_number]
+set tool_str "(\T$mom_tool_number \ |VYLET = $mom_tool_zmount | \ $mom_tool_name  \ )";
+set tool_str [string toupper $tool_str];
+set array_tool_name($mom_tool_number) $tool_str;
+#set array_tool_length($mom_tool_length) $tool_str;
+#set array_tool_number($mom_tool_number) $tool_str;
+puts $ofile "(\T$mom_tool_number \ |VYLET = $mom_tool_zmount | \ $mom_tool_name  \ )";
+while { [gets $ifile buf] > 0 } {
+puts $ofile $buf
+}
+close $ifile
+close $ofile
+MOM_remove_file $tmp_file_name
+set tm1 [clock seconds]
+set tm2 [clock format $tm1 -format "%M:%S"]
+MOM_log_message "MOM End = $tm2 "
+
+
+
+
+
+MOM_open_output_file $ptp_file_name
+
+
+}
+
+
+#=============================================================
 proc PB_CMD_MAIN { } {
 #=============================================================
 
@@ -2104,7 +2168,8 @@ set a21 [SET_comment  "User:[GET_mom_logname]"]
 set a3 [SET_comment  "Machine: Akira-Seiki V3"]
 set a4 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 
-set a "$a0`$a2`$a21`$a3`$a4`$a0"
+#set a "$a0`$a2`$a21`$a3`$a4`$a0"
+set a "$a0`$a2`$a21`$a4`$a0"
 return  [SPLIT_TEXT $a]
 }
 
@@ -2120,9 +2185,36 @@ set a4 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 set a "$a0`$a2`$a21`$a3`$a4"
 return  [SPLIT_TEXT $a]
 }
+if { $arg_1 == 26 } {
+
+set a0 [SET_comment "---"]
+set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a11 [SET_comment "Det: [GET_mom_part_name]" ]
+set a2 [SET_comment  "Date: [GET_mom_date]"]
+set a3 [SET_comment  "User: Trofimov D.I."]
+set a4 [SET_comment  "Machine: DMC 635 V ecoline SIEMENS 840D sl"]
+set a5 [SET_comment  "File: [GET_mom_output_file_full_name]"]
+
+#set a "$a0`$a2`$a21`$a3`$a4`$a0"
+set a "$a0`$a1`$a11`$a2`$a3`$a4`$a5"
+return  [SPLIT_TEXT $a]
+}
 
 
+if { $arg_1 == 27 } {
 
+set a0 [SET_comment "---"]
+set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a2 [SET_comment "Det: [GET_mom_part_name]" ]
+set a3 [SET_comment  "Date: [GET_mom_date]"]
+set a4 [SET_comment  "User:[GET_mom_logname]"]
+set a5 [SET_comment  "Machine: Haas VF-3"]
+set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
+
+#set a "$a0`$a2`$a21`$a3`$a4`$a0"
+set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
+return  [SPLIT_TEXT $a]
+}
 
 
 if { $arg_1 == 21 } {
@@ -2523,7 +2615,7 @@ foreach name $tool_name_list1 {
 #}
 if {$arg1 == 1} {
 lappend all_text  "-"
-lappend all_text  "T$ARR4($name) = $name"
+lappend all_text  "--T$ARR4($name) = $name"
 lappend all_text  "VYLET = $ARR2($name) mm"
 }
 
@@ -2613,6 +2705,17 @@ return $s
 return ""
 }
 #===================================
+#===================================
+proc GET_mom_partfile_name { } {
+#===================================
+global mom_partfile_name
+if {[info exist mom_partfile_name  ] } {
+set s $mom_partfile_name
+return $s
+    }
+return ""
+}
+#===================================
 
 
 #===================================
@@ -2627,6 +2730,8 @@ set s $mom_sys_group_output
 return ""
 }
 #===================================
+
+
 
 
 #===================================
@@ -2752,11 +2857,21 @@ global mom_tool_holder_length
 if {[info exist mom_tool_holder_length        ] } { return $mom_tool_holder_length       }
 return "null mom_tool_holder_length    " }
 #===================================
+
 #===================================
 proc GET_mom_part_name      { } {
 #===================================
+
+global row_start
+global row_end
+global part_name
 global mom_part_name
-if {[info exist mom_part_name          ] } { return $mom_part_name         }
+
+set row_start [expr [string last "\\" $mom_part_name] + 1]
+set row_end [string length $mom_part_name]
+set part_name [string range $mom_part_name $row_start $row_end]
+
+if {[info exist mom_part_name          ] } { return $part_name }
 return "null mom_part_name      " }
 #===================================
 
@@ -2918,6 +3033,16 @@ if {[info exist mom_tool_name  ] } { return $mom_tool_name     }
 unset mom_tool_name
 return "NULL mom_tool_name"
 }
+#===================================
+
+proc GET_mom_oper_method  { } {
+#===================================
+global mom_oper_method
+if {[info exist mom_oper_method  ] } { return $mom_oper_method     }
+
+unset mom_oper_method
+return "NULL mom_oper_method"
+}
 
 #===================================
 proc GET_mom_next_oper_has_tool_change   { } {
@@ -2937,7 +3062,7 @@ if {[info exist mom_output_file_full_name ] } { return $mom_output_file_full_nam
 return "NULL mom_output_file_full_name"
 }
 #===================================
-#MILL_3_AXIS file NX
+#MILL_3_AXIS file NC
 proc GET_mom_output_file_basename  { } {
 #===================================
 global mom_output_file_basename
@@ -3209,12 +3334,14 @@ set a ""
 MOM_output_text "$a M09"
 MOM_output_text "$a M05"
 MOM_output_text "$a G91 G28 Z0.0"
-MOM_output_text "M1"
-
-
-
 MOM_output_text "(------)"
-MOM_output_text "([GET_mom_operation_name])"
+MOM_output_text "M1"
+MOM_output_text "(------)"
+MOM_output_text "( [GET_mom_operation_name])"
+MOM_output_text "( [GET_mom_oper_method])"
+MOM_output_text "(-)"
+MOM_output_text "( [GET_mom_tool_name])"
+MOM_output_text "( VYLET = [format "%0.0f" [GET_mom_tool_zmount]] mm)"
 MOM_output_text "(------)"
 
 
@@ -6137,7 +6264,7 @@ proc PB_CMD_output_next_tool { } {
 #=============================================================
 proc PB_CMD_output_seq_number { } {
 #=============================================================
-   MOM_output_literal "   "
+   MOM_output_literal " "
 
 }
 
@@ -6191,33 +6318,7 @@ proc PB_CMD_pause { } {
 #=============================================================
 proc PB_CMD_program_header { } {
 #=============================================================
-#
-#  Program Header with Tape Number
-#
-#  This procedure will output a program header with the following format:
-#
-#  Attribute assigned to program (Name of program group)
-#  O0001 (NC_PROGRAM)
-#
-#  Place this custom command in the start of program event marker.  This
-#  custom command must be placed after any intial codes (such as #).  The
-#  custom comand MOM_set_seq_off must precede this custom command to
-#  prevent sequence numbers from being output with the program number.
-#
-#  If you are adding this custom command to a linked post, this custom
-#  command must be added to the main post only.  It will not be output by
-#  any subordinate posts.
-#
-#  If there is no attribute assigned to the program group, the string O0001
-#  will be used.  In any case the name of the program in Program View will
-#  be output as a comment.
-#
-#  To assign an attribute to the program, right click on the program.  Under
-#  properties, select attribute.  Use the string "program_number" as the
-#  title of the attribute.  Enter the string you need for the program
-#  name, O0010 for example, as the value of the attribute.  Use type string for the
-#  the attribute.  Each program group can have a unique program number.
-#
+
    global mom_attr_PROGRAMVIEW_PROGRAM_NUMBER
    global program_header_output
 
@@ -6231,12 +6332,12 @@ proc PB_CMD_program_header { } {
 
    MOM_set_seq_off
 
-MOM_output_literal "$mom_attr_PROGRAMVIEW_PROGRAM_NUMBER ([GET_mom_output_file_basename])"
+MOM_output_literal "$mom_attr_PROGRAMVIEW_PROGRAM_NUMBER ([GET_mom_part_name])"
 
-foreach name [ARRAY_INFO_START_PROGRAMM 22] {
+foreach name [ARRAY_INFO_START_PROGRAMM 27] {
 MOM_output_text $name
 }
-
+MOM_output_text "( --- )"
 
 
 
