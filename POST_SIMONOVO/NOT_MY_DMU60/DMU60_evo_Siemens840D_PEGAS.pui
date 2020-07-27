@@ -1,0 +1,20 @@
+## POSTBUILDER_VERSION=2005.0.3.2
+##############################################################################
+#                                                                            #
+#  This file is used by Post Builder to edit the parameters associated       #
+#  with a specific post processor.                                           #
+#                                                                            #
+#                                                                            #
+#  <WARNING> The contents of this file should not be modified!               #
+#                                                                            #
+##############################################################################
+#  Created by Batarev @ 27 сентября 2017 г. 13:36:22 RTZ 2 (Р·РёРјР°)
+#  with Post Builder version 6.0.3.
+#============================================================================#
+
+
+## POST EVENT HANDLER START
+def_file  DMU60_evo_Siemens840D_PEGAS.def
+tcl_file  DMU60_evo_Siemens840D_PEGAS.tcl
+## POST EVENT HANDLER END
+
