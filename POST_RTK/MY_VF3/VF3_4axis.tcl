@@ -1,12 +1,12 @@
 ########################## TCL Event Handlers ##########################
 #
-#  Mill_4-Axis_fanuc.tcl - 4_axis_table
+#  VF3_4axis.tcl - 4_axis_table
 #
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by TrofimovDI @ Sat Jul 14 10:01:07 2018 +0300
-#  with Post Builder version 12.0.1.
+#  Created by d.trofimov @ Monday, July 27 2020, 10:00:57 +0300
+#  with Post Builder version 12.0.2.
 #
 ########################################################################
 
@@ -56,34 +56,34 @@ proc PB_CMD___log_revisions { } {
         source ${cam_post_dir}ugpost_base.tcl
         set mom_sys_ugpost_base_initialized 1
      }
- 
- 
+
+
      set mom_sys_debug_mode OFF
- 
- 
+
+
      if { ![info exists env(PB_SUPPRESS_UGPOST_DEBUG)] } {
         set env(PB_SUPPRESS_UGPOST_DEBUG) 0
      }
- 
+
      if { $env(PB_SUPPRESS_UGPOST_DEBUG) } {
         set mom_sys_debug_mode OFF
      }
- 
+
      if { ![string compare $mom_sys_debug_mode "OFF"] } {
- 
+
         proc MOM_before_each_add_var {} {}
         proc MOM_before_each_event   {} {}
         proc MOM_before_load_address {} {}
         proc MOM_end_debug {} {}
- 
+
      } else {
- 
+
         set cam_debug_dir [MOM_ask_env_var UGII_CAM_DEBUG_DIR]
         source ${cam_debug_dir}mom_review.tcl
      }
 
 
-   ####  Listing File variables 
+   ####  Listing File variables
      set mom_sys_list_output                       "OFF"
      set mom_sys_header_output                     "OFF"
      set mom_sys_list_file_rows                    "40"
@@ -160,7 +160,7 @@ proc PB_CMD___log_revisions { } {
 
 
   set mom_sys_use_default_unit_fragment         "ON"
-  set mom_sys_alt_unit_post_name                "Mill_4-Axis_fanuc__IN.pui"
+  set mom_sys_alt_unit_post_name                "VF3_4axis__IN.pui"
 
 
 ########## SYSTEM VARIABLE DECLARATIONS ##############
@@ -298,7 +298,7 @@ proc PB_CMD___log_revisions { } {
   set mom_sys_word_separator                    " "
   set mom_sys_end_of_block                      ""
   set mom_sys_ugpadvkins_used                   "0"
-  set mom_sys_post_builder_version              "12.0.1"
+  set mom_sys_post_builder_version              "12.0.2"
 
 ####### KINEMATIC VARIABLE DECLARATIONS ##############
   set mom_kin_4th_axis_ang_offset               "0.0"
@@ -7473,19 +7473,20 @@ proc CALLED_BY { caller {out_warn 0} args } {
 #
 # Revisions:
 #-----------
-# 05-25-10 gsl - Initial implementation
-# 03-09-11 gsl - Enhanced description
+# 05-25-2010 gsl - Initial implementation
+# 03-09-2011 gsl - Enhanced description
+# 06-29-2018 gsl - Only compare the 0th element in command string
 #
 
    if { [info level] <= 2 } {
 return 0
    }
 
-   if { [string match "$caller*" [info level -2] ] } {
+   if { ![string compare "$caller" [lindex [info level -2] 0] ] } {
 return 1
    } else {
       if { $out_warn } {
-         CATCH_WARNING "\"[info level -1]\" can not be executed in \"[info level -2]\". \
+         CATCH_WARNING "\"[lindex [info level -1] 0]\" cannot be executed in \"[lindex [info level -2] 0]\". \
                         It must be called by \"$caller\"!"
       }
 return 0
@@ -7613,7 +7614,7 @@ proc CMD_EXIST { cmd {out_warn 0} args } {
 return 1
    } else {
       if { $out_warn } {
-         CATCH_WARNING "Command \"$cmd\" called by \"[info level -1]\" does not exist!"
+         CATCH_WARNING "Command \"$cmd\" called by \"[lindex [info level -1] 0]\" does not exist!"
       }
 return 0
    }
@@ -8834,7 +8835,11 @@ proc PAUSE { args } {
             set gPB(PB_disable_MOM_pause) 1
 
             uplevel #0 {
-               MOM_abort "*** User Abort Post Processing *** "
+               if { [CMD_EXIST MOM_abort_program] } {
+                  MOM_abort_program "*** User Abort Post Processing *** "
+               } else {
+                  MOM_abort "*** User Abort Post Processing *** "
+               }
             }
          }
          default {
@@ -8945,7 +8950,11 @@ proc PAUSE_win64 { args } {
             set gPB(PB_disable_MOM_pause) 1
 
             uplevel #0 {
-               MOM_abort "*** User Abort Post Processing *** "
+               if { [CMD_EXIST MOM_abort_program] } {
+                  MOM_abort_program "*** User Abort Post Processing *** "
+               } else {
+                  MOM_abort "*** User Abort Post Processing *** "
+               }
             }
          }
          default {}
@@ -9194,6 +9203,7 @@ proc ROTARY_AXIS_RETRACT { } {
 #-------------------------------------------------------------
 # Nov-30-2016 gsl - (pb11.02) Corrected logic
 # Sep-11-2017 gsl - (pb12.01) PB_user_defined_axis_limit_action was PB_user_def_axis_limit_action.
+# Apr-13-2018 gsl - (pb12.02) Enhanced check condition for axis_limit_action.
 #
 
   #(pb903) Removed restriction below; command may be used in other situations
@@ -9238,20 +9248,23 @@ return
          global mom_alt_pos mom_prev_alt_pos mom_feed_rate
          global mom_kin_rotary_reengage_feedrate
          global mom_feed_engage_value mom_feed_cut_value
-         global mom_kin_4th_axis_limit_action mom_warning_info
+         global mom_warning_info
          global mom_kin_4th_axis_min_limit mom_kin_4th_axis_max_limit
          global mom_kin_5th_axis_min_limit mom_kin_5th_axis_max_limit
 
         #
         #  Check for the limit action being warning only.  If so, issue warning and leave
         #
-         if { ![string compare "Warning" $mom_kin_4th_axis_limit_action] } {
+        # (pb12.02) - Enhanced check condition
+         if { ![string compare "Warning" $::mom_kin_4th_axis_limit_action] &&\
+              ![string compare "Warning" $::mom_kin_5th_axis_limit_action] } {
 
             CATCH_WARNING "Rotary axis limit violated, discontinuous motion may result."
 
             return
 
-         } elseif { ![string compare "User Defined" $mom_kin_4th_axis_limit_action] } {
+         } elseif { ![string compare "User Defined" $::mom_kin_4th_axis_limit_action] ||\
+                    ![string compare "User Defined" $::mom_kin_5th_axis_limit_action] } {
 
             PB_user_defined_axis_limit_action
 
@@ -9790,6 +9803,7 @@ proc ROTSET { angle prev_angle dir kin_leader sys_leader min max {tol_flag 0} } 
 # 03-13-2012 gsl - (pb850) LIMIT_ANGLE should be called by using its return value
 #                - Allow comparing max/min with tolerance
 # 10-27-2015 gsl - Initialize mom_rotary_direction_4th & mom_rotary_direction_5th
+# 04-25-2018 gsl - (pb12.02) Enhanced checking for rotation direction when "SIGN_DETERMINES_DIRECTION" is used.
 #=============================================================
 
    upvar $sys_leader lead
@@ -9835,31 +9849,29 @@ proc ROTSET { angle prev_angle dir kin_leader sys_leader min max {tol_flag 0} } 
          }
       }
 
-      #<03-13-12 gsl> Fit angle within limits
-      if { $tol_flag == 1 } { ;# Tolerant comparison
-         while { [EQ_is_lt $angle $min] } { set angle [expr $angle + 360.0] }
-         while { [EQ_is_gt $angle $max] } { set angle [expr $angle - 360.0] }
-      } else { ;# Legacy direct comparison
-         while { $angle < $min } { set angle [expr $angle + 360.0] }
-         while { $angle > $max } { set angle [expr $angle - 360.0] }
-      }
+     #<Apr-25-2018 gsl> Replaced with a command call
+     #<03-13-12 gsl> Fit angle within limits
+      set angle [MAXMIN_ANGLE $angle $max $min $tol_flag]
 
    } elseif { ![string compare "SIGN_DETERMINES_DIRECTION" $dir] } {
 
    #
-   #  Sign determines direction.  Determine whether the shortest distance is
+   #  Sign determined direction determines whether the shortest distance is
    #  clockwise or counterclockwise.  If counterclockwise append a "-" sign
    #  to the address leader.
    #
       set check_solution 1
 
-      #<09-15-09 wbh> If angle is negative, we add 360 to it instead of getting the absolute value of it.
+     #<09-15-09 wbh> If angle is negative, we add 360 to it instead of getting the absolute value of it.
       if { $angle < 0 } {
          set angle [expr $angle + 360]
       }
 
       set minus_flag 0
      # set angle [expr abs($angle)]  ;# This line was not in ROTSET of xzc post.
+
+     #<Apr-25-2018 gsl> Should be abs(prev_angle)
+      set prev_angle [expr abs($prev_angle)]
 
       set del [expr $angle - $prev_angle]
       if { $tol_flag == 0 } { ;# Exact comparison
@@ -9878,11 +9890,22 @@ proc ROTSET { angle prev_angle dir kin_leader sys_leader min max {tol_flag 0} } 
          }
       }
 
-      #<04-27-11 wbh> 1819104 Check the rotary axis is 4th axis or 5th axis
+     #<Apr-25-2018 gsl> Additional check if the move would cross the boundary, then reverse the direction.
+      if { !$minus_flag && [EQ_is_lt $del 0.0] } {
+         set n [expr int($prev_angle/360) + 1]
+         if { [EQ_is_gt [expr $angle + $n*360.0] $max] } {
+            set minus_flag 1
+         }
+      }
+
+
+     #<04-27-11 wbh> 1819104 Check the rotary axis is 4th axis or 5th axis
       global mom_kin_4th_axis_leader mom_kin_5th_axis_leader
       global mom_rotary_direction_4th mom_rotary_direction_5th
       global mom_prev_rotary_dir_4th mom_prev_rotary_dir_5th
 
+     #<Apr-25-2018 gsl> This logic may not determine is_4th properly,
+     #                  since mom_kin_5th_axis_leader would always exist in a multi-axis post.
       set is_4th 1
       if { [info exists mom_kin_5th_axis_leader] && [string match "$mom_kin_5th_axis_leader" "$kin_leader"] } {
          set is_4th 0
@@ -9891,20 +9914,28 @@ proc ROTSET { angle prev_angle dir kin_leader sys_leader min max {tol_flag 0} } 
       if { ![info exists mom_rotary_direction_4th] } { set mom_rotary_direction_4th 1 }
       if { ![info exists mom_rotary_direction_5th] } { set mom_rotary_direction_5th 1 }
 
-      #<09-15-09 wbh>
+     #<09-15-09 wbh>
       if { $minus_flag && [EQ_is_gt $angle 0.0] } {
          set lead "$kin_leader-"
 
-         #<04-27-11 wbh> Since the leader should add a minus, the rotary direction need be reset
+        #<04-27-11 wbh> Since the leader should add a minus, the rotary direction need be reset
          if { $is_4th } {
             set mom_rotary_direction_4th -1
          } else {
             set mom_rotary_direction_5th -1
          }
+      } else {
+        #<Apr-25-2018 gsl> Post (Tcl) needs to handle the opposite condition. The setting conveyed from the core processor is not reliable,
+        #                  since the output angles are computed and produced by the post, core processor does not know about or keep track of.
+         if { $is_4th } {
+            set mom_rotary_direction_4th 1
+         } else {
+            set mom_rotary_direction_5th 1
+         }
       }
 
-      #<04-27-11 wbh> If the delta angle is 0 or 180, there has no need to change the rotary direction,
-      #               we should reset the current direction with the previous direction
+     #<04-27-11 wbh> If the delta angle is 0 or 180, there has no need to change the rotary direction,
+     #               we should reset the current direction with the previous direction
       if { [EQ_is_zero $del] || [EQ_is_equal $del 180.0] || [EQ_is_equal $del -180.0] } {
          if { $is_4th } {
             if { [info exists mom_prev_rotary_dir_4th] } {
@@ -9916,20 +9947,22 @@ proc ROTSET { angle prev_angle dir kin_leader sys_leader min max {tol_flag 0} } 
             }
          }
       } else {
-         # Set the previous direction
+        # Set the previous direction
          if { $is_4th } {
             set mom_prev_rotary_dir_4th $mom_rotary_direction_4th
          } else {
             set mom_prev_rotary_dir_5th $mom_rotary_direction_5th
          }
       }
-   }
 
-   #<03-13-12 gsl> Check solution
-   #
-   #  There are no alternate solutions.
-   #  If the position is out of limits, give a warning and leave.
-   #
+   } ;# "SIGN_DETERMINES_DIRECTION"
+
+
+  #<03-13-12 gsl> Check solution
+  #
+  #  There are no alternate solutions.
+  #  If the position is out of limits, give a warning and leave.
+  #
    if { $check_solution } {
       if { $tol_flag == 1 } {
          if { [EQ_is_gt $angle $max] || [EQ_is_lt $angle $min] } {
@@ -9942,7 +9975,7 @@ proc ROTSET { angle prev_angle dir kin_leader sys_leader min max {tol_flag 0} } 
       }
    }
 
-return $angle
+ return $angle
 }
 
 
@@ -10193,7 +10226,7 @@ proc STR_MATCH { VAR str {out_warn 0} } {
 return 1
    } else {
       if { $out_warn } {
-         CATCH_WARNING "Variable $VAR is not defined in \"[info level -1]\"!"
+         CATCH_WARNING "Variable $VAR is not defined in \"[lindex [info level -1] 0]\"!"
       }
 return 0
    }

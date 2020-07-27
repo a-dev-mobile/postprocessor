@@ -1,4 +1,4 @@
-## POSTBUILDER_VERSION=2011.0.1.0
+## POSTBUILDER_VERSION=2011.0.2.1
 ##############################################################################
 #                                                                            #
 #  This file is used by Post Builder to edit the parameters associated       #
@@ -8,14 +8,14 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by TrofimovDI @ Sat Jul 14 10:01:07 2018 +0300
-#  with Post Builder version 12.0.1.
+#  Created by d.trofimov @ Monday, July 27 2020, 10:00:57 +0300
+#  with Post Builder version 12.0.2.
 #============================================================================#
 
 
 ## POST EVENT HANDLER START
-def_file  Mill_4-Axis_fanuc.def
-tcl_file  Mill_4-Axis_fanuc.tcl
+def_file  VF3_4axis.def
+tcl_file  VF3_4axis.tcl
 ## POST EVENT HANDLER END
 
 
@@ -204,6 +204,8 @@ Saved Mill_4-Axis_fanuc with NX/Post Builder Version 11.0.2.1 on 28 ìàÿ 2018 
 Saved Mill_4-Axis_fanuc with NX/Post Builder Version 12.0.1.0 on Sat Jul 14 09:59:48 2018 +0300 by TrofimovDI.
 Saved Mill_4-Axis_fanuc with NX/Post Builder Version 12.0.1.0 on Sat Jul 14 10:00:40 2018 +0300 by TrofimovDI.
 Saved Mill_4-Axis_fanuc with NX/Post Builder Version 12.0.1.0 on Sat Jul 14 10:01:07 2018 +0300 by TrofimovDI.
+Created VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 10:00:46 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 10:00:57 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -211,7 +213,7 @@ Saved Mill_4-Axis_fanuc with NX/Post Builder Version 12.0.1.0 on Sat Jul 14 10:0
 ## LISTING FILE START
 Listfileflag_warn              OFF
 Listfileflag                   OFF
-Listfileflag_alt_unit_post_name Mill_4-Axis_fanuc__IN.pui
+Listfileflag_alt_unit_post_name VF3_4axis__IN.pui
 Listfileflag_group             OFF
 Listfileflag_verbose           ON
 Listfileflag_tool              0
