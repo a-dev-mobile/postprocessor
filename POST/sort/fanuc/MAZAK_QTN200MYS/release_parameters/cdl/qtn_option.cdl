@@ -1,0 +1,361 @@
+#######  USER DEFINED EVENTS  #########
+##
+##     UDE for Mill Turn Machines
+##     Andrey V Danilov. St-Petersburg. 16 jan 2016
+##
+################################
+##  Edition 22 mar 2016
+################################
+
+MACHINE FANUC
+
+#-----------------------------------------------------------------
+
+EVENT qtn_setup_data
+{
+   UI_LABEL "MAZAK QTN : Автоперехват"
+   CATEGORY MILL DRILL LATHE
+   PARAM init_bmp1
+   {
+      TYPE l
+      DEFVAL "${UGII_CAM_USER_DEF_EVENT_DIR}qtn/qtn_setup.bmp"
+   }
+
+   PARAM qtn_setup_takeover_opt
+   {
+      TYPE o
+      DEFVAL "0. Не активен"
+      OPTIONS "0. Не активен","1. Забрать деталь","2. Отломить и забрать надрезанную деталь"
+      UI_LABEL "Режим отвода"
+   }
+
+   PARAM group_start_2
+   {
+      TYPE g
+      DEFVAL "start_open"
+      UI_LABEL "Данные для автоперехвата"
+   }
+   PARAM qtn_z2_takeover_pos
+   {
+     TYPE d
+     DEFVAL "0.0"
+     TOGGLE Off
+     UI_LABEL "#525 : Координата перехвата Z2. V523 и V524 игнорируются"
+   }
+   PARAM qtn_setup_sub_chuk_dat
+   {
+      TYPE d
+      DEFVAL "110.0"
+      TOGGLE Off
+      UI_LABEL "#523 : Длина патрона и кулачков КШП"
+   }
+   PARAM qtn_setup_takeover_length
+   {
+      TYPE d
+      DEFVAL "0.0"
+      TOGGLE Off
+      UI_LABEL "#524 : Длина захвата в патрон КШП при перехвате"
+   }
+   PARAM qtn_setup_c2pos
+   {
+      TYPE d
+      DEFVAL "0.0"
+      UI_LABEL "Угол установки КШП при перехвате"
+   }
+   PARAM qtn_setup_press_dist
+   {
+      TYPE d
+      DEFVAL "0.0"
+      UI_LABEL "Расстояние нажима"
+   }
+   PARAM group_end_2
+   {
+      TYPE g
+      DEFVAL "end"
+   }
+
+   PARAM group_start_3
+   {
+      TYPE g
+      DEFVAL "start_open"
+      UI_LABEL "Переместить деталь"
+   }
+   PARAM qtn_setup_pullout
+   {
+      TYPE d
+      DEFVAL "0.0"
+      TOGGLE Off
+      UI_LABEL "Вытянуть / задвинуть из/в ГШП перед отломом."
+   }
+   PARAM group_end_3
+   {
+      TYPE g
+      DEFVAL "end"
+   }
+}
+
+#-----------------------------------------------------------------
+
+EVENT qtn_subspindle_approach_part
+{
+   UI_LABEL "MAZAK QTN : Контршпиндель : Захват детали."
+   CATEGORY MILL DRILL LATHE
+
+   PARAM group_start_1
+   {
+      TYPE g
+      DEFVAL "start_open"
+      UI_LABEL "Захват детали"
+   }
+   PARAM init_bmp1
+   {
+      TYPE l
+      DEFVAL "${UGII_CAM_USER_DEF_EVENT_DIR}qtn/qtn_setup.bmp"
+   }
+
+   PARAM qtn_subspin_takeover_opt
+   {
+      TYPE o
+      DEFVAL "0. Рассчитать через переменные #523 #524"
+      OPTIONS "0. Рассчитать через переменные #523 #524","1. Настроить на станке. #524 справочная.","2. Использовать заданную #525."
+      UI_LABEL "Режим подхода КШП"
+   }
+
+   PARAM qtn_subspin_new524
+   {
+      TYPE d
+      DEFVAL "0.0"
+      TOGGLE Off
+      UI_LABEL "#524 : Длина захвата в патрон КШП"
+   }
+
+   PARAM qtn_z2_takeover_pos
+   {
+     TYPE d
+     DEFVAL "0.0"
+     TOGGLE Off
+     UI_LABEL "#525 : Координата перехвата Z2. Взять со станка"
+   }
+
+   PARAM qtn_subspin_c2_pos
+   {
+      TYPE d
+      DEFVAL "0.0"
+      TOGGLE Off
+      UI_LABEL "Угол установки КШП"
+   }
+   PARAM qtn_subspin_press
+   {
+      TYPE d
+      DEFVAL "0.02"
+      TOGGLE Off
+      UI_LABEL "Поджим (натяг)"
+   }
+   PARAM qtn_subspin_take_bul
+   {
+      TYPE b
+      DEFVAL "False"
+      UI_LABEL "Захватить деталь. Закрыть патрон."
+   }
+   PARAM qtn_subspin_new522
+   {
+      TYPE d
+      DEFVAL "0.0"
+      TOGGLE Off
+      UI_LABEL "Вытянуть / задвинуть из / в  ГШП"
+   }
+   PARAM group_end_1
+   {
+      TYPE g
+      DEFVAL "end"
+   }
+}
+
+#-----------------------------------------------------------------
+
+EVENT qtn_subspindle_drive
+{
+   UI_LABEL "MAZAK QTN : Контршпиндель : Переместить"
+   CATEGORY MILL DRILL LATHE
+
+   PARAM group_start_1
+   {
+      TYPE g
+      DEFVAL "start_open"
+      UI_LABEL "Смещение без детали"
+   }
+   PARAM init_bmp1
+   {
+      TYPE l
+      DEFVAL "${UGII_CAM_USER_DEF_EVENT_DIR}qtn/move_sub.bmp"
+   }
+   PARAM qtn_subspin_new524
+   {
+      TYPE d
+      DEFVAL "0.0"
+      TOGGLE Off
+      UI_LABEL "Переместить КШП без детали. +/-"
+   }
+   PARAM group_end_1
+   {
+      TYPE g
+      DEFVAL "end"
+   }
+
+   PARAM group_start_2
+   {
+      TYPE g
+      DEFVAL "start_open"
+      UI_LABEL "Смещение с деталью"
+   }
+   PARAM init_bmp2
+   {
+      TYPE l
+      DEFVAL "${UGII_CAM_USER_DEF_EVENT_DIR}qtn/move_part.bmp"
+   }
+   PARAM qtn_subspin_new522
+   {
+      TYPE d
+      DEFVAL "0.0"
+      TOGGLE Off
+      UI_LABEL "Переместить КШП с деталью. +/-"
+   }
+   PARAM group_end_2
+   {
+      TYPE g
+      DEFVAL "end"
+   }
+}
+
+#-----------------------------------------------------------------
+
+EVENT qtn_subspindle_take
+{
+   UI_LABEL "MAZAK QTN : Контршпиндель : Забрать деталь "
+   CATEGORY MILL DRILL LATHE
+
+   PARAM init_bmp1
+   {
+      TYPE l
+      DEFVAL "${UGII_CAM_USER_DEF_EVENT_DIR}qtn/subspin_take.bmp"
+   }
+   PARAM group_start_1
+   {
+      TYPE g
+      DEFVAL "start_open"
+      UI_LABEL "Отвод КШП"
+   }
+   PARAM qtn_subspin_new524
+   {
+      TYPE d
+      DEFVAL "0.0"
+      TOGGLE Off
+      UI_LABEL "Изменить глубину захвата КШП. +/-"
+   }
+   PARAM group_end_1
+   {
+      TYPE g
+      DEFVAL "end"
+   }
+}
+
+#-----------------------------------------------------------------
+
+EVENT qtn_subspindle_break
+{
+   UI_LABEL "MAZAK QTN : Контршпиндель : Отломать надрезанную деталь. "
+   CATEGORY MILL DRILL LATHE
+
+   PARAM init_bmp1
+   {
+      TYPE l
+      DEFVAL "${UGII_CAM_USER_DEF_EVENT_DIR}qtn/subspin_break_off.bmp"
+   }
+   PARAM group_start_1
+   {
+      TYPE g
+      DEFVAL "start_open"
+      UI_LABEL "Отвод КШП"
+   }
+   PARAM qtn_subspin_new524
+   {
+      TYPE d
+      DEFVAL "0.0"
+      TOGGLE Off
+      UI_LABEL "Изменить глубину захвата КШП. +/-"
+   }
+   PARAM qtn_subspin_new522
+   {
+      TYPE d
+      DEFVAL "0.0"
+      TOGGLE Off
+      UI_LABEL "Вытянуть / задвинуть деталь из / в ГШП. +/-"
+   }
+   PARAM group_end_1
+   {
+      TYPE g
+      DEFVAL "end"
+   }
+}
+
+#-----------------------------------------------------------------
+
+EVENT qtn_subspindle_m724
+{
+   UI_LABEL "MAZAK QTN : Контршпиндель : Включить режим отрезки"
+   CATEGORY MILL DRILL LATHE
+
+   PARAM init_bmp1
+   {
+      TYPE l
+      DEFVAL "${UGII_CAM_USER_DEF_EVENT_DIR}qtn/subspin_m724.bmp"
+   }
+}
+
+#-----------------------------------------------------------------
+
+EVENT qtn_subspindle_cutoff
+{
+   UI_LABEL "MAZAK QTN : Контршпиндель : Забрать отрезанную деталь"
+   CATEGORY MILL DRILL LATHE
+
+   PARAM init_bmp1
+   {
+      TYPE l
+      DEFVAL "${UGII_CAM_USER_DEF_EVENT_DIR}qtn/subspin_cutoff.bmp"
+   }
+}
+
+#-----------------------------------------------------------------
+
+EVENT qtn_subspindle_free
+{
+   UI_LABEL "MAZAK QTN : Контршпиндель : Отвести без детали"
+   CATEGORY MILL DRILL LATHE
+
+   PARAM init_bmp1
+   {
+      TYPE l
+      DEFVAL "${UGII_CAM_USER_DEF_EVENT_DIR}qtn/subspin_free.bmp"
+   }
+   PARAM group_start_1
+   {
+      TYPE g
+      DEFVAL "start_open"
+      UI_LABEL "Отвод КШП"
+   }
+   PARAM qtn_subspin_new522
+   {
+      TYPE d
+      DEFVAL "0.0"
+      TOGGLE Off
+      UI_LABEL "Вытянуть / задвинуть деталь из / в ГШП. +/-"
+   }
+   PARAM group_end_1
+   {
+      TYPE g
+      DEFVAL "end"
+   }
+}
+
+#---------------------------------------------------------------------------------------------

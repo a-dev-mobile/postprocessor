@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by Àäìèíèñòðàòîð @ Thursday, July 23 2020, 08:22:26 +0300
+#  Created by d.trofimov @ Monday, August 03 2020, 13:05:32 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1500,6 +1500,7 @@ proc MOM_first_move { } {
    }
    PB_CMD_compressor
    PB_CMD_view_A
+   PB_CMD_fgroup_a
 
    if { [PB_CMD__check_block_rotation_axes] } {
       MOM_force Once G_motion fourth_axis
@@ -1509,9 +1510,6 @@ proc MOM_first_move { } {
    if { [PB_CMD__check_block_ORIRESET] } {
       PB_call_macro ORIRESET
    }
-
-   MOM_force Once G_offset
-   MOM_do_template fixture_offset
    PB_CMD_output_trans_arot
 
    if { [PB_CMD__check_block_CYCLE800] } {
@@ -1679,9 +1677,6 @@ proc MOM_initial_move { } {
       PB_call_macro CYCLE832_v7
    }
    PB_CMD_compressor
-
-   MOM_force Once G_offset
-   MOM_do_template fixture_offset
    PB_CMD_output_trans_arot
 
    if { [PB_CMD__check_block_CYCLE800] } {
@@ -7663,6 +7658,7 @@ MOM_output_text ";$name"
 proc PB_CMD_fgroup_a { } {
 #=============================================================
 MOM_output_literal "FGROUP(A)"
+MOM_output_literal "G54"
 }
 
 

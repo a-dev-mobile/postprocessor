@@ -1,0 +1,1761 @@
+## POSTBUILDER_VERSION=2008.0.2.0
+##############################################################################
+#                                                                            #
+#  This file is used by Post Builder to edit the parameters associated       #
+#  with a specific post processor.                                           #
+#                                                                            #
+#                                                                            #
+#  <WARNING> The contents of this file should not be modified!               #
+#                                                                            #
+##############################################################################
+#  Created by danilov @ 28 èþëÿ 2015 ã. 14:40:14 RTZ 2 (зима)
+#  with Post Builder version 9.0.2.
+#============================================================================#
+
+
+## POST EVENT HANDLER START
+def_file  mazak_mill_qt_series.def
+tcl_file  mazak_mill_qt_series.tcl
+## POST EVENT HANDLER END
+
+
+## POST INFORMATION START
+#  DESCRIPTION START
+This is a 5-Axis Milling Machine With
+ Rotary Head and Table.
+#  DESCRIPTION END
+#  CONTROLLER START
+User (D:/WORK_ANDREY/RABOTA/qtn/qtn200f.pui)
+#  CONTROLLER END
+#  CONTROLLER TYPE START
+#  CONTROLLER TYPE END
+#  HISTORY START
+Created with UG/Post Builder Version 3.4.1 on Tue Nov 13 19:45:50 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 13 20:42:06 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 13 20:57:30 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 13 21:05:04 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 13 21:25:42 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 13 21:26:50 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 13 21:37:00 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 13 21:38:54 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 13 21:41:28 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 13 21:45:21 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 13 21:46:47 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Fri Nov 16 15:03:54 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Fri Nov 16 15:07:24 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Fri Nov 16 15:09:33 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Fri Nov 16 15:11:07 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Fri Nov 16 15:12:32 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Fri Nov 16 15:14:40 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Fri Nov 16 15:18:06 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Fri Nov 16 15:20:36 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Fri Nov 16 15:26:38 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Fri Nov 16 15:45:55 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Fri Nov 16 15:49:06 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Fri Nov 16 15:58:03 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Fri Nov 16 16:49:52 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 13:01:53 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 13:27:23 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 14:25:38 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 14:27:08 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 14:29:35 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 14:35:45 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 14:41:43 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 14:44:17 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 14:46:03 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 14:47:33 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 14:49:57 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 14:53:55 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 14:55:31 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 14:57:55 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 14:59:33 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 15:01:56 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 15:03:04 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 15:11:25 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 15:14:15 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 15:15:02 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 15:22:19 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 15:24:18 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 15:25:53 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 15:29:07 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 15:33:23 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 15:44:40 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 15:45:21 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 15:48:14 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 15:58:26 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 16:02:21 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 16:10:09 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 16:15:58 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 16:21:45 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 16:23:48 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 16:25:26 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 16:40:38 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 16:43:22 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 16:46:50 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 16:47:25 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 16:54:59 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 16:58:07 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 17:02:00 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 17:03:47 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 17:10:19 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Mon Nov 19 17:11:46 2007 Ìîñêîâñêîå âðåìÿ (ëåòî) by ANDREY.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 19:38:21 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 19:43:34 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 19:45:14 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 19:46:27 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 19:49:33 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 19:51:58 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 19:54:32 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 19:58:15 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 20:02:42 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 20:05:35 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 20:07:31 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 20:07:41 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 20:09:27 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 20:14:00 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 20:16:25 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Nov 20 20:16:40 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 18:58:07 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 19:01:34 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 19:04:14 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 19:15:27 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 19:23:44 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 19:37:51 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 19:39:23 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 19:39:49 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 19:41:35 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 19:46:42 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 19:48:13 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 19:58:16 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 19:59:45 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 20:08:59 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 20:16:36 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 20:17:49 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 20:18:45 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 20:22:43 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Nov 21 20:24:27 2007 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Feb 26 21:07:16 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Feb 26 21:30:53 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Feb 26 21:56:40 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Feb 27 21:19:11 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Feb 27 22:06:09 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Feb 27 22:08:16 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Feb 27 22:35:44 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Thu Feb 28 19:01:22 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Thu Feb 28 19:25:24 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Thu Feb 28 19:35:22 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Thu Feb 28 20:08:01 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Thu Feb 28 20:32:42 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Thu Feb 28 20:44:23 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Thu Feb 28 21:13:09 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Thu Feb 28 21:27:11 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Thu Feb 28 21:27:24 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Fri Feb 29 17:56:01 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Fri Feb 29 18:28:10 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Fri Feb 29 19:42:15 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Fri Feb 29 19:46:13 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Fri Feb 29 20:00:20 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Fri Feb 29 20:00:28 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 14:17:55 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 14:21:20 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 14:22:49 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 15:20:48 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 16:06:43 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 17:04:01 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 17:18:42 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 17:22:56 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 17:25:09 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 18:00:13 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 18:41:53 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 18:47:35 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 18:57:21 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 19:51:50 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 20:00:45 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 20:08:30 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 20:14:31 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 20:17:06 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 20:20:17 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 20:31:44 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 20:32:35 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 20:35:07 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 20:35:20 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 20:45:57 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 20:55:49 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 20:56:35 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 21:06:09 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 21:06:37 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 21:22:22 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 21:25:37 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 21:29:46 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 21:34:49 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 21:39:25 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 21:40:29 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 21:44:18 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 21:48:36 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 21:56:54 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 21:58:05 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 22:01:24 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 22:05:09 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 22:06:20 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 22:08:29 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 22:10:33 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 22:14:11 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 03 22:14:48 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 04 12:18:39 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 04 12:23:44 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 04 12:26:02 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 04 12:35:18 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 04 14:09:48 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 04 15:10:50 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 04 15:12:29 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 04 15:17:25 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 04 16:28:54 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 04 20:06:27 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 04 21:37:56 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Mar 05 18:09:09 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Mar 05 18:28:10 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Mar 05 19:31:12 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Mar 05 19:34:07 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Mar 05 19:47:59 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Mar 05 20:13:45 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Mar 05 20:30:40 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Mar 05 20:32:24 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Wed Mar 05 20:35:18 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 11 12:09:59 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 11 12:30:13 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 11 13:26:02 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 11 13:35:55 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Tue Mar 11 14:43:14 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 17 12:10:36 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 17 12:38:48 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 17 12:43:15 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with UG/Post Builder Version 3.4.1 on Mon Mar 17 13:22:53 2008 Ìîñêîâñêîå âðåìÿ (çèìà) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2009 ã. 10:06:19 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2009 ã. 10:06:28 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2009 ã. 10:08:41 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2009 ã. 16:48:00 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 10:58:29 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 11:05:55 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 11:06:37 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 11:41:43 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 11:46:15 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 11:52:50 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 11:58:23 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 12:00:59 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 12:02:24 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 12:23:48 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 13:16:12 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 13:20:15 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 13:26:31 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 13:30:08 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 13:30:15 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 23 íîÿáðÿ 2009 ã. 13:36:59 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 24 íîÿáðÿ 2009 ã. 10:47:16 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 24 íîÿáðÿ 2009 ã. 10:47:25 Московское время (зима) by sorokin_dv.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 14:02:46 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 14:03:21 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 14:07:01 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 14:28:00 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 14:34:22 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 14:53:30 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 15:07:26 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 15:10:42 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 15:13:51 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 15:14:57 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 15:19:42 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 15:20:21 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 15:24:25 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 15:29:54 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 15:35:13 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 15:43:01 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 15:57:23 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 15:59:22 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 16:00:58 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 16:11:18 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 16:13:56 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 16:16:05 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 16:22:47 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 3 ìàÿ 2012 ã. 16:25:14 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 24 ìàÿ 2012 ã. 20:18:32 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 24 ìàÿ 2012 ã. 20:22:36 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 24 ìàÿ 2012 ã. 20:27:52 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 àâãóñòà 2012 ã. 15:39:19 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 àâãóñòà 2012 ã. 15:45:57 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 àâãóñòà 2012 ã. 16:04:25 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 àâãóñòà 2012 ã. 16:40:57 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 àâãóñòà 2012 ã. 16:45:22 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 àâãóñòà 2012 ã. 16:48:10 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 àâãóñòà 2012 ã. 16:50:30 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 àâãóñòà 2012 ã. 16:52:25 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 àâãóñòà 2012 ã. 16:53:22 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 àâãóñòà 2012 ã. 16:59:10 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 àâãóñòà 2012 ã. 17:00:28 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 20 àâãóñòà 2012 ã. 9:00:38 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 20 àâãóñòà 2012 ã. 9:54:34 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 20 àâãóñòà 2012 ã. 9:56:37 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 28 àâãóñòà 2012 ã. 9:35:38 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 28 àâãóñòà 2012 ã. 21:05:25 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 28 àâãóñòà 2012 ã. 21:05:31 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 29 àâãóñòà 2012 ã. 20:22:06 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 29 àâãóñòà 2012 ã. 20:26:22 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 4 ñåíòÿáðÿ 2012 ã. 16:17:59 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 4 ñåíòÿáðÿ 2012 ã. 16:48:06 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 6 ñåíòÿáðÿ 2012 ã. 10:39:33 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 6 ñåíòÿáðÿ 2012 ã. 10:44:46 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 6 ñåíòÿáðÿ 2012 ã. 10:48:13 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 6 ñåíòÿáðÿ 2012 ã. 10:52:12 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 6 ñåíòÿáðÿ 2012 ã. 10:54:44 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 6 ñåíòÿáðÿ 2012 ã. 10:56:12 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 6 ñåíòÿáðÿ 2012 ã. 10:59:53 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 6 ñåíòÿáðÿ 2012 ã. 11:00:50 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 6 ñåíòÿáðÿ 2012 ã. 13:05:26 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 6 ñåíòÿáðÿ 2012 ã. 13:05:45 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 6 ñåíòÿáðÿ 2012 ã. 13:07:09 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 8:38:07 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 8:42:39 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 8:47:48 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:03:30 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:06:08 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:13:49 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:15:09 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:16:36 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:20:51 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:23:57 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:24:32 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:26:18 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:33:23 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:34:53 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:38:07 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:43:16 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:45:38 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:46:47 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:48:09 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:51:46 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 9:59:26 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:03:49 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:04:02 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:09:26 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:10:09 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:11:52 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:16:38 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:17:44 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:21:07 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:22:38 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:27:11 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:30:01 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:32:59 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:38:15 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:39:12 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:42:30 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:46:23 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:49:53 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:51:09 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:54:45 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 10:58:14 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 11:12:05 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 11:19:40 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 11:21:34 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 11:25:51 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 11:27:27 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 11:30:42 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 11:32:27 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 11:34:19 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 11:42:36 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 11:47:00 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 11:47:06 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 13:02:09 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 13:09:10 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 13:09:49 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 13:11:02 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 13:12:24 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 13:14:42 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 13:15:53 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 13:17:59 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 13:22:56 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 îêòÿáðÿ 2012 ã. 13:23:50 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 20 îêòÿáðÿ 2012 ã. 14:29:47 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 20 îêòÿáðÿ 2012 ã. 14:30:13 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 7 íîÿáðÿ 2012 ã. 9:30:48 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 7 íîÿáðÿ 2012 ã. 9:36:50 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 8:47:29 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 8:48:33 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 9:00:59 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 9:01:09 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 9:14:39 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 9:19:40 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 9:24:03 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 10:10:01 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 10:39:34 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 11:05:15 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 11:15:40 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 11:17:05 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 11:17:58 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 11:20:18 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 11:21:42 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 11:26:32 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 11:35:24 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 11:36:17 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 11:39:49 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 12:57:57 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 13:03:19 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 13:13:11 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 13:22:46 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 13:27:58 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 13:36:52 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 13:38:46 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 13:43:07 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 13:43:28 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 13:45:50 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 13:48:17 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 13:58:09 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:04:40 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:07:30 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:12:13 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:17:51 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:18:34 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:19:30 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:20:30 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:21:25 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:23:43 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:25:17 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:28:29 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:33:49 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:34:35 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:35:43 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:35:55 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:43:26 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:47:39 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:50:23 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:51:03 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:53:11 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:55:54 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 14:56:02 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 15:59:22 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 16:01:39 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 16:08:45 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 16:13:34 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 16:13:47 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 8 íîÿáðÿ 2012 ã. 16:20:46 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 11:00:00 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 11:31:08 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 11:36:04 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 11:44:06 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 13:07:18 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 13:08:56 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 13:09:15 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 13:19:20 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 13:19:40 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 13:22:36 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 13:23:49 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 13:25:38 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 13:27:18 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 13:27:31 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 13:51:48 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 13:54:11 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 14:07:09 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 14:12:30 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 14:14:56 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 14:28:12 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 14:37:09 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 14:37:51 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 14:41:24 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 14:46:15 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 14:47:36 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 14:57:16 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 14:57:22 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 14:57:59 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 15:00:26 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 15:01:17 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 15:11:25 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 15:13:38 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 15:13:51 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 15:17:27 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 15:25:04 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 15:33:47 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 15:39:28 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 15:41:34 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 15 íîÿáðÿ 2012 ã. 15:51:38 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 8:38:33 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 8:44:16 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 8:44:55 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 8:47:46 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 8:48:57 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 8:50:05 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 8:55:35 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 9:05:03 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 9:05:41 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 9:11:41 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 9:15:10 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 9:24:45 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 9:32:18 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 9:34:50 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 9:46:46 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 9:55:03 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 9:57:33 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 10:08:34 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 10:18:35 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 10:20:28 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 10:21:22 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 10:29:03 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 10:30:53 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 10:40:29 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 10:48:24 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 10:48:50 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 10:51:24 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 10:54:08 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 10:54:36 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 11:03:01 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 11:06:01 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 11:11:47 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 11:18:57 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 11:19:20 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 11:22:37 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 11:24:29 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 11:35:26 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 11:36:34 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 11:43:33 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 11:44:23 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 12:55:48 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 13:13:00 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 16 íîÿáðÿ 2012 ã. 13:21:45 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2012 ã. 8:42:27 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2012 ã. 11:42:58 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2012 ã. 11:46:53 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2012 ã. 11:49:08 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2012 ã. 11:52:34 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2012 ã. 11:53:20 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2012 ã. 11:54:13 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2012 ã. 11:54:59 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2012 ã. 11:57:32 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2012 ã. 11:57:54 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2012 ã. 13:12:54 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2012 ã. 13:13:19 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2012 ã. 13:13:24 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 íîÿáðÿ 2012 ã. 13:14:29 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 äåêàáðÿ 2012 ã. 10:28:30 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 äåêàáðÿ 2012 ã. 10:41:35 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 äåêàáðÿ 2012 ã. 10:45:31 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 äåêàáðÿ 2012 ã. 10:57:36 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 äåêàáðÿ 2012 ã. 10:58:46 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 äåêàáðÿ 2012 ã. 11:02:39 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 äåêàáðÿ 2012 ã. 11:08:59 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 äåêàáðÿ 2012 ã. 11:15:02 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 äåêàáðÿ 2012 ã. 11:16:12 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 äåêàáðÿ 2012 ã. 11:41:32 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 äåêàáðÿ 2012 ã. 11:43:07 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 äåêàáðÿ 2012 ã. 13:16:30 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 äåêàáðÿ 2012 ã. 13:16:36 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 17 äåêàáðÿ 2012 ã. 13:17:16 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 äåêàáðÿ 2012 ã. 8:16:49 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 äåêàáðÿ 2012 ã. 8:18:14 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 äåêàáðÿ 2012 ã. 8:23:08 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 äåêàáðÿ 2012 ã. 8:52:57 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 äåêàáðÿ 2012 ã. 8:53:03 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 18 äåêàáðÿ 2012 ã. 13:04:53 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 2 ìàðòà 2013 ã. 9:56:33 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 2 ìàðòà 2013 ã. 10:01:47 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 19 àïðåëÿ 2013 ã. 18:46:36 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 19 àïðåëÿ 2013 ã. 18:46:43 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 30 àïðåëÿ 2013 ã. 17:19:17 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 30 àïðåëÿ 2013 ã. 18:19:19 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 30 àïðåëÿ 2013 ã. 18:21:06 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 30 àïðåëÿ 2013 ã. 18:21:13 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 6 ìàÿ 2013 ã. 8:36:12 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 6 ìàÿ 2013 ã. 8:38:06 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 6 ìàÿ 2013 ã. 8:38:15 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 20 èþíÿ 2013 ã. 12:55:34 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 20 èþíÿ 2013 ã. 12:55:40 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 20 èþíÿ 2013 ã. 15:46:15 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 28 èþíÿ 2013 ã. 15:23:02 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 15:56:02 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 15:58:23 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 16:03:43 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 16:06:16 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 16:08:32 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 16:10:09 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 16:15:30 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 16:46:47 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 16:47:54 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 16:49:27 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 16:51:04 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 16:52:21 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 16:53:37 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 16:54:17 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 14 àâãóñòà 2013 ã. 16:55:33 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 26 àâãóñòà 2013 ã. 10:06:32 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 26 àâãóñòà 2013 ã. 10:06:45 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 26 àâãóñòà 2013 ã. 10:27:43 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 26 àâãóñòà 2013 ã. 10:30:14 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 26 àâãóñòà 2013 ã. 10:32:08 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 6.0.3.2 on 26 àâãóñòà 2013 ã. 10:32:18 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 5 ñåíòÿáðÿ 2013 ã. 11:16:41 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 5 ñåíòÿáðÿ 2013 ã. 11:26:50 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ñåíòÿáðÿ 2013 ã. 16:35:32 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ñåíòÿáðÿ 2013 ã. 17:16:20 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ñåíòÿáðÿ 2013 ã. 17:41:23 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ñåíòÿáðÿ 2013 ã. 17:42:11 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ñåíòÿáðÿ 2013 ã. 17:42:52 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 7 îêòÿáðÿ 2013 ã. 15:13:02 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 7 îêòÿáðÿ 2013 ã. 15:13:13 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 17:55:44 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 18:50:14 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 18:51:11 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 18:58:07 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 19:01:52 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 19:06:20 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 19:08:09 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 19:08:53 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 19:21:55 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 19:26:43 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 19:58:26 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 19:59:24 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 20:02:29 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 20:14:15 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 20:21:47 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 20:28:14 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 20:31:18 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 20:33:22 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 20:33:42 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 1 íîÿáðÿ 2013 ã. 20:35:06 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 5 íîÿáðÿ 2013 ã. 11:09:06 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 5 íîÿáðÿ 2013 ã. 11:12:14 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 5 íîÿáðÿ 2013 ã. 15:28:57 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 5 íîÿáðÿ 2013 ã. 15:29:04 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 5 íîÿáðÿ 2013 ã. 15:32:05 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 9 íîÿáðÿ 2013 ã. 8:57:12 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 10 ÿíâàðÿ 2014 ã. 15:54:30 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ÿíâàðÿ 2014 ã. 10:30:24 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ÿíâàðÿ 2014 ã. 10:32:55 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ÿíâàðÿ 2014 ã. 10:34:22 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ÿíâàðÿ 2014 ã. 10:36:56 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ÿíâàðÿ 2014 ã. 10:44:47 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ÿíâàðÿ 2014 ã. 10:53:28 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ÿíâàðÿ 2014 ã. 10:56:29 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ÿíâàðÿ 2014 ã. 10:57:55 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ÿíâàðÿ 2014 ã. 10:59:30 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ÿíâàðÿ 2014 ã. 11:01:57 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 8.5.0.1 on 13 ÿíâàðÿ 2014 ã. 11:03:34 Московское время (зима) by danilov.
+Saved with NX/Post Builder Version 9.0.0.0 on 24 äåêàáðÿ 2014 ã. 13:09:56 RTZ 2 (зима) by danilov.
+Saved with NX/Post Builder Version 9.0.2.0 on 14 ÿíâàðÿ 2015 ã. 16:44:20 RTZ 2 (зима) by danilov.
+Saved with NX/Post Builder Version 9.0.2.0 on 28 èþëÿ 2015 ã. 14:40:10 RTZ 2 (зима) by danilov.
+Saved with NX/Post Builder Version 9.0.2.0 on 28 èþëÿ 2015 ã. 14:40:13 RTZ 2 (зима) by danilov.
+#  HISTORY END
+## POST INFORMATION END
+
+
+## LISTING FILE START
+Listfileflag_warn              OFF
+Listfileflag                   OFF
+Listfileflag_alt_unit_post_name mazak_mill_qt_series__IN.pui
+Listfileflag_group             OFF
+Listfileflag_verbose           0
+Listfileflag_tool              0
+Listfileflag_oper              0
+Listfileflag_lpt_ext           lpt
+Listfileflag_ncfile_ext        EIA
+Listfileflag_usertcl_name      
+Listfileflag_review            0
+Listfileflag_start_path        0
+Listfileflag_head              OFF
+Listfileflag_use_default_unit_fragment 1
+Listfileflag_end_path          0
+Listfilelines                  40
+Listfileflag_oper_time         0
+Listfileflag_tool_chng         0
+Listfilecolumn                 30
+Listfileflag_usertcl_check     0
+Listfileflag_setup_time        0
+Listfilename                   listfile.lpt
+## LISTING FILE END
+
+## KINEMATIC VARIABLES START
+"$mom_kin_4th_axis_ang_offset"            "0.0"
+"$mom_kin_4th_axis_center_offset(0)"      "0.0"
+"$mom_kin_4th_axis_center_offset(1)"      "0.0"
+"$mom_kin_4th_axis_center_offset(2)"      "0.0"
+"$mom_kin_4th_axis_direction"             "MAGNITUDE_DETERMINES_DIRECTION"
+"$mom_kin_4th_axis_incr_switch"           "ON"
+"$mom_kin_4th_axis_leader"                "B"
+"$mom_kin_4th_axis_limit_action"          "User Defined"
+"$mom_kin_4th_axis_max_limit"             "90"
+"$mom_kin_4th_axis_min_incr"              "0.001"
+"$mom_kin_4th_axis_min_limit"             "0"
+"$mom_kin_4th_axis_plane"                 "ZX"
+"$mom_kin_4th_axis_point(0)"              "0.0"
+"$mom_kin_4th_axis_point(1)"              "0.0"
+"$mom_kin_4th_axis_point(2)"              "0.0"
+"$mom_kin_4th_axis_rotation"              "standard"
+"$mom_kin_4th_axis_type"                  "Head"
+"$mom_kin_4th_axis_vector(0)"             "0"
+"$mom_kin_4th_axis_vector(1)"             "1"
+"$mom_kin_4th_axis_vector(2)"             "0"
+"$mom_kin_4th_axis_zero"                  "0.0"
+"$mom_kin_5th_axis_ang_offset"            "0.0"
+"$mom_kin_5th_axis_center_offset(0)"      "0.0"
+"$mom_kin_5th_axis_center_offset(1)"      "0.0"
+"$mom_kin_5th_axis_center_offset(2)"      "0.0"
+"$mom_kin_5th_axis_direction"             "MAGNITUDE_DETERMINES_DIRECTION"
+"$mom_kin_5th_axis_incr_switch"           "ON"
+"$mom_kin_5th_axis_leader"                "C"
+"$mom_kin_5th_axis_limit_action"          "Warning"
+"$mom_kin_5th_axis_max_limit"             "365"
+"$mom_kin_5th_axis_min_incr"              "0.001"
+"$mom_kin_5th_axis_min_limit"             "-365"
+"$mom_kin_5th_axis_plane"                 "XY"
+"$mom_kin_5th_axis_point(0)"              "0.0"
+"$mom_kin_5th_axis_point(1)"              "0.0"
+"$mom_kin_5th_axis_point(2)"              "0.0"
+"$mom_kin_5th_axis_rotation"              "standard"
+"$mom_kin_5th_axis_type"                  "Table"
+"$mom_kin_5th_axis_vector(0)"             "0"
+"$mom_kin_5th_axis_vector(1)"             "0"
+"$mom_kin_5th_axis_vector(2)"             "1"
+"$mom_kin_5th_axis_zero"                  "0.0"
+"$mom_kin_arc_output_mode"                "QUADRANT"
+"$mom_kin_arc_valid_plane"                "XYZ"
+"$mom_kin_clamp_time"                     "2.0"
+"$mom_kin_cycle_plane_change_per_axis"    "0"
+"$mom_kin_cycle_plane_change_to_lower"    "0"
+"$mom_kin_flush_time"                     "2.0"
+"$mom_kin_linearization_flag"             "1"
+"$mom_kin_linearization_tol"              "0.01"
+"$mom_kin_machine_resolution"             "0.001"
+"$mom_kin_machine_type"                   "5_axis_head_table"
+"$mom_kin_machine_zero_offset(0)"         "0.0"
+"$mom_kin_machine_zero_offset(1)"         "0.0"
+"$mom_kin_machine_zero_offset(2)"         "0.0"
+"$mom_kin_max_arc_radius"                 "99999.999"
+"$mom_kin_max_dpm"                        "0.0"
+"$mom_kin_max_fpm"                        "15000"
+"$mom_kin_max_fpr"                        "1000"
+"$mom_kin_max_frn"                        "1000"
+"$mom_kin_min_arc_length"                 "0.001"
+"$mom_kin_min_arc_radius"                 "0.001"
+"$mom_kin_min_dpm"                        "0.0"
+"$mom_kin_min_fpm"                        "0.1"
+"$mom_kin_min_fpr"                        "0.001"
+"$mom_kin_min_frn"                        "0.01"
+"$mom_kin_output_unit"                    "MM"
+"$mom_kin_pivot_gauge_offset"             "0.0"
+"$mom_kin_pivot_guage_offset"             ""
+"$mom_kin_post_data_unit"                 "MM"
+"$mom_kin_rapid_feed_rate"                "30000"
+"$mom_kin_retract_distance"               "500"
+"$mom_kin_rotary_axis_method"             "PREVIOUS"
+"$mom_kin_spindle_axis(0)"                "0.0"
+"$mom_kin_spindle_axis(1)"                "0.0"
+"$mom_kin_spindle_axis(2)"                "1.0"
+"$mom_kin_tool_change_time"               "0.0"
+"$mom_kin_x_axis_limit"                   "1000"
+"$mom_kin_y_axis_limit"                   "1000"
+"$mom_kin_z_axis_limit"                   "1000"
+## KINEMATIC VARIABLES END
+
+## GCODES START
+"$mom_sys_rapid_code"                     "$gPB(g_code,rapid,name)"
+"$mom_sys_linear_code"                    "$gPB(g_code,linear,name)"
+"$mom_sys_circle_code(CLW)"               "$gPB(g_code,circular_clw,name)"
+"$mom_sys_circle_code(CCLW)"              "$gPB(g_code,circular_cclw,name)"
+"$mom_sys_delay_code(SECONDS)"            "$gPB(g_code,delay_sec,name)"
+"$mom_sys_delay_code(REVOLUTIONS)"        "$gPB(g_code,delay_rev,name)"
+"$mom_sys_cutcom_plane_code(XY)"          "$gPB(g_code,pln_xy,name)"
+"$mom_sys_cutcom_plane_code(ZX)"          "$gPB(g_code,pln_zx,name)"
+"$mom_sys_cutcom_plane_code(YZ)"          "$gPB(g_code,pln_yz,name)"
+"$mom_sys_cutcom_code(OFF)"               "$gPB(g_code,cutcom_off,name)"
+"$mom_sys_cutcom_code(LEFT)"              "$gPB(g_code,cutcom_left,name)"
+"$mom_sys_cutcom_code(RIGHT)"             "$gPB(g_code,cutcom_right,name)"
+"$mom_sys_adjust_code"                    "$gPB(g_code,length_plus,name)"
+"$mom_sys_adjust_code_minus"              "$gPB(g_code,length_minus,name)"
+"$mom_sys_adjust_cancel_code"             "$gPB(g_code,length_off,name)"
+"$mom_sys_unit_code(IN)"                  "$gPB(g_code,inch,name)"
+"$mom_sys_unit_code(MM)"                  "$gPB(g_code,metric,name)"
+"$mom_sys_cycle_start_code"               "$gPB(g_code,cycle_start,name)"
+"$mom_sys_cycle_off"                      "$gPB(g_code,cycle_off,name)"
+"$mom_sys_cycle_drill_code"               "$gPB(g_code,cycle_drill,name)"
+"$mom_sys_cycle_drill_dwell_code"         "$gPB(g_code,cycle_drill_dwell,name)"
+"$mom_sys_cycle_drill_deep_code"          "$gPB(g_code,cycle_drill_deep,name)"
+"$mom_sys_cycle_drill_break_chip_code"    "$gPB(g_code,cycle_drill_bc,name)"
+"$mom_sys_cycle_tap_code"                 "$gPB(g_code,tap,name)"
+"$mom_sys_cycle_bore_code"                "$gPB(g_code,bore,name)"
+"$mom_sys_cycle_bore_drag_code"           "$gPB(g_code,bore_drag,name)"
+"$mom_sys_cycle_bore_no_drag_code"        "$gPB(g_code,bore_no_drag,name)"
+"$mom_sys_cycle_bore_dwell_code"          "$gPB(g_code,bore_dwell,name)"
+"$mom_sys_cycle_bore_manual_code"         "$gPB(g_code,bore_manual,name)"
+"$mom_sys_cycle_bore_back_code"           "$gPB(g_code,bore_back,name)"
+"$mom_sys_cycle_bore_manual_dwell_code"   "$gPB(g_code,bore_manual_dwell,name)"
+"$mom_sys_output_code(ABSOLUTE)"          "$gPB(g_code,abs,name)"
+"$mom_sys_output_code(INCREMENTAL)"       "$gPB(g_code,inc,name)"
+"$mom_sys_cycle_ret_code(AUTO)"           "$gPB(g_code,cycle_retract_auto,name)"
+"$mom_sys_cycle_ret_code(MANUAL)"         "$gPB(g_code,cycle_retract_manual,name)"
+"$mom_sys_reset_code"                     "$gPB(g_code,reset,name)"
+"$mom_sys_feed_rate_mode_code(IPM)"       "$gPB(g_code,fr_ipm,name)"
+"$mom_sys_feed_rate_mode_code(IPR)"       "$gPB(g_code,fr_ipr,name)"
+"$mom_sys_feed_rate_mode_code(FRN)"       "$gPB(g_code,fr_frn,name)"
+"$mom_sys_spindle_mode_code(SFM)"         "$gPB(g_code,spindle_css,name)"
+"$mom_sys_spindle_mode_code(RPM)"         "$gPB(g_code,spindle_rpm,name)"
+"$mom_sys_return_code"                    "$gPB(g_code,ret_home,name)"
+"$mom_sys_feed_rate_mode_code(MMPM)"      "$gPB(g_code,feedmode_mm,pm)"
+"$mom_sys_feed_rate_mode_code(MMPR)"      "$gPB(g_code,feedmode_mm,pr)"
+"$mom_sys_feed_rate_mode_code(DPM)"       "$gPB(g_code,feedmode,dpm)"
+## GCODES END
+
+## MCODES START
+"$mom_sys_program_stop_code"              "$gPB(m_code,stop_manual_tc,name)"
+"$mom_sys_optional_stop_code"             "$gPB(m_code,opt_stop,name)"
+"$mom_sys_end_of_program_code"            "$gPB(m_code,prog_end,name)"
+"$mom_sys_spindle_direction_code(CLW)"    "$gPB(m_code,spindle_clw,name)"
+"$mom_sys_spindle_direction_code(CCLW)"   "$gPB(m_code,spindle_cclw,name)"
+"$mom_sys_spindle_direction_code(OFF)"    "$gPB(m_code,spindle_off,name)"
+"$mom_sys_tool_change_code"               "$gPB(m_code,tc_retract,name)"
+"$mom_sys_coolant_code(ON)"               "$gPB(m_code,coolant_on,name)"
+"$mom_sys_coolant_code(FLOOD)"            "$gPB(m_code,coolant_fld,name)"
+"$mom_sys_coolant_code(MIST)"             "$gPB(m_code,coolant_mist,name)"
+"$mom_sys_coolant_code(THRU)"             "$gPB(m_code,coolant_thru,name)"
+"$mom_sys_coolant_code(TAP)"              "$gPB(m_code,coolant_tap,name)"
+"$mom_sys_coolant_code(OFF)"              "$gPB(m_code,coolant_off,name)"
+"$mom_sys_rewind_code"                    "$gPB(m_code,rewind,name)"
+## MCODES END
+
+## MASTER SEQUENCE START
+G_cutcom          "$mom_sys_cutcom_code(OFF)"  0  "Cutcom G-Code"  0
+G_plane           "$mom_sys_cutcom_plane_code($mom_cutcom_plane)"  0  "Plane G-Code"  0
+G_adjust          "$mom_sys_adjust_code"  0  "Tool Length Adjust G-Code"  0
+G_feed            "$mom_sys_feed_rate_mode_code($feed_mode)"  0  "Feedrate Mode G-Code"  0
+G_spin            "$mom_sys_spindle_mode_code($mom_spindle_status)"  0  "Spindle Output Mode G-Code"  0
+G_return          "$mom_sys_cycle_ret_code(MANUAL)"  0  "Return Plane for Canned Cycles"  0
+G_motion          "$mom_sys_linear_code"  0  "Motion G-Code"  0
+G_mode            "$mom_sys_output_code($mom_output_mode)"  0  "Positioning Mode G-code"  0
+G                 "$mom_sys_blank_code"  0  "Other G-Codes"  0
+order             "$mom_usd_add_var"  0  "(order)"  1
+knot              "$mom_usd_add_var"  0  "(knot)"  1
+X                 "$mom_sys_blank_code"  0  "X Axis Position or Canned Cycle X Axis Position"  0
+Y                 "$mom_sys_blank_code"  0  "Y Axis Position or Canned Cycle Y Axis Position"  0
+Z                 "$mom_sys_blank_code"  0  "Z Axis Position or Canned Cycle Z Axis Position"  0
+Z_zero            "$mom_usd_add_var"  0  "(Z_zero)"  1
+fourth_axis       "$mom_sys_blank_code"  0  "4th Axis Position"  0
+fifth_axis        "$mom_sys_blank_code"  0  "5th Axis Position"  0
+I                 "$mom_sys_blank_code"  0  "X Axis Position of the Circle Center"  0
+J                 "$mom_sys_blank_code"  0  "Y Axis Position of the Circle Center"  0
+K                 "$mom_sys_blank_code"  0  "Z Axis Position of the Circle Center"  0
+R                 "$mom_sys_blank_code"  0  "Rapid Approach Position in a Canned Cycle Block"  0
+cycle_deep_x_abs   "$mom_usd_add_var"  0  "(cycle_deep_x_abs)"  1
+cycle_deep_x      "$mom_usd_add_var"  0  "(cycle_deep_x)"  1
+cycle_deep_z_abs   "$mom_usd_add_var"  0  "(cycle_deep_z_abs)"  1
+cycle_deep_z      "$mom_usd_add_var"  0  "(cycle_deep_z)"  1
+cycle_step        "$mom_sys_blank_code"  0  "Step Increment for Deep or Break Chip Cycle"  0
+cycle_dwell       "$mom_sys_blank_code"  0  "Delay for Canned cycle Dwell"  0
+helics_step       "$mom_usd_add_var"  0  "(helics_step)"  1
+F                 "$mom_sys_blank_code"  0  "Feedrate"  0
+thread_step       "$mom_usd_add_var"  0  "(thread_step)"  1
+S                 "$mom_sys_blank_code"  0  "Spindle Speed"  0
+T                 "$mom_sys_blank_code"  0  "Tool Select Code"  0
+D                 "$mom_sys_blank_code"  0  "Tool Radius Compensation Register"  0
+H                 "$mom_sys_blank_code"  0  "Tool Length Compensation Register"  0
+dwell             "$mom_sys_blank_code"  0  "Programmed Dwell"  0
+P_cutcom          "$mom_sys_blank_code"  0  "P-Cutcom"  0
+K_cycle           "$mom_sys_blank_code"  0  "Retract Position in a Canned Cycle Block"  0
+cycle_step1       "$mom_sys_blank_code"  0  "Step Increment Modifier for Deep or Break Chip Cycle"  0
+Q_cutcom          "$mom_sys_blank_code"  0  "Q-Cutcom"  0
+E                 "$mom_sys_blank_code"  0  "Thread Increment for Threads"  0
+M_spindle         "$mom_sys_spindle_direction_code($mom_spindle_direction)"  0  "Spindle Direction M-Code"  0
+M_range           "$mom_sys_spindle_range_code($mom_spindle_range)"  0  "Spindle Range M-Code"  0
+M_coolant         "$mom_sys_coolant_code($mom_coolant_status)"  0  "Coolant M-Code"  0
+M                 "$mom_sys_optional_stop_code"  0  "Other M-Codes"  0
+cycle_orient      "$mom_sys_blank_code"  0  "Orient Value for Bore Nodrag or Back Bore Cycle"  0
+drill_cycle_step   "$mom_usd_add_var"  0  "New Address"  1
+zero_x            "$mom_usd_add_var"  0  "New Address"  1
+zero_y            "$mom_usd_add_var"  0  "New Address"  1
+zero_z            "$mom_usd_add_var"  0  "New Address"  1
+N                 ""  0  "Sequence Number"  0
+Text              ""  0  "Text String"  0
+## MASTER SEQUENCE END
+
+## CYCLE EVENT START
+#Cycle Common Block Start
+{Cycle Parameters}
+#Cycle Common Block End
+
+#Cycle Block Share Common Block Start
+{ \
+  {Drill} \
+  {Drill Dwell} \
+  {Drill Deep} \
+  {Drill Break Chip} \
+  {Tap} \
+  {Bore} \
+  {Bore Drag} \
+  {Bore No Drag} \
+  {Bore Dwell} \
+  {Bore Manual} \
+  {Bore Back} \
+  {Bore Manual Dwell} \
+}
+#Cycle Block Share Common Block End
+## CYCLE EVENT END
+
+## BLOCK MODALITY START
+## BLOCK MODALITY END
+
+## COMPOSITE BLOCKS START
+{}
+## COMPOSITE BLOCKS END
+
+## SEQUENCE START
+#Program Start Sequence Start
+{Start of Program}         {PB_CMD_fix_RAPID_SET PB_CMD_mazak_machine_mode PB_CMD_procs_and_vars PB_CMD_unset_vars PB_CMD_mazak_machine_model PB_CMD_prog_name_out PB_CMD_program_header}  {$gPB(event,start_prog,name)}
+#Program Start Sequence End
+
+#Operation Start Sequence Start
+{Start of Path}            {PB_CMD_subprogram_start PB_CMD_mazak_machine_name comment_blk PB_CMD_mazak_turret_start_of_path PB_CMD_reload_pos PB_CMD_G541_offset}  {$gPB(event,opr_start,start_path,name)}
+{From Move}                {PB_CMD_from_move from_z from_x}  {$gPB(event,opr_start,from_move,name)}
+{First Tool}               {PB_CMD_goto_zero}  {$gPB(event,opr_start,fst_tool,name)}
+{Auto Tool Change}         {PB_CMD_tool_code PB_CMD_mill_mode_on PB_CMD_set_spindle_auto_direction PB_CMD_rpm_change}  {$gPB(event,opr_start,auto_tc,name)}
+{Manual Tool Change}       {PB_CMD_tool_code PB_CMD_mill_mode_on PB_CMD_set_spindle_auto_direction PB_CMD_rpm_change}  {$gPB(event,opr_start,manual_tc,name)}
+{Initial Move}             {PB_CMD_tool_axis_and_milling_head coolant PB_CMD_user_initial_move}  {$gPB(event,opr_start,init_move,name)}
+{First Move}               {PB_CMD_first_from PB_CMD_tool_axis_and_milling_head first_move_m8 PB_CMD_user_initial_move}  {$gPB(event,opr_start,fst_move,name)}
+{Approach Move}            {}  {$gPB(event,opr_start,appro_move,name)}
+{Engage Move}              {}  {$gPB(event,opr_start,engage_move,name)}
+{First Cut}                {}  {$gPB(event,opr_start,fst_cut,name)}
+{First Linear Move}        {}  {$gPB(event,opr_start,fst_lin_move,name)}
+#Operation Start Sequence End
+
+##Tool Path Start
+#Control Functions Start
+{Tool Change}              {}  {$gPB(event,tool_change,name)} {}
+{Length Compensation}      {}  {$gPB(event,length_compn,name)} {length_compensation}
+{Set Modes}                {}  {$gPB(event,set_modes,name)} {set_modes}
+{Spindle RPM}              {PB_CMD_rpm_change}  {$gPB(event,spindle_rpm,name)} {spindle}
+{Spindle Off}              {spindle_off}  {$gPB(event,spindle_off,name)} {spindle_off}
+{Coolant On}               {}  {$gPB(event,coolant_on,name)} {coolant}
+{Coolant Off}              {}  {$gPB(event,coolant_off,name)} {coolant_off}
+{Inch Metric Mode}         {}  {$gPB(event,inch_metric_mode,name)} {}
+{Feedrates}                {}  {$gPB(event,feedrates,name)} {}
+{Cutcom On}                {PB_CMD_cutcom_force}  {$gPB(event,cutcom_on,name)} {cutcom}
+{Cutcom Off}               {PB_CMD_cutcom_force}  {$gPB(event,cutcom_off,name)} {}
+{Delay}                    {delay}  {$gPB(event,delay,name)} {dwell}
+{Opstop}                   {PB_CMD_set_M01}  {$gPB(event,opstop,name)} {opstop}
+{Auxfun}                   {auxfun}  {$gPB(event,auxfun,name)} {auxfun}
+{Prefun}                   {prefun}  {$gPB(event,prefun,name)} {prefun}
+{Load Tool}                {}  {$gPB(event,loadtool,name)} {mill_tool_change}
+{Stop}                     {PB_CMD_set_M0}  {$gPB(event,stop,name)} {stop}
+{Tool Preselect}           {}  {$gPB(event,toolpreselect,name)} {tool_preselect}
+#Control Functions End
+
+#Motions Start
+{Linear Move}              {PB_CMD_save_z_clearance linear_move}  {$gPB(event,linear,name)}
+{Circular Move}            {PB_CMD_set_circular_move circular_move}  {$gPB(event,circular,name)}
+{Rapid Move}               {PB_CMD_repeat_first_move PB_CMD_tool_axis_and_milling_head PB_CMD_save_z_clearance rapid_traverse rapid_spindle}  {$gPB(event,rapid,name)}
+#Motions End
+
+#Cycles Start
+{Cycle Parameters}         {PB_CMD_drill_cycle_set_abs post_cycle_set PB_CMD_cycle_time}  {$gPB(event,cycle,com_param,name)}
+{Cycle Off}                {PB_CMD_cycle_off_user}  {$gPB(event,cycle,cycle_off,name)}
+{Cycle Plane Change}       {}  {$gPB(event,cycle,plane_chng,name)}
+{Drill}                    {PB_CMD_set_cycle_pos_list PB_CMD_drill_cycle_set_abs PB_CMD_cycle_time}  {$gPB(event,cycle,drill,name)}
+{Drill Dwell}              {PB_CMD_set_cycle_pos_list PB_CMD_drill_cycle_set_abs PB_CMD_cycle_time}  {$gPB(event,cycle,drill_dwell,name)}
+{Drill Text}               {}  {$gPB(event,cycle,drill_text,name)}
+{Drill Csink}              {}  {$gPB(event,cycle,drill_csink,name)}
+{Drill Deep}               {PB_CMD_set_cycle_pos_list PB_CMD_drill_cycle_set_abs PB_CMD_cycle_time}  {$gPB(event,cycle,drill_deep,name)}
+{Drill Break Chip}         {PB_CMD_set_cycle_pos_list PB_CMD_drill_cycle_set_abs PB_CMD_cycle_time}  {$gPB(event,cycle,drill_brk_chip,name)}
+{Tap}                      {PB_CMD_read_cycle_pos_list PB_CMD_drill_cycle_set_abs PB_CMD_cycle_time}  {$gPB(event,cycle,tap,name)}
+{Bore}                     {PB_CMD_drill_cycle_set_abs PB_CMD_cycle_time}  {$gPB(event,cycle,bore,name)}
+{Bore Dwell}               {PB_CMD_drill_cycle_set_abs PB_CMD_cycle_time}  {$gPB(event,cycle,bore_dwell,name)}
+{Bore Drag}                {PB_CMD_drill_cycle_set_abs PB_CMD_cycle_time}  {$gPB(event,cycle,bore_drag,name)}
+{Bore No Drag}             {PB_CMD_drill_cycle_set_abs PB_CMD_cycle_time}  {$gPB(event,cycle,bore_no_drag,name)}
+{Bore Back}                {PB_CMD_drill_cycle_set_abs PB_CMD_cycle_time}  {$gPB(event,cycle,bore_back,name)}
+{Bore Manual}              {PB_CMD_drill_cycle_set_abs PB_CMD_cycle_time}  {$gPB(event,cycle,bore_manual,name)}
+{Bore Manual Dwell}        {PB_CMD_drill_cycle_set_abs PB_CMD_cycle_time}  {$gPB(event,cycle,bore_manual_dwell,name)}
+{Peck Drill}               {}  {$gPB(event,cycle,peck_drill,name)}
+{Break Chip}               {}  {$gPB(event,cycle,break_chip,name)}
+#Cycles End
+
+#Misc Start
+{Start of Subop Path}      {}  {$gPB(event,misc,subop_start,name)}
+{End of Subop Path}        {}  {$gPB(event,misc,subop_end,name)}
+#Misc End
+##Tool Path End
+
+#Operation End Sequence Start
+{Retract Move}             {}  {$gPB(event,opr_end,ret_move,name)}
+{Return Move}              {}  {$gPB(event,opr_end,rtn_move,name)}
+{Gohome Move}              {PB_CMD_gohome_move}  {$gPB(event,opr_end,goh_move,name)}
+{End of Path}              {PB_CMD_mill_path_end_1 m5M9 PB_CMD_mill_path_end_2 PB_CMD_mill_path_end_3 PB_CMD_set_operation_time}  {$gPB(event,opr_end,end_path,name)}
+#Operation End Sequence End
+
+#Program End Sequence Start
+{End of Program}           {PB_CMD_subprogram_end PB_CMD_end_of_program}  {$gPB(event,end_prog,name)}
+#Program End Sequence End
+
+#Linked Posts Sequence Start
+#Linked Posts Sequence End
+
+#Virtual NC Sequence Start
+#Virtual NC Sequence End
+## SEQUENCE END
+
+## EVENTS ELEMENT EXECUTION START
+{Initial Move} \
+        {1 NULL 0 {M_coolant}}
+{Delay} \
+        {0 NULL 0 {G_feed G dwell}}
+## EVENTS ELEMENT EXECUTION END
+
+## EVENTS USER INTERFACE START
+{Tool Change} \
+     {{"$gPB(event,tool_change,m_code)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,tool_change,m_code,tl_chng)" 2  a $mom_sys_tool_change_code UI_PB_tpth_EntryCallBack null}}} \
+     {{"$gPB(event,tool_change,t_code)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,tool_change,t_code,conf)" 1  n null UI_PB_tpth_ConfToolCode null}}} \
+     {{"$gPB(event,tool_change,tool_num)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,tool_change,tool_num,max)" 0  i $tl_num_max null null} \
+                {"$gPB(event,tool_change,tool_num,min)" 0  i $tl_num_min null null}}} \
+     {{"$gPB(event,tool_change,time)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,tool_change,time,tl_chng)" 2  f $mom_kin_tool_change_time null null}}}
+{Length Compensation} \
+     {{"$gPB(event,length_compn,g_code)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,length_compn,g_code,len_adj)" 2  a $mom_sys_adjust_code UI_PB_tpth_EntryCallBack null}}} \
+     {{"$gPB(event,length_compn,t_code)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,length_compn,t_code,conf)" 1  n null UI_PB_tpth_ConfToolCode null}}} \
+     {{"$gPB(event,length_compn,len_off)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,length_compn,len_off,max)" 0  i $tl_len_offs_max null null} \
+                {"$gPB(event,length_compn,len_off,min)" 0  i $tl_len_offs_min null null}}}
+{Set Modes} \
+     {{"$gPB(event,set_modes,out_mode)" 1  V} \
+        {{"null" 1  V} \
+                {"null" 8  n $output_mode_opt null {"Absolute Only" "Incremental Only" "Absolute/Incremental"}}}} \
+     {{"$gPB(event,set_modes,g_code)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,set_modes,g_code,absolute)" 2  a $mom_sys_output_code(ABSOLUTE) null null} \
+                {"$gPB(event,set_modes,g_code,incremental)" 2  a $mom_sys_output_code(INCREMENTAL) null null}}}
+{Spindle RPM} \
+     {{"$gPB(event,spindle_rpm,dir_m_code)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,spindle_rpm,dir_m_code,cw)" 2  a $mom_sys_spindle_direction_code(CLW) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,spindle_rpm,dir_m_code,ccw)" 2  a $mom_sys_spindle_direction_code(CCLW) UI_PB_tpth_EntryCallBack null}}} \
+     {{"$gPB(event,spindle_rpm,range_control)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,spindle_rpm,range_control,dwell_time)" 0  i $spin_dwell_time null null} \
+                {"$gPB(event,spindle_rpm,range_control,range_code)" 1  n null UI_PB_tpth_SpecifySpindleRangeCodes null}}}
+{Spindle Off} \
+     {{"null" 1  V} \
+        {{"$gPB(event,spindle_off,dir_m_code)" 1  V} \
+                {"$gPB(event,spindle_off,dir_m_code,off)" 2  a $mom_sys_spindle_direction_code(OFF) UI_PB_tpth_EntryCallBack null}}}
+{Coolant On} \
+     {{"null" 1  V} \
+        {{"$gPB(event,coolant_on,m_code)" 5  V} \
+                {"$gPB(event,coolant_on,m_code,on)" 2  a $mom_sys_coolant_code(ON) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,coolant_on,m_code,flood)" 2  a $mom_sys_coolant_code(FLOOD) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,coolant_on,m_code,mist)" 2  a $mom_sys_coolant_code(MIST) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,coolant_on,m_code,thru)" 2  a $mom_sys_coolant_code(THRU) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,coolant_on,m_code,tap)" 2  a $mom_sys_coolant_code(TAP) UI_PB_tpth_EntryCallBack null}}}
+{Coolant Off} \
+     {{"null" 1  V} \
+        {{"$gPB(event,coolant_off,m_code)" 1  V} \
+                {"$gPB(event,coolant_off,m_code,off)" 2  a $mom_sys_coolant_code(OFF) UI_PB_tpth_EntryCallBack null}}}
+{Inch Metric Mode} \
+     {{"$gPB(event,inch_metric_mode,g_code)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,inch_metric_mode,g_code,english)" 2  a $mom_sys_unit_code(IN) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,inch_metric_mode,g_code,metric)" 2  a $mom_sys_unit_code(MM) UI_PB_tpth_EntryCallBack null}}}
+{Feedrates} \
+     {{"$gPB(event,feedrates,mmpm_mode)" 4  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,g_code)" 2  a $mom_sys_feed_rate_mode_code(MMPM) UI_PB_tpth_EntryCallBack null}} \
+        {{"$gPB(event,feedrates,format)" 1  V} \
+                {"null" 9  n $mom_sys_feed_param(MMPM,format) UI_PB_tpth_EditFeedFmt null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,max)" 2  f $mom_kin_max_fpm null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,min)" 2  f $mom_kin_min_fpm null null}}} \
+     {{"$gPB(event,feedrates,mmpr_mode)" 4  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,g_code)" 2  a $mom_sys_feed_rate_mode_code(MMPR) UI_PB_tpth_EntryCallBack null}} \
+        {{"$gPB(event,feedrates,format)" 1  V} \
+                {"null" 9  n $mom_sys_feed_param(MMPR,format) UI_PB_tpth_EditFeedFmt null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,max)" 2  f $mom_kin_max_fpr null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,min)" 2  f $mom_kin_min_fpr null null}}} \
+     {{"$gPB(event,feedrates,frn_mode)" 4  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,g_code)" 2  a $mom_sys_feed_rate_mode_code(FRN) UI_PB_tpth_EntryCallBack null}} \
+        {{"$gPB(event,feedrates,format)" 1  V} \
+                {"null" 9  n $mom_sys_feed_param(FRN,format) UI_PB_tpth_EditFeedFmt null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,max)" 2  f $mom_kin_max_frn null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,min)" 2  f $mom_kin_min_frn null null}}} \
+     {{"$gPB(event,feedrates,dpm_mode)" 4  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,g_code)" 2  a $mom_sys_feed_rate_mode_code(DPM) UI_PB_tpth_EntryCallBack null}} \
+        {{"$gPB(event,feedrates,format)" 1  V} \
+                {"null" 9  n $mom_sys_feed_param(DPM,format) UI_PB_tpth_EditFeedFmt null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,max)" 2  f $mom_kin_max_dpm null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,min)" 2  f $mom_kin_min_dpm null null}}} \
+     {{"$gPB(event,feedrates,mode,label)" 7  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,lin)" 8  n $mom_sys_contour_feed_mode(LINEAR) null {"MMPM" "MMPR" "FRN"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,rot)" 8  n $mom_sys_contour_feed_mode(ROTARY) null {"MMPM" "MMPR" "FRN" "DPM"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,lin_rot)" 8  n $mom_sys_contour_feed_mode(LINEAR_ROTARY) null {"MMPM" "MMPR" "FRN" "DPM"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,rap_lin)" 8  n $mom_sys_rapid_feed_mode(LINEAR) null {"MMPM" "MMPR" "FRN"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,rap_rot)" 8  n $mom_sys_rapid_feed_mode(ROTARY) null {"MMPM" "MMPR" "FRN" "DPM"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,rap_lin_rot)" 8  n $mom_sys_rapid_feed_mode(LINEAR_ROTARY) null {"MMPM" "MMPR" "FRN"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,cycle)" 8  n $mom_sys_cycle_feed_mode null {"MMPM" "MMPR" "Auto"}}}}
+{Cutcom On} \
+     {{"$gPB(event,cutcom_on,g_code)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,cutcom_on,left)" 2  a $mom_sys_cutcom_code(LEFT) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cutcom_on,right)" 2  a $mom_sys_cutcom_code(RIGHT) UI_PB_tpth_EntryCallBack null}}} \
+     {{"$gPB(event,cutcom_on,app_planes)" 2  V} \
+        {{"null" 3  H} \
+                {"XY" 3  n $cutcom_plane_xy null null} \
+                {"YZ" 3  n $cutcom_plane_yz null null} \
+                {"ZX" 3  n $cutcom_plane_zx null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,cutcom_on,edit_planes)" 1  n null UI_PB_tpth_EditPlaneCodes null}}} \
+     {{"$gPB(event,cutcom_on,reg)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,cutcom_on,max)" 0  i $rad_offset_max null null} \
+                {"$gPB(event,cutcom_on,min)" 0  i $rad_offset_min null null}}} \
+     {{"$gPB(event,cutcom_on,bef)" 1  V} \
+        {{"null" 2  H} \
+                {"$gPB(isv,setup,dog_leg,yes)" 4  n $cutcom_off_before_change null YES} \
+                {"$gPB(isv,setup,dog_leg,no)" 4  n $cutcom_off_before_change null NO}}}
+{Cutcom Off} \
+     {{"null" 1  V} \
+        {{"$gPB(event,cutcom_off,g_code)" 1  V} \
+                {"$gPB(event,cutcom_off,off)" 2  a $mom_sys_cutcom_code(OFF) UI_PB_tpth_EntryCallBack null}}}
+{Linear Move} \
+     {{"null" 2  V} \
+        {{"$gPB(event,linear,g_code)" 1  V} \
+                {"$gPB(event,linear,motion)" 2  a $mom_sys_linear_code UI_PB_tpth_EntryCallBack null}} \
+        {{"null" 1  H} \
+                {"$gPB(event,linear,assume)" 3  n $rap_mode_trav_rate null null}}}
+{Circular Move} \
+     {{"$gPB(event,circular,g_code)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,circular,clockwise)" 2  a $mom_sys_circle_code(CLW) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,circular,counter-clock)" 2  a $mom_sys_circle_code(CCLW) UI_PB_tpth_EntryCallBack null}}} \
+     {{"$gPB(event,circular,planes)" 2  V} \
+        {{"null" 4  H} \
+                {"XY" 4  n $mom_kin_arc_valid_plane null null} \
+                {"YZ" 4  n $mom_kin_arc_valid_plane null null} \
+                {"ZX" 4  n $mom_kin_arc_valid_plane null null} \
+                {"XYZ" 4  n $mom_kin_arc_valid_plane null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,circular,edit_planes)" 1  n null UI_PB_tpth_EditPlaneCodes null}}} \
+     {{"$gPB(event,circular,record)" 1  V} \
+        {{"null" 2  H} \
+                {"$gPB(event,circular,full_circle)" 4  n $mom_kin_arc_output_mode null FULL_CIRCLE} \
+                {"$gPB(event,circular,quadrant)" 4  n $mom_kin_arc_output_mode null QUADRANT}}} \
+     {{"$gPB(event,circular,radius)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,circular,max)" 2  f $mom_kin_max_arc_radius null null} \
+                {"$gPB(event,circular,min)" 2  f $mom_kin_min_arc_radius null null}}} \
+     {{"$gPB(event,circular,ijk_def)" 1  V} \
+        {{"null" 1  V} \
+                {"null" 10  n $mom_sys_cir_vector UI_PB_tpth_IJKParameters {"Vector - Arc Start to Center" "Vector - Arc Center to Start" "Unsigned Vector - Arc Start to Center" "Vector - Absolute Arc Center"}}}} \
+     {{"null" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,circular,arc_len)" 2  f $mom_kin_min_arc_length null null}}}
+{Rapid Move} \
+     {{"null" 2  V} \
+        {{"$gPB(event,rapid,g_code)" 1  V} \
+                {"$gPB(event,rapid,motion)" 2  a $mom_sys_rapid_code UI_PB_tpth_EntryCallBack null}} \
+        {{"null" 1  H} \
+                {"$gPB(event,rapid,plane_change)" 3  n $rap_wrk_pln_chg UI_PB_tpth_EditRapidBlocks null}}}
+{Cycle Parameters} \
+     {{"$gPB(event,cycle,g_code)" 2  H} \
+        {{"null" 14  V} \
+                {"" 7  n null null null} \
+                {"" 7  n null null null} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_drill null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_drill_dwell null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_drill_deep null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_drill_break_chip null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_tap null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_drag null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_nodrag null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_manual null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_dwell null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_back null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_manual_dwell null null "event,cycle,customize"}} \
+        {{"null" 14  V} \
+                {"$gPB(event,cycle,start,Label)" 2  a $mom_sys_cycle_start_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,cycle_off,name)" 2  a $mom_sys_cycle_off UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,drill,name)" 2  a $mom_sys_cycle_drill_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,drill_dwell_sf,name)" 2  a $mom_sys_cycle_drill_dwell_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,drill_deep_peck,name)" 2  a $mom_sys_cycle_drill_deep_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,drill_brk_chip,name)" 2  a $mom_sys_cycle_drill_break_chip_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,tap,name)" 2  a $mom_sys_cycle_tap_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,bore_ream,name)" 2  a $mom_sys_cycle_bore_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,bore_drag,name)" 2  a $mom_sys_cycle_bore_drag_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,bore_no-drag,name)" 2  a $mom_sys_cycle_bore_no_drag_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,bore_manual,name)" 2  a $mom_sys_cycle_bore_manual_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,bore_dwell,name)" 2  a $mom_sys_cycle_bore_dwell_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,bore_back,name)" 2  a $mom_sys_cycle_bore_back_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,bore_manual_dwell,name)" 2  a $mom_sys_cycle_bore_manual_dwell_code UI_PB_tpth_EntryCallBack null}}} \
+     {{"null" 4  V} \
+        {{"$gPB(event,cycle,start,Label)" 2  H} \
+                {"G79 X Y Z" 3  n $cycle_start_blk UI_PB_tpth_CycleStartBlks null "event,cycle,start"} \
+                {"$gPB(event,cycle,start,text)" 7  n null null null}} \
+        {{"$gPB(event,cycle,rapid_to)" 1  V} \
+                {"null" 8  n $cycle_rapto_opt UI_PB_tpth_CycleRapidBlks {"None" "R" "Rapid Traverse & R" "Rapid"}}} \
+        {{"$gPB(event,cycle,retract_to)" 1  V} \
+                {"null" 8  n $cycle_recto_opt UI_PB_tpth_CycleRetractBlks {"None" "K" "G98/G99" "Rapid Spindle" "Cycle Off then Rapid Spindle"}}} \
+        {{"$gPB(event,cycle,plane_control)" 1  V} \
+                {"null" 8  n $cycle_plane_control_opt UI_PB_tpth_CyclePlaneElem {"None" "G17/G18/G19"}}}}
+{Cycle Plane Change} \
+     {{"null" 2  V} \
+        {{"null" 1  H} \
+                {"$gPB(event,cycle,plane_change,label)" 3  n $mom_kin_cycle_plane_change_to_lower null null}} \
+        {{"null" 1  H} \
+                {"$gPB(event,cycle,plane_change,axis,label)" 3  n $mom_kin_cycle_plane_change_per_axis null null}}}
+## EVENTS USER INTERFACE END
+
+## MOM SYS VARIABLES START
+{G_cutcom} \
+      {"$mom_sys_cutcom_code($mom_cutcom_status)" "\$mom_sys_cutcom_code(LEFT)" "Cutcom (LEFT/RIGHT/OFF)"} \
+      {"$mom_sys_cutcom_code(LEFT)" "41" "Cutcom Left"} \
+      {"$mom_sys_cutcom_code(RIGHT)" "42" "Cutcom Right"} \
+      {"$mom_sys_cutcom_code(OFF)" "40" "Cutcom Off"}
+{G_plane} \
+      {"$mom_sys_cutcom_plane_code($mom_cutcom_plane)" "\$mom_sys_cutcom_plane_code(XY)" "Cutcom Plane Code (XY/ZX/YZ)"} \
+      {"$mom_sys_cutcom_plane_code($mom_pos_arc_plane)" "\$mom_sys_cutcom_plane_code(XY)" "Arc Plane Code (XY/ZX/YZ)"} \
+      {"$mom_sys_cutcom_plane_code(XY)" "17" "XY Plane Code"} \
+      {"$mom_sys_cutcom_plane_code(ZX)" "18" "ZX Plane Code"} \
+      {"$mom_sys_cutcom_plane_code(YZ)" "19" "YZ Plane Code"}
+{G_adjust} \
+      {"$mom_sys_adjust_code" "43" "Tool Len Adjust Plus"} \
+      {"$mom_sys_adjust_code_minus" "44" "Tool Len Adjust Minus"} \
+      {"$mom_sys_adjust_cancel_code" "49" "Cancel Tool Len Adjust"}
+{G_feed} \
+      {"$mom_sys_feed_rate_mode_code($feed_mode)" "\$mom_sys_feed_rate_mode_code(MMPM)" "Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(IPM)" "98" "IPM Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(IPR)" "99" " IPR Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(FRN)" "93" "FRN Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(DPM)" "94" "DPM Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(MMPM)" "98" "MMPM Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(MMPR)" "99" "MMPR Feed Rate Mode"}
+{G_spin} \
+      {"$mom_sys_spindle_mode_code($mom_spindle_status)" "\$mom_sys_spindle_mode_code(RPM)" "Spindle output Mode (RPM/SFM)"} \
+      {"$mom_sys_spindle_mode_code(SFM)" "96" "Spindle output (CSS)"} \
+      {"$mom_sys_spindle_mode_code(RPM)" "97" "Spindle output (RPM)"}
+{G_return} \
+      {"$mom_sys_cycle_ret_code($mom_cycle_retract_mode)" "\$mom_sys_cycle_ret_code(MANUAL)" "Cycle Retract (AUTO/MANUAL)"} \
+      {"$mom_sys_cycle_ret_code(AUTO)" "98" "Cycle Retract (AUTO)"} \
+      {"$mom_sys_cycle_ret_code(MANUAL)" "99" "Cycle Retract (MANUAL)"}
+{G_motion} \
+      {"$mom_sys_rapid_code" "00" "Rapid Move"} \
+      {"$mom_sys_linear_code" "01" "Linear Move"} \
+      {"$mom_sys_circle_code($mom_arc_direction)" "\$mom_sys_circle_code(CLW)" "Circular Interpolation (CLW/CCLW)"} \
+      {"$mom_sys_circle_code(CLW)" "02" "Circular Interpolation CLW"} \
+      {"$mom_sys_circle_code(CCLW)" "03" "Circular Interpolation CCLW"} \
+      {"$mom_sys_cycle_drill_code" "87" "Drill"} \
+      {"$mom_sys_cycle_drill_dwell_code" "87" "Drill Dwell"} \
+      {"$mom_sys_cycle_drill_deep_code" "87" "Drill Deep"} \
+      {"$mom_sys_cycle_drill_break_chip_code" "87" "Drill Break Chip"} \
+      {"$mom_sys_cycle_tap_code" "88.2" "Tap"} \
+      {"$mom_sys_cycle_bore_code" "89" "Bore"} \
+      {"$mom_sys_cycle_bore_drag_code" "89" "Bore Drag"} \
+      {"$mom_sys_cycle_bore_no_drag_code" "89" "Bore No Drag"} \
+      {"$mom_sys_cycle_bore_back_code" "89" "Bore Back"} \
+      {"$mom_sys_cycle_bore_manual_code" "89" "Bore Manual"} \
+      {"$mom_sys_cycle_bore_dwell_code" "89" "Bore Dwell"} \
+      {"$mom_sys_cycle_bore_manual_dwell_code" "89" "Bore Manual Dwell"} \
+      {"$mom_sys_cycle_start_code" "79" "Cycle Start Code"} \
+      {"$mom_sys_cycle_off" "80" "Cycle Off"} \
+      {"$mom_sys_cycle_reps_code" "x" "Cycle Code Representative"}
+{G_mode} \
+      {"$mom_sys_output_code($mom_output_mode)" "\$mom_sys_output_code(ABSOLUTE)" "Absolute/Incremental Mode"} \
+      {"$mom_sys_output_code(ABSOLUTE)" "90" "Absolute Mode"} \
+      {"$mom_sys_output_code(INCREMENTAL)" "91" "Incremental Mode"}
+{G} \
+      {"$mom_prefun" "" "Pre Function"} \
+      {"$mom_sys_delay_code(SECONDS)" "4" "Delay in Seconds"} \
+      {"$mom_sys_delay_code(REVOLUTIONS)" "4" "Delay in Revloutions"} \
+      {"$mom_sys_delay_code($mom_delay_mode)" "\$mom_sys_delay_code(SECONDS)" "Delay (Seconds/Revolutions)"} \
+      {"$mom_sys_reset_code" "92" "Absolute Position Reset"} \
+      {"$mom_sys_unit_code(IN)" "20" "Output Unit (Inch)"} \
+      {"$mom_sys_unit_code(MM)" "21" "Output Unit (Metric)"} \
+      {"$mom_sys_unit_code($mom_output_unit)" "\$mom_sys_unit_code(IN)" "Output Unit (Inch/Metric)"} \
+      {"$mom_work_coordinate_number + 53" "54" "Work Coordinate Selection (54 ~ 59)"} \
+      {"$mom_fixture_offset_value + 53" "54" "MCS Fixture Offset  (54 ~ 59)"} \
+      {"$mom_sys_return_code" "28" "Return Home"} \
+      {"$mom_sys_unit_code($mom_kin_output_unit)" "\$mom_sys_unit_code(IN)" "Post Output Unit (Inch/Metric)"}
+{order} \
+      {"$mom_prefun" "" "Pre Function"} \
+      {"$mom_sys_delay_code(SECONDS)" "4" "Delay in Seconds"} \
+      {"$mom_sys_delay_code(REVOLUTIONS)" "4" "Delay in Revloutions"} \
+      {"$mom_sys_delay_code($mom_delay_mode)" "\$mom_sys_delay_code(SECONDS)" "Delay (Seconds/Revolutions)"} \
+      {"$mom_sys_reset_code" "92" "Absolute Position Reset"} \
+      {"$mom_sys_unit_code($mom_kin_output_unit)" "\$mom_sys_unit_code(IN)" "Post Output Unit (Inch/Metric)"} \
+      {"$mom_sys_unit_code(IN)" "20" "Output Unit (Inch)"} \
+      {"$mom_sys_unit_code(MM)" "21" "Output Unit (Metric)"} \
+      {"$mom_sys_unit_code($mom_output_unit)" "\$mom_sys_unit_code(IN)" "Output Unit (Inch/Metric)"} \
+      {"$mom_work_coordinate_number + 53" "54" "Work Coordinate Selection (54 ~ 59)"} \
+      {"$mom_sys_return_code" "28" "Return Home"}
+{knot} \
+      {"$mom_pos(0)" "" "Coordinate"} \
+      {"$mom_cycle_feed_to_pos(0)" "" "Cycle Feed X"} \
+      {"$mom_cycle_rapid_to_pos(0)" "" "Rapid X Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(0)" "" "Retract X Position in Cycle"} \
+      {"$mom_tool_x_offset" "" "Tool X Offset"} \
+      {"$mom_sys_home_pos(0)" "0" "Return Home X"}
+{X} \
+      {"$mom_pos(0)" "" "Coordinate"} \
+      {"$mom_from_pos(0)" "" "FROM X Coordinate"} \
+      {"$mom_cycle_feed_to_pos(0)" "" "Cycle Feed X"} \
+      {"$mom_cycle_rapid_to_pos(0)" "" "Rapid X Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(0)" "" "Retract X Position in Cycle"} \
+      {"$mom_tool_x_offset" "" "Tool X Offset"} \
+      {"$mom_sys_home_pos(0)" "0" "Return Home X"}
+{Y} \
+      {"$mom_pos(1)" "" "Coordinate"} \
+      {"$mom_from_pos(1)" "" "FROM Y Coordinate"} \
+      {"$mom_cycle_feed_to_pos(1)" "" "Cycle Feed Y"} \
+      {"$mom_cycle_rapid_to_pos(1)" "" "Rapid Y Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(1)" "" "Retract Y Position in Cycle"} \
+      {"$mom_tool_y_offset" "" "Tool Y Offset"} \
+      {"$mom_sys_home_pos(1)" "0" "Return Home Y"}
+{Z} \
+      {"$mom_pos(2)" "" "Coordinate"} \
+      {"$mom_from_pos(2)" "" "FROM Z Coordinate"} \
+      {"$mom_cycle_feed_to_pos(2)" "" "Cycle Feed Z"} \
+      {"$mom_cycle_feed_to" "" "Cycle Feed To Distance"} \
+      {"$mom_cycle_rapid_to - $mom_cycle_feed_to" "" "Cycle Feed To Positive Increment"} \
+      {"$mom_cycle_feed_to - $mom_cycle_rapid_to" "" "Cycle Feed To Negative Increment"} \
+      {"$mom_cycle_rapid_to_pos(2)" "" "Rapid Z Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(2)" "" "Retract Position in Cycle"} \
+      {"$mom_tool_z_offset" "" "Tool Z Offset"} \
+      {"$mom_sys_home_pos(2)" "0" "Return Home Z"} \
+      {"$mom_cycle_rapid_to(2)" "" "Rapid Z Position in Cycle"}
+{Z_zero} \
+      {"" "" ""}
+{fourth_axis} \
+      {"$mom_out_angle_pos(0)" "" "4th Axis Angle"} \
+      {"$mom_out_angle_pos(1)" "" "5th Axis Angle"}
+{fifth_axis} \
+      {"$mom_out_angle_pos(0)" "" "4th Axis Angle"} \
+      {"$mom_out_angle_pos(1)" "" "5th Axis Angle"}
+{I} \
+      {"$mom_pos_arc_center(0) - $mom_prev_pos(0)" "" "Arc Start To Center"}
+{J} \
+      {"$mom_pos_arc_center(1) - $mom_prev_pos(1)" "" "Arc Start To Center"}
+{K} \
+      {"$mom_pos_arc_center(2) - $mom_prev_pos(2)" "" "Arc Start To Center"}
+{R} \
+      {"$mom_arc_radius" "" "Arc Radius"} \
+      {"$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)" "" "Rapid Position in Cycle"} \
+      {"$mom_cycle_rapid_to" "" "Cycle Rapid To Distance"}
+{cycle_deep_x_abs} \
+      {"" "" ""}
+{cycle_deep_x} \
+      {"" "" ""}
+{cycle_deep_z_abs} \
+      {"" "" ""}
+{cycle_deep_z} \
+      {"" "" ""}
+{cycle_step} \
+      {"$mom_cycle_step1" "" "Step Incr Value"}
+{cycle_dwell} \
+      {"$mom_cycle_delay" "" "Delay For Cycle Dwell"}
+{helics_step} \
+      {"" "" ""}
+{F} \
+      {"$feed" "" "Feed Rate"}
+{thread_step} \
+      {"" "" ""}
+{S} \
+      {"$mom_spindle_speed" "" "Spindle Speed"} \
+      {"$mom_spindle_maximum_rpm" "" "Spindle Max RPM"}
+{T} \
+      {"$mom_tool_number" "" "Tool Select"} \
+      {"$mom_next_tool_number" "" "Tool Pre-Select"}
+{D} \
+      {"$mom_cutcom_adjust_register" "1" "Tool Radius Compensation"}
+{H} \
+      {"$mom_tool_adjust_register" "1" "Tool Adjust Register"} \
+      {"$mom_sys_zero" "0" "Cancel Tool Adjust"}
+{dwell} \
+      {"$mom_delay_value" "" "Programmed Dwell"}
+{P_cutcom} \
+      {"$pval" "" "Cutcom (Custom Command)"}
+{K_cycle} \
+      {"$mom_cycle_retract_to_pos($mom_cycle_spindle_axis)" "" "Retract Position in Cycle"} \
+      {"$mom_cycle_retract_to" "" "Cycle Retract To Distance"}
+{cycle_step1} \
+      {"$mom_cycle_step2" "" "Step Incr Modifier"}
+{Q_cutcom} \
+      {"$qval" "" "Cutcom (Custom Command)"}
+{E} \
+      {"$mom_thread_increment" "" "Thread Increment"}
+{M_spindle} \
+      {"$mom_sys_spindle_direction_code($mom_spindle_direction)" "\$mom_sys_spindle_direction_code(CLW)" "Spindle Direction (CLW/CCLW)"} \
+      {"$mom_sys_spindle_direction_code(CLW)" "203" "CLW Spindle Direction"} \
+      {"$mom_sys_spindle_direction_code(CCLW)" "204" "CCLW Spindle Direction"} \
+      {"$mom_sys_spindle_direction_code(OFF)" "205" "Spindle Off"}
+{M_range} \
+      {"$mom_sys_spindle_range_code($mom_spindle_range)" "41" "Spindle Range"}
+{M_coolant} \
+      {"$mom_sys_coolant_code($mom_coolant_status)" "\$mom_sys_coolant_code(FLOOD)" "Coolant Code (FLOOD/MIST/ON..)"} \
+      {"$mom_sys_coolant_code(ON)" "8" "Coolant On"} \
+      {"$mom_sys_coolant_code(FLOOD)" "8" "Coolant Flood"} \
+      {"$mom_sys_coolant_code(MIST)" "8" "Coolant Mist"} \
+      {"$mom_sys_coolant_code(THRU)" "8" "Coolant Thru"} \
+      {"$mom_sys_coolant_code(TAP)" "8" "Coolant Tap"} \
+      {"$mom_sys_coolant_code(OFF)" "9" "Coolant Off"}
+{M} \
+      {"$mom_sys_optional_stop_code" "1" "Optional Stop"} \
+      {"$mom_auxfun" "" "Aux Function"} \
+      {"$mom_sys_program_stop_code" "0" "Stop Program"} \
+      {"$mom_sys_end_of_program_code" "2" "End Of program"} \
+      {"$mom_sys_rewind_code" "30" "Rewind Program"} \
+      {"$mom_sys_tool_change_code" "6" "Tool Change"}
+{cycle_orient} \
+      {"$mom_cycle_orient" "" "Cycle Orient Value"}
+{drill_cycle_step} \
+      {"" "" ""}
+{zero_x} \
+      {"" "" ""}
+{zero_y} \
+      {"" "" ""}
+{zero_z} \
+      {"" "" ""}
+{N} \
+      {"$mom_seqnum" "" "Sequence Number"}
+{Text} \
+      {"" "" ""}
+{New_Address} \
+      {"" "" ""}
+{PB_Dummy} \
+      {"User_Def_Axis_Limit_Act" "PB_CMD_rotary_cross_limit" ""} \
+      {"Link_Char" "" ""} \
+      {"Include_UDE" "1" ""} \
+      {"UDE_File_Name" "\$UGII_CAM_USER_DEF_EVENT_DIR/ude.cdl" ""} \
+      {"Output_VNC" "0" ""} \
+      {"VNC_Mode" "Standalone" ""} \
+      {"Main_VNC" "" ""} \
+      {"Decimal_Point" "." ""} \
+      {"Comment_Start" "(" ""} \
+      {"Comment_End" ")" ""} \
+      {"seq_blk_nc_code" "0" ""} \
+      {"$mom_sys_blank_code" "" ""} \
+      {"$is_linked_post" "1" ""} \
+      {"$linked_posts_list" "\{\{MILL\} \{this_post\}\} \{\{TURN\} \{mazak_turn_qt_series\}\}" ""} \
+      {"$tl_num_min" "1" ""} \
+      {"$tl_num_max" "32" ""} \
+      {"$tl_change_sec" "" ""} \
+      {"$tl_retract_status" "0" ""} \
+      {"$tl_retract_z_pos" "0" ""} \
+      {"$output_mode_opt" "Absolute/Incremental" ""} \
+      {"$cutcom_plane_xy" "1" ""} \
+      {"$cutcom_plane_yz" "1" ""} \
+      {"$cutcom_plane_zx" "0" ""} \
+      {"$rad_offset_min" "1" ""} \
+      {"$rad_offset_max" "99" ""} \
+      {"$tl_len_offs_min" "1" ""} \
+      {"$tl_len_offs_max" "20" ""} \
+      {"$spin_fmt_type" "None" ""} \
+      {"$spin_dwell_time" "0" ""} \
+      {"$cir_record_output" "YES" ""} \
+      {"$rap_wrk_pln_chg" "1" ""} \
+      {"$rap_mode_trav_rate" "1" ""} \
+      {"$rap_mode_trav_value" "100" ""} \
+      {"$cycle_rapto_opt" "None" ""} \
+      {"$cycle_recto_opt" "None" ""} \
+      {"$cycle_plane_control_opt" "None" ""} \
+      {"$cycle_start_blk" "0" ""} \
+      {"$tool_num_output" "TOOL_NUMBER_ONLY" ""} \
+      {"$cutcom_off_before_change" "NO" ""} \
+      {"SeqNo_output" "0" ""} \
+      {"$gcode_status" "0" ""} \
+      {"$mcode_status" "0" ""} \
+      {"$oth_rev_xy_plane" "0" ""} \
+      {"$oth_rev_yz_plane" "0" ""} \
+      {"$oth_rev_zx_plane" "0" ""} \
+      {"$oth_sup_out_ijk_zero" "0" ""} \
+      {"$oth_sup_out_ijk_xyz" "0" ""} \
+      {"$mom_usd_add_var" "" ""} \
+      {"$evt_ncoutput_status" "Output_Imediately" ""} \
+      {"$4th_axis_direction" "Magnitude_Determines_Direction" ""} \
+      {"$xaxis_dia_prog" "1" ""} \
+      {"$i_dia_prog" "0" ""} \
+      {"$yaxis_dia_prog" "0" ""} \
+      {"$j_dia_prog" "0" ""} \
+      {"$xaxis_mirror" "0" ""} \
+      {"$yaxis_mirror" "0" ""} \
+      {"$zaxis_mirror" "0" ""} \
+      {"$i_mirror" "0" ""} \
+      {"$j_mirror" "0" ""} \
+      {"$k_mirror" "0" ""} \
+      {"$5th_axis_direction" "Magnitude_Determines_Direction" ""} \
+      {"$mom_sys_p_cutcom_code" "CC" ""} \
+      {"$mom_sys_q_cutcom_code" "CC" ""} \
+      {"$mom_sys_cycle_retract_to" "CY" ""} \
+      {"$mom_sys_cycle_step1" "CS" ""} \
+      {"$mom_sys_cycle_step2" "CS" ""} \
+      {"$mom_sys_delay_value" "DW" ""} \
+      {"$mom_sys_cycle_delay" "CD" ""} \
+      {"$output_rot_incr_status" "0" ""} \
+      {"$mill_turn_spindle_axis" "+X_Axis" ""} \
+      {"$linearization_method" "angle" ""}
+{PB_Tcl_Var} \
+      {"$mom_sys_4th_axis_has_limits" "1" ""} \
+      {"$mom_sys_5th_axis_has_limits" "1" ""} \
+      {"$mom_sys_sim_cycle_drill" "1" ""} \
+      {"$mom_sys_sim_cycle_drill_dwell" "1" ""} \
+      {"$mom_sys_sim_cycle_drill_deep" "1" ""} \
+      {"$mom_sys_sim_cycle_drill_break_chip" "1" ""} \
+      {"$mom_sys_sim_cycle_tap" "1" ""} \
+      {"$mom_sys_sim_cycle_bore" "1" ""} \
+      {"$mom_sys_sim_cycle_bore_drag" "1" ""} \
+      {"$mom_sys_sim_cycle_bore_nodrag" "1" ""} \
+      {"$mom_sys_sim_cycle_bore_manual" "1" ""} \
+      {"$mom_sys_sim_cycle_bore_dwell" "1" ""} \
+      {"$mom_sys_sim_cycle_bore_manual_dwell" "1" ""} \
+      {"$mom_sys_sim_cycle_bore_back" "1" ""} \
+      {"$mom_sys_cir_vector" "Vector - Arc Start to Center" ""} \
+      {"$mom_sys_spindle_ranges" "0" ""} \
+      {"$mom_sys_gcodes_per_block" "10" ""} \
+      {"$mom_sys_mcodes_per_block" "5" ""} \
+      {"$mom_sys_rewind_stop_code" "\#" ""} \
+      {"$mom_sys_home_pos(0)" "0" ""} \
+      {"$mom_sys_home_pos(1)" "0" ""} \
+      {"$mom_sys_home_pos(2)" "0" ""} \
+      {"$mom_sys_zero" "0" ""} \
+      {"$mom_sys_opskip_block_leader" "/" ""} \
+      {"$mom_sys_seqnum_start" "1" ""} \
+      {"$mom_sys_seqnum_incr" "1" ""} \
+      {"$mom_sys_seqnum_freq" "1" ""} \
+      {"$mom_sys_seqnum_max" "9999" ""} \
+      {"$mom_sys_lathe_x_double" "2" ""} \
+      {"$mom_sys_lathe_i_double" "1" ""} \
+      {"$mom_sys_lathe_y_double" "1" ""} \
+      {"$mom_sys_lathe_j_double" "1" ""} \
+      {"$mom_sys_lathe_x_factor" "1" ""} \
+      {"$mom_sys_lathe_y_factor" "1" ""} \
+      {"$mom_sys_lathe_z_factor" "1" ""} \
+      {"$mom_sys_lathe_i_factor" "1" ""} \
+      {"$mom_sys_lathe_j_factor" "1" ""} \
+      {"$mom_sys_lathe_k_factor" "1" ""} \
+      {"$mom_sys_leader(N)" "N" ""} \
+      {"$mom_sys_leader(X)" "X" ""} \
+      {"$mom_sys_leader(Y)" "Y" ""} \
+      {"$mom_sys_leader(Z)" "Z" ""} \
+      {"$mom_sys_leader(fourth_axis)" "B" ""} \
+      {"$mom_sys_leader(fifth_axis)" "C" ""} \
+      {"$mom_sys_contour_feed_mode(LINEAR)" "MMPM" ""} \
+      {"$mom_sys_rapid_feed_mode(LINEAR)" "MMPM" ""} \
+      {"$mom_sys_cycle_feed_mode" "MMPM" ""} \
+      {"$mom_sys_feed_param(IPM,format)" "Feed_IPM" ""} \
+      {"$mom_sys_feed_param(IPR,format)" "Feed_IPR" ""} \
+      {"$mom_sys_feed_param(FRN,format)" "Feed_INV" ""} \
+      {"$mom_sys_vnc_rapid_dogleg" "1" ""} \
+      {"$mom_sys_prev_mach_head" "" ""} \
+      {"$mom_sys_curr_mach_head" "" ""} \
+      {"$mom_sys_contour_feed_mode(ROTARY)" "MMPM" ""} \
+      {"$mom_sys_contour_feed_mode(LINEAR_ROTARY)" "MMPM" ""} \
+      {"$mom_sys_rapid_feed_mode(ROTARY)" "MMPM" ""} \
+      {"$mom_sys_rapid_feed_mode(LINEAR_ROTARY)" "MMPM" ""} \
+      {"$mom_sys_feed_param(MMPM,format)" "Feed_MMPM" ""} \
+      {"$mom_sys_feed_param(MMPR,format)" "Feed_MMPR" ""} \
+      {"$mom_sys_feed_param(DPM,format)" "Feed_DPM" ""} \
+      {"$mom_sys_retract_distance" "10" ""} \
+      {"$mom_sys_xzc_arc_output_mode" "POLAR" ""} \
+      {"$mom_sys_output_mode" "UNDEFINED" ""} \
+      {"$mom_sys_radius_output_mode" "Always_Positive" ""} \
+      {"$mom_sys_millturn_yaxis" "TRUE" ""} \
+      {"$mom_sys_coordinate_output_mode" "POLAR" ""} \
+      {"$mom_sys_spindle_axis(0)" "1.0" ""} \
+      {"$mom_sys_spindle_axis(1)" "0.0" ""} \
+      {"$mom_sys_spindle_axis(2)" "0.0" ""}
+{Command} \
+      {"Custom Command" "" "New Custom Command"} \
+      {"MOM_set_seq_off" "" "MOM Command"} \
+      {"MOM_set_seq_on" "" "MOM Command"} \
+      {"PB_CMD_FEEDRATE_NUMBER" "" "Custom Command"} \
+      {"PB_CMD_G541_offset" "" "Custom Command"} \
+      {"PB_CMD__log_revisions" "" "Custom Command"} \
+      {"PB_CMD__manage_part_attributes" "" "Custom Command"} \
+      {"PB_CMD_abort_event" "" "Custom Command"} \
+      {"PB_CMD_ask_machine_type" "" "Custom Command"} \
+      {"PB_CMD_before_motion" "" "Custom Command"} \
+      {"PB_CMD_before_output" "" "Custom Command"} \
+      {"PB_CMD_clamp_fifth_axis" "" "Custom Command"} \
+      {"PB_CMD_clamp_fourth_axis" "" "Custom Command"} \
+      {"PB_CMD_cutcom_force" "" "Custom Command"} \
+      {"PB_CMD_cycle_off_user" "" "Custom Command"} \
+      {"PB_CMD_cycle_time" "" "Custom Command"} \
+      {"PB_CMD_drill_cycle_set_abs" "" "Custom Command"} \
+      {"PB_CMD_enable_ball_center_output" "" "Custom Command"} \
+      {"PB_CMD_end_of_alignment_character" "" "Custom Command"} \
+      {"PB_CMD_end_of_program" "" "Custom Command"} \
+      {"PB_CMD_fifth_axis_rotate_move" "" "Custom Command"} \
+      {"PB_CMD_first_from" "" "Custom Command"} \
+      {"PB_CMD_fix_RAPID_SET" "" "Custom Command"} \
+      {"PB_CMD_fourth_axis_rotate_move" "" "Custom Command"} \
+      {"PB_CMD_from_move" "" "Custom Command"} \
+      {"PB_CMD_gohome_move" "" "Custom Command"} \
+      {"PB_CMD_goto_zero" "" "Custom Command"} \
+      {"PB_CMD_handle_sync_event" "" "Custom Command"} \
+      {"PB_CMD_init_helix" "" "Custom Command"} \
+      {"PB_CMD_init_rotary" "" "Custom Command"} \
+      {"PB_CMD_kin__MOM_lintol" "" "Custom Command"} \
+      {"PB_CMD_kin__MOM_rotate" "" "Custom Command"} \
+      {"PB_CMD_kin_abort_event" "" "Custom Command"} \
+      {"PB_CMD_kin_before_motion" "" "Custom Command"} \
+      {"PB_CMD_kin_before_output" "" "Custom Command"} \
+      {"PB_CMD_kin_catch_warning" "" "Custom Command"} \
+      {"PB_CMD_kin_end_of_path" "" "Custom Command"} \
+      {"PB_CMD_kin_feedrate_set" "" "Custom Command"} \
+      {"PB_CMD_kin_handle_sync_event" "" "Custom Command"} \
+      {"PB_CMD_kin_init_new_iks" "" "Custom Command"} \
+      {"PB_CMD_kin_init_probing_cycles" "" "Custom Command"} \
+      {"PB_CMD_kin_init_rotary" "" "Custom Command"} \
+      {"PB_CMD_kin_set_csys" "" "Custom Command"} \
+      {"PB_CMD_kin_start_of_path" "" "Custom Command"} \
+      {"PB_CMD_kin_start_of_program" "" "Custom Command"} \
+      {"PB_CMD_linear_move" "" "Custom Command"} \
+      {"PB_CMD_log_revisions" "" "Custom Command"} \
+      {"PB_CMD_mazak_machine_mode" "" "Custom Command"} \
+      {"PB_CMD_mazak_machine_model" "" "Custom Command"} \
+      {"PB_CMD_mazak_machine_name" "" "Custom Command"} \
+      {"PB_CMD_mazak_turret_start_of_path" "" "Custom Command"} \
+      {"PB_CMD_mill_mode_off" "" "Custom Command"} \
+      {"PB_CMD_mill_mode_on" "" "Custom Command"} \
+      {"PB_CMD_mill_path_end_1" "" "Custom Command"} \
+      {"PB_CMD_mill_path_end_2" "" "Custom Command"} \
+      {"PB_CMD_mill_path_end_3" "" "Custom Command"} \
+      {"PB_CMD_negate_R_value" "" "Custom Command"} \
+      {"PB_CMD_pause" "" "Custom Command"} \
+      {"PB_CMD_procs_and_vars" "" "Custom Command"} \
+      {"PB_CMD_prog_name_out" "" "Custom Command"} \
+      {"PB_CMD_program_header" "" "Custom Command"} \
+      {"PB_CMD_radius" "" "Custom Command"} \
+      {"PB_CMD_read_cycle_pos_list" "" "Custom Command"} \
+      {"PB_CMD_reload_iks_parameters" "" "Custom Command"} \
+      {"PB_CMD_reload_pos" "" "Custom Command"} \
+      {"PB_CMD_reload_ptp_pos" "" "Custom Command"} \
+      {"PB_CMD_reload_xcz_pos" "" "Custom Command"} \
+      {"PB_CMD_repeat_first_move" "" "Custom Command"} \
+      {"PB_CMD_reposition_move" "" "Custom Command"} \
+      {"PB_CMD_restore_work_plane_change" "" "Custom Command"} \
+      {"PB_CMD_retract_move" "" "Custom Command"} \
+      {"PB_CMD_reverse_rotation_vector" "" "Custom Command"} \
+      {"PB_CMD_reversed_block" "" "Custom Command"} \
+      {"PB_CMD_reversed_milling_blocks" "" "Custom Command"} \
+      {"PB_CMD_revert_dual_head_kin_vars" "" "Custom Command"} \
+      {"PB_CMD_revise_new_iks" "" "Custom Command"} \
+      {"PB_CMD_rotary_cross_limit" "" "Custom Command"} \
+      {"PB_CMD_rpm_change" "" "Custom Command"} \
+      {"PB_CMD_save_z_clearance" "" "Custom Command"} \
+      {"PB_CMD_set_M0" "" "Custom Command"} \
+      {"PB_CMD_set_M01" "" "Custom Command"} \
+      {"PB_CMD_set_circular_move" "" "Custom Command"} \
+      {"PB_CMD_set_csys" "" "Custom Command"} \
+      {"PB_CMD_set_cycle_plane" "" "Custom Command"} \
+      {"PB_CMD_set_cycle_pos_list" "" "Custom Command"} \
+      {"PB_CMD_set_delay" "" "Custom Command"} \
+      {"PB_CMD_set_operation_time" "" "Custom Command"} \
+      {"PB_CMD_set_principal_axis" "" "Custom Command"} \
+      {"PB_CMD_set_spindle_auto_direction" "" "Custom Command"} \
+      {"PB_CMD_start_of_alignment_character" "" "Custom Command"} \
+      {"PB_CMD_start_of_operation_force_addresses" "" "Custom Command"} \
+      {"PB_CMD_subprogram_end" "" "Custom Command"} \
+      {"PB_CMD_subprogram_start" "" "Custom Command"} \
+      {"PB_CMD_suppress_linear_block_plane_code" "" "Custom Command"} \
+      {"PB_CMD_tool_axis_and_milling_head" "" "Custom Command"} \
+      {"PB_CMD_tool_change_force_addresses" "" "Custom Command"} \
+      {"PB_CMD_tool_code" "" "Custom Command"} \
+      {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
+      {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
+      {"PB_CMD_unset_vars" "" "Custom Command"} \
+      {"PB_CMD_user_initial_move" "" "Custom Command"}
+{Operator Message} \
+      {"comment_blk" "MILL MODE : $mom_operation_name" "Operator Message"}
+{PB_Spindle} \
+      {"" "" ""}
+{PB_ZeroFmt} \
+      {"$zero_int_fmt" "Zero_int" ""} \
+      {"$zero_real_fmt" "Zero_real" ""}
+{VNC_Instruction} \
+      {"" "" ""}
+{PB_Rapid} \
+      {"$pb_rapid_1" "rapid_traverse" ""} \
+      {"$pb_rapid_2" "rapid_spindle" ""}
+## MOM SYS VARIABLES END
+
+## MOM SIM VARIABLES START
+    "$mom_sim_caxis_offset"                   "0.0"
+    "$mom_sim_control_equal_sign"             "="
+    "$mom_sim_control_var_leader"             "\#"
+    "$mom_sim_from_home"                      "29"
+    "$mom_sim_incr_linear_addrs"              ""
+    "$mom_sim_initial_motion"                 "RAPID"
+    "$mom_sim_input_mode"                     "ABS"
+    "$mom_sim_local_wcs"                      "52"
+    "$mom_sim_mach_cs"                        "53"
+    "$mom_sim_macro_modal"                    "ON"
+    "$mom_sim_mode_leader"                    "XYZ"
+    "$mom_sim_mt_axis(X)"                     "X"
+    "$mom_sim_mt_axis(Y)"                     "Y"
+    "$mom_sim_mt_axis(Z)"                     "Z"
+    "$mom_sim_num_machine_axes"               "5"
+    "$mom_sim_output_extended_nc"             "0"
+    "$mom_sim_output_vnc_msg"                 "0"
+    "$mom_sim_power_on_wcs"                   "1"
+    "$mom_sim_pre_com_list"                   ""
+    "$mom_sim_precod_list"                    ""
+    "$mom_sim_prog_rewind_stop_code"          "%"
+    "$mom_sim_rapid_dogleg"                   "0"
+    "$mom_sim_return_home"                    "30"
+    "$mom_sim_set_cutcom"                     "ON"
+    "$mom_sim_set_cycle"                      "ON"
+    "$mom_sim_set_f"                          "1"
+    "$mom_sim_set_s"                          "1"
+    "$mom_sim_set_scale"                      "ON"
+    "$mom_sim_spindle_comp"                   "SPINDLE"
+    "$mom_sim_spindle_direction"              "CLW"
+    "$mom_sim_spindle_jct"                    "TOOL_MOUNT_JCT"
+    "$mom_sim_spindle_mode"                   "SFM"
+    "$mom_sim_stroke_limit"                   "ON"
+    "$mom_sim_tl_adjust"                      "ON"
+    "$mom_sim_user_com_list"                  ""
+    "$mom_sim_vnc_msg_prefix"                 "VNC_MSG::"
+    "$mom_sim_wcs_0"                          "53"
+    "$mom_sim_wcs_1"                          "54"
+    "$mom_sim_wcs_2"                          "55"
+    "$mom_sim_wcs_3"                          "56"
+    "$mom_sim_wcs_4"                          "57"
+    "$mom_sim_wcs_5"                          "58"
+    "$mom_sim_wcs_6"                          "59"
+    "$mom_sim_wcs_rotate"                     "ON"
+    "$mom_sim_wcs_x"                          "0.0"
+    "$mom_sim_wcs_y"                          "0.0"
+    "$mom_sim_wcs_z"                          "0.0"
+    "$mom_sim_zcs_base"                       "X_SLIDE"
+## MOM SIM VARIABLES END
+
+## VNC COMMANDS START
+## VNC COMMANDS END
+
+## FUNCTION INFO START
+## FUNCTION INFO END
+

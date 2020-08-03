@@ -1,0 +1,174 @@
+#######  USER DEFINED EVENTS  #########
+##
+##     UDE for QTN 200 II MSY and Part Series Technology
+##     Andrey V Danilov. St-Petersburg. 24 Apr 2017
+##
+################################
+
+MACHINE FANUC
+
+#-----------------------------------------------------------------
+
+EVENT qtn_param_take_part
+{
+   UI_LABEL "MAZAK QTN 200 MSY : Parameters. Контршпиндель : Захват детали."
+   CATEGORY MILL DRILL LATHE
+   PARAM init_bmp1
+   {
+      TYPE l
+      DEFVAL "${UGII_CAM_USER_DEF_EVENT_DIR}qtn/series_take_part.bmp"
+   }
+
+   PARAM qtn_takeover_opt
+   {
+      TYPE o
+      DEFVAL "0. Рассчитать через переменные #521 #504"
+      OPTIONS "0. Рассчитать через переменные #521 #504","1. Настроить #501 на станке. #504 справочная.","2. Использовать готовую #501."
+      UI_LABEL "Режим подхода КШП"
+   }
+
+   PARAM group_start_1
+   {
+      TYPE g
+      DEFVAL "start_open"
+      UI_LABEL "Захват детали."
+   }
+   PARAM qtn_var504
+   {
+      TYPE s
+      DEFVAL "#504"
+      TOGGLE Off
+      UI_LABEL "Длина захвата в патрон КШП"
+   }
+   PARAM qtn_var501
+   {
+     TYPE d
+     DEFVAL "0.0"
+     TOGGLE Off
+     UI_LABEL "#501 : Координата перехвата Z2. Взять со станка"
+   }
+   PARAM group_end_1
+   {
+      TYPE g
+      DEFVAL "end"
+   }
+
+   PARAM group_start_2
+   {
+      TYPE g
+      DEFVAL "start_open"
+      UI_LABEL "Угол. Зазор. Упор."
+   }
+   PARAM qtn_c2_pos
+   {
+      TYPE d
+      DEFVAL "0.0"
+      TOGGLE Off
+      UI_LABEL "Угол установки КШП"
+   }
+   PARAM qtn_clrs
+   {
+      TYPE d
+      DEFVAL "1,0"
+      TOGGLE Off
+      UI_LABEL "Безопасный зазор"
+   }
+   PARAM qtn_press
+   {
+      TYPE d
+      DEFVAL "0.02"
+      TOGGLE Off
+      UI_LABEL "Поджим (натяг)"
+   }
+   PARAM group_end_2
+   {
+      TYPE g
+      DEFVAL "end"
+   }
+
+   PARAM group_start_3
+   {
+      TYPE g
+      DEFVAL "start_open"
+      UI_LABEL "Перемещения после захвата."
+   }
+   PARAM qtn_var505
+   {
+      TYPE s
+      DEFVAL "#505"
+      TOGGLE Off
+      UI_LABEL "Вытянуть / задвинуть из / в  ГШП"
+   }
+   PARAM qtn_var506
+   {
+      TYPE s
+      DEFVAL "#506"
+      TOGGLE Off
+      UI_LABEL "Переместить открытый КШП"
+   }
+   PARAM group_end_3
+   {
+      TYPE g
+      DEFVAL "end"
+   }
+}
+
+#-----------------------------------------------------------------
+
+EVENT qtn_param_subspindle_move
+{
+   UI_LABEL "MAZAK QTN 200 MSY : Parameters. Контршпиндель : Переместить"
+   CATEGORY MILL DRILL LATHE
+   PARAM pull_free_1_expr
+   {
+      TYPE s
+      DEFVAL "#531"
+      TOGGLE Off
+      UI_LABEL "Смещение без детали."
+   }
+   PARAM pull_detal_1_expr
+   {
+      TYPE s
+      DEFVAL "#532"
+      TOGGLE Off
+      UI_LABEL " Смещение с деталью."
+   }
+   PARAM pull_free_2_expr
+   {
+      TYPE s
+      DEFVAL "#533"
+      TOGGLE Off
+      UI_LABEL "Смещение без детали."
+   }
+   PARAM pull_detal_2_expr
+   {
+      TYPE s
+      DEFVAL "#534"
+      TOGGLE Off
+      UI_LABEL "Смещение с деталью."
+   }
+}
+
+#-----------------------------------------------------------------
+
+EVENT qtn_param_subspindle_gohome
+{
+   UI_LABEL "MAZAK QTN 200 MSY  : Parameters. Отвод шпинделя #2 "
+   CATEGORY MILL DRILL LATHE
+   PARAM qtn_subspin_gohome_opt
+   {
+      TYPE o
+      DEFVAL "0. Отвести пустой"
+      OPTIONS "0. Отвести пустой","1. Забрать деталь","2. Отломить и забрать надрезанную деталь"
+      UI_LABEL "Режим отвода"
+   }
+   PARAM qtn_var505
+   {
+      TYPE s
+      DEFVAL "#505"
+      TOGGLE Off
+      UI_LABEL "+ вытянуть  / - задвинуть заготовку."
+   }
+}
+
+#-----------------------------------------------------------------
