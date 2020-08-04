@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by Work @ Tuesday, August 04 2020, 05:45:08 +0300
+#  Created by Work @ Tuesday, August 04 2020, 06:04:20 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -256,7 +256,7 @@ proc PB_CMD___log_revisions { } {
   set mom_sys_seqnum_start                      "1"
   set mom_sys_seqnum_incr                       "1"
   set mom_sys_seqnum_freq                       "1"
-  set mom_sys_seqnum_max                        "9999999999"
+  set mom_sys_seqnum_max                        "999999999"
   set mom_sys_lathe_x_double                    "1"
   set mom_sys_lathe_i_double                    "1"
   set mom_sys_lathe_y_double                    "1"
@@ -475,8 +475,6 @@ proc MOM_end_of_program { } {
   global mom_program_aborted mom_event_error
    PB_CMD_END_PROGRAMM
    PB_CMD_header_nc
-
-   MOM_do_template rewind_stop_code
 
   # Write tool list with time in commentary data
    LIST_FILE_TRAILER
@@ -1863,7 +1861,7 @@ MOM_output_text "G30 X0"
 MOM_output_text "G90"
 
 MOM_output_text "M30"
-
+MOM_output_text "%"
 
 
 }
@@ -2680,7 +2678,7 @@ set s $mom_group_name
 #unset mom_group_name
 return $s
   }
-return ""
+return "O0001"
 }
 
 

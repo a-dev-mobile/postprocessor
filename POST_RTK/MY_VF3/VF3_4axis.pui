@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by Work @ Tuesday, August 04 2020, 05:45:08 +0300
+#  Created by Work @ Tuesday, August 04 2020, 06:04:20 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -236,6 +236,9 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:41:40 +0300 by Work.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:44:28 +0300 by Work.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:45:08 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:51:58 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:52:55 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 06:04:20 +0300 by Work.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -582,7 +585,7 @@ Text              ""  0  "Text String"  0
 #Operation End Sequence End
 
 #Program End Sequence Start
-{End of Program}           {PB_CMD_END_PROGRAMM PB_CMD_header_nc rewind_stop_code}  {$gPB(event,end_prog,name)}
+{End of Program}           {PB_CMD_END_PROGRAMM PB_CMD_header_nc}  {$gPB(event,end_prog,name)}
 #Program End Sequence End
 
 #Linked Posts Sequence Start
@@ -1131,7 +1134,7 @@ Text              ""  0  "Text String"  0
       {"$mom_sys_seqnum_start" "1" ""} \
       {"$mom_sys_seqnum_incr" "1" ""} \
       {"$mom_sys_seqnum_freq" "1" ""} \
-      {"$mom_sys_seqnum_max" "9999999999" ""} \
+      {"$mom_sys_seqnum_max" "999999999" ""} \
       {"$mom_sys_lathe_x_double" "1" ""} \
       {"$mom_sys_lathe_i_double" "1" ""} \
       {"$mom_sys_lathe_y_double" "1" ""} \
