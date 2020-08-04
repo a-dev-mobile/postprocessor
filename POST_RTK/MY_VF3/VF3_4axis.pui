@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Monday, July 27 2020, 11:19:43 +0300
+#  Created by Work @ Tuesday, August 04 2020, 05:45:08 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -217,6 +217,25 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 1
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 11:06:19 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 11:16:21 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, July 27 2020, 11:19:43 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 04:53:11 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 04:58:35 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:04:17 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:09:14 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:12:33 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:17:46 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:18:15 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:20:19 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:23:56 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:27:50 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:30:41 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:31:38 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:33:47 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:35:22 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:37:54 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:40:29 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:41:40 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:44:28 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:45:08 +0300 by Work.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -476,11 +495,11 @@ Text              ""  0  "Text String"  0
 
 ## SEQUENCE START
 #Program Start Sequence Start
-{Start of Program}         {PB_CMD_MAIN MOM_set_seq_off rewind_stop_code PB_CMD_program_header PB_CMD_start_of_program PB_CMD_combine_rotary_init PB_CMD_fix_RAPID_SET PB_CMD_MY_start_programm}  {$gPB(event,start_prog,name)}
+{Start of Program}         {PB_CMD_MAIN MOM_set_seq_off PB_CMD_start_of_program PB_CMD_combine_rotary_init PB_CMD_fix_RAPID_SET PB_CMD_MY_start_programm}  {$gPB(event,start_prog,name)}
 #Program Start Sequence End
 
 #Operation Start Sequence Start
-{Start of Path}            {MOM_set_seq_off MOM_set_seq_on PB_CMD_MY_oper_name PB_CMD_output_seq_number MOM_set_seq_off PB_CMD_start_of_operation_force_addresses PB_CMD_cycle_hole_counter_reset PB_CMD_MY_start_programm_1 PB_CMD_tool_name PB_CMD_output_seq_number_next PB_CMD_output_next_tool PB_CMD_tool_change_force_addresses}  {$gPB(event,opr_start,start_path,name)}
+{Start of Path}            {MOM_set_seq_off PB_CMD_MY_oper_name PB_CMD_start_of_operation_force_addresses PB_CMD_cycle_hole_counter_reset PB_CMD_MY_start_programm_1 PB_CMD_tool_name PB_CMD_output_next_tool PB_CMD_tool_change_force_addresses MOM_set_seq_on}  {$gPB(event,opr_start,start_path,name)}
 {From Move}                {}  {$gPB(event,opr_start,from_move,name)}
 {First Tool}               {}  {$gPB(event,opr_start,fst_tool,name)}
 {Auto Tool Change}         {}  {$gPB(event,opr_start,auto_tc,name)}
@@ -563,7 +582,7 @@ Text              ""  0  "Text String"  0
 #Operation End Sequence End
 
 #Program End Sequence Start
-{End of Program}           {PB_CMD_END_PROGRAMM end_of_program_2 MOM_set_seq_off rewind_stop_code}  {$gPB(event,end_prog,name)}
+{End of Program}           {PB_CMD_END_PROGRAMM PB_CMD_header_nc rewind_stop_code}  {$gPB(event,end_prog,name)}
 #Program End Sequence End
 
 #Linked Posts Sequence Start
@@ -1109,10 +1128,10 @@ Text              ""  0  "Text String"  0
       {"$mom_sys_home_pos(2)" "0" ""} \
       {"$mom_sys_zero" "0" ""} \
       {"$mom_sys_opskip_block_leader" "/" ""} \
-      {"$mom_sys_seqnum_start" "10" ""} \
-      {"$mom_sys_seqnum_incr" "10" ""} \
+      {"$mom_sys_seqnum_start" "1" ""} \
+      {"$mom_sys_seqnum_incr" "1" ""} \
       {"$mom_sys_seqnum_freq" "1" ""} \
-      {"$mom_sys_seqnum_max" "9999" ""} \
+      {"$mom_sys_seqnum_max" "9999999999" ""} \
       {"$mom_sys_lathe_x_double" "1" ""} \
       {"$mom_sys_lathe_i_double" "1" ""} \
       {"$mom_sys_lathe_y_double" "1" ""} \
@@ -1152,6 +1171,7 @@ Text              ""  0  "Text String"  0
       {"MOM_set_seq_on" "" "MOM Command"} \
       {"PB_CMD_END_PROGRAMM" "" "Custom Command"} \
       {"PB_CMD_FEEDRATE_NUMBER" "" "Custom Command"} \
+      {"PB_CMD_Header_tool_list" "" "Custom Command"} \
       {"PB_CMD_MAIN" "" "Custom Command"} \
       {"PB_CMD_MY_oper_name" "" "Custom Command"} \
       {"PB_CMD_MY_start_programm" "" "Custom Command"} \
@@ -1261,7 +1281,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
       {"PB_CMD_unset" "" "Custom Command"} \
-      {"PB_CMD_Header_tool_list" "" "Custom Command"}
+      {"PB_CMD_header_nc" "" "Custom Command"}
 {Operator_Message} \
       {"" "" ""}
 {PB_Spindle} \

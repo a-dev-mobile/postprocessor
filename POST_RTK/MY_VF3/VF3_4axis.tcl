@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Monday, July 27 2020, 11:19:43 +0300
+#  Created by Work @ Tuesday, August 04 2020, 05:45:08 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -253,10 +253,10 @@ proc PB_CMD___log_revisions { } {
   set mom_sys_home_pos(2)                       "0"
   set mom_sys_zero                              "0"
   set mom_sys_opskip_block_leader               "/"
-  set mom_sys_seqnum_start                      "10"
-  set mom_sys_seqnum_incr                       "10"
+  set mom_sys_seqnum_start                      "1"
+  set mom_sys_seqnum_incr                       "1"
   set mom_sys_seqnum_freq                       "1"
-  set mom_sys_seqnum_max                        "9999"
+  set mom_sys_seqnum_max                        "9999999999"
   set mom_sys_lathe_x_double                    "1"
   set mom_sys_lathe_i_double                    "1"
   set mom_sys_lathe_y_double                    "1"
@@ -474,9 +474,7 @@ proc MOM_end_of_program { } {
 #=============================================================
   global mom_program_aborted mom_event_error
    PB_CMD_END_PROGRAMM
-
-   MOM_do_template end_of_program_2
-   MOM_set_seq_off
+   PB_CMD_header_nc
 
    MOM_do_template rewind_stop_code
 
@@ -1531,17 +1529,14 @@ proc MOM_start_of_path { } {
    }
 
    MOM_set_seq_off
-   MOM_set_seq_on
    PB_CMD_MY_oper_name
-   PB_CMD_output_seq_number
-   MOM_set_seq_off
    PB_CMD_start_of_operation_force_addresses
    PB_CMD_cycle_hole_counter_reset
    PB_CMD_MY_start_programm_1
    PB_CMD_tool_name
-   PB_CMD_output_seq_number_next
    PB_CMD_output_next_tool
    PB_CMD_tool_change_force_addresses
+   MOM_set_seq_on
 }
 
 
@@ -1826,9 +1821,6 @@ proc PB_start_of_program { } {
 
    PB_CMD_MAIN
    MOM_set_seq_off
-
-   MOM_do_template rewind_stop_code
-   PB_CMD_program_header
    PB_CMD_start_of_program
    PB_CMD_combine_rotary_init
    PB_CMD_fix_RAPID_SET
@@ -1870,10 +1862,7 @@ MOM_output_text "G28 Y0"
 MOM_output_text "G30 X0"
 MOM_output_text "G90"
 
-MOM_output_text "(--TOOL_LIST--)"
-foreach name [ARRAY_GET_ALL_FROM_SUB_POST_TEXT] {
-MOM_output_text "($name)"
-}
+MOM_output_text "M30"
 
 
 
@@ -1955,6 +1944,8 @@ set tool_str [string toupper $tool_str];
 set array_tool_name($mom_tool_number) $tool_str;
 #set array_tool_length($mom_tool_length) $tool_str;
 #set array_tool_number($mom_tool_number) $tool_str;
+
+
 puts $ofile "(\T$mom_tool_number \ |VYLET = $mom_tool_zmount | \ $mom_tool_name  \ )";
 while { [gets $ifile buf] > 0 } {
 puts $ofile $buf
@@ -3337,11 +3328,11 @@ MOM_output_text "$a G91 G28 Z0.0"
 MOM_output_text "(------)"
 MOM_output_text "M1"
 MOM_output_text "(------)"
-MOM_output_text "( [GET_mom_operation_name])"
-MOM_output_text "( [GET_mom_oper_method])"
+MOM_output_text "( [GET_mom_operation_name] )"
+MOM_output_text "( [GET_mom_oper_method] )"
 MOM_output_text "(-)"
-MOM_output_text "( [GET_mom_tool_name])"
-MOM_output_text "( VYLET = [format "%0.0f" [GET_mom_tool_zmount]] mm)"
+MOM_output_text "( [GET_mom_tool_name] )"
+MOM_output_text "( VYLET = [format "%0.0f" [GET_mom_tool_zmount]] mm )"
 MOM_output_text "(------)"
 
 
@@ -3357,6 +3348,8 @@ proc PB_CMD_MY_start_programm { } {
 MOM_output_text "G17 G90 G21 G54 G40 G80"
 MOM_output_text "G91 G28 Z0.0"
 #MOM_output_text "G91 G28 A0.0"
+
+
 }
 
 
@@ -4797,6 +4790,77 @@ proc PB_CMD_handle_sync_event { } {
   set mom_sync_code [expr $mom_sync_code + $mom_sync_incr]
 
   MOM_output_literal "M$mom_sync_code"
+}
+
+
+#=============================================================
+proc PB_CMD_header_nc { } {
+#=============================================================
+
+global program_header_output
+
+global ptp_file_name mom_definition_file_name mom_output_file_full_name
+global mom_output_file_directory mom_output_file_basename mom_output_file_suffix
+global mom_warning_info
+global mom_machine_time mom_group_name mom_operation_name mom_part_name
+
+
+set hours [format %2.0f [expr [format %2.0f $mom_machine_time] / 60]]
+set minutes [format %0.0f [expr $mom_machine_time - 60 * $hours]]
+set tm1 [clock seconds]
+set tm2 [clock format $tm1 -format "%M:%S"]
+MOM_log_message "MOM Start = $tm2 "
+
+set tmp_file_name "${ptp_file_name}_"
+
+if {[file exists $tmp_file_name]} {
+MOM_remove_file $tmp_file_name
+}
+MOM_close_output_file $ptp_file_name
+file rename $ptp_file_name $tmp_file_name
+
+set ifile [open $tmp_file_name r]
+set ofile [open $ptp_file_name w]
+
+
+puts $ofile "%"
+puts $ofile "[GET_mom_group_name]"
+foreach name [ARRAY_INFO_START_PROGRAMM 27] {
+puts $ofile $name
+}
+puts $ofile "( --- )"
+
+puts $ofile "(--TOOL_LIST--)"
+foreach name [ARRAY_GET_ALL_FROM_SUB_POST_TEXT] {
+puts $ofile "( $name )"
+}
+
+
+
+
+
+
+
+
+
+
+while { [gets $ifile buf] > 0 } {
+puts $ofile $buf
+}
+close $ifile
+close $ofile
+MOM_remove_file $tmp_file_name
+set tm1 [clock seconds]
+set tm2 [clock format $tm1 -format "%M:%S"]
+MOM_log_message "MOM End = $tm2 "
+
+
+
+
+
+MOM_open_output_file $ptp_file_name
+
+
 }
 
 
@@ -6257,7 +6321,7 @@ proc PB_CMD_output_next_tool { } {
       return
    }
 
-   MOM_output_literal "T$mom_next_tool_number"
+  # MOM_output_literal "T$mom_next_tool_number"
 }
 
 
