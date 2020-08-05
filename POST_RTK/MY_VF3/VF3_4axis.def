@@ -13,10 +13,10 @@ FORMATTING
 ################ FORMAT DECLARATIONS #################
   FORMAT AbsCoord "&__5.3_"
   FORMAT Coordinate "&__5.3_"
+  FORMAT Digit_10 "&__9_00"
   FORMAT Digit_2 "&_02_00"
   FORMAT Digit_4 "&_04_00"
   FORMAT Digit_5 "&__5_00"
-  FORMAT Digit_10 "&__9_00"
   FORMAT Dwell_SECONDS "&__5_20"
   FORMAT EventNum "&+03_00"
   FORMAT Feed "&__7.2_"

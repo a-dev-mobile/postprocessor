@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by Work @ Tuesday, August 04 2020, 06:04:20 +0300
+#  Created by d.trofimov @ Wednesday, August 05 2020, 14:05:11 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1189,6 +1189,7 @@ proc MOM_first_move { } {
 
    MOM_force Once G_motion G_adjust Z H
    MOM_do_template init_move_adjust_len
+   PB_CMD_SOG
    catch { MOM_$mom_motion_event }
 
   # Configure turbo output settings
@@ -1259,9 +1260,6 @@ proc MOM_initial_move { } {
    MOM_force Once G_motion G_adjust Z H
    MOM_do_template init_move_adjust_len
    PB_CMD_SOG
-
-   MOM_force Once M_coolant
-   MOM_do_template coolant_on
 
   global mom_programmed_feed_rate
    if { [EQ_is_equal $mom_programmed_feed_rate 0] } {
@@ -3380,8 +3378,8 @@ MOM_output_text "$a G54 G90 G40 G80"
 #=============================================================
 proc PB_CMD_SOG { } {
 #=============================================================
-#MOM_output_text "M08"
-MOM_enable_address M_coolant
+MOM_output_literal "M08"
+#MOM_enable_address M_coolant
 }
 
 

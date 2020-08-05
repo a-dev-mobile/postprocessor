@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by Work @ Tuesday, August 04 2020, 06:04:20 +0300
+#  Created by d.trofimov @ Wednesday, August 05 2020, 14:05:11 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -239,6 +239,9 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:51:58 +0300 by Work.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 05:52:55 +0300 by Work.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, August 04 2020, 06:04:20 +0300 by Work.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, August 05 2020, 14:01:26 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, August 05 2020, 14:03:51 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, August 05 2020, 14:05:11 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -507,8 +510,8 @@ Text              ""  0  "Text String"  0
 {First Tool}               {}  {$gPB(event,opr_start,fst_tool,name)}
 {Auto Tool Change}         {}  {$gPB(event,opr_start,auto_tc,name)}
 {Manual Tool Change}       {stop PB_CMD_m0_smena_instrum}  {$gPB(event,opr_start,manual_tc,name)}
-{Initial Move}             {PB_CMD_output_machine_mode PB_CMD_output_unclamp_code PB_CMD_output_tcp_code PB_CMD_force_output PB_CMD_output_init_position spindle_rpm init_move_adjust_len PB_CMD_SOG coolant_on}  {$gPB(event,opr_start,init_move,name)}
-{First Move}               {PB_CMD_output_machine_mode PB_CMD_output_unclamp_code PB_CMD_output_tcp_code PB_CMD_force_output PB_CMD_output_init_position spindle_rpm init_move_adjust_len}  {$gPB(event,opr_start,fst_move,name)}
+{Initial Move}             {PB_CMD_output_machine_mode PB_CMD_output_unclamp_code PB_CMD_output_tcp_code PB_CMD_force_output PB_CMD_output_init_position spindle_rpm init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,init_move,name)}
+{First Move}               {PB_CMD_output_machine_mode PB_CMD_output_unclamp_code PB_CMD_output_tcp_code PB_CMD_force_output PB_CMD_output_init_position spindle_rpm init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,fst_move,name)}
 {Approach Move}            {}  {$gPB(event,opr_start,appro_move,name)}
 {Engage Move}              {}  {$gPB(event,opr_start,engage_move,name)}
 {First Cut}                {}  {$gPB(event,opr_start,fst_cut,name)}
@@ -598,8 +601,7 @@ Text              ""  0  "Text String"  0
 ## EVENTS ELEMENT EXECUTION START
 {Initial Move} \
         {5 NULL 0 {S M_spindle}} \
-        {6 NULL 0 {G_motion G_adjust Z H}} \
-        {8 NULL 0 {M_coolant}}
+        {6 NULL 0 {G_motion G_adjust Z H}}
 {First Move} \
         {5 NULL 0 {S M_spindle}} \
         {6 NULL 0 {G_motion G_adjust Z H}}
@@ -1217,6 +1219,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_force_output" "" "Custom Command"} \
       {"PB_CMD_fourth_axis_rotate_move" "" "Custom Command"} \
       {"PB_CMD_handle_sync_event" "" "Custom Command"} \
+      {"PB_CMD_header_nc" "" "Custom Command"} \
       {"PB_CMD_helix_move" "" "Custom Command"} \
       {"PB_CMD_init_after_first_tool" "" "Custom Command"} \
       {"PB_CMD_init_before_first_tool" "" "Custom Command"} \
@@ -1283,8 +1286,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_tool_preselect" "" "Custom Command"} \
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
-      {"PB_CMD_unset" "" "Custom Command"} \
-      {"PB_CMD_header_nc" "" "Custom Command"}
+      {"PB_CMD_unset" "" "Custom Command"}
 {Operator_Message} \
       {"" "" ""}
 {PB_Spindle} \
