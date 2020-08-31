@@ -147,8 +147,8 @@ FORMATTING
   {
       FORMAT      Rotary
       FORCE       off
-      MAX         9999.9999 Truncate
-      MIN         -9999.9999 Truncate
+      MAX         999999999.9999 Truncate
+      MIN         -99999999.9999 Truncate
       LEADER      [$mom_sys_leader(fourth_axis)]
       ZERO_FORMAT Zero_real
   }
@@ -157,8 +157,8 @@ FORMATTING
   {
       FORMAT      Rotary
       FORCE       off
-      MAX         9999.9999 Truncate
-      MIN         -9999.9999 Truncate
+      MAX         9999999.9999 Truncate
+      MIN         -9999999.9999 Truncate
       LEADER      [$mom_sys_leader(fifth_axis)]
       ZERO_FORMAT Zero_real
   }

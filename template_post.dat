@@ -8,8 +8,10 @@
 ###############################################################################
 DMC 635 4axis,${UGII_CAM_POST_DIR}POST_RTK\MY_DMC_635\rtk_dmc635_4axis.tcl,${UGII_CAM_POST_DIR}POST_RTK\MY_DMC_635\rtk_dmc635_4axis.def
 VF3 4axis,${UGII_CAM_POST_DIR}POST_RTK\MY_VF3\VF3_4axis.tcl,${UGII_CAM_POST_DIR}POST_RTK\MY_VF3\VF3_4axis.def
+Xmill,${UGII_CAM_POST_DIR}POST_RTK\Xmill\Xmill.tcl,${UGII_CAM_POST_DIR}POST_RTK\Xmill\Xmill.def
 
 
+--------,${UGII_CAM_POST_DIR}POST_mven\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.tcl,${UGII_CAM_POST_DIR}POST_mven\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.def
 MVEN 4axis,${UGII_CAM_POST_DIR}POST_mven\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.tcl,${UGII_CAM_POST_DIR}POST_mven\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.def
 ARSIER 4axis,${UGII_CAM_POST_DIR}POST_arsier\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.tcl,${UGII_CAM_POST_DIR}POST_arsier\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.def
 SIMONOVO DMU60 5axis,${UGII_CAM_POST_DIR}POST_SIMONOVO\MY_DMU60\DMU60_MILL.tcl,${UGII_CAM_POST_DIR}POST_SIMONOVO\MY_DMU60\DMU60_MILL.def

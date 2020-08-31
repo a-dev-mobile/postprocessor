@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, August 05 2020, 14:05:11 +0300
+#  Created by d.trofimov @ Thursday, August 20 2020, 16:34:41 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1854,8 +1854,6 @@ MOM_output_text "M9"
 MOM_output_text "M5"
 MOM_output_text "G91"
 MOM_output_text "G28 Z0"
-MOM_output_text "G28 Y0"
-MOM_output_text "G30 X0"
 MOM_output_text "G90"
 
 MOM_output_text "M30"
@@ -7042,6 +7040,9 @@ return
    if { ![string match $mom_user_prev_cutcom_status $mom_cutcom_status] } {
       set mom_user_prev_cutcom_status $mom_cutcom_status
    }
+
+
+
 }
 
 
