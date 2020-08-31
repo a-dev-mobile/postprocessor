@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by Work @ Tuesday, August 04 2020, 06:03:59 +0300
+#  Created by d.trofimov @ Monday, August 31 2020, 09:35:30 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -2529,6 +2529,8 @@ set ofile [open $ptp_file_name w]
 
 set mom_tool_name [format "%1s" $mom_tool_name]
 
+set mom_tool_zmount [format "%0.0f" $mom_tool_zmount]
+
 set mom_tool_length [format "%-9.1f" $mom_tool_length]
 
 set mom_tool_number [format "%9d" $mom_tool_number]
@@ -2790,7 +2792,7 @@ set a0 [SET_comment "---"]
 set a1 [SET_comment "Program: [GET_mom_group_name]" ]
 set a11 [SET_comment "Det: [GET_mom_part_name]" ]
 set a2 [SET_comment  "Date: [GET_mom_date]"]
-set a3 [SET_comment  "User: Trofimov D.I."]
+set a3 [SET_comment  "User:[GET_mom_logname]"]
 set a4 [SET_comment  "Machine: DMC 635 V ecoline SIEMENS 840D sl"]
 set a5 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 
