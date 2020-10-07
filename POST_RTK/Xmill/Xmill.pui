@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Monday, September 28 2020, 16:31:40 +0300
+#  Created by d.trofimov @ Wednesday, September 30 2020, 11:21:25 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -287,6 +287,7 @@ Saved Xmill with NX/Post Builder Version 12.0.2.1 on Monday, September 28 2020, 
 Created Xmill with NX/Post Builder Version 12.0.2.1 on Monday, September 28 2020, 14:35:57 +0300 by d.trofimov.
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Monday, September 28 2020, 14:37:58 +0300 by d.trofimov.
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Monday, September 28 2020, 16:31:40 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Wednesday, September 30 2020, 11:21:25 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -649,7 +650,7 @@ Text              ""  0  "Text String"  0
         {6 NULL 0 {G_motion G_adjust Z}}
 {First Move} \
         {5 NULL 0 {S M_spindle}} \
-        {6 NULL 0 {G_motion G_adjust Z H}}
+        {6 NULL 0 {G_motion G_adjust Z}}
 {Spindle RPM} \
         {0 NULL 0 {S M_spindle}}
 {Rapid Move} \

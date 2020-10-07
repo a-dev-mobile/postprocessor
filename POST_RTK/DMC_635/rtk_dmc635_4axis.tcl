@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by Work @ Tuesday, July 14 2020, 20:50:28 +0300
+#  Created by d.trofimov @ Wednesday, October 07 2020, 15:54:50 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -330,14 +330,14 @@ proc PB_CMD___log_revisions { } {
   set mom_kin_4th_axis_max_limit                "360"
   set mom_kin_4th_axis_min_incr                 "0.001"
   set mom_kin_4th_axis_min_limit                "0"
-  set mom_kin_4th_axis_plane                    "YZ"
+  set mom_kin_4th_axis_plane                    "ZX"
   set mom_kin_4th_axis_point(0)                 "0.0"
   set mom_kin_4th_axis_point(1)                 "0.0"
   set mom_kin_4th_axis_point(2)                 "0.0"
   set mom_kin_4th_axis_rotation                 "reverse"
   set mom_kin_4th_axis_type                     "Table"
-  set mom_kin_4th_axis_vector(0)                "1"
-  set mom_kin_4th_axis_vector(1)                "0"
+  set mom_kin_4th_axis_vector(0)                "0"
+  set mom_kin_4th_axis_vector(1)                "1"
   set mom_kin_4th_axis_vector(2)                "0"
   set mom_kin_4th_axis_zero                     "0.0"
   set mom_kin_5th_axis_ang_offset               "0.0"
@@ -1440,6 +1440,8 @@ proc MOM_end_of_path { } {
       PB_CMD_kin_end_of_path
    }
 
+   PB_CMD_set_prev_mom_out_angle_pos
+
    if { [PB_CMD__check_block_reset_trans] } {
       MOM_do_template reset_trans
    }
@@ -1497,6 +1499,8 @@ proc MOM_first_move { } {
       PB_call_macro CYCLE832_v7
    }
    PB_CMD_compressor
+   PB_CMD_view_A
+   PB_CMD_fgroup_a
 
    if { [PB_CMD__check_block_rotation_axes] } {
       MOM_force Once G_motion fourth_axis
@@ -1506,11 +1510,6 @@ proc MOM_first_move { } {
    if { [PB_CMD__check_block_ORIRESET] } {
       PB_call_macro ORIRESET
    }
-
-   MOM_do_template traori_trafoof
-
-   MOM_force Once G_offset
-   MOM_do_template fixture_offset
    PB_CMD_output_trans_arot
 
    if { [PB_CMD__check_block_CYCLE800] } {
@@ -1663,6 +1662,7 @@ proc MOM_initial_move { } {
    PB_CMD_detect_operation_type
 
    MOM_do_template g17
+   PB_CMD_fgroup_a
 
    if { [PB_CMD__check_block_rotation_axes] } {
       MOM_force Once G_motion fourth_axis
@@ -1677,12 +1677,6 @@ proc MOM_initial_move { } {
       PB_call_macro CYCLE832_v7
    }
    PB_CMD_compressor
-
-   MOM_force Once transf
-   MOM_do_template traori_trafoof
-
-   MOM_force Once G_offset
-   MOM_do_template fixture_offset
    PB_CMD_output_trans_arot
 
    if { [PB_CMD__check_block_CYCLE800] } {
@@ -1737,17 +1731,9 @@ proc MOM_linear_move { } {
 
    HANDLE_FIRST_LINEAR_MOVE
 
-   if { [PB_CMD__check_block_rotary] } {
-      MOM_do_template linear_move
-   }
+   PB_CMD_suppress_rotary_axis
 
-   if { [PB_CMD__check_block_traori_rotary] } {
-      MOM_do_template linear_move_2
-   }
-
-   if { [PB_CMD__check_block_traori_vector] } {
-      MOM_do_template linear_move_1
-   }
+   MOM_do_template linear_move
 }
 
 
@@ -1864,18 +1850,9 @@ proc MOM_rapid_move { } {
 
    RAPID_SET
    PB_CMD_rotate_rapid_coordinate
+   PB_CMD_suppress_rotary_axis_
 
-   if { [PB_CMD__check_block_rotary] } {
-      MOM_do_template rapid_traverse
-   }
-
-   if { [PB_CMD__check_block_traori_rotary] } {
-      MOM_do_template rapid_move
-   }
-
-   if { [PB_CMD__check_block_traori_vector] } {
-      MOM_do_template rapid_move_1
-   }
+   MOM_do_template rapid_traverse
 }
 
 
@@ -1972,6 +1949,7 @@ proc MOM_start_of_path { } {
       PB_CMD_kin_start_of_path
    }
 
+   PB_CMD_check_spin_tool
    PB_CMD_start_of_extcall_operation
    PB_CMD_output_start_program
    PB_CMD_reset_sinumerik_setting_in_group
@@ -2391,6 +2369,7 @@ proc PB_start_of_program { } {
       PB_CMD_kin_start_of_program
    }
 
+   PB_CMD_custom_command_1
    PB_CMD_MAIN
    PB_CMD_header
    PB_CMD_set_Sinumerik_version
@@ -2550,6 +2529,8 @@ set ofile [open $ptp_file_name w]
 
 
 set mom_tool_name [format "%1s" $mom_tool_name]
+
+set mom_tool_zmount [format "%0.0f" $mom_tool_zmount]
 
 set mom_tool_length [format "%-9.1f" $mom_tool_length]
 
@@ -2812,7 +2793,7 @@ set a0 [SET_comment "---"]
 set a1 [SET_comment "Program: [GET_mom_group_name]" ]
 set a11 [SET_comment "Det: [GET_mom_part_name]" ]
 set a2 [SET_comment  "Date: [GET_mom_date]"]
-set a3 [SET_comment  "User: Trofimov D.I."]
+set a3 [SET_comment  "User:[GET_mom_logname]"]
 set a4 [SET_comment  "Machine: DMC 635 V ecoline SIEMENS 840D sl"]
 set a5 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 
@@ -5501,7 +5482,7 @@ proc PB_CMD__check_block_rotary { } {
            MOM_suppress Once fourth_axis fifth_axis
         }
 
- return 1
+ return 0
      }
   }
 
@@ -5823,7 +5804,7 @@ proc PB_CMD__check_block_traori_rotary { } {
             set mom_mcs_goto(2) [expr $mom_mcs_goto(2) + $mom_cycle_rapid_to*$mom_tool_axis(2)]
          }
       }
- return 1
+ return 0
      }
   }
 
@@ -5890,7 +5871,7 @@ proc PB_CMD__check_block_traori_vector { } {
          }
       }
 
- return 1
+ return 0
      }
   }
 
@@ -6530,6 +6511,34 @@ proc PB_CMD_check_settings_for_cycle832 { } {
 
 
 #=============================================================
+proc PB_CMD_check_spin_tool { } {
+#=============================================================
+global mom_path_name
+global mom_spindle_speed  mom_path_name
+global mom_tool_diameter  mom_tool_name mom_tool_number
+
+
+
+ if { $mom_spindle_speed == 0 } {
+     MOM_output_to_listing_device " "
+     MOM_output_to_listing_device "   ======================================="
+     MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
+     MOM_output_to_listing_device "    ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ РАЗРЕШЕНО !!!!!!!!"
+     MOM_output_to_listing_device "   ======================================="
+     MOM_abort " "ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ ДОПУСКАЕТСЯ!" "
+ } elseif { $mom_tool_number == 0 } {
+     MOM_output_to_listing_device " "
+     MOM_output_to_listing_device "   ======================================="
+     MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
+     MOM_output_to_listing_device "    ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН !!!!!!!!"
+     MOM_output_to_listing_device "   ======================================="
+     MOM_abort " ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН! "
+ }
+
+}
+
+
+#=============================================================
 proc PB_CMD_choose_output_mode { } {
 #=============================================================
 # This proc is used to output proper address for current mode.
@@ -6914,6 +6923,18 @@ return
 proc PB_CMD_custom_command { } {
 #=============================================================
  MOM_force once X Y
+}
+
+
+#=============================================================
+proc PB_CMD_custom_command_1 { } {
+#=============================================================
+
+uplevel #0 {
+set prev_mom_out_angle_pos  "0"
+}
+
+
 }
 
 
@@ -7649,8 +7670,8 @@ proc PB_CMD_end_of_program { } {
 #=============================================================
 proc PB_CMD_end_programm { } {
 #=============================================================
-MOM_output_text "T0"
-MOM_output_text "M6"
+#MOM_output_text "T0"
+#MOM_output_text "M6"
 MOM_output_text "; ---"
 
 
@@ -7661,6 +7682,14 @@ MOM_output_text ";$name"
 }
 
 
+}
+
+
+#=============================================================
+proc PB_CMD_fgroup_a { } {
+#=============================================================
+MOM_output_literal "FGROUP(A)"
+MOM_output_literal "G54"
 }
 
 
@@ -11296,7 +11325,7 @@ proc PB_CMD_set_Sinumerik_default_setting { } {
 
   # To set default coordinate rotation output mode for 3+2 operations.
   global dpp_coord_rotation_output_type
-  set dpp_coord_rotation_output_type "TRAORI" ; # SWIVELING / TRAORI (+AROT)
+  set dpp_coord_rotation_output_type "SWIVELING" ; # SWIVELING / TRAORI (+AROT)
 
   global sinumerik_version
 
@@ -11341,7 +11370,7 @@ proc PB_CMD_set_Sinumerik_default_setting { } {
   set mom_siemens_compressor         "COMPOF" ;      # COMPCAD / COMPOF
   set mom_siemens_feedforward        "FFWON" ;       # FFWON / FFWOF
   set mom_siemens_top_surface_smooth "" ;            # _TOP_SURFACE_SMOOTH_ON / _TOP_SURFACE_SMOOTH_OFF
-  set mom_siemens_5axis_mode         "TRAORI" ;      # TRAORI / SWIVELING / TRAFOOF
+  set mom_siemens_5axis_mode         "SWIVELING" ;      # TRAORI / SWIVELING / TRAFOOF
   set mom_siemens_ori_def            "ROTARY AXES" ; # ROTARY AXES / VECTOR
 
   # Set the rotary tolerance.
@@ -11404,8 +11433,8 @@ proc PB_CMD_set_Sinumerik_version { } {
   global sinumerik_control_version
   global sinumerik_version
 
-# set sinumerik_version "V6"
-  set sinumerik_version "V7"
+ # set sinumerik_version "V6"
+ set sinumerik_version "V7"
 # set sinumerik_version "from V26 to V44"
 # set sinumerik_version "V45"
 # set sinumerik_version "V47"
@@ -11634,6 +11663,17 @@ proc PB_CMD_set_helix_move { } {
       YZ { MOM_suppress once I ; MOM_force Once J K }
       ZX { MOM_suppress once J ; MOM_force Once I K }
    }
+
+}
+
+
+#=============================================================
+proc PB_CMD_set_prev_mom_out_angle_pos { } {
+#=============================================================
+
+uplevel #0 {
+set prev_mom_out_angle_pos $mom_out_angle_pos(0)
+}
 
 }
 
@@ -12189,6 +12229,36 @@ MOM_force_block Once spindle_rpm
 
 
 #=============================================================
+proc PB_CMD_suppress_rotary_axis { } {
+#=============================================================
+#This command is used to suppress rotary axis for 3+2 machining.
+  global mom_tool_axis
+  global mom_prev_tool_axis
+
+  if {[info exists mom_tool_axis] && [info exists mom_prev_tool_axis]} {
+     if {[VEC3_is_equal mom_tool_axis mom_prev_tool_axis]} {
+        MOM_suppress Once fourth_axis fifth_axis
+     }
+  }
+}
+
+
+#=============================================================
+proc PB_CMD_suppress_rotary_axis_ { } {
+#=============================================================
+#This command is used to suppress rotary axis for 3+2 machining.
+  global mom_tool_axis
+  global mom_prev_tool_axis
+
+  if {[info exists mom_tool_axis] && [info exists mom_prev_tool_axis]} {
+     if {[VEC3_is_equal mom_tool_axis mom_prev_tool_axis]} {
+        MOM_suppress Once fourth_axis fifth_axis
+     }
+  }
+}
+
+
+#=============================================================
 proc PB_CMD_switch_output_mode_in_operation { } {
 #=============================================================
 # This command is used to switch output mode inside of operation
@@ -12373,10 +12443,33 @@ proc ROTARY_AXIS_RETRACT {} {
 #=============================================================
 proc PB_CMD_view_A { } {
 #=============================================================
-
 global mom_out_angle_pos
+global prev_mom_out_angle_pos
 
-MOM_output_text "G0 [format "%0.3f" $mom_out_angle_pos(0)]"
+
+
+#MOM_output_text "==G0 [format "%0.3f" $mom_out_angle_pos(0)]"
+
+
+
+
+set a ""
+if {[info exist prev_mom_out_angle_pos  ] } {
+
+if {[COMPARE__TEXT_TEXT "$prev_mom_out_angle_pos" "$mom_out_angle_pos(0)"]} {
+set a "--odinak A--"
+
+  } else {
+MOM_output_literal "SUPA G0 Z=_Z_HOME D0"
+set a "--not A--"
+}}
+
+
+
+
+
+
+
 }
 
 
@@ -17000,7 +17093,7 @@ proc PB_DEFINE_MACROS { } {
    set mom_pb_macro_arr(CYCLE832_v7) \
        [list {CYCLE832 ( , ) 0 {}} \
         {{_camtolerance 0} \
-         {{$cycle832_tolm} 1 0 6 0 0 6} \
+         {1 1 0 6 0 0 6} \
          {{$cycle832_v832} 0}}]
 
    set mom_pb_macro_arr(MCALL) \

@@ -6,10 +6,14 @@
 # 
 #
 ###############################################################################
-DMC 635 4axis,${UGII_CAM_POST_DIR}POST_RTK\MY_DMC_635\rtk_dmc635_4axis.tcl,${UGII_CAM_POST_DIR}POST_RTK\MY_DMC_635\rtk_dmc635_4axis.def
-VF3 4axis,${UGII_CAM_POST_DIR}POST_RTK\MY_VF3\VF3_4axis.tcl,${UGII_CAM_POST_DIR}POST_RTK\MY_VF3\VF3_4axis.def
-Xmill,${UGII_CAM_POST_DIR}POST_RTK\Xmill\Xmill.tcl,${UGII_CAM_POST_DIR}POST_RTK\Xmill\Xmill.def
 
+
+
+---Test local---,${UGII_CAM_POST_DIR}POST_mven\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.tcl,${UGII_CAM_POST_DIR}POST_mven\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.def
+DMC 635 4axis,${UGII_CAM_POST_DIR}POST_RTK\DMC_635\rtk_dmc635_4axis.tcl,${UGII_CAM_POST_DIR}POST_RTK\DMC_635\rtk_dmc635_4axis.def
+VF3 4axis,${UGII_CAM_POST_DIR}POST_RTK\VF3\VF3_4axis.tcl,${UGII_CAM_POST_DIR}POST_RTK\VF3\VF3_4axis.def
+Xmill,${UGII_CAM_POST_DIR}POST_RTK\Xmill\Xmill.tcl,${UGII_CAM_POST_DIR}POST_RTK\Xmill\Xmill.def
+TOOL_LIST,${UGII_CAM_POST_DIR}POST_RTK\TOOL_LIST\TOOL_LIST.tcl,${UGII_CAM_POST_DIR}POST_RTK\TOOL_LIST\TOOL_LIST.def
 
 --------,${UGII_CAM_POST_DIR}POST_mven\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.tcl,${UGII_CAM_POST_DIR}POST_mven\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.def
 MVEN 4axis,${UGII_CAM_POST_DIR}POST_mven\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.tcl,${UGII_CAM_POST_DIR}POST_mven\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.def

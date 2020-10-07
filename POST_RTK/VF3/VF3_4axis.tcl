@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Thursday, August 20 2020, 16:34:41 +0300
+#  Created by d.trofimov @ Friday, October 02 2020, 13:54:24 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -7029,6 +7029,7 @@ return
                MOM_force once G_plane
 
                 MOM_force once D
+
 
                set mom_sys_first_linear_move 0
             }

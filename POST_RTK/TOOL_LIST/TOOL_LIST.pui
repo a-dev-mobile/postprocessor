@@ -1,4 +1,4 @@
-## POSTBUILDER_VERSION=2010.0.2.1
+## POSTBUILDER_VERSION=2011.0.2.1
 ##############################################################################
 #                                                                            #
 #  This file is used by Post Builder to edit the parameters associated       #
@@ -8,14 +8,14 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by Tom @ 20 ôåâðàëÿ 2018 ã. 20:48:04 RTZ 2 (зима)
-#  with Post Builder version 11.0.2.
+#  Created by d.trofimov @ Friday, October 02 2020, 14:51:08 +0300
+#  with Post Builder version 12.0.2.
 #============================================================================#
 
 
 ## POST EVENT HANDLER START
-def_file  sub_post.def
-tcl_file  sub_post.tcl
+def_file  TOOL_LIST.def
+tcl_file  TOOL_LIST.tcl
 ## POST EVENT HANDLER END
 
 
@@ -368,19 +368,17 @@ Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:43:5
 Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:43:54 RTZ 2 (зима) by Admin.
 Saved with NX/Post Builder Version 10.0.0.0 on 15 äåêàáðÿ 2017 ã. 14:36:46 RTZ 2 (зима) by Admin.
 Saved with NX/Post Builder Version 10.0.0.0 on 15 äåêàáðÿ 2017 ã. 15:42:14 RTZ 2 (зима) by Admin.
-Created sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:08:53 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:09:24 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:13:13 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:24:32 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:31:59 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:35:08 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:37:59 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:39:47 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:40:53 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:44:20 RTZ 2 (зима) by Tom.
-Created sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:47:30 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:47:33 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:48:03 RTZ 2 (зима) by Tom.
+Saved TOOL_LIST with NX/Post Builder Version 11.0.2.1 on 30 ìàðòà 2018 ã. 13:11:22 Московское время (зима) by trofimovdi.
+Saved TOOL_LIST with NX/Post Builder Version 11.0.2.1 on 30 ìàðòà 2018 ã. 13:13:56 Московское время (зима) by trofimovdi.
+Saved TOOL_LIST with NX/Post Builder Version 11.0.2.1 on 30 ìàðòà 2018 ã. 13:14:37 Московское время (зима) by trofimovdi.
+Saved with NX/Post Builder Version 11.0.0.1 on 24 ñåíòÿáðÿ 2018 ã. 11:33:10 Романское время (зима) by trofimovdi.
+Saved with NX/Post Builder Version 11.0.0.1 on 24 ñåíòÿáðÿ 2018 ã. 11:33:42 Романское время (зима) by trofimovdi.
+Saved with NX/Post Builder Version 11.0.0.1 on 24 ñåíòÿáðÿ 2018 ã. 11:34:06 Романское время (зима) by trofimovdi.
+Saved TOOL_LIST with NX/Post Builder Version 12.0.2.1 on Friday, October 02 2020, 14:43:56 +0300 by d.trofimov.
+Saved TOOL_LIST with NX/Post Builder Version 12.0.2.1 on Friday, October 02 2020, 14:47:21 +0300 by d.trofimov.
+Saved TOOL_LIST with NX/Post Builder Version 12.0.2.1 on Friday, October 02 2020, 14:49:47 +0300 by d.trofimov.
+Saved TOOL_LIST with NX/Post Builder Version 12.0.2.1 on Friday, October 02 2020, 14:50:39 +0300 by d.trofimov.
+Saved TOOL_LIST with NX/Post Builder Version 12.0.2.1 on Friday, October 02 2020, 14:51:08 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -388,7 +386,7 @@ Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 �
 ## LISTING FILE START
 Listfileflag_warn              OFF
 Listfileflag                   OFF
-Listfileflag_alt_unit_post_name sub_post__IN.pui
+Listfileflag_alt_unit_post_name TOOL_LIST__IN.pui
 Listfileflag_group             OFF
 Listfileflag_verbose           OFF
 Listfileflag_tool              0
@@ -1104,8 +1102,8 @@ Text              ""  0  "Text String"  0
       {"VNC_Mode" "Standalone" ""} \
       {"Main_VNC" "" ""} \
       {"Decimal_Point" "." ""} \
-      {"Comment_Start" "(" ""} \
-      {"Comment_End" ")" ""} \
+      {"Comment_Start" ";" ""} \
+      {"Comment_End" "" ""} \
       {"seq_blk_nc_code" "0" ""} \
       {"$mom_sys_blank_code" "" ""} \
       {"$is_linked_post" "0" ""} \
@@ -1211,8 +1209,7 @@ Text              ""  0  "Text String"  0
       {"$mom_sys_prev_mach_head" "" ""} \
       {"$mom_sys_curr_mach_head" "" ""} \
       {"$mom_sys_feed_param(MMPM,format)" "Feed_MMPM" ""} \
-      {"$mom_sys_feed_param(MMPR,format)" "Feed_MMPR" ""} \
-      {"$mom_sys_advanced_turbo_output" "0" ""}
+      {"$mom_sys_feed_param(MMPR,format)" "Feed_MMPR" ""}
 {Command} \
       {"Custom Command" "" "New Custom Command"} \
       {"MOM_set_seq_off" "" "MOM Command"} \

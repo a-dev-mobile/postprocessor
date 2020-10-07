@@ -957,7 +957,7 @@ FORMATTING
        G_motion[$mom_sys_rapid_code]
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
-       D[$mom_tool_adjust_register]
+       D[1]
   }
 
   BLOCK_TEMPLATE g17
@@ -1035,41 +1035,7 @@ FORMATTING
        Z[$mom_pos(2)]
        fourth_axis[$mom_out_angle_pos(0)]
        S[$mom_spindle_speed]
-       D[$mom_tool_adjust_register]\opt
-       M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
-       M_coolant[$mom_sys_coolant_code($mom_coolant_status)]\opt
-       F[$mom_sinumerik_feed]\opt
-  }
-
-  BLOCK_TEMPLATE linear_move_1
-  {
-       G_cutcom[$mom_sys_cutcom_code($mom_cutcom_status)]\opt
-       G_feed[$mom_sys_feed_rate_mode_code($feed_mode)]\opt
-       G_motion[$mom_sys_linear_code]
-       X[$mom_mcs_goto(0)]
-       Y[$mom_mcs_goto(1)]
-       Z[$mom_mcs_goto(2)]
-       A3[$mom_tool_axis(0)]\opt
-       B3[$mom_tool_axis(1)]\opt
-       C3[$mom_tool_axis(2)]\opt
-       S[$mom_spindle_speed]
-       D[$mom_tool_adjust_register]\opt
-       M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
-       M_coolant[$mom_sys_coolant_code($mom_coolant_status)]\opt
-       F[$mom_sinumerik_feed]\opt
-  }
-
-  BLOCK_TEMPLATE linear_move_2
-  {
-       G_cutcom[$mom_sys_cutcom_code($mom_cutcom_status)]\opt
-       G_feed[$mom_sys_feed_rate_mode_code($feed_mode)]\opt
-       G_motion[$mom_sys_linear_code]
-       X[$mom_mcs_goto(0)]
-       Y[$mom_mcs_goto(1)]
-       Z[$mom_mcs_goto(2)]
-       fourth_axis[$mom_out_angle_pos(0)]
-       S[$mom_spindle_speed]
-       D[$mom_tool_adjust_register]\opt
+       D[1]\opt
        M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
        M_coolant[$mom_sys_coolant_code($mom_coolant_status)]\opt
        F[$mom_sinumerik_feed]\opt
@@ -1143,34 +1109,6 @@ FORMATTING
        G[$mom_prefun]
   }
 
-  BLOCK_TEMPLATE rapid_move
-  {
-       G_motion[$mom_sys_rapid_code]
-       G_mode[$mom_sys_output_code($mom_output_mode)]\opt
-       X[$mom_mcs_goto(0)]
-       Y[$mom_mcs_goto(1)]
-       Z[$mom_mcs_goto(2)]
-       fourth_axis[$mom_out_angle_pos(0)]
-       S[$mom_spindle_speed]
-       D[$mom_tool_adjust_register]
-       M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
-  }
-
-  BLOCK_TEMPLATE rapid_move_1
-  {
-       G_motion[$mom_sys_rapid_code]
-       G_mode[$mom_sys_output_code($mom_output_mode)]\opt
-       X[$mom_mcs_goto(0)]
-       Y[$mom_mcs_goto(1)]
-       Z[$mom_mcs_goto(2)]
-       A3[$mom_tool_axis(0)]\opt
-       B3[$mom_tool_axis(1)]\opt
-       C3[$mom_tool_axis(2)]\opt
-       S[$mom_spindle_speed]
-       D[$mom_tool_adjust_register]
-       M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
-  }
-
   BLOCK_TEMPLATE rapid_traverse
   {
        G_motion[$mom_sys_rapid_code]
@@ -1180,7 +1118,7 @@ FORMATTING
        Z[$mom_pos(2)]
        fourth_axis[$mom_out_angle_pos(0)]
        S[$mom_spindle_speed]\opt
-       D[$mom_tool_adjust_register]\opt
+       D[1]
        M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
   }
 
@@ -1282,7 +1220,7 @@ FORMATTING
 
   BLOCK_TEMPLATE start_of_path_2
   {
-       cam_tolerance[$mom_inside_outside_tolerances(0)+$mom_inside_outside_tolerances(1)]\opt
+       cam_tolerance[0.01]\opt
   }
 
   BLOCK_TEMPLATE start_of_program
@@ -1334,7 +1272,7 @@ FORMATTING
        Text[X=_X_HOME Y=_Y_HOME]
        fourth_axis_home[$mom_sys_leader(fourth_axis_home)]\opt
        fifth_axis_home[$mom_sys_leader(fifth_axis_home)]\opt
-       D[$mom_tool_adjust_register]\opt
+       D[0]\opt
   }
 
   BLOCK_TEMPLATE tool_change_return_home_Z
@@ -1383,37 +1321,7 @@ FORMATTING
        transf[$mom_siemens_5axis_output]\opt
   }
 
-  BLOCK_TEMPLATE comment_blk_1
-  {
-       " "
-  }
-
-  BLOCK_TEMPLATE comment_blk_2
-  {
-       " "
-  }
-
-  BLOCK_TEMPLATE comment_blk_3
-  {
-       " "
-  }
-
-  BLOCK_TEMPLATE comment_blk_4
-  {
-       " "
-  }
-
   BLOCK_TEMPLATE comment_blk_5
-  {
-       " "
-  }
-
-  BLOCK_TEMPLATE comment_blk
-  {
-       " "
-  }
-
-  BLOCK_TEMPLATE comment_blk_6
   {
        " "
   }

@@ -4,8 +4,8 @@
 #
 #    This is a 3-Axis Milling Machine.
 #
-#  Created by Tom @ 20 ôåâðàëÿ 2018 ã. 20:48:03 RTZ 2 (зима)
-#  with Post Builder version 11.0.2.
+#  Created by d.trofimov @ Wednesday, September 30 2020, 11:06:27 +0300
+#  with Post Builder version 12.0.2.
 #
 ########################################################################
 
@@ -34,34 +34,34 @@ proc PB_CMD___log_revisions { } {
         source ${cam_post_dir}ugpost_base.tcl
         set mom_sys_ugpost_base_initialized 1
      }
- 
- 
+
+
      set mom_sys_debug_mode OFF
- 
- 
+
+
      if { ![info exists env(PB_SUPPRESS_UGPOST_DEBUG)] } {
         set env(PB_SUPPRESS_UGPOST_DEBUG) 0
      }
- 
+
      if { $env(PB_SUPPRESS_UGPOST_DEBUG) } {
         set mom_sys_debug_mode OFF
      }
- 
+
      if { ![string compare $mom_sys_debug_mode "OFF"] } {
- 
+
         proc MOM_before_each_add_var {} {}
         proc MOM_before_each_event   {} {}
         proc MOM_before_load_address {} {}
         proc MOM_end_debug {} {}
- 
+
      } else {
- 
+
         set cam_debug_dir [MOM_ask_env_var UGII_CAM_DEBUG_DIR]
         source ${cam_debug_dir}mom_review.tcl
      }
 
 
-   ####  Listing File variables 
+   ####  Listing File variables
      set mom_sys_list_output                       "OFF"
      set mom_sys_header_output                     "OFF"
      set mom_sys_list_file_rows                    "40"
@@ -276,7 +276,7 @@ proc PB_CMD___log_revisions { } {
   set mom_sys_word_separator                    " "
   set mom_sys_end_of_block                      ""
   set mom_sys_ugpadvkins_used                   "0"
-  set mom_sys_post_builder_version              "11.0.2"
+  set mom_sys_post_builder_version              "12.0.2"
 
 ####### KINEMATIC VARIABLE DECLARATIONS ##############
   set mom_kin_4th_axis_ang_offset               "0.0"
@@ -601,7 +601,7 @@ proc MOM_machine_mode { } {
       set pb_start_of_program_flag 1
    }
 
-  # For simple mill-turn
+  # Reload post for simple mill-turn
    if { [llength [info commands PB_machine_mode] ] } {
       if { [catch {PB_machine_mode} res] } {
          CATCH_WARNING "$res"
@@ -1364,7 +1364,9 @@ proc MOM_rapid_move { } {
    set spindle_first NONE
 
    set aa(0) X ; set aa(1) Y ; set aa(2) Z
+
    RAPID_SET
+
    set rapid_spindle_blk {G_adjust G_motion G_mode X Y Z H}
    set rapid_spindle_x_blk {G_adjust G_motion G_mode X H}
    set rapid_spindle_y_blk {G_adjust G_motion G_mode Y H}
@@ -1730,12 +1732,6 @@ proc PB_auto_tool_change { } {
 
 #=============================================================
 proc PB_engage_move { } {
-#=============================================================
-}
-
-
-#=============================================================
-proc PB_feedrates { } {
 #=============================================================
 }
 
@@ -3290,13 +3286,13 @@ MOM_output_text $name
 #=============================================================
 proc PB_CMD_TOOL_LIST_END { } {
 #=============================================================
-foreach name [ARRAY_INFO_START_PROGRAMM 3] {
+#foreach name [ARRAY_INFO_START_PROGRAMM 3] {
 #MOM_output_text $name
-}
+#}
 
 foreach name [VIEW_TOOL_ARG 1] {
+MOM_output_text [VIEW_TEXT "$name" 0]
 
-MOM_output_text  [VIEW_TEXT "$name" 0]
 
 }
 
@@ -4737,15 +4733,20 @@ proc CALLED_BY { caller {out_warn 0} args } {
 #
 # Revisions:
 #-----------
-# 05-25-10 gsl - Initial implementation
-# 03-09-11 gsl - Enhanced description
+# 05-25-2010 gsl - Initial implementation
+# 03-09-2011 gsl - Enhanced description
+# 06-29-2018 gsl - Only compare the 0th element in command string
 #
 
-   if { ![string compare "$caller" [info level -2] ] } {
+   if { [info level] <= 2 } {
+return 0
+   }
+
+   if { ![string compare "$caller" [lindex [info level -2] 0] ] } {
 return 1
    } else {
       if { $out_warn } {
-         CATCH_WARNING "\"[info level -1]\" can not be executed in \"[info level -2]\". \
+         CATCH_WARNING "\"[lindex [info level -1] 0]\" cannot be executed in \"[lindex [info level -2] 0]\". \
                         It must be called by \"$caller\"!"
       }
 return 0
@@ -4784,10 +4785,10 @@ proc CATCH_WARNING { msg {output 1} } {
 
       if { [info exists mom_operation_name] && [string length $mom_operation_name] } {
          set mom_warning_info "$msg\n\  Operation $mom_operation_name - Event $mom_event_number [MOM_ask_event_type] :\
-                               $mom_motion_event ($mom_motion_type)\n\    $mom_o_buffer\n\      $call_stack"
+                               $mom_motion_event ($mom_motion_type)\n\    $mom_o_buffer\n\      $call_stack\n"
       } else {
          set mom_warning_info "$msg\n\  Event $mom_event_number [MOM_ask_event_type] :\
-                               $mom_motion_event ($mom_motion_type)\n\    $mom_o_buffer\n\      $call_stack"
+                               $mom_motion_event ($mom_motion_type)\n\    $mom_o_buffer\n\      $call_stack\n"
       }
 
       MOM_catch_warning
@@ -4822,7 +4823,7 @@ proc CMD_EXIST { cmd {out_warn 0} args } {
 return 1
    } else {
       if { $out_warn } {
-         CATCH_WARNING "Command \"$cmd\" called by \"[info level -1]\" does not exist!"
+         CATCH_WARNING "Command \"$cmd\" called by \"[lindex [info level -1] 0]\" does not exist!"
       }
 return 0
    }
@@ -5117,7 +5118,11 @@ proc PAUSE { args } {
             set gPB(PB_disable_MOM_pause) 1
 
             uplevel #0 {
-               MOM_abort "*** User Abort Post Processing *** "
+               if { [CMD_EXIST MOM_abort_program] } {
+                  MOM_abort_program "*** User Abort Post Processing *** "
+               } else {
+                  MOM_abort "*** User Abort Post Processing *** "
+               }
             }
          }
          default {
@@ -5228,7 +5233,11 @@ proc PAUSE_win64 { args } {
             set gPB(PB_disable_MOM_pause) 1
 
             uplevel #0 {
-               MOM_abort "*** User Abort Post Processing *** "
+               if { [CMD_EXIST MOM_abort_program] } {
+                  MOM_abort_program "*** User Abort Post Processing *** "
+               } else {
+                  MOM_abort "*** User Abort Post Processing *** "
+               }
             }
          }
          default {}
@@ -5343,7 +5352,7 @@ proc STR_MATCH { VAR str {out_warn 0} } {
 return 1
    } else {
       if { $out_warn } {
-         CATCH_WARNING "Variable $VAR is not defined in \"[info level -1]\"!"
+         CATCH_WARNING "Variable $VAR is not defined in \"[lindex [info level -1] 0]\"!"
       }
 return 0
    }

@@ -666,6 +666,11 @@ FORMATTING
        G_cutcom[$mom_sys_cutcom_code(OFF)]
   }
 
+  BLOCK_TEMPLATE cutcom_on
+  {
+       D[$mom_tool_number]
+  }
+
   BLOCK_TEMPLATE cycle_bore
   {
        G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
