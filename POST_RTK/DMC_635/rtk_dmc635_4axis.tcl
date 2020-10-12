@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, October 07 2020, 15:54:50 +0300
+#  Created by d.trofimov @ Monday, October 12 2020, 09:44:50 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1551,9 +1551,7 @@ proc MOM_first_tool { } {
 
    MOM_force Once Text G_motion Text D
    MOM_do_template tool_change_return_home
-
-   MOM_force Once T
-   MOM_do_template tool_change_2
+   PB_CMD_name_tool_for_sinumerik
 
    MOM_force Once M
    MOM_do_template tool_change_1
@@ -2297,9 +2295,7 @@ proc PB_auto_tool_change { } {
    }
 
    PB_CMD_Header_tool_list
-
-   MOM_force Once T
-   MOM_do_template tool_change
+   PB_CMD_name_tool_for_sinumerik
 
    MOM_force Once M
    MOM_do_template tool_change_1
@@ -2527,8 +2523,8 @@ set ifile [open $tmp_file_name r]
 set ofile [open $ptp_file_name w]
 
 
+#set mom_tool_name [format "%1s" $mom_tool_name]
 
-set mom_tool_name [format "%1s" $mom_tool_name]
 
 set mom_tool_zmount [format "%0.0f" $mom_tool_zmount]
 
@@ -2536,7 +2532,7 @@ set mom_tool_length [format "%-9.1f" $mom_tool_length]
 
 set mom_tool_number [format "%9d" $mom_tool_number]
 
-set tool_str ";\VYLET = $mom_tool_zmount | \ $mom_tool_name  \ ";
+set tool_str ";\VYLET = $mom_tool_zmount | \ [GET_mom_attr_TOOL_NAME_1]  \ ";
 
 set tool_str [string toupper $tool_str];
 
@@ -2546,7 +2542,7 @@ set array_tool_name($mom_tool_number) $tool_str;
 
 #set array_tool_number($mom_tool_number) $tool_str;
 
-puts $ofile ";\VYLET = $mom_tool_zmount | \ $mom_tool_name  \ ";
+puts $ofile ";\VYLET = $mom_tool_zmount | \ [GET_mom_attr_TOOL_NAME_1]  \ ";
 
 while { [gets $ifile buf] > 0 } {
 
@@ -2803,7 +2799,34 @@ return  [SPLIT_TEXT $a]
 }
 
 
+if { $arg_1 == 27 } {
 
+set a0 [SET_comment "---"]
+set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a2 [SET_comment "Det: [GET_mom_part_name]" ]
+set a3 [SET_comment  "Date: [GET_mom_date]"]
+set a4 [SET_comment  "User:[GET_mom_logname]"]
+set a5 [SET_comment  "Machine: Haas VF-3"]
+set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
+
+#set a "$a0`$a2`$a21`$a3`$a4`$a0"
+set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
+return  [SPLIT_TEXT $a]
+}
+if { $arg_1 == 28 } {
+
+set a0 [SET_comment "---"]
+set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a2 [SET_comment "Det: [GET_mom_part_name]" ]
+set a3 [SET_comment  "Date: [GET_mom_date]"]
+set a4 [SET_comment  "User:[GET_mom_logname]"]
+set a5 [SET_comment  "Machine: X.mill 1100L CNC"]
+set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
+
+#set a "$a0`$a2`$a21`$a3`$a4`$a0"
+set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
+return  [SPLIT_TEXT $a]
+}
 
 if { $arg_1 == 21 } {
 
@@ -3267,6 +3290,23 @@ if { [info exist mom_operation_notes] && $mom_operation_notes(0) !=""  } {
 return ""
         }
 
+
+
+
+#==============================
+proc GET_mom_attr_TOOL_NAME_1 { } {
+
+global mom_attr_TOOL_TOOL_NAME_1
+
+if {[info exist mom_attr_TOOL_TOOL_NAME_1  ] } {
+set s $mom_attr_TOOL_TOOL_NAME_1
+return $s
+  }
+return [GET_mom_tool_name]
+}
+
+
+
 #===================================
 
 proc GET_mom_group_name { } {
@@ -3277,7 +3317,7 @@ set s $mom_group_name
 #unset mom_group_name
 return $s
   }
-return ""
+return "P00001"
 }
 
 
@@ -3896,6 +3936,9 @@ return $name
 }
 
 }
+
+
+
 
 
 }
@@ -9887,6 +9930,13 @@ MOM_output_literal "MSG (\"[GET_mom_operation_name] | [GET_mom_tool_name]\")"
 
 
 #=============================================================
+proc PB_CMD_name_tool_for_sinumerik { } {
+#=============================================================
+MOM_output_literal "T=\"[GET_mom_attr_TOOL_NAME_1]\""
+}
+
+
+#=============================================================
 proc PB_CMD_nurbs_poly { } {
 #=============================================================
   global mom_kin_nurbs_output_type
@@ -12453,6 +12503,7 @@ global prev_mom_out_angle_pos
 
 
 
+
 set a ""
 if {[info exist prev_mom_out_angle_pos  ] } {
 
@@ -12461,8 +12512,10 @@ set a "--odinak A--"
 
   } else {
 MOM_output_literal "SUPA G0 Z=_Z_HOME D0"
+MOM_output_literal "SUPA G0 X=_X_HOME Y=_Y_HOME A=_A_HOME D0"
 set a "--not A--"
 }}
+
 
 
 

@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Wednesday, October 07 2020, 15:54:50 +0300
+#  Created by d.trofimov @ Monday, October 12 2020, 09:44:50 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -242,6 +242,26 @@ Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, October 
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, October 05 2020, 14:58:19 +0300 by d.trofimov.
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 07 2020, 15:53:13 +0300 by d.trofimov.
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 07 2020, 15:54:50 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 09 2020, 14:33:00 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 09 2020, 14:34:18 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 09 2020, 14:34:32 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 09 2020, 14:36:01 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 09 2020, 14:36:39 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 09 2020, 14:40:40 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 09 2020, 14:43:19 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 09 2020, 14:46:30 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 09 2020, 14:47:46 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 09 2020, 14:48:50 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 09 2020, 15:20:55 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, October 12 2020, 09:29:19 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, October 12 2020, 09:30:27 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, October 12 2020, 09:34:55 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, October 12 2020, 09:35:43 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, October 12 2020, 09:39:11 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, October 12 2020, 09:39:31 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, October 12 2020, 09:41:10 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, October 12 2020, 09:42:26 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, October 12 2020, 09:44:50 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -505,8 +525,8 @@ Text              ""  0  "Text String"  0
 #Operation Start Sequence Start
 {Start of Path}            {PB_CMD_check_spin_tool PB_CMD_start_of_extcall_operation PB_CMD_output_start_program PB_CMD_reset_sinumerik_setting_in_group PB_CMD_set_fixture_offset comment_blk_7 home_position home_position_rotary start_of_path_2 PB_CMD_oper_and_method PB_CMD_start_of_operation_force_addresses}  {$gPB(event,opr_start,start_path,name)}
 {From Move}                {}  {$gPB(event,opr_start,from_move,name)}
-{First Tool}               {PB_CMD_Header_tool_list trafoof tool_change_return_home_Z tool_change_return_home tool_change_2 tool_change_1 PB_CMD_msg_oper_and_tool trafoof tool_change_return_home_Z tool_change_return_home}  {$gPB(event,opr_start,fst_tool,name)}
-{Auto Tool Change}         {PB_CMD_Header_tool_list tool_change tool_change_1 PB_CMD_msg_oper_and_tool trafoof tool_change_return_home_Z tool_change_return_home}  {$gPB(event,opr_start,auto_tc,name)}
+{First Tool}               {PB_CMD_Header_tool_list trafoof tool_change_return_home_Z tool_change_return_home PB_CMD_name_tool_for_sinumerik tool_change_1 PB_CMD_msg_oper_and_tool trafoof tool_change_return_home_Z tool_change_return_home}  {$gPB(event,opr_start,fst_tool,name)}
+{Auto Tool Change}         {PB_CMD_Header_tool_list PB_CMD_name_tool_for_sinumerik tool_change_1 PB_CMD_msg_oper_and_tool trafoof tool_change_return_home_Z tool_change_return_home}  {$gPB(event,opr_start,auto_tc,name)}
 {Manual Tool Change}       {PB_CMD_move_force_addresses stop}  {$gPB(event,opr_start,manual_tc,name)}
 {Initial Move}             {PB_CMD_define_feed_variable_value PB_CMD_detect_operation_type g17 PB_CMD_fgroup_a rotation_axes {ORIRESET {} 0} {CYCLE832_v7 {} 0} PB_CMD_compressor PB_CMD_output_trans_arot {CYCLE800_sl {} 0} PB_CMD_move_force_addresses from_xy PB_CMD_cooland_on}  {$gPB(event,opr_start,init_move,name)}
 {First Move}               {PB_CMD_detect_operation_type PB_CMD_define_feed_variable_value PB_CMD_msg_oper_and_tool g17 {CYCLE832_v7 {} 0} PB_CMD_compressor PB_CMD_view_A PB_CMD_fgroup_a rotation_axes {ORIRESET {} 0} PB_CMD_output_trans_arot {CYCLE800_sl {} 0} PB_CMD_move_force_addresses from_xy PB_CMD_cooland_on_1}  {$gPB(event,opr_start,fst_move,name)}
@@ -612,12 +632,10 @@ Text              ""  0  "Text String"  0
 {First Tool} \
         {2 NULL 0 {Text G_motion Text D}} \
         {3 NULL 0 {Text G_motion Text D}} \
-        {4 NULL 0 {T}} \
         {5 NULL 0 {M}} \
         {8 NULL 0 {Text G_motion Text D}} \
         {9 NULL 0 {Text G_motion Text D}}
 {Auto Tool Change} \
-        {1 NULL 0 {T}} \
         {2 NULL 0 {M}} \
         {5 NULL 0 {Text G_motion Text D}} \
         {6 NULL 0 {Text G_motion Text D}}
@@ -1442,6 +1460,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_linear_move" "" "Custom Command"} \
       {"PB_CMD_move_force_addresses" "" "Custom Command"} \
       {"PB_CMD_msg_oper_and_tool" "" "Custom Command"} \
+      {"PB_CMD_name_tool_for_sinumerik" "" "Custom Command"} \
       {"PB_CMD_nurbs_poly" "" "Custom Command"} \
       {"PB_CMD_nurbs_spline" "" "Custom Command"} \
       {"PB_CMD_oper_and_method" "" "Custom Command"} \
