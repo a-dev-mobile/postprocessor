@@ -684,6 +684,19 @@ return "[GET_mom_sys_control_out] $arg_text1 $arg_text2 [GET_mom_sys_control_in]
 
 }
 
+#==============================
+proc GET_mom_attr_TOOL_NAME_1 { } {
+
+global mom_attr_TOOL_TOOL_NAME_1
+
+if {[info exist mom_attr_TOOL_TOOL_NAME_1  ] } {
+set s $mom_attr_TOOL_TOOL_NAME_1
+return $s
+  }
+return [GET_mom_tool_name]
+}
+
+
 #===================================
 proc GET_mom_operation_notes   { } {
 #===================================
@@ -724,6 +737,21 @@ return $s
 return "P00001"
 }
 
+
+
+#===================================
+
+proc GET_mom_attr_TOOL_VYLET { } {
+#===================================
+global mom_attr_TOOL_VYLET
+
+if {[info exist mom_attr_TOOL_VYLET  ] } {
+set s $mom_attr_TOOL_VYLET
+unset mom_attr_TOOL_VYLET
+return $s
+  }
+return "0"
+}
 
 #===================================
 proc GET_mom_parent_group_name { } {
@@ -953,8 +981,10 @@ return "null mom_tool_z_offset_defined        " }
 proc GET_mom_tool_zmount               { } {
 #===================================
 global mom_tool_zmount
-if {[info exist mom_tool_zmount              ] } { return $mom_tool_zmount             }
-return "0" }
+if {[info exist mom_tool_zmount              ] } { 
+return [format "%0.0f" $mom_tool_zmount]             }
+return "0" 
+}
 
 
 
@@ -1061,10 +1091,12 @@ proc GET_mom_tool_name  { } {
 #===================================
 global mom_tool_name
 if {[info exist mom_tool_name  ] } { return $mom_tool_name     }
-
 unset mom_tool_name
 return "NULL mom_tool_name"
 }
+#===================================
+
+
 #===================================
 
 proc GET_mom_oper_method  { } {

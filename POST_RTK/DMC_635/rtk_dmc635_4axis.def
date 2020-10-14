@@ -1270,8 +1270,6 @@ FORMATTING
        Text[SUPA]
        G_motion[$mom_sys_rapid_code]
        Text[X=_X_HOME Y=_Y_HOME]
-       fourth_axis_home[$mom_sys_leader(fourth_axis_home)]\opt
-       fifth_axis_home[$mom_sys_leader(fifth_axis_home)]\opt
        D[0]\opt
   }
 
