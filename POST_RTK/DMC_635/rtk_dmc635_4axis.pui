@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Wednesday, October 14 2020, 12:39:19 +0300
+#  Created by d.trofimov @ Wednesday, October 21 2020, 09:53:46 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -302,6 +302,26 @@ Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, Octob
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 14 2020, 12:09:34 +0300 by d.trofimov.
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 14 2020, 12:10:36 +0300 by d.trofimov.
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 14 2020, 12:39:18 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, October 15 2020, 12:14:07 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 16 2020, 09:42:47 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:09:01 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:12:29 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:16:33 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:22:01 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:24:55 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:28:57 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:31:46 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:33:51 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:35:46 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:36:45 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:37:59 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:38:30 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:39:03 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:39:44 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:40:10 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:40:46 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:48:14 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:53:46 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -563,13 +583,13 @@ Text              ""  0  "Text String"  0
 #Program Start Sequence End
 
 #Operation Start Sequence Start
-{Start of Path}            {PB_CMD_check_spin_tool PB_CMD_start_of_extcall_operation PB_CMD_output_start_program PB_CMD_reset_sinumerik_setting_in_group PB_CMD_set_fixture_offset comment_blk_7 home_position home_position_rotary start_of_path_2 PB_CMD_oper_and_method PB_CMD_start_of_operation_force_addresses}  {$gPB(event,opr_start,start_path,name)}
+{Start of Path}            {PB_CMD_check_spin_tool PB_CMD_start_of_extcall_operation PB_CMD_output_start_program PB_CMD_reset_sinumerik_setting_in_group PB_CMD_set_fixture_offset PB_CMD_oper_and_method PB_CMD_start_of_operation_force_addresses}  {$gPB(event,opr_start,start_path,name)}
 {From Move}                {}  {$gPB(event,opr_start,from_move,name)}
-{First Tool}               {PB_CMD_Header_tool_list PB_CMD_goto_Z_ref PB_CMD_name_tool_for_sinumerik tool_change_1 PB_CMD_msg_oper_and_tool trafoof}  {$gPB(event,opr_start,fst_tool,name)}
+{First Tool}               {PB_CMD_Header_tool_list PB_CMD_goto_Z_ref PB_CMD_name_tool_for_sinumerik PB_CMD_msg_oper_and_tool trafoof}  {$gPB(event,opr_start,fst_tool,name)}
 {Auto Tool Change}         {PB_CMD_Header_tool_list PB_CMD_msg_oper_and_tool PB_CMD_goto_Z_ref PB_CMD_name_tool_for_sinumerik tool_change_1}  {$gPB(event,opr_start,auto_tc,name)}
 {Manual Tool Change}       {PB_CMD_move_force_addresses stop}  {$gPB(event,opr_start,manual_tc,name)}
 {Initial Move}             {PB_CMD_define_feed_variable_value PB_CMD_detect_operation_type g17 PB_CMD_fgroup_a spindle_rpm rotation_axes PB_CMD_output_trans_arot {CYCLE800_sl {} 0} PB_CMD_move_force_addresses from_xy PB_CMD_cooland_on}  {$gPB(event,opr_start,init_move,name)}
-{First Move}               {PB_CMD_detect_operation_type PB_CMD_define_feed_variable_value PB_CMD_msg_oper_and_tool g17 PB_CMD_view_A PB_CMD_fgroup_a spindle_rpm rotation_axes {ORIRESET {} 0} PB_CMD_output_trans_arot {CYCLE800_sl {} 0} PB_CMD_move_force_addresses from_xy PB_CMD_cooland_on_1}  {$gPB(event,opr_start,fst_move,name)}
+{First Move}               {PB_CMD_detect_operation_type PB_CMD_define_feed_variable_value PB_CMD_msg_oper_and_tool PB_CMD_name_tool_for_sinumerik g17 PB_CMD_view_A PB_CMD_fgroup_a spindle_rpm rotation_axes {ORIRESET {} 0} PB_CMD_output_trans_arot {CYCLE800_sl {} 0} PB_CMD_move_force_addresses from_xy PB_CMD_cooland_on_1}  {$gPB(event,opr_start,fst_move,name)}
 {Approach Move}            {PB_CMD_output_motion_message}  {$gPB(event,opr_start,appro_move,name)}
 {Engage Move}              {PB_CMD_output_motion_message}  {$gPB(event,opr_start,engage_move,name)}
 {First Cut}                {}  {$gPB(event,opr_start,fst_cut,name)}
@@ -658,7 +678,7 @@ Text              ""  0  "Text String"  0
 #Operation End Sequence End
 
 #Program End Sequence Start
-{End of Program}           {PB_CMD_end_of_extcall_program comment_blk_5 PB_CMD_goto_ZYX_ref PB_CMD_end_programm end_of_program PB_CMD_end_of_program MOM_set_seq_off PB_CMD_info_text_tool_vylet}  {$gPB(event,end_prog,name)}
+{End of Program}           {PB_CMD_end_of_extcall_program comment_blk_5 PB_CMD_goto_Z_ref PB_CMD_end_programm end_of_program PB_CMD_end_of_program MOM_set_seq_off PB_CMD_info_text_tool_vylet}  {$gPB(event,end_prog,name)}
 #Program End Sequence End
 
 #Linked Posts Sequence Start
@@ -669,8 +689,6 @@ Text              ""  0  "Text String"  0
 ## SEQUENCE END
 
 ## EVENTS ELEMENT EXECUTION START
-{First Tool} \
-        {3 NULL 0 {M}}
 {Auto Tool Change} \
         {4 NULL 0 {M}}
 {Initial Move} \
@@ -679,11 +697,11 @@ Text              ""  0  "Text String"  0
         {7 PB_CMD__check_block_CYCLE800 0} \
         {9 NULL 0 {G_motion X Y D}}
 {First Move} \
-        {6 NULL 0 {S M_spindle}} \
-        {7 PB_CMD__check_block_rotation_axes 0 {G_motion fourth_axis}} \
-        {8 PB_CMD__check_block_ORIRESET 0} \
-        {10 PB_CMD__check_block_CYCLE800 0} \
-        {12 NULL 0 {G_motion X Y}}
+        {7 NULL 0 {S M_spindle}} \
+        {8 PB_CMD__check_block_rotation_axes 0 {G_motion fourth_axis}} \
+        {9 PB_CMD__check_block_ORIRESET 0} \
+        {11 PB_CMD__check_block_CYCLE800 0} \
+        {13 NULL 0 {G_motion X Y}}
 {Spindle RPM} \
         {0 NULL 0 {S M_spindle}}
 {Delay} \
@@ -1463,8 +1481,11 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_fix_RAPID_SET" "" "Custom Command"} \
       {"PB_CMD_fourth_axis_rotate_move" "" "Custom Command"} \
       {"PB_CMD_get_feed_value" "" "Custom Command"} \
+      {"PB_CMD_goto_ZYX_ref" "" "Custom Command"} \
+      {"PB_CMD_goto_Z_ref" "" "Custom Command"} \
       {"PB_CMD_handle_sync_event" "" "Custom Command"} \
       {"PB_CMD_header" "" "Custom Command"} \
+      {"PB_CMD_info_text_tool_vylet" "" "Custom Command"} \
       {"PB_CMD_init_cycle_parameters" "" "Custom Command"} \
       {"PB_CMD_init_dnc_header" "" "Custom Command"} \
       {"PB_CMD_init_extcall" "" "Custom Command"} \
@@ -1546,10 +1567,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
       {"PB_CMD_uplevel_ROTARY_AXIS_RETRACT" "" "Custom Command"} \
-      {"PB_CMD_view_A" "" "Custom Command"} \
-      {"PB_CMD_goto_Z_ref" "" "Custom Command"} \
-      {"PB_CMD_goto_ZYX_ref" "" "Custom Command"} \
-      {"PB_CMD_info_text_tool_vylet" "" "Custom Command"}
+      {"PB_CMD_view_A" "" "Custom Command"}
 {Operator_Message} \
       {"comment_blk_5" "End of Program" "Operator Message"} \
       {"comment_blk_7" "------" "Operator Message"}

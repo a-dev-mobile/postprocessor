@@ -4,7 +4,7 @@
 #
 #    This is a 3-Axis Milling Machine.
 #
-#  Created by Work @ Tuesday, July 14 2020, 20:39:01 +0300
+#  Created by d.trofimov @ Thursday, October 15 2020, 11:29:23 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -2478,7 +2478,7 @@ foreach name $tool_name_list1 {
 if {$arg1 == 1} {
 lappend all_text  "-"
 lappend all_text  "$name"
-lappend all_text  "VYLET = $ARR2($name) mm"
+lappend all_text  "VYLET OT SHPINDEL = $ARR2($name) mm"
 }
 
 

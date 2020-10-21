@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, October 14 2020, 12:39:18 +0300
+#  Created by d.trofimov @ Wednesday, October 21 2020, 09:53:46 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -494,7 +494,7 @@ proc MOM_end_of_program { } {
    PB_CMD_end_of_extcall_program
 
    MOM_output_literal ";End of Program"
-   PB_CMD_goto_ZYX_ref
+   PB_CMD_goto_Z_ref
    PB_CMD_end_programm
 
    MOM_do_template end_of_program
@@ -1489,6 +1489,7 @@ proc MOM_first_move { } {
    PB_CMD_detect_operation_type
    PB_CMD_define_feed_variable_value
    PB_CMD_msg_oper_and_tool
+   PB_CMD_name_tool_for_sinumerik
 
    MOM_do_template g17
    PB_CMD_view_A
@@ -1540,9 +1541,6 @@ proc MOM_first_tool { } {
    PB_CMD_Header_tool_list
    PB_CMD_goto_Z_ref
    PB_CMD_name_tool_for_sinumerik
-
-   MOM_force Once M
-   MOM_do_template tool_change_1
    PB_CMD_msg_oper_and_tool
 
    MOM_do_template trafoof
@@ -1928,14 +1926,6 @@ proc MOM_start_of_path { } {
    PB_CMD_output_start_program
    PB_CMD_reset_sinumerik_setting_in_group
    PB_CMD_set_fixture_offset
-
-   MOM_output_literal ";------"
-
-   MOM_do_template home_position
-
-   MOM_do_template home_position_rotary
-
-   MOM_do_template start_of_path_2
    PB_CMD_oper_and_method
    PB_CMD_start_of_operation_force_addresses
 }
@@ -6627,16 +6617,16 @@ global mom_tool_diameter  mom_tool_name mom_tool_number
      MOM_output_to_listing_device " "
      MOM_output_to_listing_device "   ======================================="
      MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
-     MOM_output_to_listing_device "    ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ РАЗРЕШЕНО !!!!!!!!"
+     MOM_output_to_listing_device "    ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ !!!!!!!!"
      MOM_output_to_listing_device "   ======================================="
-     MOM_abort " "ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ ДОПУСКАЕТСЯ!" "
+   #  MOM_abort " "ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ ДОПУСКАЕТСЯ!" "
  } elseif { $mom_tool_number == 0 } {
      MOM_output_to_listing_device " "
      MOM_output_to_listing_device "   ======================================="
      MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
-     MOM_output_to_listing_device "    ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН !!!!!!!!"
+     MOM_output_to_listing_device "    ОШИБКА: ИНСТРУМЕНТ T0  !!!!!!!!"
      MOM_output_to_listing_device "   ======================================="
-     MOM_abort " ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН! "
+   #  MOM_abort " ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН! "
  }
 
 }
@@ -10110,6 +10100,7 @@ MOM_output_literal "MSG (\"[GET_mom_operation_name] | [GET_mom_attr_TOOL_NAME_1]
 proc PB_CMD_name_tool_for_sinumerik { } {
 #=============================================================
 MOM_output_literal "T=\"[GET_mom_attr_TOOL_NAME_1]\""
+MOM_output_literal "M6"
 }
 
 
@@ -10259,6 +10250,7 @@ if {1} {
 #=============================================================
 proc PB_CMD_oper_and_method { } {
 #=============================================================
+MOM_output_text ";------"
 MOM_output_text "M1"
 MOM_output_text ";------"
 MOM_output_text "; [GET_mom_operation_name ]"
@@ -10563,12 +10555,12 @@ proc PB_CMD_output_start_program { } {
 
   if { ![info exists start_output_flag] || $start_output_flag == 0 } {
      set start_output_flag 1
-     MOM_output_literal ";Start of Program"
-     MOM_output_literal ";"
+     MOM_output_literal ";Start of Programm"
+
      #MOM_output_literal ";PART NAME   :$mom_part_name"
      #MOM_output_literal ";DATE TIME   :$mom_date"
      MOM_output_literal ";"
-     MOM_output_literal "DEF REAL _camtolerance"
+     # MOM_output_literal "DEF REAL _camtolerance"
      set fourth_home ""
      set fifth_home ""
      if {[string compare "3_axis_mill" $mom_kin_machine_type]} {
@@ -10579,12 +10571,18 @@ proc PB_CMD_output_start_program { } {
            set fifth_home ", $mom_sys_leader(fifth_axis_home)"
         }
      }
-     MOM_output_literal "DEF REAL _X_HOME, _Y_HOME, _Z_HOME$fourth_home$fifth_home"
-     #MOM_output_literal "DEF REAL _F_CUTTING, _F_ENGAGE, _F_RETRACT"
-     MOM_output_literal ";"
+     MOM_output_literal "DEF REAL _X_HOME, _Y_HOME, _Z_HOME, _A_HOME"
+   #  MOM_output_literal "G40 G17 G710 G94 G90 G60 G601 FNORM"
+    MOM_output_literal ";------"
      MOM_force Once G_cutcom G_plane G F_control G_stopping G_feed G_unit G_mode
-     MOM_do_template start_of_program
+
+    MOM_output_literal "_X_HOME=-630. _Y_HOME=-5. _Z_HOME=-5."
+    MOM_output_literal "_A_HOME=0"
+    MOM_output_literal ";------"
+MOM_do_template start_of_program
+
   }
+
 }
 
 
@@ -11804,15 +11802,15 @@ proc PB_CMD_set_fixture_offset { } {
   global mom_fixture_offset_value
   global mom_siemens_fixture_offset_value
 
-  if { [info exists mom_fixture_offset_value] } {
-      if {$mom_fixture_offset_value <= 0 } {
-         set mom_siemens_fixture_offset_value 500
-      } elseif {$mom_fixture_offset_value<=4} {
-         set mom_siemens_fixture_offset_value [expr $mom_fixture_offset_value + 53]
-      } elseif {$mom_fixture_offset_value>4} {
-         set mom_siemens_fixture_offset_value [expr $mom_fixture_offset_value + 500]
-      }
-  }
+  #if { [info exists mom_fixture_offset_value] } {
+    #  if {$mom_fixture_offset_value <= 0 } {
+    #     set mom_siemens_fixture_offset_value 500
+   #   } elseif {$mom_fixture_offset_value<=4} {
+    #     set mom_siemens_fixture_offset_value [expr $mom_fixture_offset_value + 53]
+    #  } elseif {$mom_fixture_offset_value>4} {
+    #     set mom_siemens_fixture_offset_value [expr $mom_fixture_offset_value + 500]
+    #  }
+ # }
 }
 
 
