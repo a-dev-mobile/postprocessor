@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Friday, October 23 2020, 10:27:47 +0300
+#  Created by d.trofimov @ Tuesday, October 27 2020, 14:42:41 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1763,6 +1763,7 @@ proc PB_auto_tool_change { } {
       set mom_next_tool_number $mom_tool_number
    }
 
+   PB_CMD_get_tool_info
 }
 
 
@@ -1856,6 +1857,19 @@ MOM_output_text "M5"
 MOM_output_text "G91"
 MOM_output_text "G28 Z0"
 MOM_output_text "G90"
+
+
+
+
+
+MOM_output_text "( --- )"
+MOM_output_text "(--TOOL_LIST--)"
+foreach name [ARRAY_GET_ALL_FROM_SUB_POST_TEXT] {
+MOM_output_text "($name)"
+}
+
+
+
 
 MOM_output_text "M30"
 MOM_output_text "%"
@@ -2177,7 +2191,7 @@ set a0 [SET_comment "---"]
 set a1 [SET_comment "Program: [GET_mom_group_name]" ]
 set a11 [SET_comment "Det: [GET_mom_part_name]" ]
 set a2 [SET_comment  "Date: [GET_mom_date]"]
-set a3 [SET_comment  "User: Trofimov D.I."]
+set a3 [SET_comment  "User:[GET_mom_logname]"]
 set a4 [SET_comment  "Machine: DMC 635 V ecoline SIEMENS 840D sl"]
 set a5 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 
@@ -2194,14 +2208,27 @@ set a1 [SET_comment "Program: [GET_mom_group_name]" ]
 set a2 [SET_comment "Det: [GET_mom_part_name]" ]
 set a3 [SET_comment  "Date: [GET_mom_date]"]
 set a4 [SET_comment  "User:[GET_mom_logname]"]
-set a5 [SET_comment  "Machine: Haas VF-3"]
+set a5 [SET_comment  "Machine: Haas VF-3 or SMM"]
 set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 
 #set a "$a0`$a2`$a21`$a3`$a4`$a0"
 set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
 return  [SPLIT_TEXT $a]
 }
+if { $arg_1 == 28 } {
 
+set a0 [SET_comment "---"]
+set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a2 [SET_comment "Det: [GET_mom_part_name]" ]
+set a3 [SET_comment  "Date: [GET_mom_date]"]
+set a4 [SET_comment  "User:[GET_mom_logname]"]
+set a5 [SET_comment  "Machine: X.mill 1100L CNC"]
+set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
+
+#set a "$a0`$a2`$a21`$a3`$a4`$a0"
+set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
+return  [SPLIT_TEXT $a]
+}
 
 if { $arg_1 == 21 } {
 
@@ -2563,6 +2590,7 @@ set status_tool "NO" }
 }
 
 
+
 #MOM_output_text "seccond status_tool $status_tool"
 #MOM_output_text "GET_mom_next_oper_has_tool_change [GET_mom_next_oper_has_tool_change]"
 
@@ -2638,6 +2666,19 @@ return "[GET_mom_sys_control_out] $arg_text1 $arg_text2 [GET_mom_sys_control_in]
 
 }
 
+#==============================
+proc GET_mom_attr_TOOL_NAME_1 { } {
+
+global mom_attr_TOOL_TOOL_NAME_1
+
+if {[info exist mom_attr_TOOL_TOOL_NAME_1  ] } {
+set s $mom_attr_TOOL_TOOL_NAME_1
+return $s
+  }
+return [GET_mom_tool_name]
+}
+
+
 #===================================
 proc GET_mom_operation_notes   { } {
 #===================================
@@ -2675,9 +2716,24 @@ set s $mom_group_name
 #unset mom_group_name
 return $s
   }
-return "O0001"
+return "O00001"
 }
 
+
+
+#===================================
+
+proc GET_mom_attr_TOOL_VYLET { } {
+#===================================
+global mom_attr_TOOL_VYLET
+
+if {[info exist mom_attr_TOOL_VYLET  ] } {
+set s $mom_attr_TOOL_VYLET
+unset mom_attr_TOOL_VYLET
+return $s
+  }
+return "0"
+}
 
 #===================================
 proc GET_mom_parent_group_name { } {
@@ -2907,8 +2963,10 @@ return "null mom_tool_z_offset_defined        " }
 proc GET_mom_tool_zmount               { } {
 #===================================
 global mom_tool_zmount
-if {[info exist mom_tool_zmount              ] } { return $mom_tool_zmount             }
-return "0" }
+if {[info exist mom_tool_zmount              ] } {
+return [format "%0.0f" $mom_tool_zmount]             }
+return "0"
+}
 
 
 
@@ -3015,10 +3073,12 @@ proc GET_mom_tool_name  { } {
 #===================================
 global mom_tool_name
 if {[info exist mom_tool_name  ] } { return $mom_tool_name     }
-
 unset mom_tool_name
 return "NULL mom_tool_name"
 }
+#===================================
+
+
 #===================================
 
 proc GET_mom_oper_method  { } {
@@ -3119,6 +3179,17 @@ if {[info exist mom_spindle_rpm] } { return $mom_spindle_rpm   }
 return "0"
 }
 
+
+
+
+
+
+
+
+
+
+
+
 #==============PROVERKI START=====================
 proc CHECK_correction_rapid    { } {
 global mom_cutcom_status
@@ -3155,6 +3226,32 @@ proc CHECK_SPEED_SPINDLE  {min_sp max_sp} {
 #---------------------------
 
 
+proc CHECK_ZERO_SPEED_AND_TOOL {} {
+
+global mom_path_name
+global mom_spindle_speed
+global mom_tool_number
+
+
+
+ if { $mom_spindle_speed == 0 } {
+     MOM_output_to_listing_device " "
+     MOM_output_to_listing_device "   ======================================="
+     MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
+     MOM_output_to_listing_device "    ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ !!!!!!!!"
+     MOM_output_to_listing_device "   ======================================="
+   #  MOM_abort " "ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ ДОПУСКАЕТСЯ!" "
+ }
+ if { $mom_tool_number == 0 } {
+     MOM_output_to_listing_device " "
+     MOM_output_to_listing_device "   ======================================="
+     MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
+     MOM_output_to_listing_device "    ОШИБКА: ИНСТРУМЕНТ T0  !!!!!!!!"
+     MOM_output_to_listing_device "   ======================================="
+   #  MOM_abort " ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН! "
+ }
+
+}
 
 #==============PROVERKI END=====================
 
@@ -3298,6 +3395,7 @@ return $name
 
 
 
+
 }
 
 
@@ -3305,7 +3403,7 @@ return $name
 proc PB_CMD_MY_oper_name { } {
 #=============================================================
 
-
+set a [CHECK_ZERO_SPEED_AND_TOOL]
 
 global prev_tool_number
 set a ""
@@ -4755,6 +4853,16 @@ proc PB_CMD_fourth_axis_rotate_move { } {
 
 
 #=============================================================
+proc PB_CMD_get_tool_info { } {
+#=============================================================
+uplevel #0 {
+global tool_name_list
+lappend tool_name_list "(T[GET_mom_tool_number] | [GET_mom_attr_TOOL_NAME_1] | [GET_mom_attr_TOOL_VYLET])"
+}
+}
+
+
+#=============================================================
 proc PB_CMD_handle_sync_event { } {
 #=============================================================
   global mom_sync_code
@@ -4783,13 +4891,10 @@ proc PB_CMD_handle_sync_event { } {
 proc PB_CMD_header_nc { } {
 #=============================================================
 
-global program_header_output
-
 global ptp_file_name mom_definition_file_name mom_output_file_full_name
 global mom_output_file_directory mom_output_file_basename mom_output_file_suffix
 global mom_warning_info
 global mom_machine_time mom_group_name mom_operation_name mom_part_name
-
 
 set hours [format %2.0f [expr [format %2.0f $mom_machine_time] / 60]]
 set minutes [format %0.0f [expr $mom_machine_time - 60 * $hours]]
@@ -4816,18 +4921,20 @@ puts $ofile $name
 }
 puts $ofile "( --- )"
 
-puts $ofile "(--TOOL_LIST--)"
-foreach name [ARRAY_GET_ALL_FROM_SUB_POST_TEXT] {
-puts $ofile "( $name )"
+
+
+#-----------
+puts $ofile "(\ T number | \ T name | \ VYLET)";
+puts $ofile "( --- )"
+global tool_name_list
+set tool_name_list1 [LIST_DEL_DUBLI $tool_name_list]
+foreach name $tool_name_list1 {
+puts $ofile $name
 }
-
-
-
-
-
-
-
-
+#unset tool_name_list
+#unset tool_name_list1
+puts $ofile "( --- )"
+#-----------
 
 
 while { [gets $ifile buf] > 0 } {
@@ -4839,8 +4946,6 @@ MOM_remove_file $tmp_file_name
 set tm1 [clock seconds]
 set tm2 [clock format $tm1 -format "%M:%S"]
 MOM_log_message "MOM End = $tm2 "
-
-
 
 
 
@@ -7142,6 +7247,103 @@ set final_tap_mode "84"
 proc PB_CMD_tool_change_force_addresses { } {
 #=============================================================
    MOM_force once X Y Z S fourth_axis fifth_axis
+}
+
+
+#=============================================================
+proc PB_CMD_tool_list_2 { } {
+#=============================================================
+global ptp_file_name mom_definition_file_name mom_output_file_full_name
+global mom_output_file_directory mom_output_file_basename mom_output_file_suffix
+global mom_warning_info
+global mom_machine_time mom_group_name mom_operation_name mom_part_name
+global mom_tool_count mom_tool_use
+global mom_logname mom_ug_version mom_date mom_machine_name
+global coord_z
+global mom_machine_time
+global mom_tool_name
+global tool_data_diameter
+global tool_data_name
+global array_tool_name;
+global mom_tool_name;
+global mom_tool_number;
+global mom_tool_zmount
+global mom_tool_length
+
+set hours [format %2.0f [expr [format %2.0f $mom_machine_time] / 60]]
+
+set minutes [format %0.0f [expr $mom_machine_time - 60 * $hours]]
+
+set tm1 [clock seconds]
+
+set tm2 [clock format $tm1 -format "%M:%S"]
+
+MOM_log_message "MOM Start = $tm2 "
+
+set tmp_file_name "${ptp_file_name}_"
+if {[file exists $tmp_file_name]} {
+MOM_remove_file $tmp_file_name
+}
+
+MOM_close_output_file $ptp_file_name
+file rename $ptp_file_name $tmp_file_name
+set ifile [open $tmp_file_name r]
+set ofile [open $ptp_file_name w]
+
+
+
+#set mom_tool_name [format "%1s" $mom_tool_name]
+
+
+set mom_tool_zmount [format "%0.0f" $mom_tool_zmount]
+
+set mom_tool_length [format "%-9.1f" $mom_tool_length]
+
+set mom_tool_number [format "%9d" $mom_tool_number]
+
+set tool_str ";\VYLET = $mom_tool_zmount | \ [GET_mom_attr_TOOL_NAME_1]  \ ";
+
+set tool_str [string toupper $tool_str];
+
+set array_tool_name($mom_tool_number) $tool_str;
+#set array_tool_length($mom_tool_length) $tool_str;
+
+#set array_tool_number($mom_tool_number) $tool_str;
+
+#puts $ofile ";\VYLET = $mom_tool_zmount | \ [GET_mom_attr_TOOL_NAME_1]  \ ";
+
+puts $ofile ";\T [GET_mom_tool_number] | \ [GET_mom_attr_TOOL_NAME_1] | \ [GET_mom_attr_TOOL_VYLET]";
+#puts $ofile ";\ T number | \ T name | \ VYLET";
+
+
+while { [gets $ifile buf] > 0 } {
+
+puts $ofile $buf
+
+}
+
+
+
+close $ifile
+
+close $ofile
+
+MOM_remove_file $tmp_file_name
+
+
+
+set tm1 [clock seconds]
+
+set tm2 [clock format $tm1 -format "%M:%S"]
+
+MOM_log_message "MOM End = $tm2 "
+
+
+
+
+
+MOM_open_output_file $ptp_file_name
+
 }
 
 

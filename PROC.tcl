@@ -227,7 +227,7 @@ set a1 [SET_comment "Program: [GET_mom_group_name]" ]
 set a2 [SET_comment "Det: [GET_mom_part_name]" ]
 set a3 [SET_comment  "Date: [GET_mom_date]"]
 set a4 [SET_comment  "User:[GET_mom_logname]"]
-set a5 [SET_comment  "Machine: Haas VF-3"]
+set a5 [SET_comment  "Machine: Haas VF-3 or SMM"]
 set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 
 #set a "$a0`$a2`$a21`$a3`$a4`$a0"
@@ -596,8 +596,8 @@ set listt [GET_mom_attr_TOOL 1]
 if { [GET_mom_tool_number] != 0} {
     if { $status_tool == "YES" } {
 set ARR1([GET_mom_tool_name]) $listt
-set ARR2([GET_mom_tool_name]) [format "%0.0f" [GET_mom_tool_zmount]]
-set ARR3([GET_mom_tool_name]) [format "%0.0f" [GET_mom_tool_diameter ]]
+set ARR2([GET_mom_tool_name]) [GET_mom_attr_TOOL_VYLET]
+set ARR3([GET_mom_tool_name]) [GET_mom_attr_TOOL_NAME_1]
 set ARR4([GET_mom_tool_name]) [GET_mom_tool_number]
 set ARR5([GET_mom_tool_name])  [GET_mom_tool_corner_radius]
 set ARR6([GET_mom_tool_name]) [GET_mom_tool_type]
@@ -648,8 +648,8 @@ foreach name $tool_name_list1 {
 #}
 if {$arg1 == 1} {
 lappend all_text  "-"
-lappend all_text  "--T$ARR4($name) = $name"
-lappend all_text  "VYLET = $ARR2($name) mm"
+lappend all_text  "--T$ARR4($name) = $ARR3($name)"
+lappend all_text  "VYLET = $ARR2($name)"
 }
 
 
@@ -658,7 +658,7 @@ lappend all_text  "\nD = [isNull $ARR3($name)] | R = [isNull $ARR5($name)] | L =
 }
 if {$arg1 == 0} {
 lappend all_text  "-"
-lappend all_text  "T$ARR4($name) = $name"
+lappend all_text  "T$ARR4($name) = $ARR3($name)"
 }
 
 
@@ -735,7 +735,7 @@ set s $mom_group_name
 #unset mom_group_name
 return $s
   }
-return "P00001"
+return "O00001"
 }
 
 
@@ -1198,6 +1198,17 @@ if {[info exist mom_spindle_rpm] } { return $mom_spindle_rpm   }
 return "0"
 }
 
+
+
+
+
+
+
+
+
+
+
+
 #==============PROVERKI START=====================
 proc CHECK_correction_rapid    { } {
 global mom_cutcom_status
@@ -1234,6 +1245,32 @@ proc CHECK_SPEED_SPINDLE  {min_sp max_sp} {
 #---------------------------
 
 
+proc CHECK_ZERO_SPEED_AND_TOOL {} {
+
+global mom_path_name
+global mom_spindle_speed
+global mom_tool_number
+
+
+
+ if { $mom_spindle_speed == 0 } {
+     MOM_output_to_listing_device " "
+     MOM_output_to_listing_device "   ======================================="
+     MOM_output_to_listing_device "    ¬Õ»Ã¿Õ»≈ !!! Œœ≈–¿÷»ﬂ: $mom_path_name"
+     MOM_output_to_listing_device "    Œÿ»¡ ¿: Õ”À≈¬Œ≈ ¬–¿Ÿ≈Õ»≈ !!!!!!!!"
+     MOM_output_to_listing_device "   ======================================="
+   #  MOM_abort " "Œÿ»¡ ¿: Õ”À≈¬Œ≈ ¬–¿Ÿ≈Õ»≈ Õ≈ ƒŒœ”— ¿≈“—ﬂ!" "
+ }
+ if { $mom_tool_number == 0 } {
+     MOM_output_to_listing_device " "
+     MOM_output_to_listing_device "   ======================================="
+     MOM_output_to_listing_device "    ¬Õ»Ã¿Õ»≈ !!! Œœ≈–¿÷»ﬂ: $mom_path_name"
+     MOM_output_to_listing_device "    Œÿ»¡ ¿: »Õ—“–”Ã≈Õ“ T0  !!!!!!!!"
+     MOM_output_to_listing_device "   ======================================="
+   #  MOM_abort " Œÿ»¡ ¿: »Õ—“–”Ã≈Õ“ T0 Õ≈ –¿«–≈ÿ≈Õ! "
+ }
+
+}
 
 #==============PROVERKI END=====================
 

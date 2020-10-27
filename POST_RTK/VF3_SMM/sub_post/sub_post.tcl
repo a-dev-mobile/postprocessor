@@ -4,8 +4,8 @@
 #
 #    This is a 3-Axis Milling Machine.
 #
-#  Created by Tom @ 20 ôåâðàëÿ 2018 ã. 20:48:03 RTZ 2 (зима)
-#  with Post Builder version 11.0.2.
+#  Created by d.trofimov @ Tuesday, October 27 2020, 13:24:04 +0300
+#  with Post Builder version 12.0.2.
 #
 ########################################################################
 
@@ -34,34 +34,34 @@ proc PB_CMD___log_revisions { } {
         source ${cam_post_dir}ugpost_base.tcl
         set mom_sys_ugpost_base_initialized 1
      }
- 
- 
+
+
      set mom_sys_debug_mode OFF
- 
- 
+
+
      if { ![info exists env(PB_SUPPRESS_UGPOST_DEBUG)] } {
         set env(PB_SUPPRESS_UGPOST_DEBUG) 0
      }
- 
+
      if { $env(PB_SUPPRESS_UGPOST_DEBUG) } {
         set mom_sys_debug_mode OFF
      }
- 
+
      if { ![string compare $mom_sys_debug_mode "OFF"] } {
- 
+
         proc MOM_before_each_add_var {} {}
         proc MOM_before_each_event   {} {}
         proc MOM_before_load_address {} {}
         proc MOM_end_debug {} {}
- 
+
      } else {
- 
+
         set cam_debug_dir [MOM_ask_env_var UGII_CAM_DEBUG_DIR]
         source ${cam_debug_dir}mom_review.tcl
      }
 
 
-   ####  Listing File variables 
+   ####  Listing File variables
      set mom_sys_list_output                       "OFF"
      set mom_sys_header_output                     "OFF"
      set mom_sys_list_file_rows                    "40"
@@ -276,7 +276,7 @@ proc PB_CMD___log_revisions { } {
   set mom_sys_word_separator                    " "
   set mom_sys_end_of_block                      ""
   set mom_sys_ugpadvkins_used                   "0"
-  set mom_sys_post_builder_version              "11.0.2"
+  set mom_sys_post_builder_version              "12.0.2"
 
 ####### KINEMATIC VARIABLE DECLARATIONS ##############
   set mom_kin_4th_axis_ang_offset               "0.0"
@@ -601,7 +601,7 @@ proc MOM_machine_mode { } {
       set pb_start_of_program_flag 1
    }
 
-  # For simple mill-turn
+  # Reload post for simple mill-turn
    if { [llength [info commands PB_machine_mode] ] } {
       if { [catch {PB_machine_mode} res] } {
          CATCH_WARNING "$res"
@@ -1364,7 +1364,9 @@ proc MOM_rapid_move { } {
    set spindle_first NONE
 
    set aa(0) X ; set aa(1) Y ; set aa(2) Z
+
    RAPID_SET
+
    set rapid_spindle_blk {G_adjust G_motion G_mode X Y Z H}
    set rapid_spindle_x_blk {G_adjust G_motion G_mode X H}
    set rapid_spindle_y_blk {G_adjust G_motion G_mode Y H}
@@ -1735,12 +1737,6 @@ proc PB_engage_move { } {
 
 
 #=============================================================
-proc PB_feedrates { } {
-#=============================================================
-}
-
-
-#=============================================================
 proc PB_first_cut { } {
 #=============================================================
 }
@@ -2032,13 +2028,95 @@ if { $arg_1 == 2 } {
 set a0 [SET_comment $CONSTANT_ARRAY(separator)]
 set a1 [SET_comment "Program: [GET_mom_group_name]" ]
 set a2 [SET_comment  "Date: [GET_mom_date] | User:[GET_mom_logname]"]
-set a3 [SET_comment  "Machine: DMU 60 evo, Siemens 840D"]
+set a3 [SET_comment  "Machine: DMU 60 evo, Siemens 840D | Type: Miling"]
 set a4 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 
 set a "$a0`$a1`$a2`$a3`$a4`$a0"
 return  [SPLIT_TEXT $a]
 }
 
+if { $arg_1 == 22 } {
+
+set a0 [SET_comment "---"]
+set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a2 [SET_comment  "Date: [GET_mom_date]"]
+set a21 [SET_comment  "User:[GET_mom_logname]"]
+set a3 [SET_comment  "Machine: Akira-Seiki V3"]
+set a4 [SET_comment  "File: [GET_mom_output_file_full_name]"]
+
+#set a "$a0`$a2`$a21`$a3`$a4`$a0"
+set a "$a0`$a2`$a21`$a4`$a0"
+return  [SPLIT_TEXT $a]
+}
+
+if { $arg_1 == 25 } {
+
+set a0 [SET_comment "---"]
+#set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a2 [SET_comment  "Date: [GET_mom_date]"]
+set a21 [SET_comment  "User:[GET_mom_logname]"]
+set a3 [SET_comment  "Machine: Lathe CAK50135"]
+set a4 [SET_comment  "File: [GET_mom_output_file_full_name]"]
+
+set a "$a0`$a2`$a21`$a3`$a4"
+return  [SPLIT_TEXT $a]
+}
+if { $arg_1 == 26 } {
+
+set a0 [SET_comment "---"]
+set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a11 [SET_comment "Det: [GET_mom_part_name]" ]
+set a2 [SET_comment  "Date: [GET_mom_date]"]
+set a3 [SET_comment  "User:[GET_mom_logname]"]
+set a4 [SET_comment  "Machine: DMC 635 V ecoline SIEMENS 840D sl"]
+set a5 [SET_comment  "File: [GET_mom_output_file_full_name]"]
+
+#set a "$a0`$a2`$a21`$a3`$a4`$a0"
+set a "$a0`$a1`$a11`$a2`$a3`$a4`$a5"
+return  [SPLIT_TEXT $a]
+}
+
+
+if { $arg_1 == 27 } {
+
+set a0 [SET_comment "---"]
+set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a2 [SET_comment "Det: [GET_mom_part_name]" ]
+set a3 [SET_comment  "Date: [GET_mom_date]"]
+set a4 [SET_comment  "User:[GET_mom_logname]"]
+set a5 [SET_comment  "Machine: Haas VF-3 or SMM"]
+set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
+
+#set a "$a0`$a2`$a21`$a3`$a4`$a0"
+set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
+return  [SPLIT_TEXT $a]
+}
+if { $arg_1 == 28 } {
+
+set a0 [SET_comment "---"]
+set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a2 [SET_comment "Det: [GET_mom_part_name]" ]
+set a3 [SET_comment  "Date: [GET_mom_date]"]
+set a4 [SET_comment  "User:[GET_mom_logname]"]
+set a5 [SET_comment  "Machine: X.mill 1100L CNC"]
+set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
+
+#set a "$a0`$a2`$a21`$a3`$a4`$a0"
+set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
+return  [SPLIT_TEXT $a]
+}
+
+if { $arg_1 == 21 } {
+
+set a0 [SET_comment $CONSTANT_ARRAY(separator)]
+set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a2 [SET_comment  "Date: [GET_mom_date] | User:[GET_mom_logname]"]
+set a3 [SET_comment  "Machine: DMU 60 evo, Siemens 840D | Type: Turning"]
+set a4 [SET_comment  "File: [GET_mom_output_file_full_name]"]
+
+set a "$a0`$a1`$a2`$a3`$a4`$a0"
+return  [SPLIT_TEXT $a]
+}
 if { $arg_1 == 3 } {
 
 
@@ -2345,6 +2423,9 @@ set tool_name_list [list]
 array set ARR1 {}
 array set ARR2 {}
 array set ARR3 {}
+array set ARR4 {}
+array set ARR5 {}
+array set ARR6 {}
 return ""
 }
 #==============================
@@ -2356,6 +2437,7 @@ global ARR2
 global ARR3
 global ARR4
 global ARR5
+global ARR6
 global tool_name_list
 
 
@@ -2374,13 +2456,15 @@ set ARR1([GET_mom_tool_name]) $listt
 set ARR2([GET_mom_tool_name]) [format "%0.0f" [GET_mom_tool_zmount]]
 set ARR3([GET_mom_tool_name]) [format "%0.0f" [GET_mom_tool_diameter ]]
 set ARR4([GET_mom_tool_name]) [GET_mom_tool_number]
-set ARR5([GET_mom_tool_name]) [format "%0.2f" [GET_mom_tool_corner_radius]]
+set ARR5([GET_mom_tool_name])  [GET_mom_tool_corner_radius]
+set ARR6([GET_mom_tool_name]) [GET_mom_tool_type]
 }
 if { [GET_mom_next_oper_has_tool_change] == "YES" } {
 set status_tool "YES"
 } else {
 set status_tool "NO" }
 }
+
 
 
 #MOM_output_text "seccond status_tool $status_tool"
@@ -2407,24 +2491,31 @@ global ARR2
 global ARR3
 global ARR4
 global ARR5
+global ARR6
 set all_text [list]
 set tool_name_list1 [LIST_DEL_DUBLI $tool_name_list]
 
 foreach name $tool_name_list1 {
 
+
+#если инструмент токарный то вылет не указываем -- неработает
+#if {[COMPARE__TEXT_TEXT "$ARR6($name)" "Turning Tool-Standard"]}  {
+#lappend all_text "$ARR6($name)"
+#set arg1 0
+#}
 if {$arg1 == 1} {
 lappend all_text  "-"
-lappend all_text  "T$ARR4($name) = $name"
+lappend all_text  "--T$ARR4($name) = $name"
 lappend all_text  "VYLET = $ARR2($name) mm"
 }
 
+
 if {$arg1 == 2} {
-lappend all_text  "------------------------------------------------------"
-lappend all_text  "D = [isNull $ARR3($name)] | R = [isNull $ARR5($name)] | L = [isNull $ARR2($name)] | T = [isNull $ARR4($name)] | $name"
+lappend all_text  "\nD = [isNull $ARR3($name)] | R = [isNull $ARR5($name)] | L = [isNull $ARR2($name)] | T = [isNull $ARR4($name)] | $name"
 }
 if {$arg1 == 0} {
-lappend all_text  "------------------------------------------------------"
-lappend all_text  "TOOL_NAME: $name"
+lappend all_text  "-"
+lappend all_text  "T$ARR4($name) = $name"
 }
 
 
@@ -2432,7 +2523,7 @@ foreach name1 $ARR1($name) {
  lappend all_text $name1
 }
 }
-return  "$all_text"
+return  "$all_text "
 }
 
 proc isNull {arg} {
@@ -2450,6 +2541,19 @@ proc GET_title_and_comment {arg_text1 arg_text2} {
 return "[GET_mom_sys_control_out] $arg_text1 $arg_text2 [GET_mom_sys_control_in]"
 
 }
+
+#==============================
+proc GET_mom_attr_TOOL_NAME_1 { } {
+
+global mom_attr_TOOL_TOOL_NAME_1
+
+if {[info exist mom_attr_TOOL_TOOL_NAME_1  ] } {
+set s $mom_attr_TOOL_TOOL_NAME_1
+return $s
+  }
+return [GET_mom_tool_name]
+}
+
 
 #===================================
 proc GET_mom_operation_notes   { } {
@@ -2485,11 +2589,68 @@ proc GET_mom_group_name { } {
 global mom_group_name
 if {[info exist mom_group_name  ] } {
 set s $mom_group_name
-
+#unset mom_group_name
 return $s
   }
+return "O00001"
+}
+
+
+
+#===================================
+
+proc GET_mom_attr_TOOL_VYLET { } {
+#===================================
+global mom_attr_TOOL_VYLET
+
+if {[info exist mom_attr_TOOL_VYLET  ] } {
+set s $mom_attr_TOOL_VYLET
+unset mom_attr_TOOL_VYLET
+return $s
+  }
+return "0"
+}
+
+#===================================
+proc GET_mom_parent_group_name { } {
+#===================================
+global mom_parent_group_name
+if {[info exist mom_parent_group_name  ] } {
+set s $mom_parent_group_name
+#unset mom_parent_group_name
+return $s
+    }
 return ""
 }
+#===================================
+#===================================
+proc GET_mom_partfile_name { } {
+#===================================
+global mom_partfile_name
+if {[info exist mom_partfile_name  ] } {
+set s $mom_partfile_name
+return $s
+    }
+return ""
+}
+#===================================
+
+
+#===================================
+
+proc GET_mom_sys_group_output { } {
+#===================================
+global mom_sys_group_output
+if {[info exist mom_sys_group_output  ] } {
+set s $mom_sys_group_output
+ return $s
+ }
+return ""
+}
+#===================================
+
+
+
 
 #===================================
 proc GET_mom_tool_right_corner_radius    { } {
@@ -2504,6 +2665,14 @@ proc GET_mom_tool_type     { } {
 #===================================
 global mom_tool_type
 if {[info exist mom_tool_type        ] } { return $mom_tool_type       }
+return "" }
+#===================================
+
+#===================================
+proc GET_mom_array_oper     { } {
+#===================================
+global mom_array_var
+if {[info exist mom_array_var        ] } { return $mom_array_var       }
 return "" }
 #===================================
 
@@ -2606,11 +2775,21 @@ global mom_tool_holder_length
 if {[info exist mom_tool_holder_length        ] } { return $mom_tool_holder_length       }
 return "null mom_tool_holder_length    " }
 #===================================
+
 #===================================
 proc GET_mom_part_name      { } {
 #===================================
+
+global row_start
+global row_end
+global part_name
 global mom_part_name
-if {[info exist mom_part_name          ] } { return $mom_part_name         }
+
+set row_start [expr [string last "\\" $mom_part_name] + 1]
+set row_end [string length $mom_part_name]
+set part_name [string range $mom_part_name $row_start $row_end]
+
+if {[info exist mom_part_name          ] } { return $part_name }
 return "null mom_part_name      " }
 #===================================
 
@@ -2660,28 +2839,12 @@ return "null mom_tool_z_offset_defined        " }
 proc GET_mom_tool_zmount               { } {
 #===================================
 global mom_tool_zmount
-if {[info exist mom_tool_zmount              ] } { return $mom_tool_zmount             }
-return "0" }
-#===================================
-
-
-proc GET_mom_parent_group_name { } {
-#===================================
-global mom_parent_group_name
-if {[info exist mom_parent_group_name  ] } { return $mom_parent_group_name     }
-return ""
+if {[info exist mom_tool_zmount              ] } {
+return [format "%0.0f" $mom_tool_zmount]             }
+return "0"
 }
-#===================================
 
-#===================================
 
-proc GET_mom_sys_group_output { } {
-#===================================
-global mom_sys_group_output
-if {[info exist mom_sys_group_output  ] } { return $mom_sys_group_output     }
-return ""
-}
-#===================================
 
 #===================================
 #c.dev.mobile
@@ -2786,9 +2949,21 @@ proc GET_mom_tool_name  { } {
 #===================================
 global mom_tool_name
 if {[info exist mom_tool_name  ] } { return $mom_tool_name     }
-
 unset mom_tool_name
 return "NULL mom_tool_name"
+}
+#===================================
+
+
+#===================================
+
+proc GET_mom_oper_method  { } {
+#===================================
+global mom_oper_method
+if {[info exist mom_oper_method  ] } { return $mom_oper_method     }
+
+unset mom_oper_method
+return "NULL mom_oper_method"
 }
 
 #===================================
@@ -2809,7 +2984,7 @@ if {[info exist mom_output_file_full_name ] } { return $mom_output_file_full_nam
 return "NULL mom_output_file_full_name"
 }
 #===================================
-#MILL_3_AXIS file NX
+#MILL_3_AXIS file NC
 proc GET_mom_output_file_basename  { } {
 #===================================
 global mom_output_file_basename
@@ -2872,6 +3047,22 @@ global mom_sys_cutcom_code
 #return "NULL mom_sys_cutcom_code"
 return "$mom_sys_cutcom_code(OFF) "
 }
+# получить обороты
+proc GET_mom_spindle_rpm { } {
+#===================================
+global mom_spindle_rpm
+if {[info exist mom_spindle_rpm] } { return $mom_spindle_rpm   }
+return "0"
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2899,9 +3090,44 @@ if [info exist mom_from_pos(0)] {
     }
 }
 
+proc CHECK_SPEED_SPINDLE  {min_sp max_sp} {
+
+  if {[GET_mom_spindle_rpm] > $max_sp }
+              {
+      PAUSE "!! Проверь обороты \n  в операции [GET_mom_operation_name]"
+       MOM_abort "USER EXIT"
+    }
+
+}
+#---------------------------
+
+
+proc CHECK_ZERO_SPEED_AND_TOOL {} {
+
+global mom_path_name
+global mom_spindle_speed
+global mom_tool_number
 
 
 
+ if { $mom_spindle_speed == 0 } {
+     MOM_output_to_listing_device " "
+     MOM_output_to_listing_device "   ======================================="
+     MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
+     MOM_output_to_listing_device "    ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ !!!!!!!!"
+     MOM_output_to_listing_device "   ======================================="
+   #  MOM_abort " "ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ ДОПУСКАЕТСЯ!" "
+ }
+ if { $mom_tool_number == 0 } {
+     MOM_output_to_listing_device " "
+     MOM_output_to_listing_device "   ======================================="
+     MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
+     MOM_output_to_listing_device "    ОШИБКА: ИНСТРУМЕНТ T0  !!!!!!!!"
+     MOM_output_to_listing_device "   ======================================="
+   #  MOM_abort " ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН! "
+ }
+
+}
 
 #==============PROVERKI END=====================
 
@@ -3034,41 +3260,13 @@ MOM_run_postprocess "[file dirname $::mom_event_handler_file_name]/sub_post/sub_
 
    close $src
 
- #file delete "$out_file"
+ file delete "$out_file"
 
 
 return $name
 }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3290,11 +3488,9 @@ MOM_output_text $name
 #=============================================================
 proc PB_CMD_TOOL_LIST_END { } {
 #=============================================================
-foreach name [ARRAY_INFO_START_PROGRAMM 3] {
-#MOM_output_text $name
-}
 
-foreach name [VIEW_TOOL_ARG 1] {
+
+foreach name [VIEW_TOOL_ARG 0] {
 
 MOM_output_text  [VIEW_TEXT "$name" 0]
 
@@ -4737,15 +4933,20 @@ proc CALLED_BY { caller {out_warn 0} args } {
 #
 # Revisions:
 #-----------
-# 05-25-10 gsl - Initial implementation
-# 03-09-11 gsl - Enhanced description
+# 05-25-2010 gsl - Initial implementation
+# 03-09-2011 gsl - Enhanced description
+# 06-29-2018 gsl - Only compare the 0th element in command string
 #
 
-   if { ![string compare "$caller" [info level -2] ] } {
+   if { [info level] <= 2 } {
+return 0
+   }
+
+   if { ![string compare "$caller" [lindex [info level -2] 0] ] } {
 return 1
    } else {
       if { $out_warn } {
-         CATCH_WARNING "\"[info level -1]\" can not be executed in \"[info level -2]\". \
+         CATCH_WARNING "\"[lindex [info level -1] 0]\" cannot be executed in \"[lindex [info level -2] 0]\". \
                         It must be called by \"$caller\"!"
       }
 return 0
@@ -4784,10 +4985,10 @@ proc CATCH_WARNING { msg {output 1} } {
 
       if { [info exists mom_operation_name] && [string length $mom_operation_name] } {
          set mom_warning_info "$msg\n\  Operation $mom_operation_name - Event $mom_event_number [MOM_ask_event_type] :\
-                               $mom_motion_event ($mom_motion_type)\n\    $mom_o_buffer\n\      $call_stack"
+                               $mom_motion_event ($mom_motion_type)\n\    $mom_o_buffer\n\      $call_stack\n"
       } else {
          set mom_warning_info "$msg\n\  Event $mom_event_number [MOM_ask_event_type] :\
-                               $mom_motion_event ($mom_motion_type)\n\    $mom_o_buffer\n\      $call_stack"
+                               $mom_motion_event ($mom_motion_type)\n\    $mom_o_buffer\n\      $call_stack\n"
       }
 
       MOM_catch_warning
@@ -4822,7 +5023,7 @@ proc CMD_EXIST { cmd {out_warn 0} args } {
 return 1
    } else {
       if { $out_warn } {
-         CATCH_WARNING "Command \"$cmd\" called by \"[info level -1]\" does not exist!"
+         CATCH_WARNING "Command \"$cmd\" called by \"[lindex [info level -1] 0]\" does not exist!"
       }
 return 0
    }
@@ -5117,7 +5318,11 @@ proc PAUSE { args } {
             set gPB(PB_disable_MOM_pause) 1
 
             uplevel #0 {
-               MOM_abort "*** User Abort Post Processing *** "
+               if { [CMD_EXIST MOM_abort_program] } {
+                  MOM_abort_program "*** User Abort Post Processing *** "
+               } else {
+                  MOM_abort "*** User Abort Post Processing *** "
+               }
             }
          }
          default {
@@ -5228,7 +5433,11 @@ proc PAUSE_win64 { args } {
             set gPB(PB_disable_MOM_pause) 1
 
             uplevel #0 {
-               MOM_abort "*** User Abort Post Processing *** "
+               if { [CMD_EXIST MOM_abort_program] } {
+                  MOM_abort_program "*** User Abort Post Processing *** "
+               } else {
+                  MOM_abort "*** User Abort Post Processing *** "
+               }
             }
          }
          default {}
@@ -5343,7 +5552,7 @@ proc STR_MATCH { VAR str {out_warn 0} } {
 return 1
    } else {
       if { $out_warn } {
-         CATCH_WARNING "Variable $VAR is not defined in \"[info level -1]\"!"
+         CATCH_WARNING "Variable $VAR is not defined in \"[lindex [info level -1] 0]\"!"
       }
 return 0
    }
