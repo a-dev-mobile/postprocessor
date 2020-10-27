@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, October 21 2020, 09:53:46 +0300
+#  Created by d.trofimov @ Friday, October 23 2020, 08:45:15 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -2264,9 +2264,6 @@ proc PB_auto_tool_change { } {
    PB_CMD_msg_oper_and_tool
    PB_CMD_goto_Z_ref
    PB_CMD_name_tool_for_sinumerik
-
-   MOM_force Once M
-   MOM_do_template tool_change_1
 }
 
 

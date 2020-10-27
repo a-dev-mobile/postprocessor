@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Friday, October 02 2020, 13:54:24 +0300
+#  Created by d.trofimov @ Friday, October 23 2020, 10:27:47 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -952,6 +952,7 @@ proc MOM_cutcom_off { } {
 #=============================================================
    CUTCOM_SET
 
+   MOM_force Once G_motion X Y
    MOM_do_template cutcom_off
 }
 
@@ -4333,15 +4334,6 @@ proc PB_CMD_combine_rotary_output { } {
 
 
 #=============================================================
-proc PB_CMD_custom_command { } {
-#=============================================================
-global mom_be_at_home
-
-set mom_be_at_home TURE
-}
-
-
-#=============================================================
 proc PB_CMD_custom_command_1 { } {
 #=============================================================
 global mom_be_at_home
@@ -7238,6 +7230,17 @@ global mom_group_name mom_sys_group_output mom_parent_group_name
 unset mom_group_name
 #unset mom_sys_group_output
 #unset mom_parent_group_name
+}
+
+
+#=============================================================
+proc PB_CMD_view_G40 { } {
+#=============================================================
+global mom_pos
+
+
+
+MOM_output_literal "G40 G01 X[format "%0.3f" $mom_pos(0)] Y[format "%0.3f" $mom_pos(1)]"
 }
 
 

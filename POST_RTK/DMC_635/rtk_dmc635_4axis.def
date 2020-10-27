@@ -1324,11 +1324,6 @@ FORMATTING
        " "
   }
 
-  BLOCK_TEMPLATE comment_blk_7
-  {
-       " "
-  }
-
   BLOCK_TEMPLATE comment_data
   {
        LF_XABS[$mom_pos(0)]

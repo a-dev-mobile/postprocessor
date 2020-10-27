@@ -609,6 +609,7 @@ set status_tool "NO" }
 }
 
 
+
 #MOM_output_text "seccond status_tool $status_tool"
 #MOM_output_text "GET_mom_next_oper_has_tool_change [GET_mom_next_oper_has_tool_change]"
 

@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Friday, October 02 2020, 13:54:24 +0300
+#  Created by d.trofimov @ Friday, October 23 2020, 10:27:47 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -256,6 +256,22 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, September 29 2
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 02 2020, 13:49:53 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 02 2020, 13:51:34 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 02 2020, 13:54:24 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:04:38 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:07:47 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:09:29 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:12:07 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:13:20 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:14:13 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:15:03 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:16:46 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:18:26 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:19:43 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:20:44 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:24:18 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:24:37 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:24:41 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:25:49 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 10:27:47 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -621,6 +637,8 @@ Text              ""  0  "Text String"  0
         {6 NULL 0 {G_motion G_adjust Z H}}
 {Spindle RPM} \
         {0 NULL 0 {S M_spindle}}
+{Cutcom Off} \
+        {0 NULL 0 {G_motion X Y}}
 {Tap} \
         {7 PB_CMD__check_block_check_retract_setting 0 {G_motion}}
 {Tap Float} \
@@ -1217,7 +1235,6 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_combine_rotary_check" "" "Custom Command"} \
       {"PB_CMD_combine_rotary_init" "" "Custom Command"} \
       {"PB_CMD_combine_rotary_output" "" "Custom Command"} \
-      {"PB_CMD_custom_command" "" "Custom Command"} \
       {"PB_CMD_custom_command_1" "" "Custom Command"} \
       {"PB_CMD_custom_command_2" "" "Custom Command"} \
       {"PB_CMD_custom_command_3" "" "Custom Command"} \
@@ -1300,7 +1317,8 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_tool_preselect" "" "Custom Command"} \
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
-      {"PB_CMD_unset" "" "Custom Command"}
+      {"PB_CMD_unset" "" "Custom Command"} \
+      {"PB_CMD_view_G40" "" "Custom Command"}
 {Operator_Message} \
       {"" "" ""}
 {PB_Spindle} \
