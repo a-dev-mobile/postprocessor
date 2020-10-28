@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Friday, October 23 2020, 08:45:15 +0300
+#  Created by d.trofimov @ Wednesday, October 28 2020, 16:57:35 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -323,6 +323,18 @@ Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, Octob
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:48:14 +0300 by d.trofimov.
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 21 2020, 09:53:46 +0300 by d.trofimov.
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, October 23 2020, 08:45:15 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:24:13 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:25:17 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:26:41 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:28:58 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:30:26 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:40:03 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:43:13 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:45:45 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:47:32 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:49:02 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:51:51 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:57:35 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -584,10 +596,10 @@ Text              ""  0  "Text String"  0
 #Program Start Sequence End
 
 #Operation Start Sequence Start
-{Start of Path}            {PB_CMD_check_spin_tool PB_CMD_start_of_extcall_operation PB_CMD_output_start_program PB_CMD_reset_sinumerik_setting_in_group PB_CMD_set_fixture_offset PB_CMD_oper_and_method PB_CMD_start_of_operation_force_addresses}  {$gPB(event,opr_start,start_path,name)}
+{Start of Path}            {PB_CMD_check_spin_tool PB_CMD_start_of_extcall_operation PB_CMD_output_start_program PB_CMD_reset_sinumerik_setting_in_group PB_CMD_set_fixture_offset PB_CMD_oper_and_method PB_CMD_start_of_operation_force_addresses PB_CMD_Header_tool_list}  {$gPB(event,opr_start,start_path,name)}
 {From Move}                {}  {$gPB(event,opr_start,from_move,name)}
-{First Tool}               {PB_CMD_Header_tool_list PB_CMD_goto_Z_ref PB_CMD_name_tool_for_sinumerik PB_CMD_msg_oper_and_tool trafoof}  {$gPB(event,opr_start,fst_tool,name)}
-{Auto Tool Change}         {PB_CMD_Header_tool_list PB_CMD_msg_oper_and_tool PB_CMD_goto_Z_ref PB_CMD_name_tool_for_sinumerik}  {$gPB(event,opr_start,auto_tc,name)}
+{First Tool}               {PB_CMD_goto_Z_ref PB_CMD_name_tool_for_sinumerik PB_CMD_msg_oper_and_tool trafoof}  {$gPB(event,opr_start,fst_tool,name)}
+{Auto Tool Change}         {PB_CMD_msg_oper_and_tool PB_CMD_goto_Z_ref PB_CMD_name_tool_for_sinumerik}  {$gPB(event,opr_start,auto_tc,name)}
 {Manual Tool Change}       {PB_CMD_move_force_addresses stop}  {$gPB(event,opr_start,manual_tc,name)}
 {Initial Move}             {PB_CMD_define_feed_variable_value PB_CMD_detect_operation_type g17 PB_CMD_fgroup_a spindle_rpm rotation_axes PB_CMD_output_trans_arot {CYCLE800_sl {} 0} PB_CMD_move_force_addresses from_xy PB_CMD_cooland_on}  {$gPB(event,opr_start,init_move,name)}
 {First Move}               {PB_CMD_detect_operation_type PB_CMD_define_feed_variable_value PB_CMD_msg_oper_and_tool PB_CMD_name_tool_for_sinumerik g17 PB_CMD_view_A PB_CMD_fgroup_a spindle_rpm rotation_axes {ORIRESET {} 0} PB_CMD_output_trans_arot {CYCLE800_sl {} 0} PB_CMD_move_force_addresses from_xy PB_CMD_cooland_on_1}  {$gPB(event,opr_start,fst_move,name)}

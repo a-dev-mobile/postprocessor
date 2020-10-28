@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Tuesday, October 27 2020, 14:42:42 +0300
+#  Created by d.trofimov @ Wednesday, October 28 2020, 16:16:50 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -303,6 +303,8 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, October 27 202
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, October 27 2020, 11:56:45 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, October 27 2020, 14:00:34 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, October 27 2020, 14:42:41 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:15:09 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:16:50 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -566,7 +568,7 @@ Text              ""  0  "Text String"  0
 #Program Start Sequence End
 
 #Operation Start Sequence Start
-{Start of Path}            {MOM_set_seq_off PB_CMD_MY_oper_name PB_CMD_start_of_operation_force_addresses PB_CMD_cycle_hole_counter_reset PB_CMD_MY_start_programm_1 PB_CMD_tool_name PB_CMD_output_next_tool PB_CMD_tool_change_force_addresses MOM_set_seq_on}  {$gPB(event,opr_start,start_path,name)}
+{Start of Path}            {PB_CMD_check_shpin MOM_set_seq_off PB_CMD_MY_oper_name PB_CMD_start_of_operation_force_addresses PB_CMD_cycle_hole_counter_reset PB_CMD_MY_start_programm_1 PB_CMD_tool_name PB_CMD_output_next_tool PB_CMD_tool_change_force_addresses MOM_set_seq_on}  {$gPB(event,opr_start,start_path,name)}
 {From Move}                {}  {$gPB(event,opr_start,from_move,name)}
 {First Tool}               {}  {$gPB(event,opr_start,fst_tool,name)}
 {Auto Tool Change}         {PB_CMD_get_tool_info}  {$gPB(event,opr_start,auto_tc,name)}
@@ -1351,7 +1353,8 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
       {"PB_CMD_unset" "" "Custom Command"} \
-      {"PB_CMD_view_G40" "" "Custom Command"}
+      {"PB_CMD_view_G40" "" "Custom Command"} \
+      {"PB_CMD_check_shpin" "" "Custom Command"}
 {Operator_Message} \
       {"" "" ""}
 {PB_Spindle} \

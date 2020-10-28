@@ -648,7 +648,7 @@ foreach name $tool_name_list1 {
 #}
 if {$arg1 == 1} {
 lappend all_text  "-"
-lappend all_text  "--T$ARR4($name) = $ARR3($name)"
+lappend all_text  "T$ARR4($name)"
 lappend all_text  "VYLET = $ARR2($name)"
 }
 
@@ -748,9 +748,9 @@ global mom_attr_TOOL_VYLET
 
 if {[info exist mom_attr_TOOL_VYLET  ] } {
 set s $mom_attr_TOOL_VYLET
-unset mom_attr_TOOL_VYLET
+#unset mom_attr_TOOL_VYLET
 return $s
-  }
+ }
 return "0"
 }
 

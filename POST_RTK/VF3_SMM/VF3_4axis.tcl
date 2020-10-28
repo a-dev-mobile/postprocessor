@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Tuesday, October 27 2020, 14:42:41 +0300
+#  Created by d.trofimov @ Wednesday, October 28 2020, 16:16:50 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1525,6 +1525,7 @@ proc MOM_start_of_path { } {
       PB_CMD_kin_start_of_path
    }
 
+   PB_CMD_check_shpin
    MOM_set_seq_off
    PB_CMD_MY_oper_name
    PB_CMD_start_of_operation_force_addresses
@@ -4177,6 +4178,34 @@ proc PB_CMD_cancel_suppress_force_once_per_event { } {
 # PB v11.02 -
 #
    MOM_cancel_suppress_force_once_per_event
+}
+
+
+#=============================================================
+proc PB_CMD_check_shpin { } {
+#=============================================================
+global mom_path_name
+global mom_spindle_speed  mom_path_name
+global mom_tool_diameter  mom_tool_name mom_tool_number
+
+
+
+ if { $mom_spindle_speed == 0 } {
+     MOM_output_to_listing_device " "
+     MOM_output_to_listing_device "   ======================================="
+     MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
+     MOM_output_to_listing_device "    ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ !!!!!!!!"
+     MOM_output_to_listing_device "   ======================================="
+   #  MOM_abort " "ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ ДОПУСКАЕТСЯ!" "
+ } elseif { $mom_tool_number == 0 } {
+     MOM_output_to_listing_device " "
+     MOM_output_to_listing_device "   ======================================="
+     MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
+     MOM_output_to_listing_device "    ОШИБКА: ИНСТРУМЕНТ T0  !!!!!!!!"
+     MOM_output_to_listing_device "   ======================================="
+   #  MOM_abort " ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН! "
+ }
+
 }
 
 
