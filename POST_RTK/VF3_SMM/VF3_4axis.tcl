@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, October 28 2020, 18:20:27 +0300
+#  Created by d.trofimov @ Wednesday, October 28 2020, 19:04:40 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -3432,7 +3432,7 @@ MOM_output_text "( [GET_mom_operation_name] )"
 MOM_output_text "( [GET_mom_oper_method] )"
 MOM_output_text "(-)"
 MOM_output_text "( [GET_mom_tool_name] )"
-MOM_output_text "( VYLET = [format "%0.0f" [GET_mom_tool_zmount]] mm )"
+#MOM_output_text "( VYLET = [format "%0.0f" [GET_mom_tool_zmount]] mm )"
 MOM_output_text "(------)"
 
 
