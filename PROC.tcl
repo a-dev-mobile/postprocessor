@@ -748,11 +748,15 @@ global mom_attr_TOOL_VYLET
 
 if {[info exist mom_attr_TOOL_VYLET  ] } {
 set s $mom_attr_TOOL_VYLET
-#unset mom_attr_TOOL_VYLET
+
 return $s
  }
+ 
+ #catch { unset mom_attr_TOOL_VYLET}
 return "0"
 }
+
+
 
 #===================================
 proc GET_mom_parent_group_name { } {

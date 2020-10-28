@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, October 28 2020, 16:57:35 +0300
+#  Created by d.trofimov @ Wednesday, October 28 2020, 18:21:23 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1467,6 +1467,7 @@ proc MOM_end_of_path { } {
    PB_CMD_reset_control_mode
    PB_CMD_end_of_extcall_operation
    PB_CMD_reset_Sinumerik_setting
+   PB_CMD_UNSET
    global mom_sys_in_operation
    set mom_sys_in_operation 0
 }
@@ -1538,6 +1539,7 @@ proc MOM_first_tool { } {
 
    set mom_sys_first_tool_handled 1
 
+   PB_CMD_Header_tool_list
    PB_CMD_goto_Z_ref
    PB_CMD_name_tool_for_sinumerik
    PB_CMD_msg_oper_and_tool
@@ -1927,7 +1929,6 @@ proc MOM_start_of_path { } {
    PB_CMD_set_fixture_offset
    PB_CMD_oper_and_method
    PB_CMD_start_of_operation_force_addresses
-   PB_CMD_Header_tool_list
 }
 
 
@@ -2260,6 +2261,7 @@ proc PB_auto_tool_change { } {
       set mom_next_tool_number $mom_tool_number
    }
 
+   PB_CMD_Header_tool_list
    PB_CMD_msg_oper_and_tool
    PB_CMD_goto_Z_ref
    PB_CMD_name_tool_for_sinumerik
@@ -2320,8 +2322,8 @@ proc PB_start_of_program { } {
       PB_CMD_kin_start_of_program
    }
 
-   PB_CMD_custom_command_1
    PB_CMD_MAIN
+   PB_CMD_custom_command_1
    PB_CMD_header
    PB_CMD_set_Sinumerik_version
    PB_CMD_set_Sinumerik_default_setting
@@ -2417,8 +2419,9 @@ proc PB_CMD_FEEDRATE_SET { } {
 proc PB_CMD_Header_tool_list { } {
 #=============================================================
 uplevel #0 {
+
 global tool_name_list
-lappend tool_name_list ";\ [GET_mom_attr_TOOL_NAME_1] | \ [GET_mom_attr_TOOL_VYLET] "
+lappend tool_name_list "; [GET_mom_attr_TOOL_NAME_1] | [GET_mom_attr_TOOL_VYLET] "
 }
 }
 
@@ -3272,11 +3275,15 @@ global mom_attr_TOOL_VYLET
 
 if {[info exist mom_attr_TOOL_VYLET  ] } {
 set s $mom_attr_TOOL_VYLET
-#unset mom_attr_TOOL_VYLET
+
 return $s
  }
+
+ #catch { unset mom_attr_TOOL_VYLET}
 return "0"
 }
+
+
 
 #===================================
 proc GET_mom_parent_group_name { } {
@@ -4504,6 +4511,17 @@ proc PB_CMD_MOM_text { } {
             }
          }
    }
+}
+
+
+#=============================================================
+proc PB_CMD_UNSET { } {
+#=============================================================
+global mom_attr_TOOL_VYLET
+
+
+ catch { unset mom_attr_TOOL_VYLET}
+
 }
 
 
@@ -8102,68 +8120,37 @@ MOM_output_text "; ---"
 #=============================================================
 proc PB_CMD_info_text_tool_vylet { } {
 #=============================================================
+
 global ptp_file_name mom_definition_file_name mom_output_file_full_name
 global mom_output_file_directory mom_output_file_basename mom_output_file_suffix
 global mom_warning_info
 global mom_machine_time mom_group_name mom_operation_name mom_part_name
-global mom_tool_count mom_tool_use
-global mom_logname mom_ug_version mom_date mom_machine_name
-global coord_z
-global mom_machine_time
-global mom_tool_name
-global tool_data_diameter
-global tool_data_name
-global array_tool_name;
-global mom_tool_name;
-global mom_tool_number;
-global mom_tool_zmount
-global mom_tool_length
 
 set hours [format %2.0f [expr [format %2.0f $mom_machine_time] / 60]]
-
 set minutes [format %0.0f [expr $mom_machine_time - 60 * $hours]]
-
 set tm1 [clock seconds]
-
 set tm2 [clock format $tm1 -format "%M:%S"]
-
 MOM_log_message "MOM Start = $tm2 "
 
 set tmp_file_name "${ptp_file_name}_"
+
 if {[file exists $tmp_file_name]} {
 MOM_remove_file $tmp_file_name
 }
-
 MOM_close_output_file $ptp_file_name
 file rename $ptp_file_name $tmp_file_name
+
 set ifile [open $tmp_file_name r]
 set ofile [open $ptp_file_name w]
 
 
 
-#set mom_tool_name [format "%1s" $mom_tool_name]
 
 
-set mom_tool_zmount [format "%0.0f" $mom_tool_zmount]
 
-set mom_tool_length [format "%-9.1f" $mom_tool_length]
-
-set mom_tool_number [format "%9d" $mom_tool_number]
-
-set tool_str ";\VYLET = $mom_tool_zmount | \ [GET_mom_attr_TOOL_NAME_1]  \ ";
-
-set tool_str [string toupper $tool_str];
-
-set array_tool_name($mom_tool_number) $tool_str;
-#set array_tool_length($mom_tool_length) $tool_str;
-
-#set array_tool_number($mom_tool_number) $tool_str;
-
-#puts $ofile ";\VYLET = $mom_tool_zmount | \ [GET_mom_attr_TOOL_NAME_1]  \ ";
-
-#puts $ofile ";\ [GET_mom_attr_TOOL_NAME_1] | \ [GET_mom_attr_TOOL_VYLET]";
-puts $ofile ";TOOL | \ VYLET";
-
+#-----------
+puts $ofile ";\ T name | \ VYLET";
+puts $ofile "; --- "
 global tool_name_list
 set tool_name_list1 [LIST_DEL_DUBLI $tool_name_list]
 foreach name $tool_name_list1 {
@@ -8175,35 +8162,20 @@ puts $ofile $name
 #-----------
 
 
-
-
 while { [gets $ifile buf] > 0 } {
-
 puts $ofile $buf
-
 }
-
-
-
 close $ifile
-
 close $ofile
-
 MOM_remove_file $tmp_file_name
-
-
-
 set tm1 [clock seconds]
-
 set tm2 [clock format $tm1 -format "%M:%S"]
-
 MOM_log_message "MOM End = $tm2 "
 
 
 
-
-
 MOM_open_output_file $ptp_file_name
+
 
 }
 

@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, October 28 2020, 16:16:50 +0300
+#  Created by d.trofimov @ Wednesday, October 28 2020, 18:20:27 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1160,6 +1160,7 @@ proc MOM_end_of_path { } {
    PB_CMD_end_of_path
    PB_CMD_reset_all_motion_variables_to_zero
    PB_CMD_tool_number
+   PB_CMD_UNSET
    global mom_sys_in_operation
    set mom_sys_in_operation 0
 }
@@ -1213,6 +1214,7 @@ proc MOM_first_tool { } {
 
    set mom_sys_first_tool_handled 1
 
+   PB_CMD_get_tool_info
    MOM_tool_change
 }
 
@@ -2578,8 +2580,8 @@ set listt [GET_mom_attr_TOOL 1]
 if { [GET_mom_tool_number] != 0} {
     if { $status_tool == "YES" } {
 set ARR1([GET_mom_tool_name]) $listt
-set ARR2([GET_mom_tool_name]) [format "%0.0f" [GET_mom_tool_zmount]]
-set ARR3([GET_mom_tool_name]) [format "%0.0f" [GET_mom_tool_diameter ]]
+set ARR2([GET_mom_tool_name]) [GET_mom_attr_TOOL_VYLET]
+set ARR3([GET_mom_tool_name]) [GET_mom_attr_TOOL_NAME_1]
 set ARR4([GET_mom_tool_name]) [GET_mom_tool_number]
 set ARR5([GET_mom_tool_name])  [GET_mom_tool_corner_radius]
 set ARR6([GET_mom_tool_name]) [GET_mom_tool_type]
@@ -2630,8 +2632,8 @@ foreach name $tool_name_list1 {
 #}
 if {$arg1 == 1} {
 lappend all_text  "-"
-lappend all_text  "--T$ARR4($name) = $name"
-lappend all_text  "VYLET = $ARR2($name) mm"
+lappend all_text  "T$ARR4($name)"
+lappend all_text  "VYLET = $ARR2($name)"
 }
 
 
@@ -2640,7 +2642,7 @@ lappend all_text  "\nD = [isNull $ARR3($name)] | R = [isNull $ARR5($name)] | L =
 }
 if {$arg1 == 0} {
 lappend all_text  "-"
-lappend all_text  "T$ARR4($name) = $name"
+lappend all_text  "T$ARR4($name) = $ARR3($name)"
 }
 
 
@@ -2730,11 +2732,15 @@ global mom_attr_TOOL_VYLET
 
 if {[info exist mom_attr_TOOL_VYLET  ] } {
 set s $mom_attr_TOOL_VYLET
-unset mom_attr_TOOL_VYLET
+
 return $s
-  }
+ }
+
+ #catch { unset mom_attr_TOOL_VYLET}
 return "0"
 }
+
+
 
 #===================================
 proc GET_mom_parent_group_name { } {
@@ -3478,6 +3484,15 @@ proc PB_CMD_SOG { } {
 #=============================================================
 MOM_output_literal "M08"
 #MOM_enable_address M_coolant
+}
+
+
+#=============================================================
+proc PB_CMD_UNSET { } {
+#=============================================================
+global mom_attr_TOOL_VYLET
+ catch { unset mom_attr_TOOL_VYLET}
+
 }
 
 
@@ -4562,7 +4577,10 @@ if {[info exist prev_tool_number  ] } {
 
 if {[COMPARE__TEXT_TEXT "$prev_tool_number" "[GET_mom_tool_number]"]} {
 set a "/"
-  } else {
+
+
+
+ } else {
 set a ""
 }}
 
@@ -4884,10 +4902,11 @@ proc PB_CMD_fourth_axis_rotate_move { } {
 #=============================================================
 proc PB_CMD_get_tool_info { } {
 #=============================================================
-uplevel #0 {
+
 global tool_name_list
 lappend tool_name_list "(T[GET_mom_tool_number] | [GET_mom_attr_TOOL_NAME_1] | [GET_mom_attr_TOOL_VYLET])"
-}
+
+
 }
 
 

@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Wednesday, October 28 2020, 16:16:50 +0300
+#  Created by d.trofimov @ Wednesday, October 28 2020, 18:20:28 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -305,6 +305,17 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, October 27 202
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, October 27 2020, 14:42:41 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:15:09 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 16:16:50 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 17:13:05 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 17:15:26 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 17:22:09 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 17:23:35 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 17:29:44 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 17:30:28 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 17:32:34 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 17:44:17 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 17:45:34 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 18:06:30 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 18:20:27 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -570,7 +581,7 @@ Text              ""  0  "Text String"  0
 #Operation Start Sequence Start
 {Start of Path}            {PB_CMD_check_shpin MOM_set_seq_off PB_CMD_MY_oper_name PB_CMD_start_of_operation_force_addresses PB_CMD_cycle_hole_counter_reset PB_CMD_MY_start_programm_1 PB_CMD_tool_name PB_CMD_output_next_tool PB_CMD_tool_change_force_addresses MOM_set_seq_on}  {$gPB(event,opr_start,start_path,name)}
 {From Move}                {}  {$gPB(event,opr_start,from_move,name)}
-{First Tool}               {}  {$gPB(event,opr_start,fst_tool,name)}
+{First Tool}               {PB_CMD_get_tool_info}  {$gPB(event,opr_start,fst_tool,name)}
 {Auto Tool Change}         {PB_CMD_get_tool_info}  {$gPB(event,opr_start,auto_tc,name)}
 {Manual Tool Change}       {stop PB_CMD_m0_smena_instrum}  {$gPB(event,opr_start,manual_tc,name)}
 {Initial Move}             {PB_CMD_output_machine_mode PB_CMD_output_unclamp_code PB_CMD_output_tcp_code PB_CMD_force_output PB_CMD_output_init_position spindle_rpm init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,init_move,name)}
@@ -647,7 +658,7 @@ Text              ""  0  "Text String"  0
 {Retract Move}             {}  {$gPB(event,opr_end,ret_move,name)}
 {Return Move}              {}  {$gPB(event,opr_end,rtn_move,name)}
 {Gohome Move}              {}  {$gPB(event,opr_end,goh_move,name)}
-{End of Path}              {PB_CMD_end_of_path PB_CMD_reset_all_motion_variables_to_zero PB_CMD_tool_number}  {$gPB(event,opr_end,end_path,name)}
+{End of Path}              {PB_CMD_end_of_path PB_CMD_reset_all_motion_variables_to_zero PB_CMD_tool_number PB_CMD_UNSET}  {$gPB(event,opr_end,end_path,name)}
 #Operation End Sequence End
 
 #Program End Sequence Start
@@ -1262,6 +1273,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_before_output" "" "Custom Command"} \
       {"PB_CMD_cal_feedrate_by_pitch_and_ss" "" "Custom Command"} \
       {"PB_CMD_cancel_suppress_force_once_per_event" "" "Custom Command"} \
+      {"PB_CMD_check_shpin" "" "Custom Command"} \
       {"PB_CMD_circle_force" "" "Custom Command"} \
       {"PB_CMD_clamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_clamp_fourth_axis" "" "Custom Command"} \
@@ -1354,7 +1366,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
       {"PB_CMD_unset" "" "Custom Command"} \
       {"PB_CMD_view_G40" "" "Custom Command"} \
-      {"PB_CMD_check_shpin" "" "Custom Command"}
+      {"PB_CMD_UNSET" "" "Custom Command"}
 {Operator_Message} \
       {"" "" ""}
 {PB_Spindle} \
