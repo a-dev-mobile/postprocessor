@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Wednesday, November 25 2020, 10:29:42 +0300
+#  Created by d.trofimov @ Friday, November 27 2020, 09:00:11 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -360,6 +360,9 @@ Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, November
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, November 02 2020, 15:20:58 +0300 by d.trofimov.
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, November 25 2020, 10:27:29 +0300 by d.trofimov.
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, November 25 2020, 10:29:42 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, November 27 2020, 08:48:49 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, November 27 2020, 08:57:24 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, November 27 2020, 09:00:11 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -623,11 +626,11 @@ Text              ""  0  "Text String"  0
 #Operation Start Sequence Start
 {Start of Path}            {PB_CMD_check_spin_tool PB_CMD_start_of_extcall_operation PB_CMD_output_start_program PB_CMD_reset_sinumerik_setting_in_group PB_CMD_set_fixture_offset PB_CMD_oper_and_method PB_CMD_start_of_operation_force_addresses}  {$gPB(event,opr_start,start_path,name)}
 {From Move}                {}  {$gPB(event,opr_start,from_move,name)}
-{First Tool}               {PB_CMD_Header_tool_list PB_CMD_goto_Z_ref PB_CMD_name_tool_for_sinumerik PB_CMD_msg_oper_and_tool trafoof}  {$gPB(event,opr_start,fst_tool,name)}
-{Auto Tool Change}         {PB_CMD_Header_tool_list PB_CMD_msg_oper_and_tool PB_CMD_goto_Z_ref PB_CMD_name_tool_for_sinumerik}  {$gPB(event,opr_start,auto_tc,name)}
+{First Tool}               {PB_CMD_Header_tool_list PB_CMD_goto_Z_ref PB_CMD_name_tool PB_CMD_msg_oper_and_tool trafoof}  {$gPB(event,opr_start,fst_tool,name)}
+{Auto Tool Change}         {PB_CMD_Header_tool_list PB_CMD_msg_oper_and_tool PB_CMD_goto_Z_ref PB_CMD_name_tool}  {$gPB(event,opr_start,auto_tc,name)}
 {Manual Tool Change}       {PB_CMD_move_force_addresses stop}  {$gPB(event,opr_start,manual_tc,name)}
 {Initial Move}             {PB_CMD_define_feed_variable_value PB_CMD_detect_operation_type g17 PB_CMD_fgroup_a spindle_rpm rotation_axes PB_CMD_output_trans_arot {CYCLE800_sl {} 0} PB_CMD_move_force_addresses from_xy PB_CMD_cooland_on}  {$gPB(event,opr_start,init_move,name)}
-{First Move}               {PB_CMD_detect_operation_type PB_CMD_define_feed_variable_value PB_CMD_msg_oper_and_tool PB_CMD_name_tool_for_sinumerik g17 PB_CMD_view_A PB_CMD_fgroup_a spindle_rpm rotation_axes {ORIRESET {} 0} PB_CMD_output_trans_arot {CYCLE800_sl {} 0} PB_CMD_move_force_addresses from_xy PB_CMD_cooland_on_1}  {$gPB(event,opr_start,fst_move,name)}
+{First Move}               {PB_CMD_detect_operation_type PB_CMD_define_feed_variable_value PB_CMD_msg_oper_and_tool PB_CMD_option_name_tool g17 PB_CMD_view_A PB_CMD_fgroup_a spindle_rpm rotation_axes {ORIRESET {} 0} PB_CMD_output_trans_arot {CYCLE800_sl {} 0} PB_CMD_move_force_addresses from_xy PB_CMD_cooland_on_1}  {$gPB(event,opr_start,fst_move,name)}
 {Approach Move}            {PB_CMD_output_motion_message}  {$gPB(event,opr_start,appro_move,name)}
 {Engage Move}              {PB_CMD_output_motion_message}  {$gPB(event,opr_start,engage_move,name)}
 {First Cut}                {}  {$gPB(event,opr_start,fst_cut,name)}
@@ -712,7 +715,7 @@ Text              ""  0  "Text String"  0
 {Retract Move}             {PB_CMD_output_motion_message}  {$gPB(event,opr_end,ret_move,name)}
 {Return Move}              {PB_CMD_output_motion_message}  {$gPB(event,opr_end,rtn_move,name)}
 {Gohome Move}              {}  {$gPB(event,opr_end,goh_move,name)}
-{End of Path}              {PB_CMD_set_prev_mom_out_angle_pos reset_trans reset_cycle800 trafoof tool_change_return_home_Z reset_cycle832 PB_CMD_reset_control_mode PB_CMD_end_of_extcall_operation PB_CMD_reset_Sinumerik_setting PB_CMD_UNSET}  {$gPB(event,opr_end,end_path,name)}
+{End of Path}              {PB_CMD_set_prev_mom_out_angle_pos reset_trans reset_cycle800 trafoof tool_change_return_home_Z reset_cycle832 PB_CMD_reset_control_mode PB_CMD_end_of_extcall_operation PB_CMD_reset_Sinumerik_setting PB_CMD_UNSET PB_CMD_set_prev_tool_name}  {$gPB(event,opr_end,end_path,name)}
 #Operation End Sequence End
 
 #Program End Sequence Start
@@ -1551,7 +1554,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_linear_move" "" "Custom Command"} \
       {"PB_CMD_move_force_addresses" "" "Custom Command"} \
       {"PB_CMD_msg_oper_and_tool" "" "Custom Command"} \
-      {"PB_CMD_name_tool_for_sinumerik" "" "Custom Command"} \
+      {"PB_CMD_name_tool" "" "Custom Command"} \
       {"PB_CMD_nurbs_poly" "" "Custom Command"} \
       {"PB_CMD_nurbs_spline" "" "Custom Command"} \
       {"PB_CMD_oper_and_method" "" "Custom Command"} \
@@ -1604,7 +1607,9 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
       {"PB_CMD_uplevel_ROTARY_AXIS_RETRACT" "" "Custom Command"} \
-      {"PB_CMD_view_A" "" "Custom Command"}
+      {"PB_CMD_view_A" "" "Custom Command"} \
+      {"PB_CMD_set_prev_tool_name" "" "Custom Command"} \
+      {"PB_CMD_option_name_tool" "" "Custom Command"}
 {Operator_Message} \
       {"comment_blk_5" "End of Program" "Operator Message"}
 {PB_Spindle} \

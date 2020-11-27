@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, November 25 2020, 10:29:42 +0300
+#  Created by d.trofimov @ Friday, November 27 2020, 09:00:11 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1468,6 +1468,7 @@ proc MOM_end_of_path { } {
    PB_CMD_end_of_extcall_operation
    PB_CMD_reset_Sinumerik_setting
    PB_CMD_UNSET
+   PB_CMD_set_prev_tool_name
    global mom_sys_in_operation
    set mom_sys_in_operation 0
 }
@@ -1490,7 +1491,7 @@ proc MOM_first_move { } {
    PB_CMD_detect_operation_type
    PB_CMD_define_feed_variable_value
    PB_CMD_msg_oper_and_tool
-   PB_CMD_name_tool_for_sinumerik
+   PB_CMD_option_name_tool
 
    MOM_do_template g17
    PB_CMD_view_A
@@ -1541,7 +1542,7 @@ proc MOM_first_tool { } {
 
    PB_CMD_Header_tool_list
    PB_CMD_goto_Z_ref
-   PB_CMD_name_tool_for_sinumerik
+   PB_CMD_name_tool
    PB_CMD_msg_oper_and_tool
 
    MOM_do_template trafoof
@@ -2264,7 +2265,7 @@ proc PB_auto_tool_change { } {
    PB_CMD_Header_tool_list
    PB_CMD_msg_oper_and_tool
    PB_CMD_goto_Z_ref
-   PB_CMD_name_tool_for_sinumerik
+   PB_CMD_name_tool
 }
 
 
@@ -10028,10 +10029,17 @@ MOM_output_literal "MSG (\"[GET_mom_operation_name] | [GET_mom_attr_TOOL_NAME_1]
 
 
 #=============================================================
-proc PB_CMD_name_tool_for_sinumerik { } {
+proc PB_CMD_name_tool { } {
 #=============================================================
+
+
 MOM_output_literal "T=\"[GET_mom_attr_TOOL_NAME_1]\""
 MOM_output_literal "M6"
+
+
+
+
+
 }
 
 
@@ -10191,6 +10199,24 @@ MOM_output_text "; [GET_mom_tool_name]"
 #MOM_output_text "; VYLET = [GET_mom_attr_TOOL_VYLET]"
 MOM_output_text ";------"
 
+}
+
+
+#=============================================================
+proc PB_CMD_option_name_tool { } {
+#=============================================================
+global prev_tool_name
+set a ""
+if {[info exist prev_tool_name  ] } {
+
+if {[COMPARE__TEXT_TEXT "$prev_tool_name" "[GET_mom_attr_TOOL_NAME_1]"]} {
+set a "/"
+
+
+
+ } else {
+set a ""
+}}
 }
 
 
@@ -11829,6 +11855,16 @@ proc PB_CMD_set_prev_mom_out_angle_pos { } {
 
 uplevel #0 {
 set prev_mom_out_angle_pos $mom_out_angle_pos(0)
+}
+
+}
+
+
+#=============================================================
+proc PB_CMD_set_prev_tool_name { } {
+#=============================================================
+uplevel #0 {
+set prev_tool_name [GET_mom_attr_TOOL_NAME_1]
 }
 
 }
