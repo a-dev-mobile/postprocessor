@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, October 28 2020, 19:04:36 +0300
+#  Created by d.trofimov @ Wednesday, November 25 2020, 10:29:42 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -12617,10 +12617,10 @@ if {[COMPARE__TEXT_TEXT "$prev_mom_out_angle_pos" "$mom_out_angle_pos(0)"]} {
 set a "--odinak A--"
 
   } else {
-MOM_output_literal ";POVOROT old A[format "%0.0f" $prev_mom_out_angle_pos] _ new A[format "%0.0f" $mom_out_angle_pos(0)]"
+MOM_output_literal ";POVOROT old A[format "%0.3f" $prev_mom_out_angle_pos] _ new A[format "%0.3f" $mom_out_angle_pos(0)]"
 MOM_output_literal "SUPA G0 Z=_Z_HOME D0"
-MOM_output_literal "SUPA G0 Y=_Y_HOME D0"
-MOM_output_literal "SUPA G0 X=_X_HOME D0"
+#MOM_output_literal "SUPA G0 Y=_Y_HOME D0"
+#MOM_output_literal "SUPA G0 X=_X_HOME D0"
 set a "--not A--"
 }}
 

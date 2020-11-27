@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Wednesday, October 28 2020, 19:04:36 +0300
+#  Created by d.trofimov @ Wednesday, November 25 2020, 10:29:42 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -356,6 +356,10 @@ Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, Octob
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 18:37:45 +0300 by d.trofimov.
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 18:39:18 +0300 by d.trofimov.
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 19:04:36 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, November 02 2020, 15:16:04 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Monday, November 02 2020, 15:20:58 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, November 25 2020, 10:27:29 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, November 25 2020, 10:29:42 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -1434,6 +1438,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_MOM_rotate" "" "Custom Command"} \
       {"PB_CMD_MOM_sinumerik_840D" "" "Custom Command"} \
       {"PB_CMD_MOM_text" "" "Custom Command"} \
+      {"PB_CMD_UNSET" "" "Custom Command"} \
       {"PB_CMD_VYLET_AND_NAME_TOOL" "" "Custom Command"} \
       {"PB_CMD_VYLET_AND_NAME_tool" "" "Custom Command"} \
       {"PB_CMD_ZAG" "" "Custom Command"} \
@@ -1599,8 +1604,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
       {"PB_CMD_uplevel_ROTARY_AXIS_RETRACT" "" "Custom Command"} \
-      {"PB_CMD_view_A" "" "Custom Command"} \
-      {"PB_CMD_UNSET" "" "Custom Command"}
+      {"PB_CMD_view_A" "" "Custom Command"}
 {Operator_Message} \
       {"comment_blk_5" "End of Program" "Operator Message"}
 {PB_Spindle} \
