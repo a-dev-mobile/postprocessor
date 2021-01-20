@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Wednesday, January 20 2021, 09:17:56 +0300
+#  Created by d.trofimov @ Wednesday, January 20 2021, 10:11:07 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -319,6 +319,30 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 18:39:50 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, October 28 2020, 19:04:40 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:17:56 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:27:05 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:30:36 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:32:34 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:34:27 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:37:37 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:41:26 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:43:13 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:45:12 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:45:53 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:46:50 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:47:19 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:48:54 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:50:38 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:52:32 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:55:05 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:55:58 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 09:59:05 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 10:02:16 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 10:03:21 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 10:04:47 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 10:06:14 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 10:07:40 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 10:09:20 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, January 20 2021, 10:11:07 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -514,7 +538,7 @@ G                 "$mom_sys_blank_code"  0  "Other G-Codes"  0
 X                 "$mom_sys_blank_code"  0  "X Axis Position or Canned Cycle X Axis Position"  0
 Y                 "$mom_sys_blank_code"  0  "Y Axis Position or Canned Cycle Y Axis Position"  0
 Z                 "$mom_sys_blank_code"  0  "Z Axis Position or Canned Cycle Z Axis Position"  0
-fourth_axis       "$mom_sys_blank_code"  0  "4th Axis Position"  0
+fourth_axis       "$mom_sys_blank_code"  1  "4th Axis Position"  0
 fifth_axis        "$mom_sys_blank_code"  1  "5th Axis Position"  0
 I                 "$mom_sys_blank_code"  0  "X Axis Position of the Circle Center"  0
 J                 "$mom_sys_blank_code"  0  "Y Axis Position of the Circle Center"  0
@@ -584,11 +608,11 @@ Text              ""  0  "Text String"  0
 #Operation Start Sequence Start
 {Start of Path}            {PB_CMD_check_shpin MOM_set_seq_off PB_CMD_MY_oper_name PB_CMD_start_of_operation_force_addresses PB_CMD_cycle_hole_counter_reset PB_CMD_MY_start_programm_1 PB_CMD_tool_name PB_CMD_output_next_tool PB_CMD_tool_change_force_addresses MOM_set_seq_on}  {$gPB(event,opr_start,start_path,name)}
 {From Move}                {}  {$gPB(event,opr_start,from_move,name)}
-{First Tool}               {PB_CMD_get_tool_info}  {$gPB(event,opr_start,fst_tool,name)}
+{First Tool}               {PB_CMD_first_tool PB_CMD_get_tool_info}  {$gPB(event,opr_start,fst_tool,name)}
 {Auto Tool Change}         {PB_CMD_get_tool_info}  {$gPB(event,opr_start,auto_tc,name)}
 {Manual Tool Change}       {stop PB_CMD_m0_smena_instrum}  {$gPB(event,opr_start,manual_tc,name)}
-{Initial Move}             {PB_CMD_output_machine_mode PB_CMD_output_unclamp_code PB_CMD_output_tcp_code PB_CMD_force_output PB_CMD_output_init_position spindle_rpm init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,init_move,name)}
-{First Move}               {PB_CMD_output_machine_mode PB_CMD_output_unclamp_code PB_CMD_output_tcp_code PB_CMD_force_output PB_CMD_output_init_position spindle_rpm init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,fst_move,name)}
+{Initial Move}             {PB_CMD_output_machine_mode PB_CMD_force_output PB_CMD_output_init_position spindle_rpm init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,init_move,name)}
+{First Move}               {PB_CMD_output_machine_mode PB_CMD_force_output PB_CMD_output_init_position spindle_rpm init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,fst_move,name)}
 {Approach Move}            {}  {$gPB(event,opr_start,appro_move,name)}
 {Engage Move}              {}  {$gPB(event,opr_start,engage_move,name)}
 {First Cut}                {}  {$gPB(event,opr_start,fst_cut,name)}
@@ -677,11 +701,11 @@ Text              ""  0  "Text String"  0
 
 ## EVENTS ELEMENT EXECUTION START
 {Initial Move} \
-        {5 NULL 0 {S M_spindle}} \
-        {6 NULL 0 {G_motion G_adjust Z H}}
+        {3 NULL 0 {S M_spindle}} \
+        {4 NULL 0 {G_motion G_adjust Z}}
 {First Move} \
-        {5 NULL 0 {S M_spindle}} \
-        {6 NULL 0 {G_motion G_adjust Z H}}
+        {3 NULL 0 {S M_spindle}} \
+        {4 NULL 0 {G_motion G_adjust Z}}
 {Spindle RPM} \
         {0 NULL 0 {S M_spindle}}
 {Cutcom Off} \
@@ -1369,7 +1393,8 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
       {"PB_CMD_unset" "" "Custom Command"} \
-      {"PB_CMD_view_G40" "" "Custom Command"}
+      {"PB_CMD_view_G40" "" "Custom Command"} \
+      {"PB_CMD_first_tool" "" "Custom Command"}
 {Operator_Message} \
       {"" "" ""}
 {PB_Spindle} \

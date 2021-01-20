@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, January 20 2021, 09:17:56 +0300
+#  Created by d.trofimov @ Wednesday, January 20 2021, 10:11:07 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1181,15 +1181,13 @@ proc MOM_first_move { } {
    COOLANT_SET ; CUTCOM_SET ; SPINDLE_SET ; RAPID_SET
 
    PB_CMD_output_machine_mode
-   PB_CMD_output_unclamp_code
-   PB_CMD_output_tcp_code
    PB_CMD_force_output
    PB_CMD_output_init_position
 
    MOM_force Once S M_spindle
    MOM_do_template spindle_rpm
 
-   MOM_force Once G_motion G_adjust Z H
+   MOM_force Once G_motion G_adjust Z
    MOM_do_template init_move_adjust_len
    PB_CMD_SOG
    catch { MOM_$mom_motion_event }
@@ -1214,6 +1212,7 @@ proc MOM_first_tool { } {
 
    set mom_sys_first_tool_handled 1
 
+   PB_CMD_first_tool
    PB_CMD_get_tool_info
    MOM_tool_change
 }
@@ -1252,15 +1251,13 @@ proc MOM_initial_move { } {
    COOLANT_SET ; CUTCOM_SET ; SPINDLE_SET ; RAPID_SET
 
    PB_CMD_output_machine_mode
-   PB_CMD_output_unclamp_code
-   PB_CMD_output_tcp_code
    PB_CMD_force_output
    PB_CMD_output_init_position
 
    MOM_force Once S M_spindle
    MOM_do_template spindle_rpm
 
-   MOM_force Once G_motion G_adjust Z H
+   MOM_force Once G_motion G_adjust Z
    MOM_do_template init_move_adjust_len
    PB_CMD_SOG
 
@@ -1357,10 +1354,10 @@ proc MOM_rapid_move { } {
    set rapid_spindle_x_blk {G_plane G_mode G_motion G_adjust X H S M_spindle M_coolant}
    set rapid_spindle_y_blk {G_plane G_mode G_motion G_adjust Y H S M_spindle M_coolant}
    set rapid_spindle_z_blk {G_plane G_mode G_motion G_adjust Z H S M_spindle M_coolant}
-   set rapid_traverse_blk {G_mode G_motion X Y Z fourth_axis}
-   set rapid_traverse_xy_blk {G_mode G_motion X Y fourth_axis}
-   set rapid_traverse_yz_blk {G_mode G_motion Y Z fourth_axis}
-   set rapid_traverse_xz_blk {G_mode G_motion X Z fourth_axis}
+   set rapid_traverse_blk {G_mode G_motion X Y Z}
+   set rapid_traverse_xy_blk {G_mode G_motion X Y}
+   set rapid_traverse_yz_blk {G_mode G_motion Y Z}
+   set rapid_traverse_xz_blk {G_mode G_motion X Z}
    set rapid_traverse_mod {}
    set rapid_spindle_mod {}
 
@@ -2215,7 +2212,7 @@ set a5 [SET_comment  "Machine: Haas VF-3 or SMM"]
 set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 
 #set a "$a0`$a2`$a21`$a3`$a4`$a0"
-set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
+set a "$a0`$a1`$a2`$a3`$a4`$a5"
 return  [SPLIT_TEXT $a]
 }
 if { $arg_1 == 28 } {
@@ -3418,20 +3415,23 @@ if {[info exist prev_tool_number  ] } {
 
 if {[COMPARE__TEXT_TEXT "$prev_tool_number" "[GET_mom_tool_number]"]} {
 set a "/"
+
+
   } else {
 set a ""
+MOM_output_text "M09"
+MOM_output_text "M05"
+MOM_output_text "G91 G28 Z0.0"
 }}
 
-MOM_output_text "$a M09"
-MOM_output_text "$a M05"
-MOM_output_text "$a G91 G28 Z0.0"
+
 MOM_output_text "(------)"
 MOM_output_text "M1"
 MOM_output_text "(------)"
 MOM_output_text "( [GET_mom_operation_name] )"
 MOM_output_text "( [GET_mom_oper_method] )"
 MOM_output_text "(-)"
-MOM_output_text "( [GET_mom_tool_name] )"
+MOM_output_text "( [GET_mom_attr_TOOL_NAME_1] )"
 #MOM_output_text "( VYLET = [format "%0.0f" [GET_mom_tool_zmount]] mm )"
 MOM_output_text "(------)"
 
@@ -3468,11 +3468,12 @@ if {[COMPARE__TEXT_TEXT "$prev_tool_number" "[GET_mom_tool_number]"]} {
 set a "/"
   } else {
 set a ""
+MOM_output_text "G91 G28 Z0.0"
+
+MOM_output_text "G54 G90 G40 G80"
 }}
 
-MOM_output_text "$a G91 G28 Z0.0"
 
-MOM_output_text "$a G54 G90 G40 G80"
 
 
 
@@ -4638,6 +4639,15 @@ proc PB_CMD_fifth_axis_rotate_move { } {
 
 
 #=============================================================
+proc PB_CMD_first_tool { } {
+#=============================================================
+MOM_output_text "G91 G28 Z0.0"
+MOM_output_text "G54 G90 G40 G80"
+MOM_output_text "T[GET_mom_tool_number] M6 "
+}
+
+
+#=============================================================
 proc PB_CMD_fix_RAPID_SET { } {
 #=============================================================
 # This command is provided to overwrite the system RAPID_SET
@@ -4876,7 +4886,7 @@ proc PB_CMD_force_cycle { } {
 #=============================================================
 proc PB_CMD_force_output { } {
 #=============================================================
-MOM_force once G_mode
+#MOM_force once G_mode
 }
 
 
@@ -7294,7 +7304,8 @@ set final_tap_mode "84"
 #=============================================================
 proc PB_CMD_tool_change_force_addresses { } {
 #=============================================================
-   MOM_force once X Y Z S fourth_axis fifth_axis
+   #MOM_force once X Y Z S fourth_axis fifth_axis
+MOM_force once X Y Z S
 }
 
 
@@ -7407,11 +7418,12 @@ if {[COMPARE__TEXT_TEXT "$prev_tool_number" "[GET_mom_tool_number]"]} {
 set a "/"
   } else {
 set a ""
+MOM_output_text "T[GET_mom_tool_number] M6 "
 }}
 
 
 
-MOM_output_text "$a T[GET_mom_tool_number] M6 "
+
 
 
 
