@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Friday, November 27 2020, 09:00:11 +0300
+#  Created by d.trofimov @ Thursday, December 17 2020, 16:22:11 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -363,6 +363,10 @@ Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, Novem
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, November 27 2020, 08:48:49 +0300 by d.trofimov.
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, November 27 2020, 08:57:24 +0300 by d.trofimov.
 Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Friday, November 27 2020, 09:00:11 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, December 17 2020, 15:25:06 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, December 17 2020, 15:26:43 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, December 17 2020, 15:28:44 +0300 by d.trofimov.
+Saved rtk_dmc635_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, December 17 2020, 16:22:10 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -1558,6 +1562,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_nurbs_poly" "" "Custom Command"} \
       {"PB_CMD_nurbs_spline" "" "Custom Command"} \
       {"PB_CMD_oper_and_method" "" "Custom Command"} \
+      {"PB_CMD_option_name_tool" "" "Custom Command"} \
       {"PB_CMD_output_5axis" "" "Custom Command"} \
       {"PB_CMD_output_feed_define" "" "Custom Command"} \
       {"PB_CMD_output_feedrate_def" "" "Custom Command"} \
@@ -1594,6 +1599,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_set_fixture_offset" "" "Custom Command"} \
       {"PB_CMD_set_helix_move" "" "Custom Command"} \
       {"PB_CMD_set_prev_mom_out_angle_pos" "" "Custom Command"} \
+      {"PB_CMD_set_prev_tool_name" "" "Custom Command"} \
       {"PB_CMD_set_principal_axis" "" "Custom Command"} \
       {"PB_CMD_set_resolution" "" "Custom Command"} \
       {"PB_CMD_spindle_off" "" "Custom Command"} \
@@ -1607,9 +1613,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
       {"PB_CMD_uplevel_ROTARY_AXIS_RETRACT" "" "Custom Command"} \
-      {"PB_CMD_view_A" "" "Custom Command"} \
-      {"PB_CMD_set_prev_tool_name" "" "Custom Command"} \
-      {"PB_CMD_option_name_tool" "" "Custom Command"}
+      {"PB_CMD_view_A" "" "Custom Command"}
 {Operator_Message} \
       {"comment_blk_5" "End of Program" "Operator Message"}
 {PB_Spindle} \

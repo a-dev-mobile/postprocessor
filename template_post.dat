@@ -9,9 +9,9 @@
 
 
 
----Test local---,${UGII_CAM_POST_DIR}POST_mven\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.tcl,${UGII_CAM_POST_DIR}POST_mven\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.def
 DMC 635 4axis,${UGII_CAM_POST_DIR}POST_RTK\DMC_635\rtk_dmc635_4axis.tcl,${UGII_CAM_POST_DIR}POST_RTK\DMC_635\rtk_dmc635_4axis.def
 VF3 4axis,${UGII_CAM_POST_DIR}POST_RTK\VF3_SMM\VF3_4axis.tcl,${UGII_CAM_POST_DIR}POST_RTK\VF3_SMM\VF3_4axis.def
+---Test local---,${UGII_CAM_POST_DIR}POST_mven\Mil-Axis_fanuc\Mill_4-Axis_fanuc.tcl,${UGII_CAM_POST_DIR}POST_mven\Mill_4-Axis_fanuc\Mill_4-Axis_fanuc.def
 
 
 Xmill,${UGII_CAM_POST_DIR}POST_RTK\Xmill\Xmill.tcl,${UGII_CAM_POST_DIR}POST_RTK\Xmill\Xmill.def
