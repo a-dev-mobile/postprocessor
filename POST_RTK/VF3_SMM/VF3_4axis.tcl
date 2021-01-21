@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, January 20 2021, 10:11:07 +0300
+#  Created by d.trofimov @ Thursday, January 21 2021, 12:43:18 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1180,6 +1180,7 @@ proc MOM_first_move { } {
 
    COOLANT_SET ; CUTCOM_SET ; SPINDLE_SET ; RAPID_SET
 
+   PB_CMD_if_repeat_tool_first_move
    PB_CMD_output_machine_mode
    PB_CMD_force_output
    PB_CMD_output_init_position
@@ -1250,9 +1251,10 @@ proc MOM_initial_move { } {
 
    COOLANT_SET ; CUTCOM_SET ; SPINDLE_SET ; RAPID_SET
 
+   PB_CMD_output_init_position
+   PB_CMD_if_repeat_tool_first_move
    PB_CMD_output_machine_mode
    PB_CMD_force_output
-   PB_CMD_output_init_position
 
    MOM_force Once S M_spindle
    MOM_do_template spindle_rpm
@@ -1350,14 +1352,14 @@ proc MOM_rapid_move { } {
 
    RAPID_SET
 
-   set rapid_spindle_blk {G_plane G_mode G_motion G_adjust X Y Z H S M_spindle M_coolant}
-   set rapid_spindle_x_blk {G_plane G_mode G_motion G_adjust X H S M_spindle M_coolant}
-   set rapid_spindle_y_blk {G_plane G_mode G_motion G_adjust Y H S M_spindle M_coolant}
-   set rapid_spindle_z_blk {G_plane G_mode G_motion G_adjust Z H S M_spindle M_coolant}
-   set rapid_traverse_blk {G_mode G_motion X Y Z}
-   set rapid_traverse_xy_blk {G_mode G_motion X Y}
-   set rapid_traverse_yz_blk {G_mode G_motion Y Z}
-   set rapid_traverse_xz_blk {G_mode G_motion X Z}
+   set rapid_spindle_blk {G_plane G_motion G_adjust X Y Z H S M_spindle M_coolant}
+   set rapid_spindle_x_blk {G_plane G_motion G_adjust X H S M_spindle M_coolant}
+   set rapid_spindle_y_blk {G_plane G_motion G_adjust Y H S M_spindle M_coolant}
+   set rapid_spindle_z_blk {G_plane G_motion G_adjust Z H S M_spindle M_coolant}
+   set rapid_traverse_blk {G_motion X Y Z}
+   set rapid_traverse_xy_blk {G_motion X Y}
+   set rapid_traverse_yz_blk {G_motion Y Z}
+   set rapid_traverse_xz_blk {G_motion X Z}
    set rapid_traverse_mod {}
    set rapid_spindle_mod {}
 
@@ -1528,12 +1530,12 @@ proc MOM_start_of_path { } {
    MOM_set_seq_off
    PB_CMD_MY_oper_name
    PB_CMD_start_of_operation_force_addresses
-   PB_CMD_cycle_hole_counter_reset
    PB_CMD_MY_start_programm_1
    PB_CMD_tool_name
    PB_CMD_output_next_tool
    PB_CMD_tool_change_force_addresses
    MOM_set_seq_on
+   PB_CMD_cycle_hole_counter_reset
 }
 
 
@@ -4886,7 +4888,7 @@ proc PB_CMD_force_cycle { } {
 #=============================================================
 proc PB_CMD_force_output { } {
 #=============================================================
-#MOM_force once G_mode
+MOM_force once G_mode
 }
 
 
@@ -5074,6 +5076,15 @@ proc PB_CMD_helix_move { } {
 #      condition can be reliably used in MOM_circular_move to resurrect the Address of principal axis.
 #
    MOM_do_template circular_move
+}
+
+
+#=============================================================
+proc PB_CMD_if_repeat_tool_first_move { } {
+#=============================================================
+global mom_pos
+#MOM_output_literal "G0 X[format %0.3f $mom_pos(0)] Y[format %0.3f $mom_pos(1)]"
+
 }
 
 
@@ -6387,7 +6398,7 @@ proc PB_CMD_output_init_position { } {
       MOM_output_literal "G49"
       MOM_do_template initial_move_XYFBC
    } else {
-      MOM_do_template initial_move_BC
+
       MOM_do_template initial_move_XY
    }
 }
@@ -7187,6 +7198,10 @@ return
 
 
                set mom_sys_first_linear_move 0
+
+MOM_output_literal  "D[GET_mom_tool_number]"
+
+
             }
          }
       }
