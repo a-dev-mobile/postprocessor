@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Friday, February 12 2021, 08:45:08 +0300
+#  Created by d.trofimov @ Thursday, January 21 2021, 12:43:18 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -475,7 +475,6 @@ proc MOM_end_of_program { } {
   global mom_program_aborted mom_event_error
    PB_CMD_END_PROGRAMM
    PB_CMD_header_nc
-   PB_CMD_tool_list
 
   # Write tool list with time in commentary data
    LIST_FILE_TRAILER
@@ -1767,7 +1766,6 @@ proc PB_auto_tool_change { } {
    }
 
    PB_CMD_get_tool_info
-   PB_CMD_create_tool_list
 }
 
 
@@ -4477,22 +4475,6 @@ proc PB_CMD_combine_rotary_output { } {
       MOM_abort_event
     }
   }
-}
-
-
-#=============================================================
-proc PB_CMD_create_tool_list { } {
-#=============================================================
-global tool_list
-   global mom_tool_number
-   global mom_tool_name
-   global mom_tool_adjust_register
-
-   if {$mom_tool_number != "0"} {
-      set tool_list($mom_tool_number,1) 1
-      set tool_list($mom_tool_number,2) $mom_tool_name
-      set tool_list($mom_tool_number,3) $mom_tool_adjust_register
-   }
 }
 
 
@@ -7339,52 +7321,6 @@ proc PB_CMD_tool_change_force_addresses { } {
 #=============================================================
    #MOM_force once X Y Z S fourth_axis fifth_axis
 MOM_force once X Y Z S
-}
-
-
-#=============================================================
-proc PB_CMD_tool_list { } {
-#=============================================================
-global ptp_file_name
-   global mom_sys_control_out
-   global mom_sys_control_in
-   global tool_list
-
-     set tmp_file_name "${ptp_file_name}_"
-     if {[file exists $tmp_file_name]} {
-         MOM_remove_file $tmp_file_name
-     }
-
-     MOM_close_output_file $ptp_file_name
-
-     file rename $ptp_file_name $tmp_file_name
-
-     set ifile [open $tmp_file_name r]
-     set ofile [open $ptp_file_name w]
-
-     set buf ""
-
-     puts $ofile "%"
-     puts $ofile "O_____"
-     puts $ofile "$mom_sys_control_out\======== Start Tool List =======$mom_sys_control_in"
-     for {set i 1} {$i <= 24} {incr i} {
-         if {[info exist tool_list($i,1)] && $tool_list($i,1) == 1} {
-             puts $ofile "$mom_sys_control_out\  T$i\_________$tool_list($i,2)\     )"
-         }
-     }
-     puts $ofile "$mom_sys_control_out\======== End Tool List =========$mom_sys_control_in"
-     puts $ofile ""
-     while { [gets $ifile buf] > 0 } {
-           puts $ofile $buf
-     }
-     close $ifile
-     close $ofile
-     MOM_remove_file $tmp_file_name
-     MOM_open_output_file $ptp_file_name
-
-
-
-
 }
 
 
