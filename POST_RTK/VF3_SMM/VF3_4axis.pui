@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Friday, February 12 2021, 08:45:08 +0300
+#  Created by d.trofimov @ Friday, February 12 2021, 09:01:29 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -380,6 +380,11 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, January 21 20
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, January 21 2021, 12:43:18 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, February 12 2021, 08:41:36 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, February 12 2021, 08:45:08 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, February 12 2021, 08:54:34 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, February 12 2021, 08:58:52 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, February 12 2021, 08:59:07 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, February 12 2021, 08:59:59 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Friday, February 12 2021, 09:01:29 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -726,7 +731,7 @@ Text              ""  0  "Text String"  0
 #Operation End Sequence End
 
 #Program End Sequence Start
-{End of Program}           {PB_CMD_END_PROGRAMM PB_CMD_header_nc PB_CMD_tool_list}  {$gPB(event,end_prog,name)}
+{End of Program}           {PB_CMD_END_PROGRAMM PB_CMD_header_nc}  {$gPB(event,end_prog,name)}
 #Program End Sequence End
 
 #Linked Posts Sequence Start
@@ -1434,7 +1439,8 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unset" "" "Custom Command"} \
       {"PB_CMD_view_G40" "" "Custom Command"} \
       {"PB_CMD_tool_list" "" "Custom Command"} \
-      {"PB_CMD_create_tool_list" "" "Custom Command"}
+      {"PB_CMD_create_tool_list" "" "Custom Command"} \
+      {"PB_CMD_time" "" "Custom Command"}
 {Operator_Message} \
       {"" "" ""}
 {PB_Spindle} \

@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Friday, February 12 2021, 08:45:08 +0300
+#  Created by d.trofimov @ Friday, February 12 2021, 09:01:29 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -475,7 +475,6 @@ proc MOM_end_of_program { } {
   global mom_program_aborted mom_event_error
    PB_CMD_END_PROGRAMM
    PB_CMD_header_nc
-   PB_CMD_tool_list
 
   # Write tool list with time in commentary data
    LIST_FILE_TRAILER
@@ -1864,7 +1863,9 @@ MOM_output_text "G90"
 
 
 
-
+foreach name [ARRAY_INFO_START_PROGRAMM 27] {
+MOM_output_text $name
+}
 
 MOM_output_text "( --- )"
 MOM_output_text "(--TOOL_LIST--)"
@@ -4994,10 +4995,7 @@ set ofile [open $ptp_file_name w]
 
 puts $ofile "%"
 puts $ofile "[GET_mom_group_name]"
-foreach name [ARRAY_INFO_START_PROGRAMM 27] {
-puts $ofile $name
-}
-puts $ofile "( --- )"
+
 
 
 
@@ -5013,6 +5011,25 @@ puts $ofile $name
 #unset tool_name_list1
 puts $ofile "( --- )"
 #-----------
+#----------------------------
+#----------------------------
+#----------------------------
+global mom_machine_time
+
+set hours [format %2.0f [expr [format %2.0f $mom_machine_time] / 60]]
+set minutes [format %2.0f [expr $mom_machine_time - 60 * $hours]]
+
+if { $hours > 0 } {
+puts $ofile "(PROGRAMM TIME: HOURS:$hours MINUTES:$minutes)"
+    } else {
+puts $ofile "(PROGRAMM TIME: MINUTES:$minutes)"
+    }
+#----------------------------
+#----------------------------
+#----------------------------
+
+puts $ofile "( --- )"
+
 
 
 while { [gets $ifile buf] > 0 } {
@@ -7331,6 +7348,22 @@ proc PB_CMD_tapping_g_code_string_determine_for_rigid_tap { } {
   }
 #---------------------------
 set final_tap_mode "84"
+}
+
+
+#=============================================================
+proc PB_CMD_time { } {
+#=============================================================
+global mom_machine_time
+
+set hours [format %2.0f [expr [format %2.0f $mom_machine_time] / 60]]
+set minutes [format %2.0f [expr $mom_machine_time - 60 * $hours]]
+
+if { $hours > 0 } {
+MOM_output_literal "(PROGRAMM TIME: HOURS:$hours MINUTES:$minutes)"
+    } else {
+MOM_output_literal "(PROGRAMM TIME: MINUTES:$minutes)"
+    }
 }
 
 
