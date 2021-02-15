@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Thursday, December 17 2020, 16:22:10 +0300
+#  Created by d.trofimov @ Monday, February 15 2021, 09:27:07 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -8161,7 +8161,22 @@ puts $ofile $name
 #unset tool_name_list1
 
 #-----------
+#----------------------------
+#----------------------------
+#----------------------------
+global mom_machine_time
 
+set hours [format %2.0f [expr [format %2.0f $mom_machine_time] / 60]]
+set minutes [format %2.0f [expr $mom_machine_time - 60 * $hours]]
+puts $ofile "; --- "
+if { $hours > 0 } {
+puts $ofile ";PROGRAMM TIME: HOURS: $hours MINUTES: $minutes"
+    } else {
+puts $ofile ";PROGRAMM TIME: MINUTES: $minutes"
+    }
+#----------------------------
+#----------------------------
+#----------------------------
 
 while { [gets $ifile buf] > 0 } {
 puts $ofile $buf
