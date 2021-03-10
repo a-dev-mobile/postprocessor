@@ -633,7 +633,6 @@ FORMATTING
 
   BLOCK_TEMPLATE circular_move
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_pos_arc_plane)]\opt
        G_motion[$mom_sys_circle_code($mom_arc_direction)]\opt
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
@@ -680,7 +679,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_bore
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -692,7 +690,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_bore_back
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_back_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -705,7 +702,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_bore_drag
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_drag_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -717,7 +713,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_bore_dwell
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_dwell_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -730,7 +725,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_bore_manual
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_manual_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -742,7 +736,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_bore_manual_dwell
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_manual_dwell_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -755,7 +748,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_bore_no_drag
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_no_drag_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -768,7 +760,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_drill
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_drill_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -780,7 +771,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_drill_break_chip
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_drill_break_chip_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -793,7 +783,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_drill_deep
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_drill_deep_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -806,7 +795,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_drill_dwell
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_drill_dwell_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -824,7 +812,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_tap
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_tap_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -983,6 +970,12 @@ FORMATTING
        Z[$mom_from_pos(2)]
   }
 
+  BLOCK_TEMPLATE from_Z
+  {
+       G_motion[$mom_sys_rapid_code]
+       Z[$mom_from_pos(2)]
+  }
+
   BLOCK_TEMPLATE go_home_xybc
   {
        G_mode[$mom_sys_output_code(INCREMENTAL)]
@@ -1036,7 +1029,7 @@ FORMATTING
 
   BLOCK_TEMPLATE init_move_adjust_len
   {
-       G_motion[$mom_sys_rapid_code]
+       G_motion[$mom_sys_rapid_code]\opt
        G_adjust[$mom_sys_adjust_code]\opt
        Z[$mom_pos(2)]
        H[$mom_tool_number]\opt
@@ -1088,6 +1081,12 @@ FORMATTING
        Y[$mom_pos(1)]
   }
 
+  BLOCK_TEMPLATE initial_move_Z
+  {
+       G_motion[$mom_sys_rapid_code]
+       Z[$mom_pos(2)]
+  }
+
   BLOCK_TEMPLATE initial_move_XYFBC
   {
        G_mode[$mom_sys_output_code($mom_output_mode)]\opt
@@ -1105,12 +1104,12 @@ FORMATTING
   BLOCK_TEMPLATE linear_move
   {
        G_cutcom[$mom_sys_cutcom_code($mom_cutcom_status)]\opt
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_motion[$mom_sys_linear_code]
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
        Z[$mom_pos(2)]
        F[$feed]
+       D[$mom_cutcom_adjust_register]\opt
        S[$mom_spindle_speed]
        M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
   }
@@ -1171,7 +1170,6 @@ FORMATTING
 
   BLOCK_TEMPLATE rapid_spindle
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_motion[$mom_sys_rapid_code]\opt
        G_adjust[$mom_sys_adjust_code]\opt
        X[$mom_pos(0)]
@@ -1185,7 +1183,6 @@ FORMATTING
 
   BLOCK_TEMPLATE rapid_spindle_x
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_motion[$mom_sys_rapid_code]\opt
        G_adjust[$mom_sys_adjust_code]\opt
        X[$mom_pos(0)]
@@ -1197,7 +1194,6 @@ FORMATTING
 
   BLOCK_TEMPLATE rapid_spindle_y
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_motion[$mom_sys_rapid_code]\opt
        G_adjust[$mom_sys_adjust_code]\opt
        Y[$mom_pos(1)]
@@ -1209,7 +1205,6 @@ FORMATTING
 
   BLOCK_TEMPLATE rapid_spindle_z
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_motion[$mom_sys_rapid_code]\opt
        G_adjust[$mom_sys_adjust_code]\opt
        Z[$mom_pos(2)]
@@ -1464,7 +1459,6 @@ FORMATTING
 
   BLOCK_TEMPLATE post_cycle_set
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_reps_code]
        X[$mom_cycle_feed_to_pos(0)]

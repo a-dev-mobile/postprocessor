@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Friday, February 12 2021, 09:01:29 +0300
+#  Created by d.trofimov @ Wednesday, March 10 2021, 12:34:32 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -927,6 +927,7 @@ proc MOM_circular_move { } {
    CIRCLE_SET
    PB_CMD_circle_force
 
+   MOM_force Once X Y
    MOM_do_template circular_move
 }
 
@@ -1180,15 +1181,14 @@ proc MOM_first_move { } {
 
    COOLANT_SET ; CUTCOM_SET ; SPINDLE_SET ; RAPID_SET
 
+   MOM_force Once S M_spindle
+   MOM_do_template spindle_rpm
    PB_CMD_if_repeat_tool_first_move
    PB_CMD_output_machine_mode
    PB_CMD_force_output
    PB_CMD_output_init_position
 
-   MOM_force Once S M_spindle
-   MOM_do_template spindle_rpm
-
-   MOM_force Once G_motion G_adjust Z
+   MOM_force Once Z
    MOM_do_template init_move_adjust_len
    PB_CMD_SOG
    catch { MOM_$mom_motion_event }
@@ -1213,7 +1213,6 @@ proc MOM_first_tool { } {
 
    set mom_sys_first_tool_handled 1
 
-   PB_CMD_first_tool
    PB_CMD_get_tool_info
    MOM_tool_change
 }
@@ -1251,15 +1250,14 @@ proc MOM_initial_move { } {
 
    COOLANT_SET ; CUTCOM_SET ; SPINDLE_SET ; RAPID_SET
 
+   MOM_force Once S M_spindle
+   MOM_do_template spindle_rpm
    PB_CMD_output_init_position
    PB_CMD_if_repeat_tool_first_move
    PB_CMD_output_machine_mode
    PB_CMD_force_output
 
-   MOM_force Once S M_spindle
-   MOM_do_template spindle_rpm
-
-   MOM_force Once G_motion G_adjust Z
+   MOM_force Once G_adjust Z
    MOM_do_template init_move_adjust_len
    PB_CMD_SOG
 
@@ -1293,6 +1291,7 @@ proc MOM_linear_move { } {
 
    PB_CMD_suppress_linear_block_plane_code
 
+   MOM_force Once G_motion
    MOM_do_template linear_move
 }
 
@@ -1352,10 +1351,10 @@ proc MOM_rapid_move { } {
 
    RAPID_SET
 
-   set rapid_spindle_blk {G_plane G_motion G_adjust X Y Z H S M_spindle M_coolant}
-   set rapid_spindle_x_blk {G_plane G_motion G_adjust X H S M_spindle M_coolant}
-   set rapid_spindle_y_blk {G_plane G_motion G_adjust Y H S M_spindle M_coolant}
-   set rapid_spindle_z_blk {G_plane G_motion G_adjust Z H S M_spindle M_coolant}
+   set rapid_spindle_blk {G_motion G_adjust X Y Z H S M_spindle M_coolant}
+   set rapid_spindle_x_blk {G_motion G_adjust X H S M_spindle M_coolant}
+   set rapid_spindle_y_blk {G_motion G_adjust Y H S M_spindle M_coolant}
+   set rapid_spindle_z_blk {G_motion G_adjust Z H S M_spindle M_coolant}
    set rapid_traverse_blk {G_motion X Y Z}
    set rapid_traverse_xy_blk {G_motion X Y}
    set rapid_traverse_yz_blk {G_motion Y Z}
@@ -1526,15 +1525,14 @@ proc MOM_start_of_path { } {
       PB_CMD_kin_start_of_path
    }
 
+   MOM_set_seq_on
    PB_CMD_check_shpin
-   MOM_set_seq_off
    PB_CMD_MY_oper_name
    PB_CMD_start_of_operation_force_addresses
    PB_CMD_MY_start_programm_1
    PB_CMD_tool_name
    PB_CMD_output_next_tool
    PB_CMD_tool_change_force_addresses
-   MOM_set_seq_on
    PB_CMD_cycle_hole_counter_reset
 }
 
@@ -1765,6 +1763,7 @@ proc PB_auto_tool_change { } {
       set mom_next_tool_number $mom_tool_number
    }
 
+   PB_CMD_first_tool
    PB_CMD_get_tool_info
    PB_CMD_create_tool_list
 }
@@ -1855,11 +1854,9 @@ proc USER_DEF_AXIS_LIMIT_ACTION { args } {
 proc PB_CMD_END_PROGRAMM { } {
 #=============================================================
 
-MOM_output_text "M9"
+MOM_output_text "M09"
+MOM_output_text "G91 G28 Z0.0"
 MOM_output_text "M5"
-MOM_output_text "G91"
-MOM_output_text "G28 Z0"
-MOM_output_text "G90"
 
 
 
@@ -3424,21 +3421,23 @@ set a "/"
 
   } else {
 set a ""
-MOM_output_text "M09"
-MOM_output_text "M05"
-MOM_output_text "G91 G28 Z0.0"
+MOM_output_literal  "M09"
+#MOM_output_literal  "M05"
+#MOM_output_literal  "G91 G28 Z0.0"
 }}
 
 
-MOM_output_text "(------)"
-MOM_output_text "M1"
-MOM_output_text "(------)"
-MOM_output_text "( [GET_mom_operation_name] )"
-MOM_output_text "( [GET_mom_oper_method] )"
-MOM_output_text "(-)"
-MOM_output_text "( [GET_mom_attr_TOOL_NAME_1] )"
+MOM_output_literal "(------)"
+#MOM_output_text "M1"
+
+
+
+
+MOM_output_literal "( [GET_mom_operation_name] )"
+MOM_output_literal "( [GET_mom_oper_method] )"
+
 #MOM_output_text "( VYLET = [format "%0.0f" [GET_mom_tool_zmount]] mm )"
-MOM_output_text "(------)"
+MOM_output_literal "(------)"
 
 
 
@@ -3450,8 +3449,8 @@ MOM_output_text "(------)"
 proc PB_CMD_MY_start_programm { } {
 #=============================================================
 
-MOM_output_text "G17 G90 G21 G54 G40 G80"
-MOM_output_text "G91 G28 Z0.0"
+MOM_output_literal "G40 G49 G80 G90 G21 G17"
+
 #MOM_output_text "G91 G28 A0.0"
 
 
@@ -3473,9 +3472,9 @@ if {[COMPARE__TEXT_TEXT "$prev_tool_number" "[GET_mom_tool_number]"]} {
 set a "/"
   } else {
 set a ""
-MOM_output_text "G91 G28 Z0.0"
+#MOM_output_literal  "G91 G28 Z0.0"
 
-MOM_output_text "G54 G90 G40 G80"
+#MOM_output_literal  "G54 G90 G40 G80"
 }}
 
 
@@ -4662,9 +4661,25 @@ proc PB_CMD_fifth_axis_rotate_move { } {
 #=============================================================
 proc PB_CMD_first_tool { } {
 #=============================================================
-MOM_output_text "G91 G28 Z0.0"
-MOM_output_text "G54 G90 G40 G80"
-MOM_output_text "T[GET_mom_tool_number] M6 "
+   MOM_force once G_adjust H X Y Z S fourth_axis fifth_axis
+
+
+   global mom_tool_name mom_tool_diameter mom_tool_flute_length
+   global mom_sys_control_out mom_sys_control_in
+
+
+   set co $mom_sys_control_out
+   set ci $mom_sys_control_in
+
+MOM_output_literal "( INSTRUMENT: [GET_mom_attr_TOOL_NAME_1] )"
+MOM_output_literal "$co DIAMETR: [format %3.2f $mom_tool_diameter] $ci"
+MOM_output_literal "$co FLUTE LENGTH: [format %3.2f $mom_tool_flute_length] $ci"
+
+
+MOM_output_literal  "T[GET_mom_tool_number] M6 "
+MOM_output_literal  "G53 G00 G90 Z0"
+MOM_output_literal  "G54 G90 G40 G80"
+
 }
 
 
@@ -6434,6 +6449,7 @@ proc PB_CMD_output_init_position { } {
       MOM_do_template initial_move_XYFBC
    } else {
 
+
       MOM_do_template initial_move_XY
    }
 }
@@ -7113,6 +7129,7 @@ proc PB_CMD_start_of_alignment_character { } {
 proc PB_CMD_start_of_operation_force_addresses { } {
 #=============================================================
    MOM_force once S M_spindle X Y Z fourth_axis fifth_axis F
+
 }
 
 
@@ -7229,12 +7246,12 @@ return
 
                MOM_force once G_plane
 
-                MOM_force once D
+MOM_force once D
 
 
                set mom_sys_first_linear_move 0
 
-MOM_output_literal  "D[GET_mom_tool_number]"
+#MOM_output_literal  "D[GET_mom_tool_number]"
 
 
             }
@@ -7530,7 +7547,7 @@ if {[COMPARE__TEXT_TEXT "$prev_tool_number" "[GET_mom_tool_number]"]} {
 set a "/"
   } else {
 set a ""
-MOM_output_text "T[GET_mom_tool_number] M6 "
+#MOM_output_text "T[GET_mom_tool_number] M6 "
 }}
 
 
