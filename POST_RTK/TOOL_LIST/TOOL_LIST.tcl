@@ -4,7 +4,7 @@
 #
 #    This is a 3-Axis Milling Machine.
 #
-#  Created by d.trofimov @ Tuesday, October 27 2020, 13:40:40 +0300
+#  Created by d.trofimov @ Friday, March 12 2021, 15:21:33 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -2438,6 +2438,7 @@ global ARR3
 global ARR4
 global ARR5
 global ARR6
+global ARR7
 global tool_name_list
 
 
@@ -2456,8 +2457,9 @@ set ARR1([GET_mom_tool_name]) $listt
 set ARR2([GET_mom_tool_name]) [GET_mom_attr_TOOL_VYLET]
 set ARR3([GET_mom_tool_name]) [GET_mom_attr_TOOL_NAME_1]
 set ARR4([GET_mom_tool_name]) [GET_mom_tool_number]
-set ARR5([GET_mom_tool_name])  [GET_mom_tool_corner_radius]
-set ARR6([GET_mom_tool_name]) [GET_mom_tool_type]
+set ARR5([GET_mom_tool_name]) [GET_mom_tool_diameter]
+set ARR6([GET_mom_tool_name]) [GET_mom_tool_corner_radius]
+set ARR7([GET_mom_tool_name]) [GET_mom_tool_flute_length]
 }
 if { [GET_mom_next_oper_has_tool_change] == "YES" } {
 set status_tool "YES"
@@ -2492,6 +2494,7 @@ global ARR3
 global ARR4
 global ARR5
 global ARR6
+global ARR7
 set all_text [list]
 set tool_name_list1 [LIST_DEL_DUBLI $tool_name_list]
 
@@ -2504,9 +2507,37 @@ foreach name $tool_name_list1 {
 #set arg1 0
 #}
 if {$arg1 == 1} {
-lappend all_text  "-"
-lappend all_text  "T$ARR4($name)"
+
+set nameTool [lindex $ARR1($name) 4]
+
+if {$nameTool == ""} {
+set nameTool $ARR3($name)
+  }
+
+
+
+
+
+lappend all_text  "*"
+lappend all_text  "*"
+lappend all_text  "******************************"
+lappend all_text  "T$ARR4($name) = $nameTool"
 lappend all_text  "VYLET = $ARR2($name)"
+lappend all_text  "*"
+lappend all_text  "DIAMETER  - $ARR5($name)"
+lappend all_text  "COR RAD   - $ARR6($name)"
+lappend all_text  "FLUTE LEN - $ARR7($name)"
+lappend all_text  "*"
+
+
+
+
+
+}
+
+
+foreach name1 $ARR1($name) {
+ lappend all_text $name1
 }
 
 
@@ -2519,9 +2550,7 @@ lappend all_text  "T$ARR4($name) = $ARR3($name)"
 }
 
 
-foreach name1 $ARR1($name) {
- lappend all_text $name1
-}
+
 }
 return  "$all_text "
 }
@@ -2533,6 +2562,11 @@ return $arg
   }
 return ""
 }
+
+
+
+
+
 
 #===================================
 proc GET_title_and_comment {arg_text1 arg_text2} {
@@ -2695,7 +2729,7 @@ switch [GET_mom_tool_type] {
  }
 
 
-  return $a
+  return [format "%0.2f" $a]
 
   }
 
@@ -2756,8 +2790,8 @@ return "" }
 proc GET_mom_tool_flute_length  { } {
 #===================================
 global mom_tool_flute_length
-if {[info exist mom_tool_flute_length    ] } { return $mom_tool_flute_length   }
-return "null mom_tool_flute_length" }
+if {[info exist mom_tool_flute_length    ] } { return [format "%0.2f" $mom_tool_flute_length]   }
+return "0" }
 #===================================
 
 #===================================
@@ -2909,8 +2943,8 @@ return "NULL mom_next_tool_status"
 proc GET_mom_tool_diameter        { } {
 #===================================
 global mom_tool_diameter
-if {[info exist mom_tool_diameter  ] } { return $mom_tool_diameter     }
-return "NULL mom_tool_diameter"
+if {[info exist mom_tool_diameter  ] } { return [format "%0.2f" $mom_tool_diameter]    }
+return "0"
 }
 #===================================
 proc GET_mom_tool_number        { } {
@@ -3267,6 +3301,7 @@ return $name
 }
 
 }
+
 
 
 

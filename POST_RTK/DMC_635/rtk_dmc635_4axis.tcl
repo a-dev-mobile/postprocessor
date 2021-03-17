@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Monday, February 15 2021, 09:27:07 +0300
+#  Created by d.trofimov @ Wednesday, March 17 2021, 09:39:07 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1514,6 +1514,7 @@ proc MOM_first_move { } {
       PB_call_macro CYCLE800_sl
    }
    PB_CMD_move_force_addresses
+   PB_CMD_if_Z_small
 
    MOM_force Once G_motion X Y
    MOM_do_template from_xy
@@ -8119,6 +8120,29 @@ MOM_output_text "; ---"
 
 
 #=============================================================
+proc PB_CMD_if_Z_small { } {
+#=============================================================
+global mom_pos
+
+global prev_z
+
+
+set z [format %0.3f $mom_pos(2)]
+
+if {[info exist prev_z  ] } {
+
+if {$prev_z<$z} {
+
+MOM_output_literal  "G0 Z$z"
+
+
+
+
+}}
+}
+
+
+#=============================================================
 proc PB_CMD_info_text_tool_vylet { } {
 #=============================================================
 
@@ -11870,8 +11894,11 @@ proc PB_CMD_set_prev_mom_out_angle_pos { } {
 
 uplevel #0 {
 set prev_mom_out_angle_pos $mom_out_angle_pos(0)
-}
 
+
+global mom_pos
+set prev_z [format %0.3f $mom_pos(2)]
+}
 }
 
 
