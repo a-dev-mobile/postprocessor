@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, March 17 2021, 09:09:12 +0300
+#  Created by d.trofimov @ Thursday, March 18 2021, 08:56:00 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1159,6 +1159,7 @@ proc MOM_end_of_path { } {
    }
 
    PB_CMD_end_of_path
+   PB_CMD_set_prev_Z
    PB_CMD_reset_all_motion_variables_to_zero
    PB_CMD_tool_number
    PB_CMD_UNSET
@@ -1183,6 +1184,7 @@ proc MOM_first_move { } {
 
    MOM_force Once S M_spindle
    MOM_do_template spindle_rpm
+   PB_CMD_if_Z_small
    PB_CMD_if_repeat_tool_first_move
    PB_CMD_output_machine_mode
    PB_CMD_force_output
@@ -5130,6 +5132,29 @@ proc PB_CMD_helix_move { } {
 
 
 #=============================================================
+proc PB_CMD_if_Z_small { } {
+#=============================================================
+global mom_pos
+
+global prev_z
+
+
+set z [format %0.3f $mom_pos(2)]
+
+if {[info exist prev_z  ] } {
+
+if {$prev_z<$z} {
+
+MOM_output_literal  "G0 Z$z"
+
+
+
+
+}}
+}
+
+
+#=============================================================
 proc PB_CMD_if_repeat_tool_first_move { } {
 #=============================================================
 global mom_pos
@@ -7027,6 +7052,19 @@ proc PB_CMD_set_cycle_plane { } {
          MOM_force once G_plane
       }
    }
+
+}
+
+
+#=============================================================
+proc PB_CMD_set_prev_Z { } {
+#=============================================================
+uplevel #0 {
+
+global mom_pos
+set prev_z [format %0.3f $mom_pos(2)]
+
+}
 
 }
 
