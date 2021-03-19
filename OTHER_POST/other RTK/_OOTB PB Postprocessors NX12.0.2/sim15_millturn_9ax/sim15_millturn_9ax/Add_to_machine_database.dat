@@ -1,0 +1,11 @@
+##  Data file for the Machine tool Sim15
+##
+##############################################################################
+## REVISIONS
+##   Date             Who              Reason
+##   04-Dec-18     Thomas Jenensch     Add entries for GTAC download
+##############################################################################
+
+# New machine tools metric
+DATA|sim15_millturn_9ax_sinumerik_mm|MDM0204|9-Ax Mill-Turn Dual-Channel B-Axis-Head Post Builder metric|Sinumerik|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim15_millturn_9ax\sim15_millturn_9ax_sinumerik_mm.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim15_millturn_9ax\graphics\sim15_millturn_9ax
+DATA|sim15_millturn_9ax_fanuc_mm|MDM0204|9-Ax Mill-Turn Dual-Channel B-Axis-Head Post Builder metric|fanuc|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim15_millturn_9ax\sim15_millturn_9ax_fanuc_mm.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim15_millturn_9ax\graphics\sim15_millturn_9ax

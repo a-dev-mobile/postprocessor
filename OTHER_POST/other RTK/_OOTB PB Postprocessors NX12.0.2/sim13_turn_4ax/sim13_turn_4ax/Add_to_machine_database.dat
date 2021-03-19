@@ -1,0 +1,13 @@
+##  Data file for the Machine tool Sim13
+##
+##############################################################################
+## REVISIONS
+##   Date             Who              Reason
+##   04-Dec-18     Thomas Jenensch     Add entries for GTAC download
+##############################################################################
+
+# New machine tools metric
+DATA|sim13_turn_4ax_fanuc_mm|MDM0201|4-Ax Turn Horizontal 2-Channel Post Builder metric|Fanuc|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim13_turn_4ax\sim13_turn_4ax_fanuc_mm.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim13_turn_4ax\graphics\sim13_turn_4ax
+
+# New machine tools inch
+DATA|sim13_turn_4ax_fanuc_in|MDM0201|4-Ax Turn Horizontal 2-Channel Post Builder inch|Fanuc|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim13_turn_4ax\sim13_turn_4ax_fanuc_in.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim13_turn_4ax\graphics\sim13_turn_4ax

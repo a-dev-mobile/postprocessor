@@ -1,0 +1,19 @@
+##  Data file for the Machine tool Sim05
+##
+##############################################################################
+## REVISIONS
+##   Date             Who              Reason
+##   04-Dec-18     Thomas Jenensch     Add entries for GTAC download
+##############################################################################
+
+# New machine tools metric
+DATA|sim05_mill_5ax_fanuc_mm|MDM0101|5-Ax Mill Gantry AC-Head Post Builder metric|Fanuc|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\sim05_mill_5ax_fanuc_mm.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\graphics\sim05_mill_5ax
+DATA|sim05_mill_5ax_tnc_mm|MDM0101|5-Ax Mill Gantry AC-Head Post Builder metric|HeidenhainTNC|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\sim05_mill_5ax_tnc_mm.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\graphics\sim05_mill_5ax
+DATA|sim05_mill_5ax_sinumerik_mm|MDM0101|5-Ax Mill Gantry AC-Head Post Builder metric|Sinumerik|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\sim05_mill_5ax_sinumerik_mm.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\graphics\sim05_mill_5ax
+DATA|sim05_mill_5ax_okuma_mm|MDM0101|5-Ax Mill Gantry AC-Head Post Builder metric|okuma|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\sim05_mill_5ax_okuma_mm.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\graphics\sim05_mill_5ax
+
+# New machine tools inch
+DATA|sim05_mill_5ax_fanuc_in|MDM0101|5-Ax Mill Gantry AC-Head Post Builder inch|Fanuc|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\sim05_mill_5ax_fanuc_in.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\graphics\sim05_mill_5ax
+DATA|sim05_mill_5ax_tnc_in|MDM0101|5-Ax Mill Gantry AC-Head Post Builder inch|HeidenhainTNC|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\sim05_mill_5ax_tnc_in.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\graphics\sim05_mill_5ax
+DATA|sim05_mill_5ax_sinumerik_in|MDM0101|5-Ax Mill Gantry AC-Head Post Builder inch|Sinumerik|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\sim05_mill_5ax_sinumerik_in.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\graphics\sim05_mill_5ax
+DATA|sim05_mill_5ax_okuma_in|MDM0101|5-Ax Mill Gantry AC-Head Post Builder inch|okuma|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\sim05_mill_5ax_okuma_in.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim05_mill_5ax\graphics\sim05_mill_5ax

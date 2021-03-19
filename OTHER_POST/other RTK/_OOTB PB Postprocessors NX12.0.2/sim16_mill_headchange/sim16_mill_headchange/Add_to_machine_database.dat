@@ -1,0 +1,10 @@
+##  Data file for the Machine tool Sim16
+##
+##############################################################################
+## REVISIONS
+##   Date             Who              Reason
+##   04-Dec-18     Thomas Jenensch     Add entries for GTAC download
+##############################################################################
+
+# New machine tools metric
+DATA|sim16_mill_headchange|MDM0101|Gantry Mill with Headchanger Post Builder metric|Sinumerik|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim16_mill_headchange\sim16_mill_headchange_mm.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim16_mill_headchange\graphics\sim16_mill_headchange

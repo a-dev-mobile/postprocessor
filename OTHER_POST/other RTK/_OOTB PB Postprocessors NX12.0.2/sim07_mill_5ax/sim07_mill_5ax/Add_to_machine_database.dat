@@ -1,0 +1,17 @@
+##  Data file for the Machine tool Sim07
+##
+##############################################################################
+## REVISIONS
+##   Date             Who              Reason
+##   04-Dec-18     Thomas Jenensch     Add entries for GTAC download
+##############################################################################
+
+# New machine tools metric
+DATA|sim07_mill_5ax_fanuc_mm|MDM0101|5-Ax Mill Vertical B-Head C-Table Post Builder metric|Fanuc|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim07_mill_5ax\sim07_mill_5ax_fanuc_mm.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim07_mill_5ax\graphics\sim07_mill_5ax
+DATA|sim07_mill_5ax_tnc_mm|MDM0101|5-Ax Mill Vertical B-Head C-Table Post Builder metric|HeidenhainTNC|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim07_mill_5ax\sim07_mill_5ax_tnc_mm.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim07_mill_5ax\graphics\sim07_mill_5ax
+DATA|sim07_mill_5ax_sinumerik_mm|MDM0101|5-Ax Mill Vertical B-Head C-Table Post Builder metric|Sinumerik|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim07_mill_5ax\sim07_mill_5ax_sinumerik_mm.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim07_mill_5ax\graphics\sim07_mill_5ax
+
+# New machine tools inch
+DATA|sim07_mill_5ax_fanuc_in|MDM0101|5-Ax Mill Vertical B-Head C-Table Post Builder inch|Fanuc|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim07_mill_5ax\sim07_mill_5ax_fanuc_in.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim07_mill_5ax\graphics\sim07_mill_5ax
+DATA|sim07_mill_5ax_tnc_in|MDM0101|5-Ax Mill Vertical B-Head C-Table Post Builder inch|HeidenhainTNC|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim07_mill_5ax\sim07_mill_5ax_tnc_in.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim07_mill_5ax\graphics\sim07_mill_5ax
+DATA|sim07_mill_5ax_sinumerik_in|MDM0101|5-Ax Mill Vertical B-Head C-Table Post Builder inch|Sinumerik|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim07_mill_5ax\sim07_mill_5ax_sinumerik_in.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim07_mill_5ax\graphics\sim07_mill_5ax

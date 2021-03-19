@@ -1,0 +1,15 @@
+##  Data file for the Machine tool Sim11
+##
+##############################################################################
+## REVISIONS
+##   Date             Who              Reason
+##   04-Dec-18     Thomas Jenensch     Add entries for GTAC download
+##############################################################################
+
+# New machine tools metric
+DATA|sim11_turn_2ax_fanuc_mm|MDM0201|2-Ax Turn Horizontal Post Builder metric|Fanuc|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim11_turn_2ax\sim11_turn_2ax_fanuc_mm.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim11_turn_2ax\graphics\sim11_turn_2ax
+DATA|sim11_turn_2ax_sinumerik_mm|MDM0201|2-Ax Turn Horizontal Post Builder metric|Sinumerik|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim11_turn_2ax\sim11_turn_2ax_sinumerik_mm.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim11_turn_2ax\graphics\sim11_turn_2ax
+
+# New machine tools inch
+DATA|sim11_turn_2ax_fanuc_in|MDM0201|2-Ax Turn Horizontal Post Builder inch|Fanuc|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim11_turn_2ax\sim11_turn_2ax_fanuc_in.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim11_turn_2ax\graphics\sim11_turn_2ax
+DATA|sim11_turn_2ax_sinumerik_in|MDM0201|2-Ax Turn Horizontal Post Builder inch|Sinumerik|Example|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim11_turn_2ax\sim11_turn_2ax_sinumerik_in.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim11_turn_2ax\graphics\sim11_turn_2ax

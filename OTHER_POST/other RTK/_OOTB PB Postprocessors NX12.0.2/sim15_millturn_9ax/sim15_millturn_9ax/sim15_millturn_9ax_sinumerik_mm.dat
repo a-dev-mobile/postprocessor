@@ -1,0 +1,2 @@
+Sim15 MillTurn 9Axis,${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim15_millturn_9ax\postprocessor\sinumerik\sim15_millturn_9ax_sinumerik_mm.tcl,${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim15_millturn_9ax\postprocessor\sinumerik\sim15_millturn_9ax_sinumerik_mm.def
+CSE_FILES, ${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim15_millturn_9ax\cse_driver\sinumerik\sim15_millturn_9ax.MCF

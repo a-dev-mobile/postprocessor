@@ -1,0 +1,3 @@
+TURN_2_AXIS,${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim12_turn_2ax\postprocessor\fanuc\sim12_turn_2ax_fanuc_mm.tcl,${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim12_turn_2ax\postprocessor\fanuc\sim12_turn_2ax_fanuc_mm.def
+CSE_FILES, ${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim12_turn_2ax\cse_driver\fanuc\sim12_turn_2ax_fanuc.MCF
+

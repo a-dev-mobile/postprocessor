@@ -1,0 +1,2 @@
+Sim15 MillTurn 9Axis,${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim15_millturn_9ax\postprocessor\fanuc\sim15_millturn_9ax_fanuc_mm.tcl,${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim15_millturn_9ax\postprocessor\fanuc\sim15_millturn_9ax_fanuc_mm.def
+CSE_FILES, ${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim15_millturn_9ax\cse_driver\fanuc\sim15_millturn_9ax_fanuc.MCF

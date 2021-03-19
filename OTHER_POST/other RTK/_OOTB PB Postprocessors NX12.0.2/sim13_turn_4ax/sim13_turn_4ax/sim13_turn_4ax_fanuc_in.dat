@@ -1,0 +1,2 @@
+2-Channel Merging Lathe,${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim13_turn_4ax\postprocessor\fanuc\sim13_turn_4ax_in_channel_1.tcl,${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim13_turn_4ax\postprocessor\fanuc\sim13_turn_4ax_in_channel_1.def
+CSE_FILES, ${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim13_turn_4ax\cse_driver\fanuc\sim13_turn_4ax_fanuc.MCF

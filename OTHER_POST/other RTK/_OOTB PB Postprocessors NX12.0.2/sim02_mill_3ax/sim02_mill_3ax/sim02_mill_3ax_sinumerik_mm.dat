@@ -1,0 +1,2 @@
+MILL_3_AXIS,${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim02_mill_3ax\postprocessor\sinumerik\sim02_mill_3ax_sinumerik_mm.tcl,${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim02_mill_3ax\postprocessor\sinumerik\sim02_mill_3ax_sinumerik_mm.def
+CSE_FILES, ${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim02_mill_3ax\cse_driver\sinumerik\sim02_mill_3ax_sinumerik.MCF

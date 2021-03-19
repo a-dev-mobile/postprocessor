@@ -1,0 +1,4 @@
+MILLTURN_5AX,${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim10_millturn_5ax\postprocessor\fanuc\sim10_millturn_5ax_MASTER_IN.tcl,${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim10_millturn_5ax\postprocessor\fanuc\sim10_millturn_5ax_MASTER_IN.def
+
+
+CSE_FILES, ${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim10_millturn_5ax\cse_driver\fanuc\sim10_millturn_5ax_fanuc_in.MCF

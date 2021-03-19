@@ -1,0 +1,2 @@
+MILL_5_AXIS,${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim14_mill_5ax\postprocessor\fanuc\sim14_mill_5ax_fanuc_in.tcl,${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim14_mill_5ax\postprocessor\fanuc\sim14_mill_5ax_fanuc_in.def
+CSE_FILES, ${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim14_mill_5ax\cse_driver\fanuc\sim14_mill_5ax_fanuc.MCF

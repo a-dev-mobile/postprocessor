@@ -1,0 +1,10 @@
+##  Data file for the Machine tool Sim10
+##
+##############################################################################
+## REVISIONS
+##   Date             Who              Reason
+##   04-Dec-18     Thomas Jenensch     Add entries for GTAC download
+##############################################################################
+
+# New machine tools inch
+DATA|sim10_millturn_5ax_fanuc_in|MDM0204|XZC MillTurn Post Builder inch|Fanuc|Millturn|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim10_millturn_5ax\sim10_millturn_5ax_fanuc_in.dat|1.000000|${UGII_CAM_LIBRARY_INSTALLED_MACHINES_DIR}sim10_millturn_5ax\graphics\sim10_millturn_5ax
