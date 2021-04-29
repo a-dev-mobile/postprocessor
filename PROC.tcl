@@ -245,7 +245,7 @@ set a5 [SET_comment  "Machine: X.mill 1100L CNC"]
 set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 
 #set a "$a0`$a2`$a21`$a3`$a4`$a0"
-set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
+set a "$a0`$a2`$a3`$a4`$a5`$a6"
 return  [SPLIT_TEXT $a]
 }
 
@@ -1254,8 +1254,8 @@ proc CHECK_ZERO_SPEED_AND_TOOL {} {
 global mom_path_name
 global mom_spindle_speed
 global mom_tool_number
-
-
+global mom_next_tool_status
+global mom_next_tool_number
 
  if { $mom_spindle_speed == 0 } {
      MOM_output_to_listing_device " "
@@ -1274,6 +1274,19 @@ global mom_tool_number
    #  MOM_abort " Œÿ»¡ ¿: »Õ—“–”Ã≈Õ“ T0 Õ≈ –¿«–≈ÿ≈Õ! "
  }
 
+
+if { $mom_next_tool_status == "FIRST" } { return }
+
+if { $mom_next_tool_number == 0 } {
+      MOM_output_to_listing_device "not specify the next tool"
+  #    MOM_abort
+  MOM_output_to_listing_device " "
+     MOM_output_to_listing_device "   ======================================="
+     MOM_output_to_listing_device "    ¬Õ»Ã¿Õ»≈ !!! "
+     MOM_output_to_listing_device "    Œÿ»¡ ¿: —À≈ƒ”ﬁŸ»… »Õ—“–”Ã≈Õ“ T0  !!!!!!!!"
+     MOM_output_to_listing_device "   ======================================="
+      return
+   }
 }
 
 #==============PROVERKI END=====================

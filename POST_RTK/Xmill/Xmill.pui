@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Thursday, April 29 2021, 08:41:30 +0300
+#  Created by d.trofimov @ Thursday, April 29 2021, 10:03:24 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -447,6 +447,29 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, March 18 2021
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, April 26 2021, 09:43:26 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 08:41:13 +0300 by d.trofimov.
 Created Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 08:41:30 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 08:54:49 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 08:57:04 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:11:01 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:28:57 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:33:16 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:34:39 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:35:29 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:37:44 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:37:55 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:38:52 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:39:19 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:41:27 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:42:36 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:44:09 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:45:11 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:50:15 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:52:46 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:53:12 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:54:53 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:56:33 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:57:00 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:57:19 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 10:03:23 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -706,11 +729,11 @@ Text              ""  0  "Text String"  0
 
 ## SEQUENCE START
 #Program Start Sequence Start
-{Start of Program}         {PB_CMD_MAIN MOM_set_seq_off PB_CMD_start_of_program PB_CMD_combine_rotary_init PB_CMD_fix_RAPID_SET PB_CMD_MY_start_programm}  {$gPB(event,start_prog,name)}
+{Start of Program}         {PB_CMD_MAIN MOM_set_seq_off PB_CMD_start_of_program PB_CMD_combine_rotary_init PB_CMD_fix_RAPID_SET MOM_set_seq_on PB_CMD_MY_start_programm}  {$gPB(event,start_prog,name)}
 #Program Start Sequence End
 
 #Operation Start Sequence Start
-{Start of Path}            {MOM_set_seq_on PB_CMD_check_shpin PB_CMD_MY_oper_name PB_CMD_start_of_operation_force_addresses PB_CMD_MY_start_programm_1 PB_CMD_tool_name PB_CMD_output_next_tool PB_CMD_tool_change_force_addresses PB_CMD_cycle_hole_counter_reset}  {$gPB(event,opr_start,start_path,name)}
+{Start of Path}            {PB_CMD_check PB_CMD_MY_oper_name PB_CMD_start_of_operation_force_addresses PB_CMD_tool_change_force_addresses PB_CMD_cycle_hole_counter_reset}  {$gPB(event,opr_start,start_path,name)}
 {From Move}                {}  {$gPB(event,opr_start,from_move,name)}
 {First Tool}               {PB_CMD_get_tool_info}  {$gPB(event,opr_start,fst_tool,name)}
 {Auto Tool Change}         {PB_CMD_first_tool PB_CMD_get_tool_info PB_CMD_create_tool_list}  {$gPB(event,opr_start,auto_tc,name)}
@@ -1344,8 +1367,8 @@ Text              ""  0  "Text String"  0
       {"$mom_sys_home_pos(2)" "0" ""} \
       {"$mom_sys_zero" "0" ""} \
       {"$mom_sys_opskip_block_leader" "/" ""} \
-      {"$mom_sys_seqnum_start" "1" ""} \
-      {"$mom_sys_seqnum_incr" "1" ""} \
+      {"$mom_sys_seqnum_start" "100" ""} \
+      {"$mom_sys_seqnum_incr" "5" ""} \
       {"$mom_sys_seqnum_freq" "1" ""} \
       {"$mom_sys_seqnum_max" "999999999" ""} \
       {"$mom_sys_lathe_x_double" "1" ""} \
@@ -1409,7 +1432,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_before_output" "" "Custom Command"} \
       {"PB_CMD_cal_feedrate_by_pitch_and_ss" "" "Custom Command"} \
       {"PB_CMD_cancel_suppress_force_once_per_event" "" "Custom Command"} \
-      {"PB_CMD_check_shpin" "" "Custom Command"} \
+      {"PB_CMD_check" "" "Custom Command"} \
       {"PB_CMD_circle_force" "" "Custom Command"} \
       {"PB_CMD_clamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_clamp_fourth_axis" "" "Custom Command"} \
