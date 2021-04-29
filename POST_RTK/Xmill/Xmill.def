@@ -563,7 +563,6 @@ FORMATTING
   {
        G_mode[$mom_sys_output_code(INCREMENTAL)]
        G[30]
-       fourth_axis[0]
   }
 
   BLOCK_TEMPLATE auto_tool_change_3
@@ -634,8 +633,6 @@ FORMATTING
 
   BLOCK_TEMPLATE circular_move
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_pos_arc_plane)]\opt
-       G_mode[$mom_sys_output_code($mom_output_mode)]\opt
        G_motion[$mom_sys_circle_code($mom_arc_direction)]\opt
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
@@ -664,11 +661,24 @@ FORMATTING
   BLOCK_TEMPLATE cutcom_off
   {
        G_cutcom[$mom_sys_cutcom_code(OFF)]
+       G_motion[$mom_sys_linear_code]
+       X[$mom_pos(0)]
+       Y[$mom_pos(1)]
+  }
+
+  BLOCK_TEMPLATE cutcom_off_X_Y
+  {
+       G_cutcom[$mom_sys_cutcom_code(OFF)]
+       Text[G01 X$mom_pos(0) Y$mom_pos(1)]
+  }
+
+  BLOCK_TEMPLATE cutcom_on
+  {
+       D[$mom_tool_number]
   }
 
   BLOCK_TEMPLATE cycle_bore
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -680,7 +690,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_bore_back
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_back_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -693,7 +702,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_bore_drag
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_drag_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -705,7 +713,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_bore_dwell
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_dwell_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -718,7 +725,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_bore_manual
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_manual_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -730,7 +736,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_bore_manual_dwell
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_manual_dwell_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -743,7 +748,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_bore_no_drag
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_no_drag_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -756,7 +760,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_drill
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_drill_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -768,7 +771,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_drill_break_chip
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_drill_break_chip_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -781,7 +783,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_drill_deep
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_drill_deep_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -794,7 +795,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_drill_dwell
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_drill_dwell_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -812,7 +812,6 @@ FORMATTING
 
   BLOCK_TEMPLATE cycle_tap
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_tap_code]
        X[$mom_cycle_feed_to_pos(0)]
@@ -839,7 +838,6 @@ FORMATTING
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
        Z[$mom_cycle_feed_to_pos(2)]
-       fourth_axis[$mom_out_angle_pos(0)]
        H[$mom_tool_number]
        F[$feed]
        R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
@@ -855,7 +853,6 @@ FORMATTING
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
        Z[$mom_cycle_feed_to_pos(2)]
-       fourth_axis[$mom_out_angle_pos(0)]
        H[$mom_tool_name]
        F[$feed]
        R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
@@ -871,7 +868,6 @@ FORMATTING
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
        Z[$mom_cycle_feed_to_pos(2)]
-       fourth_axis[$mom_out_angle_pos(0)]
        H[$mom_tool_name]
        F[$feed]
        R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
@@ -896,7 +892,6 @@ FORMATTING
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
        Z[$mom_cycle_feed_to_pos(2)]
-       fourth_axis[$mom_out_angle_pos(0)]
        H[$mom_tool_name]
        F[$feed]
        R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
@@ -921,7 +916,6 @@ FORMATTING
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
        Z[$mom_cycle_feed_to_pos(2)]
-       fourth_axis[$mom_out_angle_pos(0)]
        H[$mom_tool_name]
        F[$feed]
        R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
@@ -966,7 +960,6 @@ FORMATTING
   BLOCK_TEMPLATE fourth_axis_rotate_move
   {
        G_motion[$mom_sys_rapid_code]
-       fourth_axis[$mom_out_angle_pos(0)]
   }
 
   BLOCK_TEMPLATE from
@@ -974,6 +967,12 @@ FORMATTING
        G_motion[$mom_sys_rapid_code]
        X[$mom_from_pos(0)]
        Y[$mom_from_pos(1)]
+       Z[$mom_from_pos(2)]
+  }
+
+  BLOCK_TEMPLATE from_Z
+  {
+       G_motion[$mom_sys_rapid_code]
        Z[$mom_from_pos(2)]
   }
 
@@ -998,7 +997,6 @@ FORMATTING
        X[0]
        Y[0]
        Z[0]
-       fourth_axis[0]
   }
 
   BLOCK_TEMPLATE hpcc_mode_2
@@ -1031,9 +1029,10 @@ FORMATTING
 
   BLOCK_TEMPLATE init_move_adjust_len
   {
-       G_motion[$mom_sys_rapid_code]
-       G_adjust[$mom_sys_adjust_code]
+       G_motion[$mom_sys_rapid_code]\opt
+       G_adjust[$mom_sys_adjust_code]\opt
        Z[$mom_pos(2)]
+       H[$mom_tool_number]\opt
        S[$mom_spindle_speed]
        M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
   }
@@ -1048,7 +1047,6 @@ FORMATTING
   {
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
-       fourth_axis[$mom_out_angle_pos(0)]
   }
 
   BLOCK_TEMPLATE initial_move
@@ -1069,18 +1067,15 @@ FORMATTING
   BLOCK_TEMPLATE initial_move_2
   {
        G_motion[$mom_sys_rapid_code]
-       fourth_axis[$mom_out_angle_pos(0)]
   }
 
   BLOCK_TEMPLATE initial_move_BC
   {
        G_motion[$mom_sys_rapid_code]
-       fourth_axis[$mom_out_angle_pos(0)]
   }
 
   BLOCK_TEMPLATE initial_move_XY
   {
-       G_mode[$mom_sys_output_code($mom_output_mode)]\opt
        G_motion[$mom_sys_rapid_code]
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
@@ -1092,8 +1087,13 @@ FORMATTING
        G_motion[$mom_sys_rapid_code]
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
-       fourth_axis[$mom_out_angle_pos(0)]
        F[$feed]
+  }
+
+  BLOCK_TEMPLATE initial_move_Z
+  {
+       G_motion[$mom_sys_rapid_code]
+       Z[$mom_pos(2)]
   }
 
   BLOCK_TEMPLATE knots
@@ -1104,8 +1104,6 @@ FORMATTING
   BLOCK_TEMPLATE linear_move
   {
        G_cutcom[$mom_sys_cutcom_code($mom_cutcom_status)]\opt
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
-       G_mode[$mom_sys_output_code($mom_output_mode)]\opt
        G_motion[$mom_sys_linear_code]
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
@@ -1166,19 +1164,18 @@ FORMATTING
   BLOCK_TEMPLATE rapid_rotary
   {
        G_motion[$mom_sys_rapid_code]
-       fourth_axis[$mom_out_angle_pos(0)]
        S[$mom_spindle_speed]
        M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
   }
 
   BLOCK_TEMPLATE rapid_spindle
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
-       G_mode[$mom_sys_output_code($mom_output_mode)]\opt
-       G_motion[$mom_sys_rapid_code]
+       G_motion[$mom_sys_rapid_code]\opt
+       G_adjust[$mom_sys_adjust_code]\opt
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
        Z[$mom_pos(2)]
+       H[$mom_tool_name]\opt
        S[$mom_spindle_speed]\opt
        M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
        M_coolant[$mom_sys_coolant_code($mom_coolant_status)]\opt
@@ -1186,10 +1183,10 @@ FORMATTING
 
   BLOCK_TEMPLATE rapid_spindle_x
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
-       G_mode[$mom_sys_output_code($mom_output_mode)]\opt
-       G_motion[$mom_sys_rapid_code]
+       G_motion[$mom_sys_rapid_code]\opt
+       G_adjust[$mom_sys_adjust_code]\opt
        X[$mom_pos(0)]
+       H[$mom_tool_name]\opt
        S[$mom_spindle_speed]\opt
        M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
        M_coolant[$mom_sys_coolant_code($mom_coolant_status)]\opt
@@ -1197,10 +1194,10 @@ FORMATTING
 
   BLOCK_TEMPLATE rapid_spindle_y
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
-       G_mode[$mom_sys_output_code($mom_output_mode)]\opt
-       G_motion[$mom_sys_rapid_code]
+       G_motion[$mom_sys_rapid_code]\opt
+       G_adjust[$mom_sys_adjust_code]\opt
        Y[$mom_pos(1)]
+       H[$mom_tool_name]\opt
        S[$mom_spindle_speed]\opt
        M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
        M_coolant[$mom_sys_coolant_code($mom_coolant_status)]\opt
@@ -1208,10 +1205,10 @@ FORMATTING
 
   BLOCK_TEMPLATE rapid_spindle_z
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
-       G_mode[$mom_sys_output_code($mom_output_mode)]\opt
-       G_motion[$mom_sys_rapid_code]
+       G_motion[$mom_sys_rapid_code]\opt
+       G_adjust[$mom_sys_adjust_code]\opt
        Z[$mom_pos(2)]
+       H[$mom_tool_name]\opt
        S[$mom_spindle_speed]\opt
        M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
        M_coolant[$mom_sys_coolant_code($mom_coolant_status)]\opt
@@ -1219,7 +1216,7 @@ FORMATTING
 
   BLOCK_TEMPLATE rapid_traverse
   {
-       G_motion[$mom_sys_rapid_code]
+       G_motion[$mom_sys_rapid_code]\opt
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
        Z[$mom_pos(2)]
@@ -1227,21 +1224,21 @@ FORMATTING
 
   BLOCK_TEMPLATE rapid_traverse_xy
   {
-       G_motion[$mom_sys_rapid_code]
+       G_motion[$mom_sys_rapid_code]\opt
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
   }
 
   BLOCK_TEMPLATE rapid_traverse_yz
   {
-       G_motion[$mom_sys_rapid_code]
+       G_motion[$mom_sys_rapid_code]\opt
        Y[$mom_pos(1)]
        Z[$mom_pos(2)]
   }
 
   BLOCK_TEMPLATE rapid_traverse_xz
   {
-       G_motion[$mom_sys_rapid_code]
+       G_motion[$mom_sys_rapid_code]\opt
        X[$mom_pos(0)]
        Z[$mom_pos(2)]
   }
@@ -1353,7 +1350,6 @@ FORMATTING
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
        Z[$mom_cycle_feed_to_pos(2)]
-       fourth_axis[$mom_out_angle_pos(0)]
        H[$mom_tool_name]
        F[$feed]
        R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
@@ -1377,7 +1373,6 @@ FORMATTING
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
        Z[$mom_cycle_feed_to_pos(2)]
-       fourth_axis[$mom_out_angle_pos(0)]
        H[$mom_tool_number]
        F[$feed]
        R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
@@ -1402,7 +1397,6 @@ FORMATTING
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
        Z[$mom_cycle_feed_to_pos(2)]
-       fourth_axis[$mom_out_angle_pos(0)]
        H[$mom_tool_name]
        F[$feed]
        R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
@@ -1465,7 +1459,6 @@ FORMATTING
 
   BLOCK_TEMPLATE post_cycle_set
   {
-       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
        G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_reps_code]
        X[$mom_cycle_feed_to_pos(0)]
