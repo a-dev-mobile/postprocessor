@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Thursday, March 18 2021, 08:56:00 +0300
+#  Created by d.trofimov @ Monday, April 26 2021, 09:43:26 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################

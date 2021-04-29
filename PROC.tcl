@@ -231,7 +231,7 @@ set a5 [SET_comment  "Machine: Haas VF-3 or SMM"]
 set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 
 #set a "$a0`$a2`$a21`$a3`$a4`$a0"
-set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
+set a "$a0`$a1`$a2`$a3`$a4`$a5"
 return  [SPLIT_TEXT $a]
 }
 if { $arg_1 == 28 } {

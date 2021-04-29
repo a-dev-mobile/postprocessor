@@ -8,381 +8,143 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Tuesday, October 27 2020, 13:24:04 +0300
+#  Created by VolkovVR @ Thursday, January 30 2020, 12:20:51 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
 
 ## POST EVENT HANDLER START
-def_file  sub_post.def
-tcl_file  sub_post.tcl
+def_file  X_mill_new_cycles.def
+tcl_file  X_mill_new_cycles.tcl
 ## POST EVENT HANDLER END
 
 
 ## POST INFORMATION START
 #  DESCRIPTION START
-This is a 3-Axis Milling Machine.
+Это 3-осевой фрезерный станок.
 #  DESCRIPTION END
 #  CONTROLLER START
-Generic
+System (C:/Program Files/Siemens/NX 9.0/postbuild/pblib/controller/mill/haas_VF.pui)
 #  CONTROLLER END
 #  CONTROLLER TYPE START
 #  CONTROLLER TYPE END
 #  HISTORY START
-Created with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 8:28:05 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 8:58:40 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:00:58 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:14:55 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:15:27 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:15:41 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:16:36 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:19:21 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:35:51 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:38:48 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:39:49 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:42:43 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:45:59 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:47:49 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:49:45 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:53:59 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 9:55:04 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 10:00:03 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 10:01:36 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 10:02:09 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 10:04:13 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 10:04:43 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 10:23:30 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 10:43:51 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 10:44:39 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 10:45:12 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 10:49:02 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:09:50 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:10:13 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:10:50 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:14:29 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:15:58 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:16:38 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:19:17 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:20:36 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:22:14 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:26:35 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:28:53 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:45:43 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:46:01 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:47:25 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:48:02 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:50:17 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 11:56:17 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 12:02:53 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 12:03:49 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 12:39:05 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 12:43:32 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 12:45:38 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 12:48:22 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 12:58:36 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:00:13 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:01:07 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:02:45 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:04:00 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:05:30 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:06:00 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:08:22 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:09:11 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:09:55 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:10:08 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:10:32 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:16:50 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:21:26 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:24:11 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:30:45 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:31:07 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:31:43 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:32:21 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:35:21 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:37:17 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:38:59 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:40:03 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:43:17 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:49:46 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:52:31 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:53:29 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:58:57 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 13:59:48 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:01:43 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:05:35 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:05:56 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:07:06 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:08:28 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:10:32 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:11:33 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:13:25 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:14:56 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:17:08 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:18:16 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:25:04 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:25:21 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:25:39 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:26:40 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:27:09 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:28:27 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:29:21 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:30:27 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:31:30 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:37:28 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:37:41 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:37:48 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:38:45 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:54:00 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:56:38 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:57:43 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 14:58:40 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:03:05 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:03:51 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:04:44 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:05:20 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:10:27 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:10:59 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:12:15 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:12:39 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:12:58 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:14:26 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:14:56 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:15:46 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:16:17 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:17:24 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:35:32 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:35:54 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:36:52 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:37:04 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:39:01 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:40:49 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:41:08 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:41:38 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:44:00 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:45:03 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:46:20 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:50:15 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:50:40 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:52:58 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:56:15 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:57:38 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 15:58:26 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:01:05 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:15:29 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:16:07 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:16:18 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:17:39 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:17:44 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:18:03 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:18:43 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:19:39 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:20:28 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:20:50 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:21:33 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:23:32 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:24:25 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:24:55 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:25:16 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:30:47 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:37:40 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:46:26 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:47:02 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:47:39 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:48:34 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:50:14 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:53:19 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 21 íîÿáðÿ 2017 ã. 16:55:48 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 8:26:02 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 9:32:13 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 9:34:35 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 9:36:16 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 9:39:02 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 9:39:39 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 9:41:17 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 9:42:24 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 9:44:33 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 9:45:40 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 9:47:52 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 9:50:01 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 9:51:55 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 9:54:18 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 9:56:40 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:00:51 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:08:20 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:09:47 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:12:26 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:14:48 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:15:42 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:16:44 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:18:02 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:21:02 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:23:04 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:26:14 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:27:38 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:28:36 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:43:36 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:47:51 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:49:01 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:49:50 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:50:12 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:51:08 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:53:46 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:54:06 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:54:59 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:56:18 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 10:59:38 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:26:46 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:29:10 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:30:46 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:31:34 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:32:19 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:34:01 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:34:27 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:35:27 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:35:50 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:37:35 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:37:56 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:39:13 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:39:32 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:41:32 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:42:04 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:42:44 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:44:02 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:44:33 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:45:21 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:45:44 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:46:21 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:48:50 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:49:04 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:49:19 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:49:36 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:49:52 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:51:11 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:53:19 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:55:21 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:56:06 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:56:48 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 11:57:27 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 12:05:17 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 12:49:45 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 12:49:57 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 12:52:22 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 12:56:58 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 12:57:14 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 12:58:10 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:06:40 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:07:19 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:22:36 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:29:00 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:29:59 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:31:08 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:36:49 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:38:12 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:38:33 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:40:48 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:42:39 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:43:12 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:43:43 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:45:29 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:47:07 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:48:20 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:50:08 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:52:16 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:52:26 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 13:54:08 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 14:07:47 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 14:08:04 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 14:08:35 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 14:29:42 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 14:30:43 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:14:32 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:21:33 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:25:22 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:28:05 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:28:07 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:28:59 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:32:15 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:33:08 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:34:14 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:34:19 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:34:30 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:37:03 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:40:27 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:41:59 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:45:27 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:46:03 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:49:28 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:52:22 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:53:55 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 22 íîÿáðÿ 2017 ã. 16:55:01 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 10:40:35 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 10:45:36 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 10:47:26 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 10:48:10 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 10:48:53 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 10:52:06 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 11:01:52 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 11:02:54 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 11:06:48 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 11:12:14 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 11:13:08 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 11:15:17 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 11:22:27 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 11:29:22 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 11:33:34 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 11:34:32 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 11:37:23 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 11:38:32 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 11:58:31 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 12:04:19 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 12:06:16 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 12:49:47 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 23 íîÿáðÿ 2017 ã. 12:54:43 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 12:53:58 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 12:55:15 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 12:57:16 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 12:58:12 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 12:58:42 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:01:55 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:02:41 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:03:36 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:03:51 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:04:27 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:05:33 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:08:59 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:12:12 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:12:24 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:12:59 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:18:08 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:18:32 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:27:14 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:28:37 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:31:44 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:32:03 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:33:55 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:38:41 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:42:36 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:42:55 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:43:29 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:43:51 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 6 äåêàáðÿ 2017 ã. 13:43:54 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 15 äåêàáðÿ 2017 ã. 14:36:46 RTZ 2 (зима) by Admin.
-Saved with NX/Post Builder Version 10.0.0.0 on 15 äåêàáðÿ 2017 ã. 15:42:14 RTZ 2 (зима) by Admin.
-Created sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:08:53 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:09:24 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:13:13 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:24:32 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:31:59 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:35:08 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:37:59 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:39:47 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:40:53 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:44:20 RTZ 2 (зима) by Tom.
-Created sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:47:30 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:47:33 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 11.0.2.1 on 20 ôåâðàëÿ 2018 ã. 20:48:03 RTZ 2 (зима) by Tom.
-Saved sub_post with NX/Post Builder Version 12.0.2.1 on Tuesday, October 27 2020, 11:58:43 +0300 by d.trofimov.
-Saved sub_post with NX/Post Builder Version 12.0.2.1 on Tuesday, October 27 2020, 13:24:04 +0300 by d.trofimov.
+Created with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 13:53:58 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 13:54:12 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:00:15 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:03:19 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:05:04 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:05:31 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:05:38 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:08:36 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:09:55 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:10:44 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:14:13 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:16:07 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:21:10 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:23:25 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:37:25 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:40:36 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:45:31 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 15:50:19 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Post Builder Version 9.0.0.0 on 18 àâãóñòà 2016 ã. 16:00:41 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Post Builder Version 9.0.0.0 on 18 àâãóñòà 2016 ã. 16:00:46 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 16:05:59 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 16:07:13 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 16:09:33 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 16:09:57 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 16:13:04 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 16:14:30 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 16:14:33 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 16:16:11 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 16:16:44 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 16:18:01 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 16:19:44 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 àâãóñòà 2016 ã. 16:20:04 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 22 àâãóñòà 2016 ã. 10:23:29 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 22 àâãóñòà 2016 ã. 10:48:44 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 22 àâãóñòà 2016 ã. 10:48:55 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 22 àâãóñòà 2016 ã. 12:34:51 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 22 àâãóñòà 2016 ã. 14:57:48 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 22 àâãóñòà 2016 ã. 14:57:58 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 22 àâãóñòà 2016 ã. 16:49:24 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 22 àâãóñòà 2016 ã. 16:50:13 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 22 àâãóñòà 2016 ã. 16:50:16 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 30 àâãóñòà 2016 ã. 13:22:53 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 30 àâãóñòà 2016 ã. 13:23:01 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 30 àâãóñòà 2016 ã. 13:31:22 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 30 àâãóñòà 2016 ã. 13:53:17 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 30 àâãóñòà 2016 ã. 15:03:10 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 30 àâãóñòà 2016 ã. 15:05:52 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 31 àâãóñòà 2016 ã. 8:27:22 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 31 àâãóñòà 2016 ã. 18:38:34 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 íîÿáðÿ 2016 ã. 10:07:04 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 íîÿáðÿ 2016 ã. 10:58:46 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 íîÿáðÿ 2016 ã. 10:58:51 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 íîÿáðÿ 2016 ã. 11:07:27 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 18 íîÿáðÿ 2016 ã. 11:22:06 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 17 ÿíâàðÿ 2017 ã. 19:10:19 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Post Builder Version 9.0.0.0 on 16 ìàðòà 2017 ã. 10:36:25 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 16 ìàðòà 2017 ã. 10:39:12 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 16 ìàðòà 2017 ã. 10:40:25 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 16 ìàðòà 2017 ã. 10:40:34 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 16 ìàðòà 2017 ã. 10:42:54 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 16 ìàðòà 2017 ã. 10:44:11 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 16 ìàðòà 2017 ã. 10:44:54 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 16 ìàðòà 2017 ã. 10:46:55 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 16 ìàðòà 2017 ã. 10:47:08 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 18 ìàðòà 2017 ã. 13:05:30 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 18 ìàðòà 2017 ã. 13:07:16 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 18 ìàðòà 2017 ã. 13:09:48 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 18 ìàðòà 2017 ã. 13:11:14 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 18 ìàðòà 2017 ã. 13:13:26 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 18 ìàðòà 2017 ã. 13:13:48 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 18 ìàðòà 2017 ã. 13:14:27 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 18 ìàðòà 2017 ã. 13:15:27 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 18 ìàðòà 2017 ã. 13:30:43 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 21 ìàðòà 2017 ã. 10:19:08 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 21 ìàðòà 2017 ã. 10:30:42 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 21 ìàðòà 2017 ã. 10:34:56 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 21 ìàðòà 2017 ã. 10:35:28 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 21 ìàðòà 2017 ã. 10:36:51 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 21 ìàðòà 2017 ã. 10:37:16 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 21 ìàðòà 2017 ã. 10:38:15 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 21 ìàðòà 2017 ã. 10:39:51 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 21 ìàðòà 2017 ã. 10:41:35 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 21 ìàðòà 2017 ã. 10:42:42 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 21 ìàðòà 2017 ã. 10:45:31 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 23 ìàðòà 2017 ã. 9:29:16 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 23 ìàðòà 2017 ã. 9:30:02 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 23 ìàðòà 2017 ã. 9:30:27 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 23 ìàðòà 2017 ã. 9:33:37 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 23 ìàðòà 2017 ã. 9:51:53 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 23 ìàðòà 2017 ã. 9:54:16 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 23 ìàðòà 2017 ã. 9:56:57 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 23 ìàðòà 2017 ã. 9:58:38 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 23 ìàðòà 2017 ã. 9:59:18 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 23 ìàðòà 2017 ã. 10:02:56 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 23 ìàðòà 2017 ã. 10:15:22 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 23 ìàðòà 2017 ã. 10:15:33 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 24 ìàðòà 2017 ã. 13:26:27 Романское время (зима) by ßð.
+Saved with NX/Post Builder Version 9.0.0.0 on 24 ìàðòà 2017 ã. 15:01:17 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 24 ìàðòà 2017 ã. 16:02:29 Романское время (зима) by user.
+Saved with NX/Post Builder Version 9.0.0.0 on 25 ìàðòà 2017 ã. 8:04:36 Романское время (зима) by user.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 30 ìàðòà 2017 ã. 9:36:44 Романское время (зима) by ßêîâëåâÂÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 30 ìàðòà 2017 ã. 9:41:25 Романское время (зима) by ßêîâëåâÂÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 30 ìàðòà 2017 ã. 11:05:03 Романское время (зима) by ßêîâëåâÂÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 17 íîÿáðÿ 2017 ã. 9:06:02 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Saved with NX/Генератор постпроцессоров Версия 9.0.0.0 on 17 íîÿáðÿ 2017 ã. 12:36:10 RTZ 2 (зима) by ÇàðóáèíÄÀ.
+Created X_mill_new with NX/Post Builder Version 12.0.2.1 on Tuesday, January 28 2020, 12:32:29 +0300 by VolkovVR.
+Saved X_mill_new with NX/Post Builder Version 12.0.2.1 on Tuesday, January 28 2020, 12:57:58 +0300 by VolkovVR.
+Saved X_mill_new with NX/Post Builder Version 12.0.2.1 on Tuesday, January 28 2020, 16:01:56 +0300 by VolkovVR.
+Saved X_mill_new with NX/Post Builder Version 12.0.2.1 on Tuesday, January 28 2020, 16:07:38 +0300 by VolkovVR.
+Saved X_mill_new with NX/Post Builder Version 12.0.2.1 on Tuesday, January 28 2020, 16:21:39 +0300 by VolkovVR.
+Saved X_mill_new with NX/Post Builder Version 12.0.2.1 on Tuesday, January 28 2020, 16:28:49 +0300 by VolkovVR.
+Saved X_mill_new with NX/Post Builder Version 12.0.2.1 on Tuesday, January 28 2020, 16:29:09 +0300 by VolkovVR.
+Created X_mill_new with NX/Post Builder Version 12.0.2.1 on Tuesday, January 28 2020, 16:38:52 +0300 by VolkovVR.
+Saved X_mill_new with NX/Post Builder Version 12.0.2.1 on Thursday, January 30 2020, 11:03:49 +0300 by VolkovVR.
+Saved X_mill_new with NX/Post Builder Version 12.0.2.1 on Thursday, January 30 2020, 11:08:46 +0300 by VolkovVR.
+Created X_mill_new_cycles with NX/Post Builder Version 12.0.2.1 on Thursday, January 30 2020, 12:20:51 +0300 by VolkovVR.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -390,14 +152,14 @@ Saved sub_post with NX/Post Builder Version 12.0.2.1 on Tuesday, October 27 2020
 ## LISTING FILE START
 Listfileflag_warn              OFF
 Listfileflag                   OFF
-Listfileflag_alt_unit_post_name sub_post__IN.pui
+Listfileflag_alt_unit_post_name X_mill_new_cycles__IN.pui
 Listfileflag_group             OFF
 Listfileflag_verbose           OFF
 Listfileflag_tool              0
 Listfileflag_oper              0
 Listfileflag_lpt_ext           lpt
-Listfileflag_ncfile_ext        txt
-Listfileflag_usertcl_name      new_post_user.tcl
+Listfileflag_ncfile_ext        nc
+Listfileflag_usertcl_name      haas_vf_3axis_user.tcl
 Listfileflag_review            OFF
 Listfileflag_start_path        0
 Listfileflag_warn_opt          FILE
@@ -420,19 +182,19 @@ Listfilename                   listfile.lpt
 "$mom_kin_4th_axis_center_offset(2)"      "0.0"
 "$mom_kin_4th_axis_direction"             "MAGNITUDE_DETERMINES_DIRECTION"
 "$mom_kin_4th_axis_incr_switch"           "OFF"
-"$mom_kin_4th_axis_leader"                "B"
+"$mom_kin_4th_axis_leader"                "A"
 "$mom_kin_4th_axis_limit_action"          "Warning"
 "$mom_kin_4th_axis_max_limit"             "360"
 "$mom_kin_4th_axis_min_incr"              "0.001"
 "$mom_kin_4th_axis_min_limit"             "0"
-"$mom_kin_4th_axis_plane"                 "ZX"
+"$mom_kin_4th_axis_plane"                 "YZ"
 "$mom_kin_4th_axis_point(0)"              "0.0"
 "$mom_kin_4th_axis_point(1)"              "0.0"
 "$mom_kin_4th_axis_point(2)"              "0.0"
 "$mom_kin_4th_axis_rotation"              "standard"
 "$mom_kin_4th_axis_type"                  "Table"
-"$mom_kin_4th_axis_vector(0)"             "0.0"
-"$mom_kin_4th_axis_vector(1)"             "1.0"
+"$mom_kin_4th_axis_vector(0)"             "1.0"
+"$mom_kin_4th_axis_vector(1)"             "0.0"
 "$mom_kin_4th_axis_vector(2)"             "0.0"
 "$mom_kin_4th_axis_zero"                  "0.0"
 "$mom_kin_5th_axis_center_offset(0)"      "0.0"
@@ -475,17 +237,17 @@ Listfilename                   listfile.lpt
 "$mom_kin_min_frn"                        "0.01"
 "$mom_kin_output_unit"                    "MM"
 "$mom_kin_pivot_gauge_offset"             "0.0"
-"$mom_kin_pivot_guage_offset"             ""
+"$mom_kin_pivot_guage_offset"             "0.0"
 "$mom_kin_post_data_unit"                 "MM"
-"$mom_kin_rapid_feed_rate"                "15000"
+"$mom_kin_rapid_feed_rate"                "32000"
 "$mom_kin_rotary_axis_method"             "PREVIOUS"
 "$mom_kin_spindle_axis(0)"                "0.0"
 "$mom_kin_spindle_axis(1)"                "0.0"
 "$mom_kin_spindle_axis(2)"                "1.0"
-"$mom_kin_tool_change_time"               "12.0"
-"$mom_kin_x_axis_limit"                   "1000"
-"$mom_kin_y_axis_limit"                   "1000"
-"$mom_kin_z_axis_limit"                   "1000"
+"$mom_kin_tool_change_time"               "0.0"
+"$mom_kin_x_axis_limit"                   "1100"
+"$mom_kin_y_axis_limit"                   "600"
+"$mom_kin_z_axis_limit"                   "700"
 ## KINEMATIC VARIABLES END
 
 ## GCODES START
@@ -553,16 +315,20 @@ Listfilename                   listfile.lpt
 ## MASTER SEQUENCE START
 G_cutcom          "$mom_sys_cutcom_code(OFF)"  0  "Cutcom G-Code"  0
 G_plane           "$mom_sys_cutcom_plane_code($mom_cutcom_plane)"  0  "Plane G-Code"  0
-G_adjust          "$mom_sys_adjust_code"  0  "Tool Length Adjust G-Code"  0
-G_feed            "$mom_sys_feed_rate_mode_code($feed_mode)"  1  "Feedrate Mode G-Code"  0
+G_adjust          "$mom_sys_adjust_code"  1  "Tool Length Adjust G-Code"  0
+G_feed            "$mom_sys_feed_rate_mode_code($feed_mode)"  0  "Feedrate Mode G-Code"  0
 G_spin            "$mom_sys_spindle_mode_code($mom_spindle_status)"  0  "Spindle Output Mode G-Code"  0
 G_return          "$mom_sys_cycle_ret_code(MANUAL)"  0  "Return Plane for Canned Cycles"  0
 G_motion          "$mom_sys_linear_code"  0  "Motion G-Code"  0
 G_mode            "$mom_sys_output_code($mom_output_mode)"  0  "Positioning Mode G-code"  0
 G                 "$mom_sys_blank_code"  0  "Other G-Codes"  0
+G_plane_1         "$mom_usd_add_var"  0  "New Address"  1
 X                 "$mom_sys_blank_code"  0  "X Axis Position or Canned Cycle X Axis Position"  0
 Y                 "$mom_sys_blank_code"  0  "Y Axis Position or Canned Cycle Y Axis Position"  0
+H                 "$mom_sys_blank_code"  0  "Tool Length Compensation Register"  0
 Z                 "$mom_sys_blank_code"  0  "Z Axis Position or Canned Cycle Z Axis Position"  0
+Z3                "$mom_usd_add_var"  0  "(Z3)"  1
+Z_zero            "$mom_usd_add_var"  0  "(Z_zero)"  1
 fourth_axis       "$mom_sys_blank_code"  1  "4th Axis Position"  0
 fifth_axis        "$mom_sys_blank_code"  1  "5th Axis Position"  0
 I                 "$mom_sys_blank_code"  0  "X Axis Position of the Circle Center"  0
@@ -573,20 +339,21 @@ F                 "$mom_sys_blank_code"  0  "Feedrate"  0
 S                 "$mom_sys_blank_code"  0  "Spindle Speed"  0
 T                 "$mom_sys_blank_code"  0  "Tool Select Code"  0
 D                 "$mom_sys_blank_code"  0  "Tool Radius Compensation Register"  0
-H                 "$mom_sys_blank_code"  0  "Tool Length Compensation Register"  0
 dwell             "$mom_sys_blank_code"  0  "Programmed Dwell"  0
 cycle_dwell       "$mom_sys_blank_code"  0  "Delay for Canned cycle Dwell"  0
+P_cutcom          "$mom_sys_blank_code"  0  "P-Cutcom"  0
 K_cycle           "$mom_sys_blank_code"  0  "Retract Position in a Canned Cycle Block"  0
 cycle_step1       "$mom_sys_blank_code"  0  "Step Increment Modifier for Deep or Break Chip Cycle"  0
 cycle_step        "$mom_sys_blank_code"  0  "Step Increment for Deep or Break Chip Cycle"  0
-cycle_orient      "$mom_sys_blank_code"  0  "Orient Value for Bore Nodrag or Back Bore Cycle"  0
-P_cutcom          "$mom_sys_blank_code"  0  "P-Cutcom"  0
 Q_cutcom          "$mom_sys_blank_code"  0  "Q-Cutcom"  0
 E                 "$mom_sys_blank_code"  0  "Thread Increment for Threads"  0
 M_spindle         "$mom_sys_spindle_direction_code($mom_spindle_direction)"  0  "Spindle Direction M-Code"  0
 M_range           "$mom_sys_spindle_range_code($mom_spindle_range)"  0  "Spindle Range M-Code"  0
 M_coolant         "$mom_sys_coolant_code($mom_coolant_status)"  0  "Coolant M-Code"  0
 M                 "$mom_sys_optional_stop_code"  0  "Other M-Codes"  0
+cycle_orient      "$mom_sys_blank_code"  0  "Orient Value for Bore Nodrag or Back Bore Cycle"  0
+user_add          "$mom_usd_add_var"  0  "Новый адрес"  1
+Time              "$mom_usd_add_var"  0  "Новый адрес"  1
 N                 ""  0  "Sequence Number"  0
 Text              ""  0  "Text String"  0
 ## MASTER SEQUENCE END
@@ -616,18 +383,18 @@ Text              ""  0  "Text String"  0
 
 ## SEQUENCE START
 #Program Start Sequence Start
-{Start of Program}         {PB_CMD_MAIN PB_CMD_TOOL_LIST_INIT}  {$gPB(event,start_prog,name)}
+{Start of Program}         {MOM_set_seq_off rewind_stop_code Name MOM_set_seq_on safety start_of_program_1 coor_system}  {$gPB(event,start_prog,name)}
 #Program Start Sequence End
 
 #Operation Start Sequence Start
-{Start of Path}            {PB_CMD_TOOL_LIST_START_PATH PB_CMD_END}  {$gPB(event,opr_start,start_path,name)}
+{Start of Path}            {PB_CMD_start_of_operation_force_addresses comment_blk_5}  {$gPB(event,opr_start,start_path,name)}
 {From Move}                {}  {$gPB(event,opr_start,from_move,name)}
 {First Tool}               {}  {$gPB(event,opr_start,fst_tool,name)}
-{Auto Tool Change}         {}  {$gPB(event,opr_start,auto_tc,name)}
-{Manual Tool Change}       {}  {$gPB(event,opr_start,manual_tc,name)}
-{Initial Move}             {}  {$gPB(event,opr_start,init_move,name)}
-{First Move}               {}  {$gPB(event,opr_start,fst_move,name)}
-{Approach Move}            {}  {$gPB(event,opr_start,appro_move,name)}
+{Auto Tool Change}         {PB_CMD_tool_change_force_addresses PB_CMD_tool_information auto_tool_change_3 tool_change_1 auto_tool_change auto_tool_change_1 auto_tool_change_2}  {$gPB(event,opr_start,auto_tc,name)}
+{Manual Tool Change}       {PB_CMD_tool_change_force_addresses stop}  {$gPB(event,opr_start,manual_tc,name)}
+{Initial Move}             {initial_move}  {$gPB(event,opr_start,init_move,name)}
+{First Move}               {initial_move}  {$gPB(event,opr_start,fst_move,name)}
+{Approach Move}            {coolant_on}  {$gPB(event,opr_start,appro_move,name)}
 {Engage Move}              {}  {$gPB(event,opr_start,engage_move,name)}
 {First Cut}                {}  {$gPB(event,opr_start,fst_cut,name)}
 {First Linear Move}        {}  {$gPB(event,opr_start,fst_lin_move,name)}
@@ -638,13 +405,13 @@ Text              ""  0  "Text String"  0
 {Tool Change}              {}  {$gPB(event,tool_change,name)} {}
 {Length Compensation}      {tool_length_adjust}  {$gPB(event,length_compn,name)} {length_compensation}
 {Set Modes}                {}  {$gPB(event,set_modes,name)} {set_modes}
-{Spindle RPM}              {spindle_rpm}  {$gPB(event,spindle_rpm,name)} {spindle}
+{Spindle RPM}              {}  {$gPB(event,spindle_rpm,name)} {spindle}
 {Spindle Off}              {spindle_off}  {$gPB(event,spindle_off,name)} {spindle_off}
-{Coolant On}               {}  {$gPB(event,coolant_on,name)} {coolant}
+{Coolant On}               {coolant_on}  {$gPB(event,coolant_on,name)} {coolant}
 {Coolant Off}              {coolant_off}  {$gPB(event,coolant_off,name)} {coolant_off}
 {Inch Metric Mode}         {}  {$gPB(event,inch_metric_mode,name)} {}
 {Feedrates}                {}  {$gPB(event,feedrates,name)} {}
-{Cutcom On}                {}  {$gPB(event,cutcom_on,name)} {cutcom}
+{Cutcom On}                {cutcom_on}  {$gPB(event,cutcom_on,name)} {cutcom}
 {Cutcom Off}               {cutcom_off}  {$gPB(event,cutcom_off,name)} {}
 {Delay}                    {delay}  {$gPB(event,delay,name)} {dwell}
 {Opstop}                   {opstop}  {$gPB(event,opstop,name)} {opstop}
@@ -662,29 +429,31 @@ Text              ""  0  "Text String"  0
 #Control Functions End
 
 #Motions Start
-{Linear Move}              {PB_CMD_suppress_linear_block_plane_code linear_move}  {$gPB(event,linear,name)}
+{Linear Move}              {linear_move}  {$gPB(event,linear,name)}
 {Circular Move}            {circular_move}  {$gPB(event,circular,name)}
-{Rapid Move}               {rapid_traverse rapid_spindle}  {$gPB(event,rapid,name)}
+{Rapid Move}               {rapid_traverse rapid_spindle rapid_move}  {$gPB(event,rapid,name)}
+{Nurbs Move}               {PB_CMD_init_helix}  {Nurbs Move}
+{Helix Move}               {PB_CMD_init_helix}  {Helix Move}
 #Motions End
 
 #Cycles Start
 {Cycle Parameters}         {post_cycle_set}  {$gPB(event,cycle,com_param,name)}
 {Cycle Off}                {cycle_off}  {$gPB(event,cycle,cycle_off,name)}
 {Cycle Plane Change}       {}  {$gPB(event,cycle,plane_chng,name)}
-{Drill}                    {cycle_drill}  {$gPB(event,cycle,drill,name)} {CYCLE_EVENT}
-{Drill Dwell}              {cycle_drill_dwell}  {$gPB(event,cycle,drill_dwell,name)}
+{Drill}                    {PB_CMD_start_of_alignment_character drill drill_1 PB_CMD_end_of_alignment_character cycle_drill}  {$gPB(event,cycle,drill,name)} {CYCLE_EVENT}
+{Drill Dwell}              {PB_CMD_start_of_alignment_character drill_dwell drill_dwell_1 drill_dwell_2 PB_CMD_end_of_alignment_character cycle_drill_dwell}  {$gPB(event,cycle,drill_dwell,name)}
 {Drill Text}               {}  {$gPB(event,cycle,drill_text,name)} {CYCLE_EVENT}
 {Drill Csink}              {}  {$gPB(event,cycle,drill_csink,name)} {CYCLE_EVENT}
-{Drill Deep}               {cycle_drill_deep}  {$gPB(event,cycle,drill_deep,name)} {CYCLE_EVENT}
-{Drill Break Chip}         {cycle_drill_break_chip}  {$gPB(event,cycle,drill_brk_chip,name)} {CYCLE_EVENT}
-{Tap}                      {cycle_tap}  {$gPB(event,cycle,tap,name)} {CYCLE_EVENT}
-{Bore}                     {cycle_bore}  {$gPB(event,cycle,bore,name)} {CYCLE_EVENT}
-{Bore Dwell}               {cycle_bore_dwell}  {$gPB(event,cycle,bore_dwell,name)}
-{Bore Drag}                {cycle_bore_drag}  {$gPB(event,cycle,bore_drag,name)} {CYCLE_EVENT}
-{Bore No Drag}             {cycle_bore_no_drag}  {$gPB(event,cycle,bore_no_drag,name)} {CYCLE_EVENT}
-{Bore Back}                {cycle_bore_back}  {$gPB(event,cycle,bore_back,name)} {CYCLE_EVENT}
-{Bore Manual}              {cycle_bore_manual}  {$gPB(event,cycle,bore_manual,name)} {CYCLE_EVENT}
-{Bore Manual Dwell}        {cycle_bore_manual_dwell}  {$gPB(event,cycle,bore_manual_dwell,name)}
+{Drill Deep}               {PB_CMD_start_of_alignment_character drill_deep drill_deep_2 drill_deep_3 PB_CMD_end_of_alignment_character cycle_drill_deep}  {$gPB(event,cycle,drill_deep,name)} {CYCLE_EVENT}
+{Drill Break Chip}         {PB_CMD_start_of_alignment_character drill_break_chip_2 drill_break_chip_1 drill_break_chip PB_CMD_end_of_alignment_character cycle_drill_break_chip}  {$gPB(event,cycle,drill_brk_chip,name)} {CYCLE_EVENT}
+{Tap}                      {tap cycle_tap}  {$gPB(event,cycle,tap,name)} {CYCLE_EVENT}
+{Bore}                     {bore cycle_bore}  {$gPB(event,cycle,bore,name)} {CYCLE_EVENT}
+{Bore Dwell}               {bore_dwell cycle_bore_dwell}  {$gPB(event,cycle,bore_dwell,name)}
+{Bore Drag}                {bore_drag cycle_bore_drag}  {$gPB(event,cycle,bore_drag,name)} {CYCLE_EVENT}
+{Bore No Drag}             {bore_no_drag cycle_bore_no_drag}  {$gPB(event,cycle,bore_no_drag,name)} {CYCLE_EVENT}
+{Bore Back}                {bore_back cycle_bore_back}  {$gPB(event,cycle,bore_back,name)} {CYCLE_EVENT}
+{Bore Manual}              {bore_manual cycle_bore_manual}  {$gPB(event,cycle,bore_manual,name)} {CYCLE_EVENT}
+{Bore Manual Dwell}        {bore_manual_dwell bore_manual_dwell_1 cycle_bore_manual_dwell}  {$gPB(event,cycle,bore_manual_dwell,name)}
 {Peck Drill}               {}  {$gPB(event,cycle,peck_drill,name)} {CYCLE_EVENT}
 {Break Chip}               {}  {$gPB(event,cycle,break_chip,name)} {CYCLE_EVENT}
 #Cycles End
@@ -699,11 +468,11 @@ Text              ""  0  "Text String"  0
 {Retract Move}             {}  {$gPB(event,opr_end,ret_move,name)}
 {Return Move}              {}  {$gPB(event,opr_end,rtn_move,name)}
 {Gohome Move}              {}  {$gPB(event,opr_end,goh_move,name)}
-{End of Path}              {}  {$gPB(event,opr_end,end_path,name)}
+{End of Path}              {coolant_off comment_blk_1}  {$gPB(event,opr_end,end_path,name)}
 #Operation End Sequence End
 
 #Program End Sequence Start
-{End of Program}           {PB_CMD_TOOL_LIST_END}  {$gPB(event,end_prog,name)}
+{End of Program}           {comment_blk_3 coolant_off end_of_program_2 end_of_program_5 end_of_program_6 end_of_program MOM_set_seq_off rewind_stop_code}  {$gPB(event,end_prog,name)}
 #Program End Sequence End
 
 #Linked Posts Sequence Start
@@ -714,8 +483,22 @@ Text              ""  0  "Text String"  0
 ## SEQUENCE END
 
 ## EVENTS ELEMENT EXECUTION START
-{Spindle RPM} \
+{Auto Tool Change} \
+        {3 NULL 0 {M}} \
+        {5 NULL 0 {H}} \
+        {6 NULL 0 {Text}}
+{Initial Move} \
         {0 NULL 0 {S M_spindle}}
+{First Move} \
+        {0 NULL 0 {S M_spindle}}
+{Cutcom On} \
+        {0 NULL 0 {X Y D}}
+{Linear Move} \
+        {0 NULL 0 {G_motion}}
+{Circular Move} \
+        {0 NULL 0 {G_motion X Y I J}}
+{End of Program} \
+        {4 NULL 0 {G}}
 ## EVENTS ELEMENT EXECUTION END
 
 ## EVENTS USER INTERFACE START
@@ -957,9 +740,9 @@ Text              ""  0  "Text String"  0
       {"$mom_sys_spindle_mode_code(SFM)" "96" "Spindle output (CSS)"} \
       {"$mom_sys_spindle_mode_code(RPM)" "97" "Spindle output (RPM)"}
 {G_return} \
-      {"$mom_sys_cycle_ret_code($mom_cycle_retract_mode)" "\$mom_sys_cycle_ret_code(MANUAL)" "Cycle Return (AUTO/MANUAL)"} \
-      {"$mom_sys_cycle_ret_code(AUTO)" "98" "Cycle Return (AUTO)"} \
-      {"$mom_sys_cycle_ret_code(MANUAL)" "99" "Cycle Return (MANUAL)"}
+      {"$mom_sys_cycle_ret_code($mom_cycle_retract_mode)" "\$mom_sys_cycle_ret_code(MANUAL)" "Return Plane (AUTO/MANUAL)"} \
+      {"$mom_sys_cycle_ret_code(AUTO)" "98" "Return Plane(AUTO)"} \
+      {"$mom_sys_cycle_ret_code(MANUAL)" "99" "Return Plane (MANUAL)"}
 {G_motion} \
       {"$mom_sys_rapid_code" "0" "Rapid Move"} \
       {"$mom_sys_linear_code" "1" "Linear Move"} \
@@ -976,8 +759,8 @@ Text              ""  0  "Text String"  0
       {"$mom_sys_cycle_bore_no_drag_code" "76" "Bore No Drag"} \
       {"$mom_sys_cycle_bore_back_code" "87" "Bore Back"} \
       {"$mom_sys_cycle_bore_manual_code" "88" "Bore Manual"} \
-      {"$mom_sys_cycle_bore_dwell_code" "89" "Bore Dwell Cycle"} \
-      {"$mom_sys_cycle_bore_manual_dwell_code" "88" "Bore Manual Dwell Cycle"} \
+      {"$mom_sys_cycle_bore_dwell_code" "89" "Bore Dwell"} \
+      {"$mom_sys_cycle_bore_manual_dwell_code" "89" "Bore Manual Dwell"} \
       {"$mom_sys_cycle_start_code" "79" "Cycle Start Code"} \
       {"$mom_sys_cycle_off" "80" "Cycle Off"} \
       {"$mom_sys_cycle_reps_code" "x" "Cycle Code Representative"}
@@ -991,28 +774,40 @@ Text              ""  0  "Text String"  0
       {"$mom_sys_delay_code(REVOLUTIONS)" "4" "Delay in Revloutions"} \
       {"$mom_sys_delay_code($mom_delay_mode)" "\$mom_sys_delay_code(SECONDS)" "Delay (Seconds/Revolutions)"} \
       {"$mom_sys_reset_code" "92" "Absolute Position Reset"} \
-      {"$mom_sys_unit_code(IN)" "70" "Output Unit (Inch)"} \
-      {"$mom_sys_unit_code(MM)" "71" "Output Unit (Metric)"} \
+      {"$mom_sys_unit_code(IN)" "20" "Output Unit (Inch)"} \
+      {"$mom_sys_unit_code(MM)" "21" "Output Unit (Metric)"} \
       {"$mom_sys_unit_code($mom_output_unit)" "\$mom_sys_unit_code(IN)" "Output Unit (Inch/Metric)"} \
-      {"$mom_work_coordinate_number + 53" "54" "Work Coordinate Selection (ZERO) (54 ~ 59)"} \
+      {"$mom_work_coordinate_number + 53" "54" "Work Coordinate Selection (54 ~ 59)"} \
       {"$mom_fixture_offset_value + 53" "54" "MCS Fixture Offset  (54 ~ 59)"} \
-      {"$mom_sys_return_code" "28" "Return Home"}
+      {"$mom_sys_return_code" "28" "Return Home"} \
+      {"$mom_sys_unit_code($mom_kin_output_unit)" "\$mom_sys_unit_code(IN)" "Post Output Unit (Inch/Metric)"}
+{G_plane_1} \
+      {"$mom_sys_cutcom_plane_code(XY)" "17" "XY Plane Code"} \
+      {"$mom_sys_cutcom_plane_code(ZX)" "18" "ZX Plane Code"} \
+      {"$mom_sys_cutcom_plane_code(YZ)" "19" "YZ Plane Code"} \
+      {"$mom_sys_cutcom_plane_code($mom_pos_arc_plane)" "\$mom_sys_cutcom_plane_code(XY)" "Arc Plane Code (XY/ZX/YZ)"} \
+      {"$mom_sys_cutcom_plane_code($mom_cutcom_plane)" "\$mom_sys_cutcom_plane_code(XY)" "Cutcom Plane Code (XY/ZX/YZ)"}
 {X} \
-      {"$mom_pos(0)" "" "X Coordinate"} \
+      {"$mom_pos(0)" "" "Coordinate"} \
       {"$mom_from_pos(0)" "" "FROM X Coordinate"} \
       {"$mom_cycle_feed_to_pos(0)" "" "Cycle Feed X"} \
       {"$mom_cycle_rapid_to_pos(0)" "" "Rapid X Position in Cycle"} \
       {"$mom_cycle_retract_to_pos(0)" "" "Retract X Position in Cycle"} \
-      {"$mom_tool_x_offset" "" "Tool X Offset"}
+      {"$mom_tool_x_offset" "" "Tool X Offset"} \
+      {"$mom_sys_home_pos(0)" "0" "Return Home X"}
 {Y} \
-      {"$mom_pos(1)" "" "Y Coordinate"} \
+      {"$mom_pos(1)" "" "Coordinate"} \
       {"$mom_from_pos(1)" "" "FROM Y Coordinate"} \
       {"$mom_cycle_feed_to_pos(1)" "" "Cycle Feed Y"} \
       {"$mom_cycle_rapid_to_pos(1)" "" "Rapid Y Position in Cycle"} \
       {"$mom_cycle_retract_to_pos(1)" "" "Retract Y Position in Cycle"} \
-      {"$mom_tool_y_offset" "" "Tool Y Offset"}
+      {"$mom_tool_y_offset" "" "Tool Y Offset"} \
+      {"$mom_sys_home_pos(1)" "0" "Return Home Y"}
+{H} \
+      {"$mom_tool_adjust_register" "1" "Tool Adjust Register"} \
+      {"$mom_sys_zero" "0" "Cancel Tool Adjust"}
 {Z} \
-      {"$mom_pos(2)" "" "Z Coordinate"} \
+      {"$mom_pos(2)" "" "Coordinate"} \
       {"$mom_from_pos(2)" "" "FROM Z Coordinate"} \
       {"$mom_cycle_feed_to_pos(2)" "" "Cycle Feed Z"} \
       {"$mom_cycle_feed_to" "" "Cycle Feed To Distance"} \
@@ -1020,13 +815,31 @@ Text              ""  0  "Text String"  0
       {"$mom_cycle_feed_to - $mom_cycle_rapid_to" "" "Cycle Feed To Negative Increment"} \
       {"$mom_cycle_rapid_to_pos(2)" "" "Rapid Z Position in Cycle"} \
       {"$mom_cycle_retract_to_pos(2)" "" "Retract Z Position in Cycle"} \
-      {"$mom_tool_z_offset" "" "Tool Z Offset"}
+      {"$mom_tool_z_offset" "" "Tool Z Offset"} \
+      {"$mom_sys_home_pos(2)" "0" "Return Home Z"}
+{Z3} \
+      {"$mom_pos(2)" "" "Coordinate"} \
+      {"$mom_from_pos(2)" "" "FROM Z Coordinate"} \
+      {"$mom_cycle_feed_to_pos(2)" "" "Cycle Feed Z"} \
+      {"$mom_cycle_feed_to" "" "Cycle Feed To Distance"} \
+      {"$mom_cycle_rapid_to - $mom_cycle_feed_to" "" "Cycle Feed To Positive Increment"} \
+      {"$mom_cycle_feed_to - $mom_cycle_rapid_to" "" "Cycle Feed To Negative Increment"} \
+      {"$mom_cycle_rapid_to_pos(2)" "" "Rapid Z Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(2)" "" "Retract Z Position in Cycle"} \
+      {"$mom_tool_z_offset" "" "Tool Z Offset"} \
+      {"$mom_sys_home_pos(2)" "0" "Return Home Z"}
+{Z_zero} \
+      {"" "" ""}
 {fourth_axis} \
       {"$mom_out_angle_pos(0)" "" "4th Axis Angle"} \
-      {"$mom_out_angle_pos(1)" "" "5th Axis Angle"}
+      {"$mom_out_angle_pos(1)" "" "5th Axis Angle"} \
+      {"$mom_pos(3)" "" "4th Axis"} \
+      {"$mom_pos(4)" "" "5th Axis"}
 {fifth_axis} \
       {"$mom_out_angle_pos(0)" "" "4th Axis Angle"} \
-      {"$mom_out_angle_pos(1)" "" "5th Axis Angle"}
+      {"$mom_out_angle_pos(1)" "" "5th Axis Angle"} \
+      {"$mom_pos(3)" "" "4th Axis"} \
+      {"$mom_pos(4)" "" "5th Axis"}
 {I} \
       {"$mom_pos_arc_center(0) - $mom_prev_pos(0)" "" "Arc Start To Center X-Axis"}
 {J} \
@@ -1043,17 +856,16 @@ Text              ""  0  "Text String"  0
       {"$mom_spindle_speed" "" "Spindle Speed"} \
       {"$mom_spindle_maximum_rpm" "" "Spindle Max RPM"}
 {T} \
-      {"$mom_tool_number" "" "Tool Number"} \
-      {"$mom_next_tool_number" "" "Next Tool Number"}
+      {"$mom_tool_number" "" "Tool Select"} \
+      {"$mom_next_tool_number" "" "Tool Pre-Select"}
 {D} \
       {"$mom_cutcom_adjust_register" "1" "Tool Radius Compensation"}
-{H} \
-      {"$mom_tool_adjust_register" "1" "Tool Adjust Register"} \
-      {"$mom_sys_zero" "0" "Cancel Tool Adjust"}
 {dwell} \
       {"$mom_delay_value" "" "Programmed Dwell"}
 {cycle_dwell} \
       {"$mom_cycle_delay" "" "Delay For Cycle Dwell"}
+{P_cutcom} \
+      {"$pval" "" "Cutcom (Custom Command)"}
 {K_cycle} \
       {"$mom_cycle_retract_to_pos($mom_cycle_spindle_axis)" "" "Retract Position in Cycle"} \
       {"$mom_cycle_retract_to" "" "Cycle Retract To Distance"}
@@ -1061,10 +873,6 @@ Text              ""  0  "Text String"  0
       {"$mom_cycle_step2" "" "Step Incr Modifier"}
 {cycle_step} \
       {"$mom_cycle_step1" "" "Step Incr Value"}
-{cycle_orient} \
-      {"$mom_cycle_orient" "" "Cycle Orient Value"}
-{P_cutcom} \
-      {"$pval" "" "Cutcom (Custom Command)"}
 {Q_cutcom} \
       {"$qval" "" "Cutcom (Custom Command)"}
 {E} \
@@ -1082,7 +890,7 @@ Text              ""  0  "Text String"  0
       {"$mom_sys_coolant_code(FLOOD)" "8" "Coolant Flood"} \
       {"$mom_sys_coolant_code(MIST)" "7" "Coolant Mist"} \
       {"$mom_sys_coolant_code(THRU)" "26" "Coolant Thru"} \
-      {"$mom_sys_coolant_code(TAP)" "27" "Coolant Tap"} \
+      {"$mom_sys_coolant_code(TAP)" "8" "Coolant Tap"} \
       {"$mom_sys_coolant_code(OFF)" "9" "Coolant Off"}
 {M} \
       {"$mom_sys_optional_stop_code" "1" "Optional Stop"} \
@@ -1091,6 +899,12 @@ Text              ""  0  "Text String"  0
       {"$mom_sys_end_of_program_code" "2" "End Of program"} \
       {"$mom_sys_rewind_code" "30" "Rewind Program"} \
       {"$mom_sys_tool_change_code" "6" "Tool Change"}
+{cycle_orient} \
+      {"$mom_cycle_orient" "" "Cycle Orient Value"}
+{user_add} \
+      {"" "" ""}
+{Time} \
+      {"" "" ""}
 {N} \
       {"$mom_seqnum" "" "Sequence Number"}
 {Text} \
@@ -1113,10 +927,10 @@ Text              ""  0  "Text String"  0
       {"$is_linked_post" "0" ""} \
       {"$linked_posts_list" "\{\{\} \{this_post\}\}" ""} \
       {"$tl_num_min" "1" ""} \
-      {"$tl_num_max" "32" ""} \
-      {"$tl_change_sec" "30" ""} \
-      {"$tl_retract_status" "1" ""} \
-      {"$tl_retract_z_pos" "99" ""} \
+      {"$tl_num_max" "10" ""} \
+      {"$tl_change_sec" "" ""} \
+      {"$tl_retract_status" "0" ""} \
+      {"$tl_retract_z_pos" "0" ""} \
       {"$output_mode_opt" "Absolute/Incremental" ""} \
       {"$cutcom_plane_xy" "1" ""} \
       {"$cutcom_plane_yz" "0" ""} \
@@ -1131,7 +945,7 @@ Text              ""  0  "Text String"  0
       {"$rap_wrk_pln_chg" "1" ""} \
       {"$rap_mode_trav_rate" "1" ""} \
       {"$rap_mode_trav_value" "100" ""} \
-      {"$cycle_rapto_opt" "R" ""} \
+      {"$cycle_rapto_opt" "None" ""} \
       {"$cycle_recto_opt" "None" ""} \
       {"$cycle_plane_control_opt" "None" ""} \
       {"$cycle_start_blk" "0" ""} \
@@ -1157,7 +971,15 @@ Text              ""  0  "Text String"  0
       {"$zaxis_mirror" "0" ""} \
       {"$i_mirror" "0" ""} \
       {"$j_mirror" "0" ""} \
-      {"$k_mirror" "0" ""}
+      {"$k_mirror" "0" ""} \
+      {"$mom_sys_p_cutcom_code" "CC" ""} \
+      {"$mom_sys_q_cutcom_code" "CC" ""} \
+      {"$mom_sys_cycle_retract_to" "CY" ""} \
+      {"$mom_sys_cycle_step1" "CS" ""} \
+      {"$mom_sys_cycle_step2" "CS" ""} \
+      {"$mom_sys_delay_value" "DW" ""} \
+      {"$mom_sys_cycle_delay" "CD" ""} \
+      {"$output_rot_incr_status" "0" ""}
 {PB_Tcl_Var} \
       {"$mom_sys_4th_axis_has_limits" "1" ""} \
       {"$mom_sys_5th_axis_has_limits" "1" ""} \
@@ -1186,7 +1008,7 @@ Text              ""  0  "Text String"  0
       {"$mom_sys_seqnum_start" "10" ""} \
       {"$mom_sys_seqnum_incr" "10" ""} \
       {"$mom_sys_seqnum_freq" "1" ""} \
-      {"$mom_sys_seqnum_max" "9999" ""} \
+      {"$mom_sys_seqnum_max" "999999" ""} \
       {"$mom_sys_lathe_x_double" "1" ""} \
       {"$mom_sys_lathe_i_double" "1" ""} \
       {"$mom_sys_lathe_y_double" "1" ""} \
@@ -1201,7 +1023,7 @@ Text              ""  0  "Text String"  0
       {"$mom_sys_leader(X)" "X" ""} \
       {"$mom_sys_leader(Y)" "Y" ""} \
       {"$mom_sys_leader(Z)" "Z" ""} \
-      {"$mom_sys_leader(fourth_axis)" "B" ""} \
+      {"$mom_sys_leader(fourth_axis)" "A" ""} \
       {"$mom_sys_leader(fifth_axis)" "B" ""} \
       {"$mom_sys_contour_feed_mode(LINEAR)" "MMPM" ""} \
       {"$mom_sys_rapid_feed_mode(LINEAR)" "MMPM" ""} \
@@ -1214,46 +1036,48 @@ Text              ""  0  "Text String"  0
       {"$mom_sys_curr_mach_head" "" ""} \
       {"$mom_sys_feed_param(MMPM,format)" "Feed_MMPM" ""} \
       {"$mom_sys_feed_param(MMPR,format)" "Feed_MMPR" ""} \
-      {"$mom_sys_advanced_turbo_output" "0" ""}
+      {"$mom_sys_contour_feed_mode(ROTARY)" "IPM" ""} \
+      {"$mom_sys_contour_feed_mode(LINEAR_ROTARY)" "IPM" ""} \
+      {"$mom_sys_rapid_feed_mode(ROTARY)" "IPM" ""} \
+      {"$mom_sys_rapid_feed_mode(LINEAR_ROTARY)" "IPM" ""} \
+      {"$mom_sys_feed_param(DPM,format)" "Feed_DPM" ""}
 {Command} \
       {"Custom Command" "" "New Custom Command"} \
       {"MOM_set_seq_off" "" "MOM Command"} \
       {"MOM_set_seq_on" "" "MOM Command"} \
-      {"PB_CMD_END" "" "Custom Command"} \
-      {"PB_CMD_END_" "" "Custom Command"} \
-      {"PB_CMD_END_TOOL_LIST" "" "Custom Command"} \
       {"PB_CMD_FEEDRATE_NUMBER" "" "Custom Command"} \
-      {"PB_CMD_MAIN" "" "Custom Command"} \
       {"PB_CMD_MOM_insert" "" "Custom Command"} \
       {"PB_CMD_MOM_operator_message" "" "Custom Command"} \
       {"PB_CMD_MOM_opskip_off" "" "Custom Command"} \
       {"PB_CMD_MOM_opskip_on" "" "Custom Command"} \
       {"PB_CMD_MOM_pprint" "" "Custom Command"} \
       {"PB_CMD_MOM_text" "" "Custom Command"} \
-      {"PB_CMD_TOOL_LIST" "" "Custom Command"} \
-      {"PB_CMD_TOOL_LIST_END" "" "Custom Command"} \
-      {"PB_CMD_TOOL_LIST_INIT" "" "Custom Command"} \
-      {"PB_CMD_TOOL_LIST_START_PATH" "" "Custom Command"} \
       {"PB_CMD___log_revisions" "" "Custom Command"} \
       {"PB_CMD__config_post_options" "" "Custom Command"} \
+      {"PB_CMD__log_revisions" "" "Custom Command"} \
       {"PB_CMD__manage_part_attributes" "" "Custom Command"} \
       {"PB_CMD_abort_event" "" "Custom Command"} \
       {"PB_CMD_ask_machine_type" "" "Custom Command"} \
+      {"PB_CMD_before_motion" "" "Custom Command"} \
       {"PB_CMD_cancel_suppress_force_once_per_event" "" "Custom Command"} \
-      {"PB_CMD_custom_command" "" "Custom Command"} \
-      {"PB_CMD_custom_command_1" "" "Custom Command"} \
       {"PB_CMD_enable_ball_center_output" "" "Custom Command"} \
       {"PB_CMD_end_of_alignment_character" "" "Custom Command"} \
       {"PB_CMD_fix_RAPID_SET" "" "Custom Command"} \
+      {"PB_CMD_handle_sync_event" "" "Custom Command"} \
+      {"PB_CMD_init_helix" "" "Custom Command"} \
       {"PB_CMD_kin_abort_event" "" "Custom Command"} \
+      {"PB_CMD_kin_before_motion" "" "Custom Command"} \
       {"PB_CMD_kin_before_output" "" "Custom Command"} \
       {"PB_CMD_kin_end_of_path" "" "Custom Command"} \
       {"PB_CMD_kin_feedrate_set" "" "Custom Command"} \
+      {"PB_CMD_kin_handle_sync_event" "" "Custom Command"} \
       {"PB_CMD_kin_init_new_iks" "" "Custom Command"} \
       {"PB_CMD_kin_init_probing_cycles" "" "Custom Command"} \
       {"PB_CMD_kin_set_csys" "" "Custom Command"} \
       {"PB_CMD_kin_start_of_path" "" "Custom Command"} \
       {"PB_CMD_kin_start_of_program" "" "Custom Command"} \
+      {"PB_CMD_load_fixture_offset" "" "Custom Command"} \
+      {"PB_CMD_log_revisions" "" "Custom Command"} \
       {"PB_CMD_negate_R_value" "" "Custom Command"} \
       {"PB_CMD_pause" "" "Custom Command"} \
       {"PB_CMD_reload_iks_parameters" "" "Custom Command"} \
@@ -1266,9 +1090,12 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_start_of_alignment_character" "" "Custom Command"} \
       {"PB_CMD_start_of_operation_force_addresses" "" "Custom Command"} \
       {"PB_CMD_suppress_linear_block_plane_code" "" "Custom Command"} \
-      {"PB_CMD_tool_change_force_addresses" "" "Custom Command"}
+      {"PB_CMD_tool_change_force_addresses" "" "Custom Command"} \
+      {"PB_CMD_tool_information" "" "Custom Command"}
 {Operator_Message} \
-      {"" "" ""}
+      {"comment_blk_1" "End of path" "Operator Message"} \
+      {"comment_blk_3" "End of program" "Operator Message"} \
+      {"comment_blk_5" "++ $mom_operation_name" "Operator Message"}
 {PB_Spindle} \
       {"" "" ""}
 {PB_ZeroFmt} \

@@ -1,10 +1,10 @@
 ########################## TCL Event Handlers ##########################
 #
-#  sub_post.tcl - 3_axis_mill
+#  X_mill_new_cycles.tcl - 3_axis_mill
 #
-#    This is a 3-Axis Milling Machine.
+#    Это 3-осевой фрезерный станок.
 #
-#  Created by d.trofimov @ Tuesday, October 27 2020, 13:24:04 +0300
+#  Created by VolkovVR @ Thursday, January 30 2020, 12:20:51 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -70,9 +70,9 @@ proc PB_CMD___log_revisions { } {
      set mom_sys_warning_output_option             "FILE"
      set mom_sys_group_output                      "OFF"
      set mom_sys_list_file_suffix                  "lpt"
-     set mom_sys_output_file_suffix                "txt"
+     set mom_sys_output_file_suffix                "nc"
      set mom_sys_commentary_output                 "ON"
-     set mom_sys_commentary_list                   "x y z 4axis 5axis feed speed"
+     set mom_sys_commentary_list                   "x y z"
      set mom_sys_pb_link_var_mode                  "OFF"
 
 
@@ -154,7 +154,7 @@ proc PB_CMD___log_revisions { } {
 
 
   set mom_sys_use_default_unit_fragment         "ON"
-  set mom_sys_alt_unit_post_name                "sub_post__IN.pui"
+  set mom_sys_alt_unit_post_name                "X_mill_new_cycles__IN.pui"
 
 
 ########## SYSTEM VARIABLE DECLARATIONS ##############
@@ -175,8 +175,8 @@ proc PB_CMD___log_revisions { } {
   set mom_sys_adjust_code                       "43"
   set mom_sys_adjust_code_minus                 "44"
   set mom_sys_adjust_cancel_code                "49"
-  set mom_sys_unit_code(IN)                     "70"
-  set mom_sys_unit_code(MM)                     "71"
+  set mom_sys_unit_code(IN)                     "20"
+  set mom_sys_unit_code(MM)                     "21"
   set mom_sys_cycle_start_code                  "79"
   set mom_sys_cycle_off                         "80"
   set mom_sys_cycle_drill_code                  "81"
@@ -190,7 +190,7 @@ proc PB_CMD___log_revisions { } {
   set mom_sys_cycle_bore_dwell_code             "89"
   set mom_sys_cycle_bore_manual_code            "88"
   set mom_sys_cycle_bore_back_code              "87"
-  set mom_sys_cycle_bore_manual_dwell_code      "88"
+  set mom_sys_cycle_bore_manual_dwell_code      "89"
   set mom_sys_output_code(ABSOLUTE)             "90"
   set mom_sys_output_code(INCREMENTAL)          "91"
   set mom_sys_cycle_ret_code(AUTO)              "98"
@@ -213,7 +213,7 @@ proc PB_CMD___log_revisions { } {
   set mom_sys_coolant_code(FLOOD)               "8"
   set mom_sys_coolant_code(MIST)                "7"
   set mom_sys_coolant_code(THRU)                "26"
-  set mom_sys_coolant_code(TAP)                 "27"
+  set mom_sys_coolant_code(TAP)                 "8"
   set mom_sys_coolant_code(OFF)                 "9"
   set mom_sys_rewind_code                       "30"
   set mom_sys_4th_axis_has_limits               "1"
@@ -241,7 +241,7 @@ proc PB_CMD___log_revisions { } {
   set mom_sys_seqnum_start                      "10"
   set mom_sys_seqnum_incr                       "10"
   set mom_sys_seqnum_freq                       "1"
-  set mom_sys_seqnum_max                        "9999"
+  set mom_sys_seqnum_max                        "999999"
   set mom_sys_lathe_x_double                    "1"
   set mom_sys_lathe_i_double                    "1"
   set mom_sys_lathe_y_double                    "1"
@@ -256,7 +256,7 @@ proc PB_CMD___log_revisions { } {
   set mom_sys_leader(X)                         "X"
   set mom_sys_leader(Y)                         "Y"
   set mom_sys_leader(Z)                         "Z"
-  set mom_sys_leader(fourth_axis)               "B"
+  set mom_sys_leader(fourth_axis)               "A"
   set mom_sys_leader(fifth_axis)                "B"
   set mom_sys_contour_feed_mode(LINEAR)         "MMPM"
   set mom_sys_rapid_feed_mode(LINEAR)           "MMPM"
@@ -269,10 +269,15 @@ proc PB_CMD___log_revisions { } {
   set mom_sys_curr_mach_head                    ""
   set mom_sys_feed_param(MMPM,format)           "Feed_MMPM"
   set mom_sys_feed_param(MMPR,format)           "Feed_MMPR"
+  set mom_sys_contour_feed_mode(ROTARY)         "IPM"
+  set mom_sys_contour_feed_mode(LINEAR_ROTARY)  "IPM"
+  set mom_sys_rapid_feed_mode(ROTARY)           "IPM"
+  set mom_sys_rapid_feed_mode(LINEAR_ROTARY)    "IPM"
+  set mom_sys_feed_param(DPM,format)            "Feed_DPM"
   set mom_sys_advanced_turbo_output             "0"
-  set mom_sys_tool_number_max                   "32"
+  set mom_sys_tool_number_max                   "10"
   set mom_sys_tool_number_min                   "1"
-  set mom_sys_post_description                  "This is a 3-Axis Milling Machine."
+  set mom_sys_post_description                  "Это 3-осевой фрезерный станок."
   set mom_sys_word_separator                    " "
   set mom_sys_end_of_block                      ""
   set mom_sys_ugpadvkins_used                   "0"
@@ -285,19 +290,19 @@ proc PB_CMD___log_revisions { } {
   set mom_kin_4th_axis_center_offset(2)         "0.0"
   set mom_kin_4th_axis_direction                "MAGNITUDE_DETERMINES_DIRECTION"
   set mom_kin_4th_axis_incr_switch              "OFF"
-  set mom_kin_4th_axis_leader                   "B"
+  set mom_kin_4th_axis_leader                   "A"
   set mom_kin_4th_axis_limit_action             "Warning"
   set mom_kin_4th_axis_max_limit                "360"
   set mom_kin_4th_axis_min_incr                 "0.001"
   set mom_kin_4th_axis_min_limit                "0"
-  set mom_kin_4th_axis_plane                    "ZX"
+  set mom_kin_4th_axis_plane                    "YZ"
   set mom_kin_4th_axis_point(0)                 "0.0"
   set mom_kin_4th_axis_point(1)                 "0.0"
   set mom_kin_4th_axis_point(2)                 "0.0"
   set mom_kin_4th_axis_rotation                 "standard"
   set mom_kin_4th_axis_type                     "Table"
-  set mom_kin_4th_axis_vector(0)                "0.0"
-  set mom_kin_4th_axis_vector(1)                "1.0"
+  set mom_kin_4th_axis_vector(0)                "1.0"
+  set mom_kin_4th_axis_vector(1)                "0.0"
   set mom_kin_4th_axis_vector(2)                "0.0"
   set mom_kin_4th_axis_zero                     "0.0"
   set mom_kin_5th_axis_center_offset(0)         "0.0"
@@ -340,17 +345,17 @@ proc PB_CMD___log_revisions { } {
   set mom_kin_min_frn                           "0.01"
   set mom_kin_output_unit                       "MM"
   set mom_kin_pivot_gauge_offset                "0.0"
-  set mom_kin_pivot_guage_offset                ""
+  set mom_kin_pivot_guage_offset                "0.0"
   set mom_kin_post_data_unit                    "MM"
-  set mom_kin_rapid_feed_rate                   "15000"
+  set mom_kin_rapid_feed_rate                   "32000"
   set mom_kin_rotary_axis_method                "PREVIOUS"
   set mom_kin_spindle_axis(0)                   "0.0"
   set mom_kin_spindle_axis(1)                   "0.0"
   set mom_kin_spindle_axis(2)                   "1.0"
-  set mom_kin_tool_change_time                  "12.0"
-  set mom_kin_x_axis_limit                      "1000"
-  set mom_kin_y_axis_limit                      "1000"
-  set mom_kin_z_axis_limit                      "1000"
+  set mom_kin_tool_change_time                  "0.0"
+  set mom_kin_x_axis_limit                      "1100"
+  set mom_kin_y_axis_limit                      "600"
+  set mom_kin_z_axis_limit                      "700"
 
 
 
@@ -443,7 +448,22 @@ proc MOM_msys { } {
 proc MOM_end_of_program { } {
 #=============================================================
   global mom_program_aborted mom_event_error
-   PB_CMD_TOOL_LIST_END
+
+   MOM_output_literal "(End of program)"
+
+   MOM_do_template coolant_off
+
+   MOM_do_template end_of_program_2
+
+   MOM_do_template end_of_program_5
+
+   MOM_force Once G
+   MOM_do_template end_of_program_6
+
+   MOM_do_template end_of_program
+   MOM_set_seq_off
+
+   MOM_do_template rewind_stop_code
 
   # Write tool list with time in commentary data
    LIST_FILE_TRAILER
@@ -719,6 +739,8 @@ proc MOM_bore_move { } {
 
    ABORT_EVENT_CHECK
 
+   MOM_do_template bore
+
    MOM_do_template cycle_bore
    set cycle_init_flag FALSE
 }
@@ -743,6 +765,8 @@ proc MOM_bore_back_move { } {
 
 
    ABORT_EVENT_CHECK
+
+   MOM_do_template bore_back
 
    MOM_do_template cycle_bore_back
    set cycle_init_flag FALSE
@@ -769,6 +793,8 @@ proc MOM_bore_drag_move { } {
 
    ABORT_EVENT_CHECK
 
+   MOM_do_template bore_drag
+
    MOM_do_template cycle_bore_drag
    set cycle_init_flag FALSE
 }
@@ -793,6 +819,8 @@ proc MOM_bore_dwell_move { } {
 
 
    ABORT_EVENT_CHECK
+
+   MOM_do_template bore_dwell
 
    MOM_do_template cycle_bore_dwell
    set cycle_init_flag FALSE
@@ -819,6 +847,8 @@ proc MOM_bore_manual_move { } {
 
    ABORT_EVENT_CHECK
 
+   MOM_do_template bore_manual
+
    MOM_do_template cycle_bore_manual
    set cycle_init_flag FALSE
 }
@@ -843,6 +873,10 @@ proc MOM_bore_manual_dwell_move { } {
 
 
    ABORT_EVENT_CHECK
+
+   MOM_do_template bore_manual_dwell
+
+   MOM_do_template bore_manual_dwell_1
 
    MOM_do_template cycle_bore_manual_dwell
    set cycle_init_flag FALSE
@@ -869,6 +903,8 @@ proc MOM_bore_no_drag_move { } {
 
    ABORT_EVENT_CHECK
 
+   MOM_do_template bore_no_drag
+
    MOM_do_template cycle_bore_no_drag
    set cycle_init_flag FALSE
 }
@@ -881,6 +917,7 @@ proc MOM_circular_move { } {
 
    CIRCLE_SET
 
+   MOM_force Once G_motion X Y I J
    MOM_do_template circular_move
 }
 
@@ -907,6 +944,8 @@ proc MOM_coolant_off { } {
 proc MOM_coolant_on { } {
 #=============================================================
    COOLANT_SET
+
+   MOM_do_template coolant_on
 }
 
 
@@ -929,6 +968,9 @@ proc MOM_cutcom_on { } {
          unset mom_cutcom_adjust_register
       }
    }
+
+   MOM_force Once X Y D
+   MOM_do_template cutcom_on
 }
 
 
@@ -988,6 +1030,13 @@ proc MOM_drill_move { } {
 
    ABORT_EVENT_CHECK
 
+   PB_CMD_start_of_alignment_character
+
+   MOM_do_template drill
+
+   MOM_do_template drill_1
+   PB_CMD_end_of_alignment_character
+
    MOM_do_template cycle_drill
    set cycle_init_flag FALSE
 }
@@ -1012,6 +1061,15 @@ proc MOM_drill_break_chip_move { } {
 
 
    ABORT_EVENT_CHECK
+
+   PB_CMD_start_of_alignment_character
+
+   MOM_do_template drill_break_chip_2
+
+   MOM_do_template drill_break_chip_1
+
+   MOM_do_template drill_break_chip
+   PB_CMD_end_of_alignment_character
 
    MOM_do_template cycle_drill_break_chip
    set cycle_init_flag FALSE
@@ -1038,6 +1096,15 @@ proc MOM_drill_deep_move { } {
 
    ABORT_EVENT_CHECK
 
+   PB_CMD_start_of_alignment_character
+
+   MOM_do_template drill_deep
+
+   MOM_do_template drill_deep_2
+
+   MOM_do_template drill_deep_3
+   PB_CMD_end_of_alignment_character
+
    MOM_do_template cycle_drill_deep
    set cycle_init_flag FALSE
 }
@@ -1062,6 +1129,15 @@ proc MOM_drill_dwell_move { } {
 
 
    ABORT_EVENT_CHECK
+
+   PB_CMD_start_of_alignment_character
+
+   MOM_do_template drill_dwell
+
+   MOM_do_template drill_dwell_1
+
+   MOM_do_template drill_dwell_2
+   PB_CMD_end_of_alignment_character
 
    MOM_do_template cycle_drill_dwell
    set cycle_init_flag FALSE
@@ -1108,6 +1184,9 @@ proc MOM_end_of_path { } {
       PB_CMD_kin_end_of_path
    }
 
+   MOM_do_template coolant_off
+
+   MOM_output_literal "(End of path)"
    global mom_sys_in_operation
    set mom_sys_in_operation 0
 }
@@ -1127,6 +1206,8 @@ proc MOM_first_move { } {
 
    COOLANT_SET ; CUTCOM_SET ; SPINDLE_SET ; RAPID_SET
 
+   MOM_force Once S M_spindle
+   MOM_do_template initial_move
    catch { MOM_$mom_motion_event }
 
   # Configure turbo output settings
@@ -1192,6 +1273,13 @@ proc MOM_HEAD { } {
 
 
 #=============================================================
+proc MOM_helix_move { } {
+#=============================================================
+   PB_CMD_init_helix
+}
+
+
+#=============================================================
 proc MOM_initial_move { } {
 #=============================================================
   global mom_feed_rate mom_feed_rate_per_rev mom_motion_type
@@ -1199,6 +1287,8 @@ proc MOM_initial_move { } {
 
    COOLANT_SET ; CUTCOM_SET ; SPINDLE_SET ; RAPID_SET
 
+   MOM_force Once S M_spindle
+   MOM_do_template initial_move
 
   global mom_programmed_feed_rate
    if { [EQ_is_equal $mom_programmed_feed_rate 0] } {
@@ -1254,8 +1344,7 @@ proc MOM_linear_move { } {
 
    HANDLE_FIRST_LINEAR_MOVE
 
-   PB_CMD_suppress_linear_block_plane_code
-
+   MOM_force Once G_motion
    MOM_do_template linear_move
 }
 
@@ -1284,6 +1373,13 @@ proc MOM_lock_axis { } {
    global mom_lock_axis
    global mom_lock_axis_plane
    global mom_lock_axis_value
+}
+
+
+#=============================================================
+proc MOM_nurbs_move { } {
+#=============================================================
+   PB_CMD_init_helix
 }
 
 
@@ -1367,14 +1463,14 @@ proc MOM_rapid_move { } {
 
    RAPID_SET
 
-   set rapid_spindle_blk {G_adjust G_motion G_mode X Y Z H}
-   set rapid_spindle_x_blk {G_adjust G_motion G_mode X H}
-   set rapid_spindle_y_blk {G_adjust G_motion G_mode Y H}
-   set rapid_spindle_z_blk {G_adjust G_motion G_mode Z H}
-   set rapid_traverse_blk {G_motion G_mode X Y Z S M_spindle}
-   set rapid_traverse_xy_blk {G_motion G_mode X Y S M_spindle}
-   set rapid_traverse_yz_blk {G_motion G_mode Y Z S M_spindle}
-   set rapid_traverse_xz_blk {G_motion G_mode X Z S M_spindle}
+   set rapid_spindle_blk {G_motion X Y H Z}
+   set rapid_spindle_x_blk {G_motion X H}
+   set rapid_spindle_y_blk {G_motion Y H}
+   set rapid_spindle_z_blk {G_motion H Z}
+   set rapid_traverse_blk {G_motion X Y Z}
+   set rapid_traverse_xy_blk {G_motion X Y}
+   set rapid_traverse_yz_blk {G_motion Y Z}
+   set rapid_traverse_xz_blk {G_motion X Z}
    set rapid_traverse_mod {}
    set rapid_spindle_mod {}
 
@@ -1488,6 +1584,8 @@ proc MOM_rapid_move { } {
       PB_FORCE Once $mod_traverse
       MOM_do_template rapid_traverse
    }
+
+   MOM_do_template rapid_move
 }
 
 
@@ -1549,9 +1647,6 @@ proc MOM_set_polar { } {
 proc MOM_spindle_rpm { } {
 #=============================================================
    SPINDLE_SET
-
-   MOM_force Once S M_spindle
-   MOM_do_template spindle_rpm
 }
 
 
@@ -1581,8 +1676,10 @@ proc MOM_start_of_path { } {
       PB_CMD_kin_start_of_path
    }
 
-   PB_CMD_TOOL_LIST_START_PATH
-   PB_CMD_END
+   PB_CMD_start_of_operation_force_addresses
+
+   global mom_operation_name
+   MOM_output_literal "(++ $mom_operation_name)"
 }
 
 
@@ -1618,6 +1715,8 @@ proc MOM_tap_move { } {
 
 
    ABORT_EVENT_CHECK
+
+   MOM_do_template tap
 
    MOM_do_template cycle_tap
    set cycle_init_flag FALSE
@@ -1716,6 +1815,7 @@ proc MOM_zero { } {
 #=============================================================
 proc PB_approach_move { } {
 #=============================================================
+   MOM_do_template coolant_on
 }
 
 
@@ -1727,6 +1827,21 @@ proc PB_auto_tool_change { } {
       set mom_next_tool_number $mom_tool_number
    }
 
+   PB_CMD_tool_change_force_addresses
+   PB_CMD_tool_information
+
+   MOM_do_template auto_tool_change_3
+
+   MOM_force Once M
+   MOM_do_template tool_change_1
+
+   MOM_do_template auto_tool_change
+
+   MOM_force Once H
+   MOM_do_template auto_tool_change_1
+
+   MOM_force Once Text
+   MOM_do_template auto_tool_change_2
 }
 
 
@@ -1756,6 +1871,9 @@ proc PB_first_linear_move { } {
 #=============================================================
 proc PB_manual_tool_change { } {
 #=============================================================
+   PB_CMD_tool_change_force_addresses
+
+   MOM_do_template stop
 }
 
 
@@ -1778,47 +1896,22 @@ proc PB_start_of_program { } {
       PB_CMD_kin_start_of_program
    }
 
-   PB_CMD_MAIN
-   PB_CMD_TOOL_LIST_INIT
+   MOM_set_seq_off
+
+   MOM_do_template rewind_stop_code
+
+   MOM_do_template Name
+   MOM_set_seq_on
+
+   MOM_do_template safety
+
+   MOM_do_template start_of_program_1
+
+   MOM_do_template coor_system
 
    if [CMD_EXIST PB_CMD_kin_start_of_program_2] {
       PB_CMD_kin_start_of_program_2
    }
-}
-
-
-#=============================================================
-proc PB_CMD_END { } {
-#=============================================================
-
-MOM_skip_handler_to_event MOM_end_of_path
-}
-
-
-#=============================================================
-proc PB_CMD_END_ { } {
-#=============================================================
-MOM_skip_handler_to_event MOM_end_of_path
-}
-
-
-#=============================================================
-proc PB_CMD_END_TOOL_LIST { } {
-#=============================================================
-
-#MOM_output_text [VIEW_TEXT "TOOL_LIST" 2]
-
-foreach name [ARRAY_INFO_START_PROGRAMM 3] {
-MOM_output_text $name
-}
-
-foreach name [VIEW_TOOL_ARG 2] {
-
-MOM_output_text  [VIEW_TEXT "$name" 1]
-
-}
-
-MOM_output_text [VIEW_TEXT "TOOL_LIST_END" 2]
 }
 
 
@@ -1849,1429 +1942,6 @@ proc PB_CMD_FEEDRATE_NUMBER { } {
    }
 
 return $f
-}
-
-
-#=============================================================
-proc PB_CMD_MAIN { } {
-#=============================================================
-
-#+++++++++UTILITS++++++++++
-
-#COMPARE__TEXT_TEXT
-# compare text with text
-# is true return 1
-# is false return 0
-
-#==========================
-
-# DIVIDER__STRING_SYMBOL_NUMBER { line symbol}
-#razdeliaet stroku po simvolu, vozvrashchaet stroku
-
-#razdelit` stroku po stroke
-# SPLIT__STRING_BY_STRING {string divider_strin}
-#razdeliaet stroku po simvolu, vozvrashchaet stroku
-
-#==========================
-
-#VIEW_TEXT arg1 arg2 return text
-#arg1=Start obrabotka
-
-#arg2=1
-#; Start obrabotka
-
-#arg2=2
-#; ----------- Start obrabotka -----------
-
-#arg2=3
-#; -----------
-#; Start obrabotka
-#; -----------
-
-#arg2=4
-#\n
-#; -----------
-#; Start obrabotka
-#; -----------
-#\n
-#arg2=5
-#; ===Start obrabotka===
-
-#==========================
-
-
-uplevel #0 {
-
-array set CONSTANT_ARRAY [list \
-{separator} {==============================} \
-{start_programm} {====== START PROGRAMM ======} \
-{end_programm} {====== END PROGRAMM ======} ]
-
-#==========================
-
-
-
-#*****************SETSTART**********************************************************************************
-
-#===================================
-proc ARRAY_INFO_START_OPERATION {} {
-#===================================
-global CONSTANT_ARRAY
-
-set a0 [SET_comment $CONSTANT_ARRAY(separator)]
-set a1 [SET_title_and_comment "operation  " [GET_mom_operation_name] ]
-set a2 [SET_title_and_comment "tool_name  " [GET_mom_tool_name] ]
-
-set a "$a0`$a1`$a2`$a0"
-
-return  [SPLIT_TEXT $a]
-}
-
-#===================================
-proc ARRAY_HEIDENHAINI_INFO_WORKPIECE {} {
-#===================================
-global mom_workpiece_x_min mom_workpiece_x_max
-global mom_workpiece_y_min mom_workpiece_y_max
-global mom_workpiece_z_min mom_workpiece_z_max
-global boolean
-if {$boolean!=1} {
-
-if { ![info exist mom_workpiece_x_min] } {
-set a "BLK FORM 0.1 Z X-100 Y-100 Z-100`BLK FORM 0.2 X100 Y100 Z0"
-
-set boolean 1
-
-return [SPLIT_TEXT $a]
-
-}  else  {
-set a "BLK FORM 0.1 Z $mom_workpiece_x_min $mom_workpiece_y_min $mom_workpiece_z_min`BLK FORM 0.2 $mom_workpiece_x_max $mom_workpiece_y_max $mom_workpiece_z_max"
-
-set boolean 1
-
-return [SPLIT_TEXT $a]
-}
-}
-}
-
-
-#===================================
-proc SET_INFO_START_WORK {arg_1} {
-#===================================
-global CONSTANT_ARRAY
-set result ""
-
-if { $arg_1 == 1 } {
-set a [VIEW_TEXT START_>_[GET_mom_operation_name] 1]
-
-return "$a"
-}
-
-if { $arg_1 == 2 } {
-set a [VIEW_TEXT start:_[GET_mom_operation_name] 1]
-set b [VIEW_TEXT tool:_[GET_mom_tool_name] 1]
-
-return "\n $a \n $b"
-}
-
-
-if { $arg_1 == 3 } {
-set a [SET_comment ======================================]
-set b [VIEW_TEXT START_>_[GET_mom_operation_name] 1]
-return "\n$a\n$b"
-}
-
-if { $arg_1 == 4 } {
-set a [SET_comment ======================================]
-set b [VIEW_TEXT START_>_[GET_mom_operation_name] 1]
-set c [VIEW_TEXT TOOL_>_[GET_mom_tool_name] 1]
-set d [SET_comment ======================================]
-return "\n$a\n$b\n$c\n$d\n"
-}
-
-if { $arg_1 == 5 } {
-set o [VIEW_TEXT ====================================== 1]
-set a [VIEW_TEXT [GET_mom_operation_name] 1]
-set b [VIEW_TEXT [GET_mom_tool_name] 1]
-
-return "\n$o\n$a\n$b"
-}
-
-return "NULL SET_INFO_START_WORK"
-
-}
-
-
-
-
-#===================================
-proc ARRAY_INFO_START_PROGRAMM {arg_1} {
-#===================================
-
-#foreach name [ARRAY_INFO_START_PROGRAMM] {
-#MOM_output_text $name
-#}
-global CONSTANT_ARRAY
-if { $arg_1 == 1 } {
-
-set a0 [SET_comment $CONSTANT_ARRAY(separator)]
-set a1 [SET_comment "Postprocessor version - v1.0 Developer - Trofimov D.I."]
-set a2 [SET_title_and_comment "NC_Programmer:" [GET_mom_logname]]
-set a3 [SET_title_and_comment "DATA:" [GET_mom_date]]
-set a4 [SET_title_and_comment  "FILE:" [GET_mom_output_file_full_name]]
-
-set a "$a0`$a1`$a2`$a3`$a4`$a0"
-return  [SPLIT_TEXT $a]
-}
-
-if { $arg_1 == 2 } {
-
-set a0 [SET_comment $CONSTANT_ARRAY(separator)]
-set a1 [SET_comment "Program: [GET_mom_group_name]" ]
-set a2 [SET_comment  "Date: [GET_mom_date] | User:[GET_mom_logname]"]
-set a3 [SET_comment  "Machine: DMU 60 evo, Siemens 840D | Type: Miling"]
-set a4 [SET_comment  "File: [GET_mom_output_file_full_name]"]
-
-set a "$a0`$a1`$a2`$a3`$a4`$a0"
-return  [SPLIT_TEXT $a]
-}
-
-if { $arg_1 == 22 } {
-
-set a0 [SET_comment "---"]
-set a1 [SET_comment "Program: [GET_mom_group_name]" ]
-set a2 [SET_comment  "Date: [GET_mom_date]"]
-set a21 [SET_comment  "User:[GET_mom_logname]"]
-set a3 [SET_comment  "Machine: Akira-Seiki V3"]
-set a4 [SET_comment  "File: [GET_mom_output_file_full_name]"]
-
-#set a "$a0`$a2`$a21`$a3`$a4`$a0"
-set a "$a0`$a2`$a21`$a4`$a0"
-return  [SPLIT_TEXT $a]
-}
-
-if { $arg_1 == 25 } {
-
-set a0 [SET_comment "---"]
-#set a1 [SET_comment "Program: [GET_mom_group_name]" ]
-set a2 [SET_comment  "Date: [GET_mom_date]"]
-set a21 [SET_comment  "User:[GET_mom_logname]"]
-set a3 [SET_comment  "Machine: Lathe CAK50135"]
-set a4 [SET_comment  "File: [GET_mom_output_file_full_name]"]
-
-set a "$a0`$a2`$a21`$a3`$a4"
-return  [SPLIT_TEXT $a]
-}
-if { $arg_1 == 26 } {
-
-set a0 [SET_comment "---"]
-set a1 [SET_comment "Program: [GET_mom_group_name]" ]
-set a11 [SET_comment "Det: [GET_mom_part_name]" ]
-set a2 [SET_comment  "Date: [GET_mom_date]"]
-set a3 [SET_comment  "User:[GET_mom_logname]"]
-set a4 [SET_comment  "Machine: DMC 635 V ecoline SIEMENS 840D sl"]
-set a5 [SET_comment  "File: [GET_mom_output_file_full_name]"]
-
-#set a "$a0`$a2`$a21`$a3`$a4`$a0"
-set a "$a0`$a1`$a11`$a2`$a3`$a4`$a5"
-return  [SPLIT_TEXT $a]
-}
-
-
-if { $arg_1 == 27 } {
-
-set a0 [SET_comment "---"]
-set a1 [SET_comment "Program: [GET_mom_group_name]" ]
-set a2 [SET_comment "Det: [GET_mom_part_name]" ]
-set a3 [SET_comment  "Date: [GET_mom_date]"]
-set a4 [SET_comment  "User:[GET_mom_logname]"]
-set a5 [SET_comment  "Machine: Haas VF-3 or SMM"]
-set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
-
-#set a "$a0`$a2`$a21`$a3`$a4`$a0"
-set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
-return  [SPLIT_TEXT $a]
-}
-if { $arg_1 == 28 } {
-
-set a0 [SET_comment "---"]
-set a1 [SET_comment "Program: [GET_mom_group_name]" ]
-set a2 [SET_comment "Det: [GET_mom_part_name]" ]
-set a3 [SET_comment  "Date: [GET_mom_date]"]
-set a4 [SET_comment  "User:[GET_mom_logname]"]
-set a5 [SET_comment  "Machine: X.mill 1100L CNC"]
-set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
-
-#set a "$a0`$a2`$a21`$a3`$a4`$a0"
-set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
-return  [SPLIT_TEXT $a]
-}
-
-if { $arg_1 == 21 } {
-
-set a0 [SET_comment $CONSTANT_ARRAY(separator)]
-set a1 [SET_comment "Program: [GET_mom_group_name]" ]
-set a2 [SET_comment  "Date: [GET_mom_date] | User:[GET_mom_logname]"]
-set a3 [SET_comment  "Machine: DMU 60 evo, Siemens 840D | Type: Turning"]
-set a4 [SET_comment  "File: [GET_mom_output_file_full_name]"]
-
-set a "$a0`$a1`$a2`$a3`$a4`$a0"
-return  [SPLIT_TEXT $a]
-}
-if { $arg_1 == 3 } {
-
-
-set a1 [VIEW_TEXT "TOOL_LIST" 2]
-set a2 [SET_comment "program: [GET_mom_group_name] user: [GET_mom_logname]"]
-set a3 [SET_title_and_comment "date:" [GET_mom_date]]
-set a4 [SET_comment  "file: [GET_mom_part_name]"]
-set a5 [SET_comment $CONSTANT_ARRAY(separator)]
-set a "$a1`$a2`$a3`$a4`$a5"
-return  [SPLIT_TEXT $a]
-}
-}
-
-#===================================
-proc SET_INFO_END_WORK {arg_1} {
-#===================================
-global CONSTANT_ARRAY
-set result ""
-if { $arg_1 == 1 } {
-
-append result "[SET_comment END:_[GET_mom_operation_name]]"
-return $result
-}
-
-
-if { $arg_1 == 2 } {
-set result [VIEW_TEXT END:_[GET_mom_operation_name] 2]
-
-return $result
-}
-
-if { $arg_1 == 3 } {
-return "
-[SET_comment {---end work---}]
-[SET_comment [GET_mom_operation_name]]"}
-
-
-if { $arg_1 == 4 } {
-set s "*******************"
-append result "[SET_comment $s]"
-append result "\n[SET_comment END:_[GET_mom_operation_name]]"
-append result "\n[SET_comment $s]"
-return $result
-}
-
-
-
-return "NULL SET_INFO_END_WORK"
-}
-#===================================
-proc SET_comment {arg_text} {
-#===================================
-
-return "[GET_mom_sys_control_out] $arg_text [GET_mom_sys_control_in]"
-
-}
-
-#===================================
-proc SET_title_and_comment {arg_text1 arg_text2} {
-#===================================
-
-return "[GET_mom_sys_control_out] $arg_text1 $arg_text2 [GET_mom_sys_control_in]"
-
-}
-
-
-#===================================
-proc SET_separator_and_comment {arg_text} {
-#===================================
-global CONSTANT_ARRAY
-return [SET_comment "$CONSTANT_ARRAY(separator) $arg_text $CONSTANT_ARRAY(separator)"]
-}
-#===================================
-proc SPLIT_TEXT {arg_text} {
-#===================================
-return [split $arg_text "`"]
-}
-
-proc LIST_DEL_DUBLI {list} {
-    array set included_arr [list]
-    set unique_list [list]
-    foreach item $list {
-        if { ![info exists included_arr($item)] } {
-            set included_arr($item) ""
-            lappend unique_list $item
-        }
-    }
-    unset included_arr
-    return $unique_list
-}
-
-
-#----------------------------SET END --------------------------
-
-
-
-
-
-
-
-
-
-
-#++++++++++++++++++++++ START UTILTES+++++++++++++++++++++++++
-
-
-
-
-
-
-
-proc COMPARE__ALL_SYMBOL_FROM_TEXT_WITH_SYMBOL {arg_text1 arg_text2} {
-set t $arg_text1
-set s $arg_text2
-
-
-for {set i 0} {$i < [string length $arg_text1]} {incr i} {
-
-   if {[string equal [string index $arg_text1 $i]  $arg_text2]} {
-   return 1
-    }
-}
-    return 0
-   }
-
-
-
-proc COMPARE__TEXT_TEXT {arg_text1 arg_text2} {
-
-   if {[string equal $arg_text1 $arg_text2 ]} {
-      return 1
-} else {
-      return 0
-   }
-
-   }
-
-
-#MOM_skip_handler_to_event MOM_end_of_path
-proc SKIP_ISPOLNENIE {isp} {
-global CONSTANT_ARRAY
-set a "$CONSTANT_ARRAY(separator_for_skip_isp)"
-set b "$CONSTANT_ARRAY(position_for_skip_isp)"
-set c [DIVIDER__STRING_SYMBOL_NUMBER [GET_mom_operation_name] "$a" "$b"]
-
-if {[COMPARE__TEXT_TEXT "$c" "$isp"]} {
-MOM_output_text [VIEW_TEXT "SKIP ISPOLNENIE_$isp" 5]
-MOM_skip_handler_to_event MOM_end_of_patch
-   return 1
-} else {
-MOM_output_text [VIEW_TEXT "SKIP ISPOLNENIE_$isp" 5]
-
-return 0
-}
-}
-
-
-proc DIVIDER__STRING_SYMBOL_NUMBER { line symbol number } {
-   set line_list [split $line $symbol]
-   return [lindex $line_list $number]
-
-}
-
-
-proc VIEW_TEXT {arg_text arg_1} {
-global CONSTANT_ARRAY
-if { $arg_1 == 0 } {
-
-return $arg_text  }
-#; Start obrabotka
-if { $arg_1 == 1 } {
-
-    if { [string length $arg_text] < 2 }  {
-    return ""
-    } else {
-return [SET_comment  $arg_text] }
-}
-#; ----------- Start obrabotka -----------
-if { $arg_1 == 2 } {
-return  [SET_separator_and_comment $arg_text ]     }
-#; -----------
-#; Start obrabotka
-#; -----------
-if { $arg_1 == 3 } {
-set s "====="
-return  "[SET_comment $s\n[SET_comment $arg_text]\n[SET_comment $s]]"}
-#\n
-#; -----------
-#; Start obrabotka
-#; -----------
-#\n
-if { $arg_1 == 4 } { return  "\n[SET_comment $CONSTANT_ARRAY(separator)]\n[SET_comment $arg_text]\n[SET_comment $CONSTANT_ARRAY(separator)]\n"}
-
-#; ===Start obrabotka===
-if { $arg_1 == 5 } {
- return  [SET_comment "=== $arg_text ==="]
- }
-return ""
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#-------------------------END UTILTES-------------------------
-
-#==============================
-proc GET_mom_attr_TOOL {arg_1} {
-#==============================
-#HOLDER_NAME_1
-#HOLDER_NAME_2
-#Базовый держатель Garant 301070_22 A=160 SK40
-
-#ADAPTER_NAME_1
-#ADAPTER_NAME_2
-#Державка Multi-Master Iscar твердосплавная D9,6 MM S-A-L110-C16-T10C
-
-#TOOL_NAME_1
-#TOOL_NAME_2
-#Фрезерная головка HM90 E90A D20-3-ММT12
-
-#INSERT_NAME_1
-#INSERT_NAME_2
-#Пластина ZCC-CT ANGX150608PNR-GM YBG205
-
-
-
-global mom_attr_TOOL_HOLDER_NAME_1
-global mom_attr_TOOL_HOLDER_NAME_2
-
-global mom_attr_TOOL_ADAPTER_NAME_1
-global mom_attr_TOOL_ADAPTER_NAME_2
-
-global mom_attr_TOOL_TOOL_NAME_1
-global mom_attr_TOOL_TOOL_NAME_2
-
-global mom_attr_TOOL_INSERT_NAME_1
-global mom_attr_TOOL_INSERT_NAME_2
-
-#---------------------------
-#---------------------------
-if {[info exist mom_attr_TOOL_HOLDER_NAME_1  ] } {
-set h1 $mom_attr_TOOL_HOLDER_NAME_1
-unset mom_attr_TOOL_HOLDER_NAME_1
-} else { set h1 "" }
-#---------------------------
-if {[info exist mom_attr_TOOL_HOLDER_NAME_2  ] } {
-set h2 $mom_attr_TOOL_HOLDER_NAME_2
-unset mom_attr_TOOL_HOLDER_NAME_2
-} else { set h2 "" }
-#---------------------------
-#---------------------------
-if {[info exist mom_attr_TOOL_ADAPTER_NAME_1  ] } {
-set a1 $mom_attr_TOOL_ADAPTER_NAME_1
-unset mom_attr_TOOL_ADAPTER_NAME_1
-} else { set a1 "" }
-#---------------------------
-if {[info exist mom_attr_TOOL_ADAPTER_NAME_2  ] } {
-set a2 $mom_attr_TOOL_ADAPTER_NAME_2
-unset mom_attr_TOOL_ADAPTER_NAME_2
- } else { set a2 "" }
-#---------------------------
-#---------------------------
-if {[info exist mom_attr_TOOL_TOOL_NAME_1  ] } {
-set t1 $mom_attr_TOOL_TOOL_NAME_1
-unset mom_attr_TOOL_TOOL_NAME_1
- } else { set t1 "" }
-#---------------------------
-if {[info exist mom_attr_TOOL_TOOL_NAME_2  ] } {
-set t2 $mom_attr_TOOL_TOOL_NAME_2
-unset mom_attr_TOOL_TOOL_NAME_2
- } else { set t2 "" }
-#---------------------------
-#---------------------------
-if {[info exist mom_attr_TOOL_INSERT_NAME_1  ] } {
-set i1 $mom_attr_TOOL_INSERT_NAME_1
-unset mom_attr_TOOL_INSERT_NAME_1
- } else { set i1 "" }
-#---------------------------
- if {[info exist mom_attr_TOOL_INSERT_NAME_2  ] } {
-set i2 $mom_attr_TOOL_INSERT_NAME_2
-unset mom_attr_TOOL_INSERT_NAME_2
- } else { set i2 "" }
-#---------------------------
- set a "$h1`$h2`$a1`$a2`$t1`$t2`$i1`$i2"
-return  [SPLIT_TEXT $a] }
-
-#==============================
-proc INIT_TOOL_ARG { } {
-#==============================
-global status_tool
-set status_tool "YES"
-set tool_name_list [list]
-array set ARR1 {}
-array set ARR2 {}
-array set ARR3 {}
-array set ARR4 {}
-array set ARR5 {}
-array set ARR6 {}
-return ""
-}
-#==============================
-proc READ_TOOL_ARG { } {
-#==============================
-global status_tool
-global ARR1
-global ARR2
-global ARR3
-global ARR4
-global ARR5
-global ARR6
-global tool_name_list
-
-
-lappend tool_name_list "[GET_mom_tool_name]"
-#lappend tool_name_list [GET_mom_tool_name]
-#MOM_output_text " \n  [GET_mom_tool_name]"
-#MOM_output_text "first status_tool $status_tool"
-
-set listt [GET_mom_attr_TOOL 1]
-
-#foreach name $listt { MOM_output_text "$name" }
-
-if { [GET_mom_tool_number] != 0} {
-    if { $status_tool == "YES" } {
-set ARR1([GET_mom_tool_name]) $listt
-set ARR2([GET_mom_tool_name]) [format "%0.0f" [GET_mom_tool_zmount]]
-set ARR3([GET_mom_tool_name]) [format "%0.0f" [GET_mom_tool_diameter ]]
-set ARR4([GET_mom_tool_name]) [GET_mom_tool_number]
-set ARR5([GET_mom_tool_name])  [GET_mom_tool_corner_radius]
-set ARR6([GET_mom_tool_name]) [GET_mom_tool_type]
-}
-if { [GET_mom_next_oper_has_tool_change] == "YES" } {
-set status_tool "YES"
-} else {
-set status_tool "NO" }
-}
-
-
-
-#MOM_output_text "seccond status_tool $status_tool"
-#MOM_output_text "GET_mom_next_oper_has_tool_change [GET_mom_next_oper_has_tool_change]"
-
-return ""
-}
-
-#==============================
-proc VIEW_TOOL_ARG {arg1 } {
-#==============================
-#ADD IN End of Programm
-#---------------------------
-#set list1 [VIEW_TOOL_ARG]
-#foreach name $list1 {
-#MOM_output_text  [VIEW_TEXT "$name" 1] }
-
-# arg1 = 1 budet ukazan vy`let instrumenta
-#---------------switch------------
-
-global tool_name_list
-global ARR1
-global ARR2
-global ARR3
-global ARR4
-global ARR5
-global ARR6
-set all_text [list]
-set tool_name_list1 [LIST_DEL_DUBLI $tool_name_list]
-
-foreach name $tool_name_list1 {
-
-
-#если инструмент токарный то вылет не указываем -- неработает
-#if {[COMPARE__TEXT_TEXT "$ARR6($name)" "Turning Tool-Standard"]}  {
-#lappend all_text "$ARR6($name)"
-#set arg1 0
-#}
-if {$arg1 == 1} {
-lappend all_text  "-"
-lappend all_text  "--T$ARR4($name) = $name"
-lappend all_text  "VYLET = $ARR2($name) mm"
-}
-
-
-if {$arg1 == 2} {
-lappend all_text  "\nD = [isNull $ARR3($name)] | R = [isNull $ARR5($name)] | L = [isNull $ARR2($name)] | T = [isNull $ARR4($name)] | $name"
-}
-if {$arg1 == 0} {
-lappend all_text  "-"
-lappend all_text  "T$ARR4($name) = $name"
-}
-
-
-foreach name1 $ARR1($name) {
- lappend all_text $name1
-}
-}
-return  "$all_text "
-}
-
-proc isNull {arg} {
-
-if {[info exist $arg ] } {
-return $arg
-  }
-return ""
-}
-
-#===================================
-proc GET_title_and_comment {arg_text1 arg_text2} {
-#===================================
-
-return "[GET_mom_sys_control_out] $arg_text1 $arg_text2 [GET_mom_sys_control_in]"
-
-}
-
-#==============================
-proc GET_mom_attr_TOOL_NAME_1 { } {
-
-global mom_attr_TOOL_TOOL_NAME_1
-
-if {[info exist mom_attr_TOOL_TOOL_NAME_1  ] } {
-set s $mom_attr_TOOL_TOOL_NAME_1
-return $s
-  }
-return [GET_mom_tool_name]
-}
-
-
-#===================================
-proc GET_mom_operation_notes   { } {
-#===================================
-set result ""
-global mom_operation_notes
-
-if { [info exist mom_operation_notes] && $mom_operation_notes(0) !=""  } {
-    if {$mom_operation_notes(0) =="%"} {
-    for {set i 1} {[info exists mom_operation_notes($i)]} {incr i 1} {
-    append result "\n$mom_operation_notes($i)"
-    }
-    array unset mom_operation_notes
-    return $result
-    }
-
-    if { $mom_operation_notes(0) !="%"} {
-    for {set i 0} {[info exists mom_operation_notes($i)]} {incr i 1} {
-    append result "\n[SET_comment $mom_operation_notes($i)]"
-    }
-    array unset mom_operation_notes
-    return $result
-}
-   }
-
-return ""
-        }
-
-#===================================
-
-proc GET_mom_group_name { } {
-#===================================
-global mom_group_name
-if {[info exist mom_group_name  ] } {
-set s $mom_group_name
-#unset mom_group_name
-return $s
-  }
-return "O00001"
-}
-
-
-
-#===================================
-
-proc GET_mom_attr_TOOL_VYLET { } {
-#===================================
-global mom_attr_TOOL_VYLET
-
-if {[info exist mom_attr_TOOL_VYLET  ] } {
-set s $mom_attr_TOOL_VYLET
-unset mom_attr_TOOL_VYLET
-return $s
-  }
-return "0"
-}
-
-#===================================
-proc GET_mom_parent_group_name { } {
-#===================================
-global mom_parent_group_name
-if {[info exist mom_parent_group_name  ] } {
-set s $mom_parent_group_name
-#unset mom_parent_group_name
-return $s
-    }
-return ""
-}
-#===================================
-#===================================
-proc GET_mom_partfile_name { } {
-#===================================
-global mom_partfile_name
-if {[info exist mom_partfile_name  ] } {
-set s $mom_partfile_name
-return $s
-    }
-return ""
-}
-#===================================
-
-
-#===================================
-
-proc GET_mom_sys_group_output { } {
-#===================================
-global mom_sys_group_output
-if {[info exist mom_sys_group_output  ] } {
-set s $mom_sys_group_output
- return $s
- }
-return ""
-}
-#===================================
-
-
-
-
-#===================================
-proc GET_mom_tool_right_corner_radius    { } {
-#===================================
-global mom_tool_right_corner_radius
-if {[info exist mom_tool_right_corner_radius      ] } { return $mom_tool_right_corner_radius     }
-return "" }
-#===================================
-
-#===================================
-proc GET_mom_tool_type     { } {
-#===================================
-global mom_tool_type
-if {[info exist mom_tool_type        ] } { return $mom_tool_type       }
-return "" }
-#===================================
-
-#===================================
-proc GET_mom_array_oper     { } {
-#===================================
-global mom_array_var
-if {[info exist mom_array_var        ] } { return $mom_array_var       }
-return "" }
-#===================================
-
-#===================================
-proc GET_mom_tool_corner_radius    { } {
-#===================================
-
-set a 0
-
-switch [GET_mom_tool_type] {
-   "Turning Tool-Standard" \
-  { set a "[GET_mom_tool_nose_radius ]"  } \
-  "Milling Tool-T Cutter" \
-  { set a "[GET_mom_tool_lower_corner_radius]"  } \
-  "Spot Drill" \
- { set a 0 } \
-  "default"     \
-  { set a  "[GET_mom_tool_corner1_radius]" } \
-
- }
-
-
-  return $a
-
-  }
-
-
-
-
-
-
-#===================================
-proc GET_mom_tool_corner1_radius    { } {
-#===================================
-global mom_tool_corner1_radius
-if {[info exist mom_tool_corner1_radius      ] } { return $mom_tool_corner1_radius     }
-return "" }
-
-  #===================================
-proc GET_mom_tool_nose_radius    { } {
-#===================================
-global mom_tool_nose_radius
-if {[info exist mom_tool_nose_radius      ] } { return $mom_tool_nose_radius     }
-return "0" }
-
-#====sw===============================
-
-#===================================
-proc GET_mom_tool_corner1_center_x    { } {
-#===================================
-global mom_tool_corner1_center_x
-if {[info exist mom_tool_corner1_center_x      ] } { return $mom_tool_corner1_center_x     }
-return "" }
-#===================================
-
-#===================================
-proc GET_mom_tool_corner1_center_y    { } {
-#===================================
-global mom_tool_corner1_center_y
-if {[info exist mom_tool_corner1_center_y      ] } { return $mom_tool_corner1_center_y     }
-return "" }
-#===================================
-
-#===================================
-proc GET_mom_tool_lower_corner_radius    { } {
-#===================================
-global mom_tool_lower_corner_radius
-if {[info exist mom_tool_lower_corner_radius]      } { return $mom_tool_lower_corner_radius     }
-return "" }
-#===================================
-
-#===================================
-proc GET_mom_tool_left_corner_radius    { } {
-#===================================
-global mom_tool_left_corner_radius
-if {[info exist mom_tool_left_corner_radius      ] } { return $mom_tool_left_corner_radius     }
-return "" }
-#===================================
-
-#===================================
-proc GET_mom_tool_flute_length  { } {
-#===================================
-global mom_tool_flute_length
-if {[info exist mom_tool_flute_length    ] } { return $mom_tool_flute_length   }
-return "null mom_tool_flute_length" }
-#===================================
-
-#===================================
-proc GET_mom_tool_insert_length   { } {
-#===================================
-global mom_tool_insert_length
-if {[info exist mom_tool_insert_length      ] } { return $mom_tool_insert_length     }
-return "null mom_tool_insert_length  " }
-#===================================
-
-#===================================
-proc GET_mom_tool_holder_length     { } {
-#===================================
-global mom_tool_holder_length
-if {[info exist mom_tool_holder_length        ] } { return $mom_tool_holder_length       }
-return "null mom_tool_holder_length    " }
-#===================================
-
-#===================================
-proc GET_mom_part_name      { } {
-#===================================
-
-global row_start
-global row_end
-global part_name
-global mom_part_name
-
-set row_start [expr [string last "\\" $mom_part_name] + 1]
-set row_end [string length $mom_part_name]
-set part_name [string range $mom_part_name $row_start $row_end]
-
-if {[info exist mom_part_name          ] } { return $part_name }
-return "null mom_part_name      " }
-#===================================
-
-#===================================
-proc GET_mom_tool_length     { } {
-#===================================
-global mom_tool_length
-if {[info exist mom_tool_length        ] } { return $mom_tool_length       }
-return "null mom_tool_length    " }
-#===================================
-#===================================
-proc GET_mom_tool_length_adjust_register       { } {
-#===================================
-global mom_tool_length_adjust_register
-if {[info exist mom_tool_length_adjust_register        ] } { return $mom_tool_length_adjust_register       }
-return "null mom_tool_length_adjust_register    " }
-#===================================
-#===================================
-proc GET_mom_probe_length_adjust_adjust_register         { } {
-#===================================
-global mom_probe_length_adjust_adjust_register
-if {[info exist mom_probe_length_adjust_adjust_register          ] } { return $mom_probe_length_adjust_adjust_register         }
-return "null mom_probe_length_adjust_adjust_register      " }
-#===================================
-#===================================
-proc GET_mom_tool_z_offset          { } {
-#===================================
-global mom_tool_z_offset
-if {[info exist mom_tool_z_offset          ] } { return $mom_tool_z_offset         }
-return "null mom_tool_z_offset      " }
-#===================================
-#===================================
-proc GET_mom_kin_holder1_offset_z           { } {
-#===================================
-global mom_kin_holder1_offset_z
-if {[info exist mom_kin_holder1_offset_z            ] } { return $mom_kin_holder1_offset_z           }
-return "null mom_kin_holder1_offset_z        " }
-#===================================
-#===================================
-proc GET_mom_tool_z_offset_defined             { } {
-#===================================
-global mom_tool_z_offset_defined
-if {[info exist mom_tool_z_offset_defined            ] } { return $mom_tool_z_offset_defined           }
-return "null mom_tool_z_offset_defined        " }
-#===================================
-#===================================
-proc GET_mom_tool_zmount               { } {
-#===================================
-global mom_tool_zmount
-if {[info exist mom_tool_zmount              ] } {
-return [format "%0.0f" $mom_tool_zmount]             }
-return "0"
-}
-
-
-
-#===================================
-#c.dev.mobile
-proc GET_mom_logname    { } {
-#===================================
-global mom_logname
-if {[info exist mom_logname  ] } { return $mom_logname     }
-return "NULL mom_logname"
-}
-#===================================
-
-#===================================
-proc GET_user_type_isp    { } {
-#===================================
-global user_type_isp
-if {[info exist user_type_isp  ] } { return $user_type_isp     }
-return ""
-}
-#===================================
-proc GET_mom_date         { } {
-#===================================
-global mom_date
-if {[info exist mom_date  ] } { return $mom_date     }
-return "NULL mom_date"
-}
-#===================================
-proc GET_mom_opstop_text         { } {
-#===================================
-global mom_opstop_text
-if {[info exist mom_opstop_text   ] } { return $mom_opstop_text      }
-return "NULL mom_opstop_text "
-}
-#===================================
-proc GET_mom_sys_program_stop_code         { } {
-#===================================
-global mom_sys_program_stop_code
-if {[info exist mom_sys_program_stop_code   ] } { return $mom_sys_program_stop_code      }
-return "NULL mom_sys_program_stop_code "
-}
-#===================================
-proc GET_mom_stop_text         { } {
-#===================================
-global mom_stop_text
-if {[info exist mom_stop_text   ] } { return $mom_stop_text      }
-return "NULL mom_stop_text "
-}
-#===================================
-proc GET_mom_next_tool_name        { } {
-#===================================
-global mom_next_tool_name
-if {[info exist mom_next_tool_name  ] } { return $mom_next_tool_name     }
-return "NULL mom_next_tool_name"
-}
-#===================================
-proc GET_mom_next_tool_status        { } {
-#===================================
-global mom_next_tool_status
-if {[info exist mom_next_tool_status  ] } { return $mom_next_tool_status     }
-return "NULL mom_next_tool_status"
-}
-#===================================
-proc GET_mom_tool_diameter        { } {
-#===================================
-global mom_tool_diameter
-if {[info exist mom_tool_diameter  ] } { return $mom_tool_diameter     }
-return "NULL mom_tool_diameter"
-}
-#===================================
-proc GET_mom_tool_number        { } {
-#===================================
-global mom_tool_number
-if {[info exist mom_tool_number  ] } { return $mom_tool_number     }
-return "0"
-}
-#===================================
-proc GET_mom_sys_tool_time       { } {
-#===================================
-global mom_sys_tool_time
-if {[info exist mom_sys_tool_time  ] } { return $mom_sys_tool_time     }
-return "NULL mom_sys_tool_time"
-}
-#===================================
-proc GET_mom_operation_name     { } {
-#===================================
-global mom_operation_name
-if {[info exist mom_operation_name  ] } { return $mom_operation_name     }
-return "NULL mom_operation_name"
-}
-
-#===================================
-proc GET_mom_operation_type       { } {
-#===================================
-#return
-#Planar Text
-#Mill Machine Control
-global mom_operation_type
-if {[info exist mom_operation_type  ] } { return $mom_operation_type     }
-return "NULL mom_operation_type"
-}
-#===================================
-proc GET_mom_tool_name  { } {
-#===================================
-global mom_tool_name
-if {[info exist mom_tool_name  ] } { return $mom_tool_name     }
-unset mom_tool_name
-return "NULL mom_tool_name"
-}
-#===================================
-
-
-#===================================
-
-proc GET_mom_oper_method  { } {
-#===================================
-global mom_oper_method
-if {[info exist mom_oper_method  ] } { return $mom_oper_method     }
-
-unset mom_oper_method
-return "NULL mom_oper_method"
-}
-
-#===================================
-proc GET_mom_next_oper_has_tool_change   { } {
-#===================================
-global mom_next_oper_has_tool_change
-if {[info exist mom_next_oper_has_tool_change    ] } { return $mom_next_oper_has_tool_change       }
-unset mom_next_oper_has_tool_change
-return ""
-}
-
-#===================================
-# X:\trofimov\detali\TEST_POSTING\MILL_3_AXIS.h
-proc GET_mom_output_file_full_name  { } {
-#===================================
-global mom_output_file_full_name
-if {[info exist mom_output_file_full_name ] } { return $mom_output_file_full_name    }
-return "NULL mom_output_file_full_name"
-}
-#===================================
-#MILL_3_AXIS file NC
-proc GET_mom_output_file_basename  { } {
-#===================================
-global mom_output_file_basename
-if {[info exist mom_output_file_basename ] } { return $mom_output_file_basename    }
-return "NULL mom_output_file_basename "
-}
-#===================================
-proc GET_mom_operator_message { } {
-#===================================
-global mom_operator_message
-if {[info exist mom_operator_message] } { return $mom_operator_message   }
-return "NULL mom_operator_message"
-}
-#===================================
-# получить символ комментария  в начале
-proc GET_mom_sys_control_out { } {
-#===================================
-global mom_sys_control_out
-if {[info exist mom_sys_control_out] } { return $mom_sys_control_out   }
-return "NULL mom_sys_control_out"
-}
-#===================================
-# получить символ комментария  в конце
-proc GET_mom_sys_control_in { } {
-#===================================
-global mom_sys_control_in
-if {[info exist mom_sys_control_in] } { return $mom_sys_control_in   }
-return "NULL mom_sys_control_in"
-}
-#===================================
-proc GET_mom_nc_programmer { } {
-#===================================
-global mom_nc_programmer
-if {[info exist mom_nc_programmer] } { return $mom_nc_programmer   }
-return "NULL mom_nc_programmer"
-}
-#===================================
-proc GET_mom_sys_commentary_output { } {
-#===================================
-global mom_sys_commentary_output
-if {[info exist mom_sys_commentary_output] } { return $mom_sys_commentary_output   }
-return "NULL mom_sys_commentary_output"
-}
-
-#===================================
-proc GET_mom_cutcom_status { } {
-#===================================
-global mom_cutcom_status
-
-if {[info exist mom_cutcom_status] } { return $mom_cutcom_status  }
-return "NULL mom_cutcom_status"
-}
-
-#===================================
-proc GET_mom_sys_cutcom_code { } {
-#===================================
-global mom_sys_cutcom_code
-
-#if {[info exist $mom_sys_cutcom_code([GET_mom_cutcom_status])] } { return $mom_sys_cutcom_code([GET_mom_cutcom_status])  }
-#return "NULL mom_sys_cutcom_code"
-return "$mom_sys_cutcom_code(OFF) "
-}
-# получить обороты
-proc GET_mom_spindle_rpm { } {
-#===================================
-global mom_spindle_rpm
-if {[info exist mom_spindle_rpm] } { return $mom_spindle_rpm   }
-return "0"
-}
-
-
-
-
-
-
-
-
-
-
-
-
-#==============PROVERKI START=====================
-proc CHECK_correction_rapid    { } {
-global mom_cutcom_status
-global mom_current_motion
-global mom_logname
-
-  if {[info exists mom_cutcom_status] && \
-          ($mom_cutcom_status == "RIGHT" || \
-              $mom_cutcom_status == "LEFT" ) && \
-           [string match "*rapid*" $mom_current_motion]} {
-      PAUSE "!! МИНУС KPI  программисту $mom_logname !! \n Врезание с коррекцией на ускоренном ходу \n в операции $mom_operation_name."
-       MOM_abort "USER EXIT"
-    }
-}
-#---------------------------
-proc CHECK_from_pos    { } {
-global mom_from_pos
-if [info exist mom_from_pos(0)] {
-  PAUSE "!! В операции [GET_mom_operation_name] используется движение FROM. Данный постпроцессор не поддерживает данный вид движений. Следует переделать операцию"
-   MOM_abort "USER EXIT"
-
-    }
-}
-
-proc CHECK_SPEED_SPINDLE  {min_sp max_sp} {
-
-  if {[GET_mom_spindle_rpm] > $max_sp }
-              {
-      PAUSE "!! Проверь обороты \n  в операции [GET_mom_operation_name]"
-       MOM_abort "USER EXIT"
-    }
-
-}
-#---------------------------
-
-
-proc CHECK_ZERO_SPEED_AND_TOOL {} {
-
-global mom_path_name
-global mom_spindle_speed
-global mom_tool_number
-
-
-
- if { $mom_spindle_speed == 0 } {
-     MOM_output_to_listing_device " "
-     MOM_output_to_listing_device "   ======================================="
-     MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
-     MOM_output_to_listing_device "    ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ !!!!!!!!"
-     MOM_output_to_listing_device "   ======================================="
-   #  MOM_abort " "ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ ДОПУСКАЕТСЯ!" "
- }
- if { $mom_tool_number == 0 } {
-     MOM_output_to_listing_device " "
-     MOM_output_to_listing_device "   ======================================="
-     MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
-     MOM_output_to_listing_device "    ОШИБКА: ИНСТРУМЕНТ T0  !!!!!!!!"
-     MOM_output_to_listing_device "   ======================================="
-   #  MOM_abort " ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН! "
- }
-
-}
-
-#==============PROVERKI END=====================
-
-
-
-
-
-
-#==============SORT===================================================
-
-proc STRING_GET_USER_SELECTED_AND_VIEW_MESSAGE {arg_array_type } {
-
-set type ""
-    foreach type_detail $arg_array_type {
-  # MOM_output_literal $type_detail
-   append type " $type_detail "
-    }
-if {[string length $type] >1 } {
-
-set i 0
-set size "[llength $arg_array_type]"
-
-     while { $i < $size } {
-
-    set a  "[lindex $arg_array_type $i]"
-    set return_value  [MOM_display_message "Исполнения обозначаются в начале названий обработки и разделяются знаком \".\"\nВыберите нужное: $type" "Найдено несколько исполнений в названий обработки" "Q" "Отмена" "$a" "Следующее"]
-    if {$return_value == "1" } {
-
-    MOM_abort "USER EXIT"
-
-    }
-    if {$return_value == "2" } {
-    return $a
-    }
-    if {$return_value == "3" } {
-                if { $i == [expr "$size - 1"]} {
-                                                set i -1 }
-                                                        }
-                set i [expr $i + 1]
-}
-
-}
-return " нет исполнения"
-#return "$a"
-
-
-}
-
-
-proc SKIP_TO_END_OF_PATCH {user_type_isp from_name all_type_isp} {
-global CONSTANT_ARRAY
-
-set c [DIVIDER__STRING_SYMBOL_NUMBER "$from_name" "$CONSTANT_ARRAY(separator_for_skip_isp)" "$CONSTANT_ARRAY(position_for_skip_isp)"]
-
-# esli sootvetstvie s vy`branny`m ispolneniem pol`zovatelem
-if {[COMPARE__TEXT_TEXT "$c" "$user_type_isp"]} {
-return 1
-} else {
-            for {set i 0} {$i < [llength $all_type_isp]} {incr i} {
-            set a "[lindex $all_type_isp $i]"
-            if {[COMPARE__TEXT_TEXT "$c" "$a"]} {
-             #   MOM_output_text "[VIEW_TEXT "SKIP ISPOLNENIE_$a" 5]"
-                MOM_skip_handler_to_event MOM_end_of_patch
-                return 0
-        }
-}
-}
-
-return 1
-}
-
-
-proc ARRAY_GET_ALL_TYPE_DETAIL {} {
-global CONSTANT_ARRAY
-set a "$CONSTANT_ARRAY(separator_for_skip_isp)"
-set b "$CONSTANT_ARRAY(position_for_skip_isp)"
-
-set out_file "${::mom_output_file_directory}temp.txt"
-
-MOM_run_postprocess "[file dirname $::mom_event_handler_file_name]/sub_post/sub_post.tcl" \
-"[file dirname $::mom_event_handler_file_name]/sub_post/sub_post.def" "$out_file"
- set name [list]
-   set src [open "$out_file" RDONLY]
-   while { [eof $src] == 0 } {
-        set local_line [gets $src]
-        if {[COMPARE__ALL_SYMBOL_FROM_TEXT_WITH_SYMBOL "$local_line" "$a"]} {
-        set s [DIVIDER__STRING_SYMBOL_NUMBER $local_line "$a" "$b"]
-# ishchem odinakovy`e , esli da to sleduiushchaia iteratciia
-
-
-       if {[lsearch $name $s] >= 0} {
-     continue
-    } else {
-
-     if {[string length $s] >= 3} {
-     continue
-    }
-
-        lappend name [DIVIDER__STRING_SYMBOL_NUMBER $local_line "$a" "$b"]
-                }
-                                                                                                                                    }
-                                            }
-
-
-
-   close $src
-  file delete "$out_file"
-
-  lsort -dictionary  $name
-
-
-return $name
-}
-
-
-
-
-proc ARRAY_GET_ALL_FROM_SUB_POST_TEXT {} {
-
-set out_file "${::mom_output_file_directory}temp.txt"
-
-MOM_run_postprocess "[file dirname $::mom_event_handler_file_name]/sub_post/sub_post.tcl" \
-"[file dirname $::mom_event_handler_file_name]/sub_post/sub_post.def" "$out_file"
- set name [list]
-   set src [open "$out_file" RDONLY]
-   while { [eof $src] == 0 } {
-        lappend name [gets $src]
-
-                  }
-
-   close $src
-
- file delete "$out_file"
-
-
-return $name
-}
-
-}
-
-
-
-
-
 }
 
 
@@ -3451,86 +2121,6 @@ proc PB_CMD_MOM_text { } {
 
 
 #=============================================================
-proc PB_CMD_TOOL_LIST { } {
-#=============================================================
-global tool_name_list ARR
-global isFirst
-
-
-if { $isFirst == "YES" } {
-lappend tool_name_list [GET_mom_tool_name]
-MOM_output_text "IS_FIRST"
-set isFirst "NO"
-}
-
- for {set i 0} {$i < [llength $tool_name_list]} {incr i} {
-           set a "[lindex $tool_name_list $i]"
-            if {[COMPARE__TEXT_TEXT "[GET_mom_tool_name]" "$a"]} {
-            MOM_output_text "--------------------------- compare [GET_mom_tool_name] $a ---------------------------"
-
-           } else {
-
-set ARR([GET_mom_tool_name]) [GET_mom_attr_TOOL 1]
-MOM_output_text "\n ==== [GET_mom_operation_name]"
-MOM_output_text [GET_mom_tool_name]
-foreach name [GET_mom_attr_TOOL 1] {
-MOM_output_text $name
-}
-
-
-}
-}
-
-
-}
-
-
-#=============================================================
-proc PB_CMD_TOOL_LIST_END { } {
-#=============================================================
-
-
-foreach name [VIEW_TOOL_ARG 0] {
-
-MOM_output_text  [VIEW_TEXT "$name" 0]
-
-}
-
-#MOM_output_text [VIEW_TEXT "TOOL_LIST_END" 2]
-}
-
-
-#=============================================================
-proc PB_CMD_TOOL_LIST_INIT { } {
-#=============================================================
-
-
-puts [INIT_TOOL_ARG]
-
-
-}
-
-
-#=============================================================
-proc PB_CMD_TOOL_LIST_START_PATH { } {
-#=============================================================
-
-
-
- #MOM_output_text "\n [GET_mom_tool_type] -- [GET_mom_tool_number] "
-
-puts [READ_TOOL_ARG]
-
-
-
-#MOM_output_literal "---------------------------"
-#MOM_output_literal [GET_mom_tool_type]
-#MOM_output_literal [GET_mom_tool_name]
-#MOM_output_literal [GET_mom_tool_nose_radius]
-}
-
-
-#=============================================================
 proc PB_CMD__config_post_options { } {
 #=============================================================
 # <PB v10.03>
@@ -3552,6 +2142,16 @@ return
 
 
 #=============================================================
+proc PB_CMD__log_revisions { } {
+#=============================================================
+# Dummy command to log changes in this post --
+#
+# 02-26-09 gsl - Initial version
+#
+}
+
+
+#=============================================================
 proc PB_CMD__manage_part_attributes { } {
 #=============================================================
 # This command allows the user to manage the MOM variables
@@ -3566,9 +2166,6 @@ proc PB_CMD__manage_part_attributes { } {
 return
    }
 
-  #+++++++++++++++++++++++++++++++++++++
-  # You may manage part attributes here
-  #+++++++++++++++++++++++++++++++++++++
 }
 
 
@@ -3586,13 +2183,13 @@ proc PB_CMD_abort_event { } {
 # - Rapid, linear, circular and cycle move events have this trigger
 #   built in by default in PB6.0.
 #
-# 06-17-13 gsl - Do not abort event, by default, when signal is "1".
-#
+
    global mom_sys_abort_next_event
 
    if { [info exists mom_sys_abort_next_event] } {
 
       switch $mom_sys_abort_next_event {
+         1 -
          2 {
             unset mom_sys_abort_next_event
             CATCH_WARNING "Event aborted!"
@@ -3632,6 +2229,12 @@ return $mom_kin_machine_type
 
 
 #=============================================================
+proc PB_CMD_before_motion { } {
+#=============================================================
+}
+
+
+#=============================================================
 proc PB_CMD_cancel_suppress_force_once_per_event { } {
 #=============================================================
 # This command can be called to cancel the effect of
@@ -3645,49 +2248,6 @@ proc PB_CMD_cancel_suppress_force_once_per_event { } {
 # PB v11.02 -
 #
    MOM_cancel_suppress_force_once_per_event
-}
-
-
-#=============================================================
-proc PB_CMD_custom_command { } {
-#=============================================================
-uplevel #0 {
-set status_tool "YES"
-}
-
-
-
-set a [GET_TOOL_ARG 1]
-global list_name_oper
-
-set list_name_oper [LIST_DEL_DUBLI [ARRAY_GET_ALL_FROM_SUB_POST_TEXT]]
-
-foreach name $list_name_oper {
-
-MOM_output_text $name
-
-}
-
-}
-
-
-#=============================================================
-proc PB_CMD_custom_command_1 { } {
-#=============================================================
-
-
-
-
-
-proc lequal {l1 l2} {
-    foreach elem $l1 {
-        if {$elem ni $l2} {return false}
-    }
-    foreach elem $l2 {
-        if {$elem ni $l1} {return false}
-    }
-    return true
-}
 }
 
 
@@ -3755,13 +2315,13 @@ return
 #=============================================================
 proc PB_CMD_end_of_alignment_character { } {
 #=============================================================
-# This command restores sequnece number back to orignal setting.
-# This command may be used with the command "PM_CMD_start_of_alignment_character"
-#
-   global mom_sys_leader saved_seq_num
-   if { [info exists saved_seq_num] } {
-      set mom_sys_leader(N) $saved_seq_num
-   }
+ #  Return sequnece number back to orignal
+ #  This command may be used with the command "PM_CMD_start_of_alignment_character"
+
+  global mom_sys_leader saved_seq_num
+  if [info exists saved_seq_num] {
+    set mom_sys_leader(N) $saved_seq_num
+  }
 }
 
 
@@ -3911,8 +2471,7 @@ return
                set going_lower [expr abs($going_lower - 1)]
             }
          }
-         2 {
-         # Multi-spindle machine
+         2 { ;# Multi-spindle machine
             if [EQ_is_lt $mom_spindle_axis(2) 0.0] {
                set going_lower [expr abs($going_lower - 1)]
             }
@@ -3985,11 +2544,154 @@ return
 
 
 #=============================================================
+proc PB_CMD_handle_sync_event { } {
+#=============================================================
+  global mom_sync_code
+  global mom_sync_index
+  global mom_sync_start
+  global mom_sync_incr
+  global mom_sync_max
+
+
+  set mom_sync_start     99
+  set mom_sync_incr       1
+  set mom_sync_max    199
+
+
+  if {![info exists mom_sync_code] } {
+    set mom_sync_code $mom_sync_start
+  }
+
+  set mom_sync_code [expr $mom_sync_code + $mom_sync_incr]
+
+  MOM_output_literal "M$mom_sync_code"
+}
+
+
+#=============================================================
+proc PB_CMD_init_helix { } {
+#=============================================================
+uplevel #0 {
+#
+# This ommand will be executed automatically at the start of program and
+# anytime it is loaded as a slave post of a linked post.
+#
+# This procedure can be used to enable your post to output helix.
+# You can choose from the following options to format the circle
+# block template to output the helix parameters.
+#
+
+set mom_sys_helix_pitch_type    "rise_radian"
+
+#
+# The default setting for mom_sys_helix_pitch_type is "rise_radian".
+# This is the most common.  Other choices are:
+#
+#    "rise_radian"              Measures the rise over one radian.
+#    "rise_revolution"          Measures the rise over 360 degrees.
+#    "none"                     Will suppress the output of pitch.
+#    "other"                    Allows you to calculate the pitch
+#                               using your own formula.
+#
+# This custom command uses the block template circular_move to output
+# the helix block.  If your post uses a block template with a different
+# name, you must edit the line that outputs the helix block.
+
+#
+#  The following variable deines the output mode for helical records.
+#
+#  FULL_CIRCLE  -- This mode will output a helix record for each 360
+#                  degrees of the helix.
+#  QUADRANT  --    This mode will output a helix record for each 90
+#                  degrees of the helix.
+#  LINEAR  --      This mode will output the entire helix as linear gotos.
+#  END_POINT --    This mode will assume the control can define an entire
+#                  helix in a single block.
+
+   set mom_kin_helical_arc_output_mode FULL_CIRCLE
+
+   MOM_reload_kinematics
+
+
+
+#=============================================================
+proc MOM_helix_move { } {
+#=============================================================
+   global mom_pos_arc_plane
+   global mom_sys_cir_vector
+   global mom_sys_helix_pitch_type
+   global mom_helix_pitch
+   global mom_prev_pos mom_pos_arc_center
+   global PI
+
+   switch $mom_pos_arc_plane {
+      XY { MOM_suppress once K ; set cir_index 2 }
+      YZ { MOM_suppress once I ; set cir_index 0 }
+      ZX { MOM_suppress once J ; set cir_index 1 }
+   }
+
+   switch $mom_sys_helix_pitch_type {
+      none { }
+      rise_revolution { set pitch $mom_helix_pitch }
+      rise_radian { set pitch [expr $mom_helix_pitch / ($PI * 2.0)]}
+      other {
+#
+#    Place your custom helix pitch code here
+#
+      }
+      default { set mom_sys_helix_pitch_type "none" }
+   }
+
+   MOM_force once X Y Z
+
+   if { [string compare "none" $mom_sys_helix_pitch_type] } {
+      MOM_force once I J
+
+#<08-01-06 gsl>
+      switch $mom_sys_cir_vector {
+         "Vector - Arc Center to Start" {
+            set mom_prev_pos($cir_index) $pitch
+            set mom_pos_arc_center($cir_index) 0.0
+         }
+         "Vector - Arc Start to Center" -
+         "Unsigned Vector - Arc Start to Center" {
+            set mom_prev_pos($cir_index) 0.0
+            set mom_pos_arc_center($cir_index) $pitch
+         }
+         "Vector - Absolute Arc Center" {
+            set mom_pos_arc_center($cir_index) $pitch
+         }
+      }
+   }
+
+
+#
+# You may need to edit this line if you output more than one block
+# or if you have changed the name of your circular_move block template
+#
+   MOM_do_template circular_move
+
+
+} ;# MOM_helix_move
+
+
+} ;# uplevel
+}
+
+
+#=============================================================
 proc PB_CMD_kin_abort_event { } {
 #=============================================================
    if { [CMD_EXIST PB_CMD_abort_event] } {
       PB_CMD_abort_event
    }
+}
+
+
+#=============================================================
+proc PB_CMD_kin_before_motion { } {
+#=============================================================
+# Null command from mill 3
 }
 
 
@@ -4181,6 +2883,13 @@ proc PB_CMD_kin_feedrate_set { } {
    if { [CMD_EXIST PB_CMD_FEEDRATE_SET] } {
       PB_CMD_FEEDRATE_SET
    }
+}
+
+
+#=============================================================
+proc PB_CMD_kin_handle_sync_event { } {
+#=============================================================
+  PB_CMD_handle_sync_event
 }
 
 
@@ -4420,6 +3129,27 @@ proc PB_CMD_kin_start_of_program { } {
 
 
 #=============================================================
+proc PB_CMD_load_fixture_offset { } {
+#=============================================================
+  global mom_fixture_offset_value
+
+  MOM_suppress always N
+  MOM_output_literal "G$mom_fixture_offset_value"
+  MOM_suppress off N
+}
+
+
+#=============================================================
+proc PB_CMD_log_revisions { } {
+#=============================================================
+# Dummy command to log changes in this post --
+#
+# 02-26-09 gsl - Initial version
+#
+}
+
+
+#=============================================================
 proc PB_CMD_negate_R_value { } {
 #=============================================================
 # This command negates the value of radius when the included angle
@@ -4442,23 +3172,21 @@ proc PB_CMD_negate_R_value { } {
 #=============================================================
 proc PB_CMD_pause { } {
 #=============================================================
-# This command enables you to pause the UG/Post processing.
-#
-   PAUSE
+  set cam_aux_dir  [MOM_ask_env_var UGII_CAM_AUXILIARY_DIR]
+
+  if { [file exists ${cam_aux_dir}ugwish.exe] && [file exists ${cam_aux_dir}mom_pause.tcl] } {
+    exec ${cam_aux_dir}ugwish.exe ${cam_aux_dir}mom_pause.tcl
+  }
 }
 
 
 #=============================================================
 proc PB_CMD_reload_iks_parameters { } {
 #=============================================================
-# This command overloads new IKS params from a machine model (NX4^).
+# This command overloads new IKS params from a machine model.(NX4)
 # It will be executed automatically at the start of each path
 # or when CSYS has changed.
 #
-# ==> Uncomment the "return" statement below to disable the reload.
-
-# return
-
    global mom_csys_matrix
    global mom_kin_iks_usage
 
@@ -4470,15 +3198,10 @@ proc PB_CMD_reload_iks_parameters { } {
    set custom_classification NONE
 
    if { [info exists mom_kin_iks_usage] && $mom_kin_iks_usage == 1 } {
-      if { [info exists mom_csys_matrix] } {
-         if { [CMD_EXIST MOM_validate_machine_model] } {
+      if [info exists mom_csys_matrix] {
+         if [llength [info commands MOM_validate_machine_model] ] {
             if { ![string compare "TRUE" [MOM_validate_machine_model]] } {
-
                MOM_reload_iks_parameters "$custom_classification"
-
-              #<06-20-2014 gsl> ir7155292 - Force machine's spindle axis to be {0,0,1} <== Not certain it's always true!
-              # set ::mom_kin_spindle_axis(0) 0.0; set ::mom_kin_spindle_axis(1) 0.0; set ::mom_kin_spindle_axis(2) 1.0
-
                MOM_reload_kinematics
             }
          }
@@ -4511,7 +3234,7 @@ proc PB_CMD_revise_new_iks { } {
 # to change the default IKS parameters or disable the IKS
 # service completely.
 #
-# --> Do not attach this command to any event marker! ***
+# *** Do not attach this command to any event marker! ***
 #
    global mom_kin_iks_usage
    global mom_kin_rotary_axis_method
@@ -4528,12 +3251,8 @@ proc PB_CMD_revise_new_iks { } {
   # set mom_kin_rotary_axis_method  "ZERO"
 
 
-  # Reload kinematics if any parameter above has changed.
-   if { ([info exists mom_kin_iks_usage] && !$mom_kin_iks_usage) ||\
-        ([info exists mom_kin_rotary_axis_method] && [string match "ZERO" $mom_kin_rotary_axis_method]) } {
-
-      MOM_reload_kinematics
-   }
+  # Uncomment next statement, if any parameter above has changed.
+  # MOM_reload_kinematics
 }
 
 
@@ -4564,73 +3283,113 @@ return
 #=============================================================
 proc PB_CMD_set_csys { } {
 #=============================================================
-# This custom command is provided as the default to nullify
-# the same command in a linked post that may have been
-# imported from pb_cmd_coordinate_system_rotation.tcl.
-#
+#  This custom command is provided as the default to nullify
+#  the same command in a linked post that may have been
+#  imported from pb_cmd_coordinate_system_rotation.tcl.
 }
 
 
 #=============================================================
 proc PB_CMD_set_cycle_plane { } {
 #=============================================================
+#
 # Use this command to determine and output proper plane code
 # when G17/18/19 is used in the cycle definition.
 #
-# <04-15-08 gsl> - Add initialization for protection
-# <03-06-08 gsl> - Declare needed global variables
-# <02-28-08 gsl> - Make use of mom_spindle_axis
-# <06-22-09 gsl> - Call PB_CMD_set_principal_axis
-#
-
-  #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  # This option can be set to 1, if the address of cycle's
-  # principal axis needs to be suppressed. (Ex. Siemens controller)
-  #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   set suppress_principal_axis 0
 
 
-  #++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  # This option can be set to 1, if the plane code needs
-  # to be forced out @ the start of every set of cycles.
-  #++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   set force_plane_code 0
+ #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ # Next option can be set to 1, if the address of cycle's
+ # principal axis needs to be suppressed. (Ex. siemens controller)
+ #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  set suppress_principal_axis 0
 
 
-   global mom_cycle_spindle_axis
+ #++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ # Next option can be set to 1, if the plane code needs
+ # to be forced out @ the start of every set of cycles.
+ #++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  set force_plane_code 0
 
 
-   PB_CMD_set_principal_axis
+  global mom_kin_machine_type
+  global mom_kin_4th_axis_type mom_kin_4th_axis_plane
+  global mom_kin_5th_axis_type
+  global mom_tool_axis mom_sys_spindle_axis mom_kin_spindle_axis
+  global mom_pos
+  global mom_cycle_spindle_axis mom_cutcom_plane mom_pos_arc_plane
 
 
-   switch $mom_cycle_spindle_axis {
-      0 {
-         set principal_axis X
+ # Default cycle spindle axis to Z
+  set mom_cycle_spindle_axis 2
+
+
+  if { ![string match "*3_axis_mill*" $mom_kin_machine_type] } {
+
+    if { ![string compare "Head" $mom_kin_4th_axis_type] } {
+
+      if [EQ_is_equal [expr abs($mom_tool_axis(0))] 1.0] {
+        set mom_cycle_spindle_axis 0
       }
-      1 {
-         set principal_axis Y
+
+      if [EQ_is_equal [expr abs($mom_tool_axis(1))] 1.0] {
+        set mom_cycle_spindle_axis 1
       }
-      2 {
-         set principal_axis Z
+
+      if { ![string compare "Table" $mom_kin_5th_axis_type] } {
+
+        if [EQ_is_equal [expr abs($mom_pos(3))] 90.0] {
+
+          switch $mom_kin_4th_axis_plane {
+            "YZ" {
+              set mom_cycle_spindle_axis 1
+            }
+            "ZX" {
+              set mom_cycle_spindle_axis 0
+            }
+          }
+        }
       }
-      default {
-         set principal_axis ""
-      }
-   }
+    }
+  }
 
 
-   if { $suppress_principal_axis && [string length $principal_axis] > 0 } {
-      MOM_suppress once $principal_axis
-   }
+  switch $mom_cycle_spindle_axis {
+    0 {
+      set mom_cutcom_plane  YZ
+      set mom_pos_arc_plane YZ
+      set principal_axis X
+    }
+    1 {
+      set mom_cutcom_plane  ZX
+      set mom_pos_arc_plane ZX
+      set principal_axis Y
+    }
+    2 {
+      set mom_cutcom_plane  XY
+      set mom_pos_arc_plane XY
+      set principal_axis Z
+    }
+    default {
+      set mom_cutcom_plane  UNDEFINED
+      set mom_pos_arc_plane UNDEFINED
+      set principal_axis ""
+    }
+  }
 
 
-   if { $force_plane_code } {
-      global cycle_init_flag
+  if { $suppress_principal_axis && [string length $principal_axis] > 0 } {
+    MOM_suppress once $principal_axis
+  }
 
-      if { [info exists cycle_init_flag] && [string match "TRUE" $cycle_init_flag] } {
-         MOM_force once G_plane
-      }
-   }
+
+  if { $force_plane_code } {
+    global cycle_init_flag
+
+    if { [info exists cycle_init_flag] && [string match "TRUE" $cycle_init_flag] } {
+      MOM_force once G_plane
+    }
+  }
 }
 
 
@@ -4647,7 +3406,6 @@ proc PB_CMD_set_principal_axis { } {
 # <10-09-09 gsl> - Do not define mom_pos_arc_plane unless it doesn't exist.
 # <03-10-10 gsl> - Respect tool axis for 3-axis & XZC cases
 # <01-21-11 gsl> - Enhance header description
-# <07-12-12 gsl> - Find principal axis for XZC-mill from the spindle axis
 #
 
    global mom_cycle_spindle_axis
@@ -4675,9 +3433,9 @@ proc PB_CMD_set_principal_axis { } {
    set mom_cycle_spindle_axis 2
 
 
-  # Respect tool axis only for 3-axis mill
+  #<03-10-10 gsl> pb751 - Respect tool axis for 3-axis & XZC
    global mom_kin_machine_type mom_tool_axis
-   if [string match "3_axis_mill" $mom_kin_machine_type] {
+   if [string match "3_axis*" $mom_kin_machine_type] {
       VMOV 3 mom_tool_axis spindle_axis
    } else {
       VMOV 3 mom_spindle_axis spindle_axis
@@ -4708,8 +3466,8 @@ proc PB_CMD_set_principal_axis { } {
       }
    }
 
-  # Set arc plane when it's not defined
-   if { ![info exists mom_pos_arc_plane] || $mom_pos_arc_plane == "" } {
+
+   if { ![info exists mom_pos_arc_plane] } {
       set mom_pos_arc_plane $mom_cutcom_plane
    }
 }
@@ -4718,21 +3476,21 @@ proc PB_CMD_set_principal_axis { } {
 #=============================================================
 proc PB_CMD_start_of_alignment_character { } {
 #=============================================================
-# This command can be used to output a special sequence number character.
-# Replace the ":" with any character that you require.
-# You must use the command "PB_CMD_end_of_alignment_character" to reset
-# the sequence number back to the original setting.
-#
-   global mom_sys_leader saved_seq_num
-   set saved_seq_num $mom_sys_leader(N)
-   set mom_sys_leader(N) ":"
+ # This command can be used to output a special sequence number character.
+ # Replace the ":" with any character that you require.
+ # You must use the command "PB_CMD_end_of_alignment_character" to reset
+ # the sequence number back to the original setting.
+
+  global mom_sys_leader saved_seq_num
+  set saved_seq_num $mom_sys_leader(N)
+  set mom_sys_leader(N) "*N"
 }
 
 
 #=============================================================
 proc PB_CMD_start_of_operation_force_addresses { } {
 #=============================================================
-   MOM_force once S M_spindle X Y Z fourth_axis fifth_axis F
+  MOM_force once S M_spindle X Y Z F
 }
 
 
@@ -4745,11 +3503,10 @@ proc PB_CMD_suppress_linear_block_plane_code { } {
 #
 #<10-11-09 gsl> - New
 #<01-20-11 gsl> - Force out plane code for the 1st linear move when CUTCOM is on
-#<03-16-12 gsl> - Added use of CALLED_BY
 #
 
   # Restrict this command to be executed only by MOM_linear_move
-   if { ![CALLED_BY "MOM_linear_move"] } {
+   if { [string compare "MOM_linear_move" [info level -1] ] } {
 return
    }
 
@@ -4809,7 +3566,25 @@ return
 #=============================================================
 proc PB_CMD_tool_change_force_addresses { } {
 #=============================================================
-   MOM_force once G_adjust H X Y Z S fourth_axis fifth_axis
+  MOM_force once G_adjust H S
+}
+
+
+#=============================================================
+proc PB_CMD_tool_information { } {
+#=============================================================
+
+   global mom_tool_name mom_tool_diameter mom_tool_flute_length
+   global mom_sys_control_out mom_sys_control_in
+
+
+   set co $mom_sys_control_out
+   set ci $mom_sys_control_in
+
+MOM_output_literal "$co INSTRUMENT: [string toupper $mom_tool_name] $ci"
+MOM_output_literal "$co DIAMETR: [format %3.2f $mom_tool_diameter] $ci"
+MOM_output_literal "$co FLUTE LENGTH: [format %3.2f $mom_tool_flute_length] $ci"
+
 }
 
 
@@ -4899,7 +3674,7 @@ return $list
 #=============================================================
 proc ARR_sort_array_vals { ARR } {
 #=============================================================
-# This command will sort and build a list of elements of an array.
+# This command will sort and return a list containing the indexed elements of an array.
 #
    upvar $ARR arr
 
@@ -4912,6 +3687,7 @@ proc ARR_sort_array_vals { ARR } {
       }
       lappend list ($a) $val
    }
+
 return $list
 }
 
@@ -4933,20 +3709,19 @@ proc CALLED_BY { caller {out_warn 0} args } {
 #
 # Revisions:
 #-----------
-# 05-25-2010 gsl - Initial implementation
-# 03-09-2011 gsl - Enhanced description
-# 06-29-2018 gsl - Only compare the 0th element in command string
+# 05-25-10 gsl - Initial implementation
+# 03-09-11 gsl - Enhanced description
 #
 
    if { [info level] <= 2 } {
 return 0
    }
 
-   if { ![string compare "$caller" [lindex [info level -2] 0] ] } {
+   if { [string match "$caller*" [info level -2] ] } {
 return 1
    } else {
       if { $out_warn } {
-         CATCH_WARNING "\"[lindex [info level -1] 0]\" cannot be executed in \"[lindex [info level -2] 0]\". \
+         CATCH_WARNING "\"[info level -1]\" can not be executed in \"[info level -2]\". \
                         It must be called by \"$caller\"!"
       }
 return 0
@@ -5023,7 +3798,7 @@ proc CMD_EXIST { cmd {out_warn 0} args } {
 return 1
    } else {
       if { $out_warn } {
-         CATCH_WARNING "Command \"$cmd\" called by \"[lindex [info level -1] 0]\" does not exist!"
+         CATCH_WARNING "Command \"$cmd\" called by \"[info level -1]\" does not exist!"
       }
 return 0
    }
@@ -5068,6 +3843,24 @@ proc COMPARE_NX_VERSION { this_ver target_ver } {
    }
 
 return $ver_check
+}
+
+
+#=============================================================
+proc DELAY_TIME_SET { } {
+#=============================================================
+  global mom_sys_delay_param mom_delay_value
+  global mom_delay_revs mom_delay_mode delay_time
+
+   # post builder provided format for the current mode:
+    if {[info exists mom_sys_delay_param(${mom_delay_mode},format)] != 0} {
+      MOM_set_address_format dwell $mom_sys_delay_param(${mom_delay_mode},format)
+    }
+
+    switch $mom_delay_mode {
+      SECONDS {set delay_time $mom_delay_value}
+      default {set delay_time $mom_delay_revs}
+    }
 }
 
 
@@ -5552,7 +4345,7 @@ proc STR_MATCH { VAR str {out_warn 0} } {
 return 1
    } else {
       if { $out_warn } {
-         CATCH_WARNING "Variable $VAR is not defined in \"[lindex [info level -1] 0]\"!"
+         CATCH_WARNING "Variable $VAR is not defined in \"[info level -1]\"!"
       }
 return 0
    }

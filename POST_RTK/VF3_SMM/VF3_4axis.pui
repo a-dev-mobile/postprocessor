@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Thursday, March 18 2021, 08:56:00 +0300
+#  Created by d.trofimov @ Monday, April 26 2021, 09:43:26 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -444,6 +444,7 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, March 17 202
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, March 18 2021, 08:52:03 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, March 18 2021, 08:53:57 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, March 18 2021, 08:55:59 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, April 26 2021, 09:43:26 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -1383,7 +1384,6 @@ Text              ""  0  "Text String"  0
       {"MOM_set_seq_off" "" "MOM Command"} \
       {"MOM_set_seq_on" "" "MOM Command"} \
       {"PB_CMD_END_PROGRAMM" "" "Custom Command"} \
-      {"PB_CMD_if_Z_small" "" "Custom Command"} \
       {"PB_CMD_FEEDRATE_NUMBER" "" "Custom Command"} \
       {"PB_CMD_Header_tool_list" "" "Custom Command"} \
       {"PB_CMD_MAIN" "" "Custom Command"} \
@@ -1434,6 +1434,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_handle_sync_event" "" "Custom Command"} \
       {"PB_CMD_header_nc" "" "Custom Command"} \
       {"PB_CMD_helix_move" "" "Custom Command"} \
+      {"PB_CMD_if_Z_small" "" "Custom Command"} \
       {"PB_CMD_if_repeat_tool_first_move" "" "Custom Command"} \
       {"PB_CMD_init_after_first_tool" "" "Custom Command"} \
       {"PB_CMD_init_before_first_tool" "" "Custom Command"} \
@@ -1485,6 +1486,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_select_mcs" "" "Custom Command"} \
       {"PB_CMD_set_csys" "" "Custom Command"} \
       {"PB_CMD_set_cycle_plane" "" "Custom Command"} \
+      {"PB_CMD_set_prev_Z" "" "Custom Command"} \
       {"PB_CMD_set_principal_axis" "" "Custom Command"} \
       {"PB_CMD_start_of_alignment_character" "" "Custom Command"} \
       {"PB_CMD_start_of_operation_force_addresses" "" "Custom Command"} \
@@ -1504,8 +1506,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
       {"PB_CMD_unset" "" "Custom Command"} \
-      {"PB_CMD_view_G40" "" "Custom Command"} \
-      {"PB_CMD_set_prev_Z" "" "Custom Command"}
+      {"PB_CMD_view_G40" "" "Custom Command"}
 {Operator_Message} \
       {"" "" ""}
 {PB_Spindle} \
