@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Thursday, April 29 2021, 10:03:24 +0300
+#  Created by d.trofimov @ Friday, April 30 2021, 10:37:04 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -945,6 +945,8 @@ proc MOM_coolant_off { } {
 proc MOM_coolant_on { } {
 #=============================================================
    COOLANT_SET
+
+   MOM_do_template coolant_on_1
 }
 
 
@@ -953,7 +955,6 @@ proc MOM_cutcom_off { } {
 #=============================================================
    CUTCOM_SET
 
-   MOM_force Once G_motion X Y
    MOM_do_template cutcom_off
 }
 
@@ -977,6 +978,9 @@ proc MOM_cutcom_on { } {
          unset mom_cutcom_adjust_register
       }
    }
+
+   MOM_force Once X Y D
+   MOM_do_template cutcom_on_1
 }
 
 
@@ -1185,7 +1189,6 @@ proc MOM_first_move { } {
    MOM_force Once S M_spindle
    MOM_do_template spindle_rpm
    PB_CMD_if_Z_small
-   PB_CMD_if_repeat_tool_first_move
    PB_CMD_output_machine_mode
    PB_CMD_force_output
    PB_CMD_output_init_position
@@ -1255,11 +1258,10 @@ proc MOM_initial_move { } {
    MOM_force Once S M_spindle
    MOM_do_template spindle_rpm
    PB_CMD_output_init_position
-   PB_CMD_if_repeat_tool_first_move
    PB_CMD_output_machine_mode
    PB_CMD_force_output
 
-   MOM_force Once G_adjust Z
+   MOM_force Once Z
    MOM_do_template init_move_adjust_len
    PB_CMD_SOG
 
@@ -3423,33 +3425,11 @@ return $name
 proc PB_CMD_MY_oper_name { } {
 #=============================================================
 
+set oper_name [GET_mom_operation_name]
+set oper_method [GET_mom_oper_method]
 
-
-global prev_tool_number
-set a ""
-if {[info exist prev_tool_number  ] } {
-
-if {[COMPARE__TEXT_TEXT "$prev_tool_number" "[GET_mom_tool_number]"]} {
-set a "/"
-
-
-  } else {
-set a ""
-MOM_output_literal  "M09"
-#MOM_output_literal  "M05"
-#MOM_output_literal  "G91 G28 Z0.0"
-}}
-
-
-#MOM_output_text "M1"
-
-
-
-
-MOM_output_literal "( [GET_mom_operation_name] )"
-MOM_output_literal "( pripusk [GET_mom_oper_method] )"
-
-#MOM_output_text "( VYLET = [format "%0.0f" [GET_mom_tool_zmount]] mm )"
+MOM_output_literal "(------)"
+MOM_output_literal "(MSG, $oper_name - $oper_method)"
 MOM_output_literal "(------)"
 
 
@@ -3462,14 +3442,11 @@ MOM_output_literal "(------)"
 proc PB_CMD_MY_start_programm { } {
 #=============================================================
 
-#MOM_output_literal "G40 G49 G80 G90 G21 G17"
-
-#MOM_output_text "G91 G28 A0.0"
-
+MOM_output_literal "G40"
 MOM_output_literal "G53"
 MOM_output_literal "G92"
 MOM_output_literal "G54"
-MOM_output_literal "(------)"
+
 }
 
 
@@ -5005,43 +4982,35 @@ set ofile [open $ptp_file_name w]
 
 
 puts $ofile "%"
-puts $ofile "P000001"
-
-
-
-
-#-----------
+puts $ofile "P00001"
 puts $ofile "N1 (\ T number | \ T name | \ VYLET)";
 puts $ofile "N2 ( --- )"
+
+
+
 global tool_name_list
 set tool_name_list1 [LIST_DEL_DUBLI $tool_name_list]
 set nextN 3
 
 set i 3
 foreach name $tool_name_list1 {
-
 puts $ofile "N$i $name"
     incr i
 }
-#unset tool_name_list
-#unset tool_name_list1
 
 puts $ofile "N$i ( --- )"
-#-----------
-#----------------------------
-#----------------------------
-#----------------------------
-global mom_machine_time
 
+
+global mom_machine_time
 set hours [format %2.0f [expr [format %2.0f $mom_machine_time] / 60]]
 set minutes [format %2.0f [expr $mom_machine_time - 60 * $hours]]
 
 if { $hours > 0 } {
    incr i
-puts $ofile "N$i (PROGRAMM TIME: HOURS:$hours MINUTES:$minutes)"
+puts $ofile "N$i (PROGRAMM TIME: HOURS: $hours MINUTES: $minutes)"
     } else {
    incr i
-puts $ofile "N$i (PROGRAMM TIME: MINUTES:$minutes)"
+puts $ofile "N$i (PROGRAMM TIME: MINUTES: $minutes)"
     }
 #----------------------------
 #----------------------------
@@ -5061,7 +5030,6 @@ MOM_remove_file $tmp_file_name
 set tm1 [clock seconds]
 set tm2 [clock format $tm1 -format "%M:%S"]
 MOM_log_message "MOM End = $tm2 "
-
 
 
 MOM_open_output_file $ptp_file_name
@@ -5147,10 +5115,7 @@ if {[info exist prev_z  ] } {
 
 if {$prev_z<$z} {
 
-MOM_output_literal  "G0 Z$z"
-
-
-
+MOM_output_literal  "G00 Z$z"
 
 }}
 }
@@ -7286,7 +7251,7 @@ return
 
                MOM_force once G_plane
 
-MOM_force once D
+#MOM_force once D
 
 
                set mom_sys_first_linear_move 0

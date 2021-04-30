@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Thursday, April 29 2021, 10:03:24 +0300
+#  Created by d.trofimov @ Friday, April 30 2021, 10:37:04 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -470,6 +470,26 @@ Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:57:00 +0300 by d.trofimov.
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 09:57:19 +0300 by d.trofimov.
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, April 29 2021, 10:03:23 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 09:06:13 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 09:11:31 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 09:11:33 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 09:14:01 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 09:15:13 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 09:17:54 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 09:21:36 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 09:23:40 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 09:25:28 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 09:26:10 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 10:14:24 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 10:16:12 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 10:17:22 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 10:19:44 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 10:22:06 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 10:25:19 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 10:28:42 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 10:29:46 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 10:35:40 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 10:37:04 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -738,8 +758,8 @@ Text              ""  0  "Text String"  0
 {First Tool}               {PB_CMD_get_tool_info}  {$gPB(event,opr_start,fst_tool,name)}
 {Auto Tool Change}         {PB_CMD_first_tool PB_CMD_get_tool_info PB_CMD_create_tool_list}  {$gPB(event,opr_start,auto_tc,name)}
 {Manual Tool Change}       {stop PB_CMD_m0_smena_instrum}  {$gPB(event,opr_start,manual_tc,name)}
-{Initial Move}             {spindle_rpm PB_CMD_output_init_position PB_CMD_if_repeat_tool_first_move PB_CMD_output_machine_mode PB_CMD_force_output init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,init_move,name)}
-{First Move}               {spindle_rpm PB_CMD_if_Z_small PB_CMD_if_repeat_tool_first_move PB_CMD_output_machine_mode PB_CMD_force_output PB_CMD_output_init_position init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,fst_move,name)}
+{Initial Move}             {spindle_rpm PB_CMD_output_init_position PB_CMD_output_machine_mode PB_CMD_force_output init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,init_move,name)}
+{First Move}               {spindle_rpm PB_CMD_if_Z_small PB_CMD_output_machine_mode PB_CMD_force_output PB_CMD_output_init_position init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,fst_move,name)}
 {Approach Move}            {}  {$gPB(event,opr_start,appro_move,name)}
 {Engage Move}              {}  {$gPB(event,opr_start,engage_move,name)}
 {First Cut}                {}  {$gPB(event,opr_start,fst_cut,name)}
@@ -753,11 +773,11 @@ Text              ""  0  "Text String"  0
 {Set Modes}                {}  {$gPB(event,set_modes,name)} {set_modes}
 {Spindle RPM}              {spindle_rpm}  {$gPB(event,spindle_rpm,name)} {spindle}
 {Spindle Off}              {spindle_off}  {$gPB(event,spindle_off,name)} {spindle_off}
-{Coolant On}               {}  {$gPB(event,coolant_on,name)} {coolant}
+{Coolant On}               {coolant_on_1}  {$gPB(event,coolant_on,name)} {coolant}
 {Coolant Off}              {coolant_off}  {$gPB(event,coolant_off,name)} {coolant_off}
 {Inch Metric Mode}         {}  {$gPB(event,inch_metric_mode,name)} {}
 {Feedrates}                {}  {$gPB(event,feedrates,name)} {}
-{Cutcom On}                {}  {$gPB(event,cutcom_on,name)} {cutcom}
+{Cutcom On}                {cutcom_on_1}  {$gPB(event,cutcom_on,name)} {cutcom}
 {Cutcom Off}               {cutcom_off}  {$gPB(event,cutcom_off,name)} {}
 {Delay}                    {delay}  {$gPB(event,delay,name)} {dwell}
 {Opstop}                   {opstop}  {$gPB(event,opstop,name)} {opstop}
@@ -829,14 +849,14 @@ Text              ""  0  "Text String"  0
 ## EVENTS ELEMENT EXECUTION START
 {Initial Move} \
         {0 NULL 0 {S M_spindle}} \
-        {5 NULL 0 {G_adjust Z}}
+        {4 NULL 0 {Z}}
 {First Move} \
         {0 NULL 0 {S M_spindle}} \
-        {6 NULL 0 {Z}}
+        {5 NULL 0 {Z}}
 {Spindle RPM} \
         {0 NULL 0 {S M_spindle}}
-{Cutcom Off} \
-        {0 NULL 0 {G_motion X Y}}
+{Cutcom On} \
+        {0 NULL 0 {X Y D}}
 {Linear Move} \
         {1 NULL 0 {G_motion}}
 {Circular Move} \

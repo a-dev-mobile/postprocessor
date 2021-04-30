@@ -661,9 +661,6 @@ FORMATTING
   BLOCK_TEMPLATE cutcom_off
   {
        G_cutcom[$mom_sys_cutcom_code(OFF)]
-       G_motion[$mom_sys_linear_code]
-       X[$mom_pos(0)]
-       Y[$mom_pos(1)]
   }
 
   BLOCK_TEMPLATE cutcom_off_X_Y
@@ -1110,13 +1107,11 @@ FORMATTING
 
   BLOCK_TEMPLATE linear_move
   {
-       G_cutcom[$mom_sys_cutcom_code($mom_cutcom_status)]\opt
        G_motion[$mom_sys_linear_code]
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
        Z[$mom_pos(2)]
        F[$feed]
-       D[$mom_cutcom_adjust_register]\opt
        S[$mom_spindle_speed]
        M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
   }
@@ -1463,6 +1458,19 @@ FORMATTING
   BLOCK_TEMPLATE turning_mode_off
   {
        M[303]
+  }
+
+  BLOCK_TEMPLATE coolant_on_1
+  {
+       M_coolant[$mom_sys_coolant_code(ON)]\opt
+  }
+
+  BLOCK_TEMPLATE cutcom_on_1
+  {
+       G_cutcom[$mom_sys_cutcom_code($mom_cutcom_status)]\opt
+       X[$mom_pos(0)]\opt
+       Y[$mom_pos(1)]\opt
+       D[$mom_cutcom_adjust_register]\opt
   }
 
   BLOCK_TEMPLATE post_cycle_set
