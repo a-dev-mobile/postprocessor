@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Friday, April 30 2021, 13:56:43 +0300
+#  Created by d.trofimov @ Tuesday, May 04 2021, 17:39:46 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -199,7 +199,7 @@ proc PB_CMD___log_revisions { } {
   set mom_sys_cycle_bore_dwell_code             "89"
   set mom_sys_cycle_bore_manual_code            "88"
   set mom_sys_cycle_bore_back_code              "87"
-  set mom_sys_cycle_bore_manual_dwell_code      "88"
+  set mom_sys_cycle_bore_manual_dwell_code      "89"
   set mom_sys_output_code(ABSOLUTE)             "90"
   set mom_sys_output_code(INCREMENTAL)          "91"
   set mom_sys_cycle_ret_code(AUTO)              "98"
@@ -230,7 +230,7 @@ proc PB_CMD___log_revisions { } {
   set mom_sys_rewind_code                       "30"
   set mom_sys_4th_axis_has_limits               "1"
   set mom_sys_5th_axis_has_limits               "1"
-  set mom_sys_sim_cycle_drill                   "1"
+  set mom_sys_sim_cycle_drill                   "0"
   set mom_sys_sim_cycle_drill_dwell             "0"
   set mom_sys_sim_cycle_drill_deep              "0"
   set mom_sys_sim_cycle_drill_break_chip        "0"
@@ -974,7 +974,6 @@ proc MOM_cutcom_on { } {
 proc MOM_cycle_off { } {
 #=============================================================
    MOM_do_template cycle_off
-   PB_CMD_remove_M29
 }
 
 
@@ -1018,12 +1017,20 @@ proc MOM_drill_move { } {
 
    ABORT_EVENT_CHECK
 
-   PB_CMD_set_cycle_plane
    PB_CMD_start_of_alignment_character
-   PB_CMD_custom_command
+
+   MOM_do_template drill_3
+
+   MOM_do_template drill
+
+   MOM_do_template drill_2
+
+   MOM_do_template drill_4
    PB_CMD_end_of_alignment_character
 
    MOM_do_template cycle_drill
+
+   MOM_do_template drill_1
    set cycle_init_flag FALSE
 }
 
@@ -4456,31 +4463,32 @@ global tool_list
 #=============================================================
 proc PB_CMD_custom_command { } {
 #=============================================================
+#MOM_output_literal "test drill"
 
-uplevel #0 {
-global mom_cycle_rapid_to_pos
-global mom_cycle_spindle_axis
+# uplevel #0 {
+# global mom_cycle_rapid_to_pos
+# global mom_cycle_spindle_axis
 
-set prev_mom_cycle_rapid_to_pos &
-set prev_mom_cycle_spindle_axis
-}
-
-
-global mom_cycle_rapid_to_pos
-global mom_cycle_spindle_axis
-
-MOM_output_literal "mom_cycle_rapid_to_pos $mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)"
+# set prev_mom_cycle_rapid_to_pos &
+# set prev_mom_cycle_spindle_axis
+# }
 
 
+# global mom_cycle_rapid_to_pos
+# global mom_cycle_spindle_axis
+
+# MOM_output_literal "mom_cycle_rapid_to_pos $mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)"
 
 
-global prev_tool_number
-set a ""
-if {[info exist prev_tool_number  ] } {
 
-if {[COMPARE__TEXT_TEXT "$prev_tool_number" "[GET_mom_tool_number]"]} {
-set a "/"
-  } else {}}
+
+# global prev_tool_number
+# set a ""
+# if {[info exist prev_tool_number  ] } {
+
+# if {[COMPARE__TEXT_TEXT "$prev_tool_number" "[GET_mom_tool_number]"]} {
+# set a "/"
+#   } else {}}
 }
 
 

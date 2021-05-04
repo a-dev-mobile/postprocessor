@@ -432,6 +432,42 @@ FORMATTING
       LEADER      "Q"
   }
 
+  ADDRESS P2
+  {
+      FORMAT      Zero_int
+      FORCE       off
+      MAX         9999999999999999999 Truncate
+      MIN         -9999999999999999 Truncate
+      LEADER      "P2="
+  }
+
+  ADDRESS P3
+  {
+      FORMAT      Zero_int
+      FORCE       off
+      MAX         9999999999999999999 Truncate
+      MIN         -9999999999999999 Truncate
+      LEADER      "P3="
+  }
+
+  ADDRESS P10
+  {
+      FORMAT      Zero_int
+      FORCE       off
+      MAX         9999999999999999999 Truncate
+      MIN         -9999999999999999 Truncate
+      LEADER      "P10="
+  }
+
+  ADDRESS P16
+  {
+      FORMAT      Zero_int
+      FORCE       off
+      MAX         9999999999999999999 Truncate
+      MIN         -9999999999999999 Truncate
+      LEADER      "P16="
+  }
+
   ADDRESS N
   {
       FORMAT      Digit_10
@@ -750,9 +786,6 @@ FORMATTING
   BLOCK_TEMPLATE cycle_drill
   {
        G_motion[$mom_sys_cycle_drill_code]
-       X[$mom_cycle_feed_to_pos(0)]
-       Y[$mom_cycle_feed_to_pos(1)]
-       F[$feed]
   }
 
   BLOCK_TEMPLATE cycle_drill_break_chip
@@ -780,6 +813,12 @@ FORMATTING
        Y[$mom_cycle_feed_to_pos(1)]
        F[$feed]
        cycle_dwell[$mom_cycle_delay]\opt
+  }
+
+  BLOCK_TEMPLATE cycle_drill_p2
+  {
+       Text[P2]
+       P2[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
   }
 
   BLOCK_TEMPLATE cycle_off
@@ -911,6 +950,17 @@ FORMATTING
   {
        G[$mom_sys_delay_code($mom_delay_mode)]
        dwell[$mom_delay_value]
+  }
+
+  BLOCK_TEMPLATE drill
+  {
+       P2[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)*1000]
+  }
+
+  BLOCK_TEMPLATE drill_1
+  {
+       X[$mom_cycle_feed_to_pos(0)]
+       Y[$mom_cycle_feed_to_pos(1)]
   }
 
   BLOCK_TEMPLATE end_of_path
@@ -1438,6 +1488,21 @@ FORMATTING
   BLOCK_TEMPLATE turning_mode_off
   {
        M[303]
+  }
+
+  BLOCK_TEMPLATE drill_2
+  {
+       P3[$mom_cycle_feed_to_pos($mom_cycle_spindle_axis)*1000]
+  }
+
+  BLOCK_TEMPLATE drill_3
+  {
+       P10[$mom_cycle_retract_to_pos($mom_cycle_spindle_axis)*1000]
+  }
+
+  BLOCK_TEMPLATE drill_4
+  {
+       P16[$feed]
   }
 
   BLOCK_TEMPLATE post_cycle_set

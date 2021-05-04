@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Friday, April 30 2021, 13:56:43 +0300
+#  Created by d.trofimov @ Tuesday, May 04 2021, 17:39:46 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -502,6 +502,29 @@ Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 11:5
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 11:53:27 +0300 by d.trofimov.
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 11:54:55 +0300 by d.trofimov.
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 13:56:43 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 16:32:34 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 16:34:49 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 16:35:17 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 16:55:00 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 16:57:58 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 16:58:31 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 16:58:51 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 16:59:52 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:00:27 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:05:34 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:06:08 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:16:47 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:23:07 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:23:58 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:25:30 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:26:44 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:28:29 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:30:05 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:34:15 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:34:53 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:35:50 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:36:21 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:39:46 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -729,6 +752,10 @@ mcs_additional_g   "$mom_usd_add_var"  0  "New Address"  1
 mcs_additional_p   "$mom_usd_add_var"  0  "(mcs_additional_p)"  1
 Macro_call        "$mom_usd_add_var"  0  "New Address"  1
 HPCC_mode         "$mom_usd_add_var"  0  "New Address"  1
+P2                "$mom_usd_add_var"  0  "New Address"  1
+P3                "$mom_usd_add_var"  0  "(P3)"  1
+P10               "$mom_usd_add_var"  0  "(P10)"  1
+P16               "$mom_usd_add_var"  0  "(P16)"  1
 N                 ""  0  "Sequence Number"  0
 Text              ""  0  "Text String"  0
 ## MASTER SEQUENCE END
@@ -810,9 +837,9 @@ Text              ""  0  "Text String"  0
 
 #Cycles Start
 {Cycle Parameters}         {post_cycle_set}  {$gPB(event,cycle,com_param,name)}
-{Cycle Off}                {cycle_off PB_CMD_remove_M29}  {$gPB(event,cycle,cycle_off,name)}
+{Cycle Off}                {cycle_off}  {$gPB(event,cycle,cycle_off,name)}
 {Cycle Plane Change}       {}  {$gPB(event,cycle,plane_chng,name)}
-{Drill}                    {PB_CMD_set_cycle_plane PB_CMD_start_of_alignment_character PB_CMD_custom_command PB_CMD_end_of_alignment_character cycle_drill}  {$gPB(event,cycle,drill,name)}
+{Drill}                    {PB_CMD_start_of_alignment_character drill_3 drill drill_2 drill_4 PB_CMD_end_of_alignment_character cycle_drill drill_1}  {$gPB(event,cycle,drill,name)}
 {Drill Dwell}              {cycle_drill_dwell}  {$gPB(event,cycle,drill_dwell,name)}
 {Drill Text}               {}  {$gPB(event,cycle,drill_text,name)}
 {Drill Csink}              {}  {$gPB(event,cycle,drill_csink,name)}
@@ -1172,7 +1199,7 @@ Text              ""  0  "Text String"  0
       {"$mom_sys_cycle_bore_back_code" "87" "Bore Back"} \
       {"$mom_sys_cycle_bore_manual_code" "88" "Bore Manual"} \
       {"$mom_sys_cycle_bore_dwell_code" "89" "Bore Dwell Cycle"} \
-      {"$mom_sys_cycle_bore_manual_dwell_code" "88" "Bore Manual Dwell Cycle"} \
+      {"$mom_sys_cycle_bore_manual_dwell_code" "89" "Bore Manual Dwell Cycle"} \
       {"$mom_sys_cycle_start_code" "79" "Cycle Start Code"} \
       {"$mom_sys_cycle_off" "80" "Cycle Off"} \
       {"$mom_sys_cycle_reps_code" "x" "Cycle Code Representative"}
@@ -1302,6 +1329,14 @@ Text              ""  0  "Text String"  0
       {"" "" ""}
 {HPCC_mode} \
       {"" "" ""}
+{P2} \
+      {"" "" ""}
+{P3} \
+      {"" "" ""}
+{P10} \
+      {"" "" ""}
+{P16} \
+      {"" "" ""}
 {N} \
       {"$mom_seqnum" "" "Sequence Number"}
 {Text} \
@@ -1375,7 +1410,7 @@ Text              ""  0  "Text String"  0
 {PB_Tcl_Var} \
       {"$mom_sys_4th_axis_has_limits" "1" ""} \
       {"$mom_sys_5th_axis_has_limits" "1" ""} \
-      {"$mom_sys_sim_cycle_drill" "1" ""} \
+      {"$mom_sys_sim_cycle_drill" "0" ""} \
       {"$mom_sys_sim_cycle_drill_dwell" "0" ""} \
       {"$mom_sys_sim_cycle_drill_deep" "0" ""} \
       {"$mom_sys_sim_cycle_drill_break_chip" "0" ""} \
