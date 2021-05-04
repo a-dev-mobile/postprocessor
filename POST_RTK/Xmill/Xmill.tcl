@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Friday, April 30 2021, 10:37:04 +0300
+#  Created by d.trofimov @ Friday, April 30 2021, 13:56:43 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -230,7 +230,7 @@ proc PB_CMD___log_revisions { } {
   set mom_sys_rewind_code                       "30"
   set mom_sys_4th_axis_has_limits               "1"
   set mom_sys_5th_axis_has_limits               "1"
-  set mom_sys_sim_cycle_drill                   "0"
+  set mom_sys_sim_cycle_drill                   "1"
   set mom_sys_sim_cycle_drill_dwell             "0"
   set mom_sys_sim_cycle_drill_deep              "0"
   set mom_sys_sim_cycle_drill_break_chip        "0"
@@ -750,8 +750,6 @@ proc MOM_bore_move { } {
 
    ABORT_EVENT_CHECK
 
-   PB_CMD_set_cycle_plane
-
    MOM_do_template cycle_bore
    set cycle_init_flag FALSE
 }
@@ -776,8 +774,6 @@ proc MOM_bore_back_move { } {
 
 
    ABORT_EVENT_CHECK
-
-   PB_CMD_set_cycle_plane
 
    MOM_do_template cycle_bore_back
    set cycle_init_flag FALSE
@@ -804,8 +800,6 @@ proc MOM_bore_drag_move { } {
 
    ABORT_EVENT_CHECK
 
-   PB_CMD_set_cycle_plane
-
    MOM_do_template cycle_bore_drag
    set cycle_init_flag FALSE
 }
@@ -830,8 +824,6 @@ proc MOM_bore_dwell_move { } {
 
 
    ABORT_EVENT_CHECK
-
-   PB_CMD_set_cycle_plane
 
    MOM_do_template cycle_bore_dwell
    set cycle_init_flag FALSE
@@ -858,8 +850,6 @@ proc MOM_bore_manual_move { } {
 
    ABORT_EVENT_CHECK
 
-   PB_CMD_set_cycle_plane
-
    MOM_do_template cycle_bore_manual
    set cycle_init_flag FALSE
 }
@@ -885,8 +875,6 @@ proc MOM_bore_manual_dwell_move { } {
 
    ABORT_EVENT_CHECK
 
-   PB_CMD_set_cycle_plane
-
    MOM_do_template cycle_bore_manual_dwell
    set cycle_init_flag FALSE
 }
@@ -911,8 +899,6 @@ proc MOM_bore_no_drag_move { } {
 
 
    ABORT_EVENT_CHECK
-
-   PB_CMD_set_cycle_plane
 
    MOM_do_template cycle_bore_no_drag
    set cycle_init_flag FALSE
@@ -1033,6 +1019,9 @@ proc MOM_drill_move { } {
    ABORT_EVENT_CHECK
 
    PB_CMD_set_cycle_plane
+   PB_CMD_start_of_alignment_character
+   PB_CMD_custom_command
+   PB_CMD_end_of_alignment_character
 
    MOM_do_template cycle_drill
    set cycle_init_flag FALSE
@@ -1059,7 +1048,6 @@ proc MOM_drill_break_chip_move { } {
 
    ABORT_EVENT_CHECK
 
-   PB_CMD_set_cycle_plane
    PB_CMD_remove_q0
 
    MOM_do_template cycle_drill_break_chip
@@ -1087,7 +1075,6 @@ proc MOM_drill_deep_move { } {
 
    ABORT_EVENT_CHECK
 
-   PB_CMD_set_cycle_plane
    PB_CMD_remove_q0
 
    MOM_do_template cycle_drill_deep
@@ -1114,8 +1101,6 @@ proc MOM_drill_dwell_move { } {
 
 
    ABORT_EVENT_CHECK
-
-   PB_CMD_set_cycle_plane
 
    MOM_do_template cycle_drill_dwell
    set cycle_init_flag FALSE
@@ -4469,6 +4454,37 @@ global tool_list
 
 
 #=============================================================
+proc PB_CMD_custom_command { } {
+#=============================================================
+
+uplevel #0 {
+global mom_cycle_rapid_to_pos
+global mom_cycle_spindle_axis
+
+set prev_mom_cycle_rapid_to_pos &
+set prev_mom_cycle_spindle_axis
+}
+
+
+global mom_cycle_rapid_to_pos
+global mom_cycle_spindle_axis
+
+MOM_output_literal "mom_cycle_rapid_to_pos $mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)"
+
+
+
+
+global prev_tool_number
+set a ""
+if {[info exist prev_tool_number  ] } {
+
+if {[COMPARE__TEXT_TEXT "$prev_tool_number" "[GET_mom_tool_number]"]} {
+set a "/"
+  } else {}}
+}
+
+
+#=============================================================
 proc PB_CMD_custom_command_1 { } {
 #=============================================================
 global mom_be_at_home
@@ -4550,6 +4566,7 @@ if { ![EQ_is_equal $mom_out_angle_pos(0) $mom_prev_out_angle_pos(0)] || ![EQ_is_
 #=============================================================
 proc PB_CMD_end_of_alignment_character { } {
 #=============================================================
+
 # This command restores sequnece number back to orignal
 # This command may be used with the command "PM_CMD_start_of_alignment_character"
 #
@@ -4557,6 +4574,7 @@ proc PB_CMD_end_of_alignment_character { } {
   if [info exists saved_seq_num] {
     set mom_sys_leader(N) $saved_seq_num
   }
+
 }
 
 
@@ -7119,6 +7137,7 @@ proc PB_CMD_set_principal_axis { } {
 #=============================================================
 proc PB_CMD_start_of_alignment_character { } {
 #=============================================================
+
 # This command can be used to output a special sequence number character.
 # Replace the ":" with any character that you require.
 # You must use the command "PB_CMD_end_of_alignment_character" to reset
@@ -7126,7 +7145,8 @@ proc PB_CMD_start_of_alignment_character { } {
 #
    global mom_sys_leader saved_seq_num
    set saved_seq_num $mom_sys_leader(N)
-   set mom_sys_leader(N) ":"
+   set mom_sys_leader(N) "*N"
+
 }
 
 

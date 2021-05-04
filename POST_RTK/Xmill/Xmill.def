@@ -653,6 +653,11 @@ FORMATTING
        M_coolant[$mom_sys_coolant_code($mom_coolant_status)]\opt
   }
 
+  BLOCK_TEMPLATE coolant_on_1
+  {
+       M_coolant[$mom_sys_coolant_code(ON)]\opt
+  }
+
   BLOCK_TEMPLATE coordinate_system
   {
        G[$mom_sys_reset_code]
@@ -674,131 +679,106 @@ FORMATTING
        D[$mom_tool_number]
   }
 
+  BLOCK_TEMPLATE cutcom_on_1
+  {
+       G_cutcom[$mom_sys_cutcom_code($mom_cutcom_status)]\opt
+       X[$mom_pos(0)]\opt
+       Y[$mom_pos(1)]\opt
+       D[$mom_cutcom_adjust_register]\opt
+  }
+
   BLOCK_TEMPLATE cycle_bore
   {
-       G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_code]
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
-       Z[$mom_cycle_feed_to_pos(2)]
        F[$feed]
-       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
   }
 
   BLOCK_TEMPLATE cycle_bore_back
   {
-       G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_back_code]
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
-       Z[$mom_cycle_feed_to_pos(2)]
        F[$feed]
-       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
        cycle_orient[$mom_cycle_orient]\opt
   }
 
   BLOCK_TEMPLATE cycle_bore_drag
   {
-       G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_drag_code]
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
-       Z[$mom_cycle_feed_to_pos(2)]
        F[$feed]
-       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
   }
 
   BLOCK_TEMPLATE cycle_bore_dwell
   {
-       G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_dwell_code]
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
-       Z[$mom_cycle_feed_to_pos(2)]
        F[$feed]
-       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
        cycle_dwell[$mom_cycle_delay]\opt
   }
 
   BLOCK_TEMPLATE cycle_bore_manual
   {
-       G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_manual_code]
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
-       Z[$mom_cycle_feed_to_pos(2)]
        F[$feed]
-       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
   }
 
   BLOCK_TEMPLATE cycle_bore_manual_dwell
   {
-       G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_manual_dwell_code]
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
-       Z[$mom_cycle_feed_to_pos(2)]
        F[$feed]
-       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
        cycle_dwell[$mom_cycle_delay]\opt
   }
 
   BLOCK_TEMPLATE cycle_bore_no_drag
   {
-       G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_bore_no_drag_code]
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
-       Z[$mom_cycle_feed_to_pos(2)]
        F[$feed]
-       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
        cycle_orient[$mom_cycle_orient]\opt
   }
 
   BLOCK_TEMPLATE cycle_drill
   {
-       G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_drill_code]
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
-       Z[$mom_cycle_feed_to_pos(2)]
        F[$feed]
-       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
   }
 
   BLOCK_TEMPLATE cycle_drill_break_chip
   {
-       G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_drill_break_chip_code]
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
-       Z[$mom_cycle_feed_to_pos(2)]
        F[$feed]
-       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
        cycle_step[$mom_cycle_step1]
   }
 
   BLOCK_TEMPLATE cycle_drill_deep
   {
-       G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_drill_deep_code]
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
-       Z[$mom_cycle_feed_to_pos(2)]
        F[$feed]
-       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
        cycle_step[$mom_cycle_step1]
   }
 
   BLOCK_TEMPLATE cycle_drill_dwell
   {
-       G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_drill_dwell_code]
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
-       Z[$mom_cycle_feed_to_pos(2)]
        F[$feed]
-       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
        cycle_dwell[$mom_cycle_delay]\opt
   }
 
@@ -1460,28 +1440,12 @@ FORMATTING
        M[303]
   }
 
-  BLOCK_TEMPLATE coolant_on_1
-  {
-       M_coolant[$mom_sys_coolant_code(ON)]\opt
-  }
-
-  BLOCK_TEMPLATE cutcom_on_1
-  {
-       G_cutcom[$mom_sys_cutcom_code($mom_cutcom_status)]\opt
-       X[$mom_pos(0)]\opt
-       Y[$mom_pos(1)]\opt
-       D[$mom_cutcom_adjust_register]\opt
-  }
-
   BLOCK_TEMPLATE post_cycle_set
   {
-       G_return[$mom_sys_cycle_ret_code($mom_cycle_retract_mode)]\opt
        G_motion[$mom_sys_cycle_reps_code]
        X[$mom_cycle_feed_to_pos(0)]
        Y[$mom_cycle_feed_to_pos(1)]
-       Z[$mom_cycle_feed_to_pos(2)]
        F[$feed]
-       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
   }
 
   BLOCK_TEMPLATE comment_data

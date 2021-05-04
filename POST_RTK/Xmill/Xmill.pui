@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Friday, April 30 2021, 10:37:04 +0300
+#  Created by d.trofimov @ Friday, April 30 2021, 13:56:43 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -490,6 +490,18 @@ Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 10:2
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 10:29:46 +0300 by d.trofimov.
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 10:35:40 +0300 by d.trofimov.
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 10:37:04 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 11:40:44 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 11:41:17 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 11:41:59 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 11:42:50 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 11:45:23 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 11:48:31 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 11:51:34 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 11:52:11 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 11:52:41 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 11:53:27 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 11:54:55 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, April 30 2021, 13:56:43 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -797,10 +809,10 @@ Text              ""  0  "Text String"  0
 #Motions End
 
 #Cycles Start
-{Cycle Parameters}         {PB_CMD_set_cycle_plane post_cycle_set}  {$gPB(event,cycle,com_param,name)}
+{Cycle Parameters}         {post_cycle_set}  {$gPB(event,cycle,com_param,name)}
 {Cycle Off}                {cycle_off PB_CMD_remove_M29}  {$gPB(event,cycle,cycle_off,name)}
 {Cycle Plane Change}       {}  {$gPB(event,cycle,plane_chng,name)}
-{Drill}                    {cycle_drill}  {$gPB(event,cycle,drill,name)}
+{Drill}                    {PB_CMD_set_cycle_plane PB_CMD_start_of_alignment_character PB_CMD_custom_command PB_CMD_end_of_alignment_character cycle_drill}  {$gPB(event,cycle,drill,name)}
 {Drill Dwell}              {cycle_drill_dwell}  {$gPB(event,cycle,drill_dwell,name)}
 {Drill Text}               {}  {$gPB(event,cycle,drill_text,name)}
 {Drill Csink}              {}  {$gPB(event,cycle,drill_csink,name)}
@@ -1330,9 +1342,9 @@ Text              ""  0  "Text String"  0
       {"$rap_wrk_pln_chg" "1" ""} \
       {"$rap_mode_trav_rate" "0" ""} \
       {"$rap_mode_trav_value" "100" ""} \
-      {"$cycle_rapto_opt" "R" ""} \
-      {"$cycle_recto_opt" "G98/G99" ""} \
-      {"$cycle_plane_control_opt" "G17/G18/G19" ""} \
+      {"$cycle_rapto_opt" "None" ""} \
+      {"$cycle_recto_opt" "None" ""} \
+      {"$cycle_plane_control_opt" "None" ""} \
       {"$cycle_start_blk" "0" ""} \
       {"$tool_num_output" "TOOL_NUMBER_ONLY" ""} \
       {"$cutcom_off_before_change" "NO" ""} \
@@ -1358,11 +1370,12 @@ Text              ""  0  "Text String"  0
       {"$j_mirror" "0" ""} \
       {"$k_mirror" "0" ""} \
       {"$5th_axis_direction" "Magnitude_Determines_Direction" ""} \
-      {"$linearization_method" "angle" ""}
+      {"$linearization_method" "angle" ""} \
+      {"PB_POST_DEBUG" "" ""}
 {PB_Tcl_Var} \
       {"$mom_sys_4th_axis_has_limits" "1" ""} \
       {"$mom_sys_5th_axis_has_limits" "1" ""} \
-      {"$mom_sys_sim_cycle_drill" "0" ""} \
+      {"$mom_sys_sim_cycle_drill" "1" ""} \
       {"$mom_sys_sim_cycle_drill_dwell" "0" ""} \
       {"$mom_sys_sim_cycle_drill_deep" "0" ""} \
       {"$mom_sys_sim_cycle_drill_break_chip" "0" ""} \
@@ -1460,6 +1473,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_combine_rotary_init" "" "Custom Command"} \
       {"PB_CMD_combine_rotary_output" "" "Custom Command"} \
       {"PB_CMD_create_tool_list" "" "Custom Command"} \
+      {"PB_CMD_custom_command" "" "Custom Command"} \
       {"PB_CMD_custom_command_1" "" "Custom Command"} \
       {"PB_CMD_custom_command_2" "" "Custom Command"} \
       {"PB_CMD_custom_command_3" "" "Custom Command"} \
