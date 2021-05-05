@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Tuesday, May 04 2021, 17:39:46 +0300
+#  Created by d.trofimov @ Wednesday, May 05 2021, 16:02:25 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -751,6 +751,7 @@ proc MOM_bore_move { } {
    ABORT_EVENT_CHECK
 
    MOM_do_template cycle_bore
+   PB_CMD_check_cycle
    set cycle_init_flag FALSE
 }
 
@@ -776,6 +777,7 @@ proc MOM_bore_back_move { } {
    ABORT_EVENT_CHECK
 
    MOM_do_template cycle_bore_back
+   PB_CMD_check_cycle
    set cycle_init_flag FALSE
 }
 
@@ -801,6 +803,7 @@ proc MOM_bore_drag_move { } {
    ABORT_EVENT_CHECK
 
    MOM_do_template cycle_bore_drag
+   PB_CMD_check_cycle
    set cycle_init_flag FALSE
 }
 
@@ -826,6 +829,7 @@ proc MOM_bore_dwell_move { } {
    ABORT_EVENT_CHECK
 
    MOM_do_template cycle_bore_dwell
+   PB_CMD_check_cycle
    set cycle_init_flag FALSE
 }
 
@@ -851,6 +855,7 @@ proc MOM_bore_manual_move { } {
    ABORT_EVENT_CHECK
 
    MOM_do_template cycle_bore_manual
+   PB_CMD_check_cycle
    set cycle_init_flag FALSE
 }
 
@@ -876,6 +881,7 @@ proc MOM_bore_manual_dwell_move { } {
    ABORT_EVENT_CHECK
 
    MOM_do_template cycle_bore_manual_dwell
+   PB_CMD_check_cycle
    set cycle_init_flag FALSE
 }
 
@@ -901,6 +907,7 @@ proc MOM_bore_no_drag_move { } {
    ABORT_EVENT_CHECK
 
    MOM_do_template cycle_bore_no_drag
+   PB_CMD_check_cycle
    set cycle_init_flag FALSE
 }
 
@@ -973,7 +980,6 @@ proc MOM_cutcom_on { } {
 #=============================================================
 proc MOM_cycle_off { } {
 #=============================================================
-   MOM_do_template cycle_off
 }
 
 
@@ -1017,20 +1023,8 @@ proc MOM_drill_move { } {
 
    ABORT_EVENT_CHECK
 
-   PB_CMD_start_of_alignment_character
-
-   MOM_do_template drill_3
-
-   MOM_do_template drill
-
-   MOM_do_template drill_2
-
-   MOM_do_template drill_4
-   PB_CMD_end_of_alignment_character
-
    MOM_do_template cycle_drill
-
-   MOM_do_template drill_1
+   PB_CMD_check_cycle
    set cycle_init_flag FALSE
 }
 
@@ -1055,9 +1049,8 @@ proc MOM_drill_break_chip_move { } {
 
    ABORT_EVENT_CHECK
 
-   PB_CMD_remove_q0
-
    MOM_do_template cycle_drill_break_chip
+   PB_CMD_check_cycle
    set cycle_init_flag FALSE
 }
 
@@ -1082,9 +1075,8 @@ proc MOM_drill_deep_move { } {
 
    ABORT_EVENT_CHECK
 
-   PB_CMD_remove_q0
-
    MOM_do_template cycle_drill_deep
+   PB_CMD_check_cycle
    set cycle_init_flag FALSE
 }
 
@@ -1110,6 +1102,7 @@ proc MOM_drill_dwell_move { } {
    ABORT_EVENT_CHECK
 
    MOM_do_template cycle_drill_dwell
+   PB_CMD_check_cycle
    set cycle_init_flag FALSE
 }
 
@@ -1562,20 +1555,6 @@ proc MOM_tap_move { } {
 
    ABORT_EVENT_CHECK
 
-   PB_CMD_set_cycle_plane
-   PB_CMD_cycle_hole_counter_flag
-   PB_CMD_force_cycle
-   PB_CMD_cal_feedrate_by_pitch_and_ss
-   PB_CMD_tapping_g_code_string_determine_for_rigid_tap
-   PB_CMD_output_M29_to_active_rigid_tap
-
-   MOM_do_template cycle_tap_3
-
-   if { [PB_CMD__check_block_check_retract_setting] } {
-      MOM_force Once G_motion
-      MOM_do_template cycle_tap_2
-   }
-   set cycle_init_flag FALSE
 }
 
 
@@ -1599,20 +1578,6 @@ proc MOM_tap_break_chip_move { } {
 
    ABORT_EVENT_CHECK
 
-   PB_CMD_set_cycle_plane
-   PB_CMD_cycle_hole_counter_flag
-   PB_CMD_force_cycle
-   PB_CMD_cal_feedrate_by_pitch_and_ss
-   PB_CMD_tapping_g_code_string_determine_for_rigid_tap
-   PB_CMD_output_M29_to_active_rigid_tap
-
-   MOM_do_template cycle_tap_break_chip
-
-   if { [PB_CMD__check_block_check_retract_setting] } {
-      MOM_force Once G_motion
-      MOM_do_template cycle_tap_break_chip_1
-   }
-   set cycle_init_flag FALSE
 }
 
 
@@ -1636,20 +1601,6 @@ proc MOM_tap_deep_move { } {
 
    ABORT_EVENT_CHECK
 
-   PB_CMD_set_cycle_plane
-   PB_CMD_cycle_hole_counter_flag
-   PB_CMD_force_cycle
-   PB_CMD_cal_feedrate_by_pitch_and_ss
-   PB_CMD_tapping_g_code_string_determine_for_rigid_tap
-   PB_CMD_output_M29_to_active_rigid_tap
-
-   MOM_do_template cycle_tap_deep
-
-   if { [PB_CMD__check_block_check_retract_setting] } {
-      MOM_force Once G_motion
-      MOM_do_template cycle_tap_deep_1
-   }
-   set cycle_init_flag FALSE
 }
 
 
@@ -1673,19 +1624,6 @@ proc MOM_tap_float_move { } {
 
    ABORT_EVENT_CHECK
 
-   PB_CMD_set_cycle_plane
-   PB_CMD_cycle_hole_counter_flag
-   PB_CMD_force_cycle
-   PB_CMD_cal_feedrate_by_pitch_and_ss
-   PB_CMD_tapping_g_code_string_determine_for_float_tap
-
-   MOM_do_template cycle_tap_float
-
-   if { [PB_CMD__check_block_check_retract_setting] } {
-      MOM_force Once G_motion
-      MOM_do_template cycle_tap_float_1
-   }
-   set cycle_init_flag FALSE
 }
 
 
@@ -3427,6 +3365,7 @@ MOM_output_literal "(------)"
 
 
 
+
 }
 
 
@@ -4194,6 +4133,14 @@ set a [CHECK_ZERO_SPEED_AND_TOOL]
 
 
 #=============================================================
+proc PB_CMD_check_cycle { } {
+#=============================================================
+
+PAUSE "!! Постпроцессор в операции [GET_mom_operation_name] \n  не поддерживает ЦИКЛ СТАНКА, \nизмените на ОДИНОЧНЫЕ ПЕРЕМЕЩЕНИЯ"
+}
+
+
+#=============================================================
 proc PB_CMD_circle_force { } {
 #=============================================================
 global mom_arc_radius
@@ -4590,20 +4537,8 @@ proc PB_CMD_end_of_alignment_character { } {
 proc PB_CMD_end_of_path { } {
 #=============================================================
 
-global prev_tool_number
-set a ""
-if {[info exist prev_tool_number  ] } {
 
-if {[COMPARE__TEXT_TEXT "$prev_tool_number" "[GET_mom_tool_number]"]} {
-set a "/"
-
-
-
- } else {
-set a ""
-}}
-
-#MOM_output_text "$a M09"
+MOM_output_literal "M9"
 MOM_force_block Once coolant_off
 #MOM_output_text "$a M05"
 #MOM_output_text "$a G91 G28 Z0.0"

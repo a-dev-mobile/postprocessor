@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Tuesday, May 04 2021, 17:39:46 +0300
+#  Created by d.trofimov @ Wednesday, May 05 2021, 16:02:25 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -525,6 +525,15 @@ Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:34
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:35:50 +0300 by d.trofimov.
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:36:21 +0300 by d.trofimov.
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Tuesday, May 04 2021, 17:39:46 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Wednesday, May 05 2021, 15:39:06 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Wednesday, May 05 2021, 15:42:48 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Wednesday, May 05 2021, 15:46:35 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Wednesday, May 05 2021, 15:49:40 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Wednesday, May 05 2021, 15:51:06 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Wednesday, May 05 2021, 15:52:12 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Wednesday, May 05 2021, 15:58:30 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Wednesday, May 05 2021, 16:01:03 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Wednesday, May 05 2021, 16:02:25 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -836,19 +845,19 @@ Text              ""  0  "Text String"  0
 #Motions End
 
 #Cycles Start
-{Cycle Parameters}         {post_cycle_set}  {$gPB(event,cycle,com_param,name)}
-{Cycle Off}                {cycle_off}  {$gPB(event,cycle,cycle_off,name)}
+{Cycle Parameters}         {post_cycle_set PB_CMD_check_cycle}  {$gPB(event,cycle,com_param,name)}
+{Cycle Off}                {}  {$gPB(event,cycle,cycle_off,name)}
 {Cycle Plane Change}       {}  {$gPB(event,cycle,plane_chng,name)}
-{Drill}                    {PB_CMD_start_of_alignment_character drill_3 drill drill_2 drill_4 PB_CMD_end_of_alignment_character cycle_drill drill_1}  {$gPB(event,cycle,drill,name)}
+{Drill}                    {cycle_drill}  {$gPB(event,cycle,drill,name)}
 {Drill Dwell}              {cycle_drill_dwell}  {$gPB(event,cycle,drill_dwell,name)}
 {Drill Text}               {}  {$gPB(event,cycle,drill_text,name)}
 {Drill Csink}              {}  {$gPB(event,cycle,drill_csink,name)}
-{Drill Deep}               {PB_CMD_remove_q0 cycle_drill_deep}  {$gPB(event,cycle,drill_deep,name)}
-{Drill Break Chip}         {PB_CMD_remove_q0 cycle_drill_break_chip}  {$gPB(event,cycle,drill_brk_chip,name)}
-{Tap}                      {PB_CMD_set_cycle_plane PB_CMD_cycle_hole_counter_flag PB_CMD_force_cycle PB_CMD_cal_feedrate_by_pitch_and_ss PB_CMD_tapping_g_code_string_determine_for_rigid_tap PB_CMD_output_M29_to_active_rigid_tap cycle_tap_3 cycle_tap_2}  {$gPB(event,cycle,tap,name)}
-{Tap Float}                {PB_CMD_set_cycle_plane PB_CMD_cycle_hole_counter_flag PB_CMD_force_cycle PB_CMD_cal_feedrate_by_pitch_and_ss PB_CMD_tapping_g_code_string_determine_for_float_tap cycle_tap_float cycle_tap_float_1}  {$gPB(event,cycle,tap_float,name)}
-{Tap Deep}                 {PB_CMD_set_cycle_plane PB_CMD_cycle_hole_counter_flag PB_CMD_force_cycle PB_CMD_cal_feedrate_by_pitch_and_ss PB_CMD_tapping_g_code_string_determine_for_rigid_tap PB_CMD_output_M29_to_active_rigid_tap cycle_tap_deep cycle_tap_deep_1}  {$gPB(event,cycle,tap_deep,name)}
-{Tap Break Chip}           {PB_CMD_set_cycle_plane PB_CMD_cycle_hole_counter_flag PB_CMD_force_cycle PB_CMD_cal_feedrate_by_pitch_and_ss PB_CMD_tapping_g_code_string_determine_for_rigid_tap PB_CMD_output_M29_to_active_rigid_tap cycle_tap_break_chip cycle_tap_break_chip_1}  {$gPB(event,cycle,tap_break_chip,name)}
+{Drill Deep}               {cycle_drill_deep}  {$gPB(event,cycle,drill_deep,name)}
+{Drill Break Chip}         {cycle_drill_break_chip}  {$gPB(event,cycle,drill_brk_chip,name)}
+{Tap}                      {}  {$gPB(event,cycle,tap,name)}
+{Tap Float}                {}  {$gPB(event,cycle,tap_float,name)}
+{Tap Deep}                 {}  {$gPB(event,cycle,tap_deep,name)}
+{Tap Break Chip}           {}  {$gPB(event,cycle,tap_break_chip,name)}
 {Bore}                     {cycle_bore}  {$gPB(event,cycle,bore,name)}
 {Bore Drag}                {cycle_bore_drag}  {$gPB(event,cycle,bore_drag,name)}
 {Bore No Drag}             {cycle_bore_no_drag}  {$gPB(event,cycle,bore_no_drag,name)}
@@ -900,14 +909,6 @@ Text              ""  0  "Text String"  0
         {1 NULL 0 {G_motion}}
 {Circular Move} \
         {1 NULL 0 {X Y}}
-{Tap} \
-        {7 PB_CMD__check_block_check_retract_setting 0 {G_motion}}
-{Tap Float} \
-        {6 PB_CMD__check_block_check_retract_setting 0 {G_motion}}
-{Tap Deep} \
-        {7 PB_CMD__check_block_check_retract_setting 0 {G_motion}}
-{Tap Break Chip} \
-        {7 PB_CMD__check_block_check_retract_setting 0 {G_motion}}
 ## EVENTS ELEMENT EXECUTION END
 
 ## EVENTS USER INTERFACE START
@@ -1600,7 +1601,8 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
       {"PB_CMD_unset" "" "Custom Command"} \
-      {"PB_CMD_view_G40" "" "Custom Command"}
+      {"PB_CMD_view_G40" "" "Custom Command"} \
+      {"PB_CMD_check_cycle" "" "Custom Command"}
 {Operator_Message} \
       {"" "" ""}
 {PB_Spindle} \
