@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, May 05 2021, 16:02:25 +0300
+#  Created by d.trofimov @ Friday, May 07 2021, 16:46:24 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -3359,7 +3359,7 @@ set oper_name [GET_mom_operation_name]
 set oper_method [GET_mom_oper_method]
 
 MOM_output_literal "(------)"
-MOM_output_literal "(MSG, $oper_name - $oper_method)"
+MOM_output_literal "(*MSG,$oper_name - $oper_method)"
 MOM_output_literal "(------)"
 
 
@@ -4604,6 +4604,7 @@ proc PB_CMD_first_tool { } {
    set co $mom_sys_control_out
    set ci $mom_sys_control_in
 
+
 MOM_output_literal "( INSTRUMENT: [GET_mom_attr_TOOL_NAME_1] )"
 MOM_output_literal "$co DIAMETR: [format %3.2f $mom_tool_diameter] $ci"
 MOM_output_literal "$co FLUTE LENGTH: [format %3.2f $mom_tool_flute_length] $ci"
@@ -4612,6 +4613,7 @@ MOM_output_literal "$co FLUTE LENGTH: [format %3.2f $mom_tool_flute_length] $ci"
 MOM_output_literal  "M16 T[GET_mom_tool_number]"
 MOM_output_literal  "Q6"
 MOM_output_literal  "H[GET_mom_tool_number]"
+MOM_output_literal "M1"
 MOM_output_literal  "G54"
 
 }

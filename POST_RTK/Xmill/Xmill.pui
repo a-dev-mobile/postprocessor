@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Wednesday, May 05 2021, 16:02:25 +0300
+#  Created by d.trofimov @ Friday, May 07 2021, 16:46:24 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -534,6 +534,12 @@ Saved Xmill with NX/Post Builder Version 12.0.2.1 on Wednesday, May 05 2021, 15:
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Wednesday, May 05 2021, 15:58:30 +0300 by d.trofimov.
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Wednesday, May 05 2021, 16:01:03 +0300 by d.trofimov.
 Saved Xmill with NX/Post Builder Version 12.0.2.1 on Wednesday, May 05 2021, 16:02:25 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, May 06 2021, 15:15:15 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, May 06 2021, 15:15:52 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, May 06 2021, 15:24:00 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, May 06 2021, 15:31:50 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Thursday, May 06 2021, 16:42:06 +0300 by d.trofimov.
+Saved Xmill with NX/Post Builder Version 12.0.2.1 on Friday, May 07 2021, 16:46:24 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -1502,6 +1508,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_cal_feedrate_by_pitch_and_ss" "" "Custom Command"} \
       {"PB_CMD_cancel_suppress_force_once_per_event" "" "Custom Command"} \
       {"PB_CMD_check" "" "Custom Command"} \
+      {"PB_CMD_check_cycle" "" "Custom Command"} \
       {"PB_CMD_circle_force" "" "Custom Command"} \
       {"PB_CMD_clamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_clamp_fourth_axis" "" "Custom Command"} \
@@ -1601,8 +1608,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
       {"PB_CMD_unset" "" "Custom Command"} \
-      {"PB_CMD_view_G40" "" "Custom Command"} \
-      {"PB_CMD_check_cycle" "" "Custom Command"}
+      {"PB_CMD_view_G40" "" "Custom Command"}
 {Operator_Message} \
       {"" "" ""}
 {PB_Spindle} \
