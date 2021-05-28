@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Friday, May 07 2021, 16:46:24 +0300
+#  Created by d.trofimov @ Friday, May 28 2021, 10:46:04 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1339,6 +1339,8 @@ proc MOM_rapid_move { } {
    set aa(0) X ; set aa(1) Y ; set aa(2) Z
 
    RAPID_SET
+
+   MOM_do_template rapid_move
 
    set rapid_spindle_blk {G_motion X Y Z H S M_spindle M_coolant}
    set rapid_spindle_x_blk {G_motion X H S M_spindle M_coolant}
