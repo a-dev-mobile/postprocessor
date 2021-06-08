@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Monday, April 26 2021, 09:43:26 +0300
+#  Created by d.trofimov @ Tuesday, June 08 2021, 11:06:34 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -445,6 +445,7 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, March 18 2021
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, March 18 2021, 08:53:57 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, March 18 2021, 08:55:59 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, April 26 2021, 09:43:26 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, June 08 2021, 11:06:34 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -746,7 +747,7 @@ Text              ""  0  "Text String"  0
 #Motions Start
 {Linear Move}              {PB_CMD_suppress_linear_block_plane_code linear_move}  {$gPB(event,linear,name)}
 {Circular Move}            {PB_CMD_circle_force circular_move}  {$gPB(event,circular,name)}
-{Rapid Move}               {rapid_traverse rapid_spindle}  {$gPB(event,rapid,name)}
+{Rapid Move}               {rapid_move rapid_traverse rapid_spindle}  {$gPB(event,rapid,name)}
 {Helix Move}               {PB_CMD_helix_move}  {$gPB(event,helix,name)}
 {NURBS Move}               {PB_CMD_nurbs_move}  {$gPB(event,nurbs,name)}
 #Motions End
