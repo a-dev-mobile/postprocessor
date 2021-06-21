@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Tuesday, June 08 2021, 11:06:34 +0300
+#  Created by d.trofimov @ Monday, June 21 2021, 09:26:59 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -446,6 +446,17 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, March 18 2021
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, March 18 2021, 08:55:59 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, April 26 2021, 09:43:26 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Tuesday, June 08 2021, 11:06:34 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 08:48:16 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 08:49:20 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 08:58:05 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 08:58:39 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 09:01:31 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 09:02:17 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 09:04:50 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 09:06:23 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 09:07:33 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 09:07:48 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 09:26:59 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -1507,7 +1518,8 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
       {"PB_CMD_unset" "" "Custom Command"} \
-      {"PB_CMD_view_G40" "" "Custom Command"}
+      {"PB_CMD_view_G40" "" "Custom Command"} \
+      {"PB_CMD_check_prev_mom_work_coordinate_number" "" "Custom Command"}
 {Operator_Message} \
       {"" "" ""}
 {PB_Spindle} \

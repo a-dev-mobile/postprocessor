@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Tuesday, June 08 2021, 11:06:34 +0300
+#  Created by d.trofimov @ Monday, June 21 2021, 09:26:59 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -4206,6 +4206,30 @@ proc PB_CMD_cancel_suppress_force_once_per_event { } {
 
 
 #=============================================================
+proc PB_CMD_check_prev_mom_work_coordinate_number { } {
+#=============================================================
+
+global prev_mom_work_coordinate_number
+
+global mom_work_coordinate_number
+
+
+
+if {[info exist prev_mom_work_coordinate_number  ] } {
+
+if {[COMPARE__TEXT_TEXT "$mom_work_coordinate_number" "$prev_mom_work_coordinate_number"]} {
+
+
+
+  } else {
+MOM_output_literal  "M1"
+MOM_output_literal  "G$mom_work_coordinate_number (change G$prev_mom_work_coordinate_number TO G$mom_work_coordinate_number)"
+}}
+
+}
+
+
+#=============================================================
 proc PB_CMD_check_shpin { } {
 #=============================================================
 global mom_path_name
@@ -4674,7 +4698,8 @@ proc PB_CMD_first_tool { } {
 
    set co $mom_sys_control_out
    set ci $mom_sys_control_in
-
+global mom_work_coordinate_number
+#MOM_output_literal "M1"
 MOM_output_literal "( INSTRUMENT: [GET_mom_attr_TOOL_NAME_1] )"
 MOM_output_literal "$co DIAMETR: [format %3.2f $mom_tool_diameter] $ci"
 MOM_output_literal "$co FLUTE LENGTH: [format %3.2f $mom_tool_flute_length] $ci"
@@ -4682,7 +4707,7 @@ MOM_output_literal "$co FLUTE LENGTH: [format %3.2f $mom_tool_flute_length] $ci"
 
 MOM_output_literal  "T[GET_mom_tool_number] M6 "
 MOM_output_literal  "G53 G00 G90 Z0"
-MOM_output_literal  "G54 G90 G40 G80"
+MOM_output_literal  "G$mom_work_coordinate_number G90 G40 G80"
 
 }
 
@@ -7065,6 +7090,13 @@ uplevel #0 {
 
 global mom_pos
 set prev_z [format %0.3f $mom_pos(2)]
+
+
+global mom_work_coordinate_number
+set prev_mom_work_coordinate_number $mom_work_coordinate_number
+
+
+
 
 }
 

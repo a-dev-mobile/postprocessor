@@ -1161,6 +1161,14 @@ FORMATTING
        G[$mom_prefun]
   }
 
+  BLOCK_TEMPLATE rapid_move
+  {
+       G_motion[$mom_sys_rapid_code]
+       X[$mom_pos(0)]
+       Y[$mom_pos(1)]
+       Z[$mom_pos(2)]
+  }
+
   BLOCK_TEMPLATE rapid_rotary
   {
        G_motion[$mom_sys_rapid_code]
@@ -1455,14 +1463,6 @@ FORMATTING
   BLOCK_TEMPLATE turning_mode_off
   {
        M[303]
-  }
-
-  BLOCK_TEMPLATE rapid_move
-  {
-       G_motion[$mom_sys_rapid_code]
-       X[$mom_pos(0)]
-       Y[$mom_pos(1)]
-       Z[$mom_pos(2)]
   }
 
   BLOCK_TEMPLATE post_cycle_set
