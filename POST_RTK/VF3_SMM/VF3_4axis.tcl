@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, June 23 2021, 13:39:15 +0300
+#  Created by d.trofimov @ Wednesday, June 23 2021, 15:37:34 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -2232,7 +2232,7 @@ set a5 [SET_comment  "Machine: X.mill 1100L CNC"]
 set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 
 #set a "$a0`$a2`$a21`$a3`$a4`$a0"
-set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
+set a "$a0`$a2`$a3`$a4`$a5`$a6"
 return  [SPLIT_TEXT $a]
 }
 
@@ -2731,16 +2731,54 @@ return "O00001"
 
 proc GET_mom_attr_TOOL_VYLET { } {
 #===================================
+
 global mom_attr_TOOL_VYLET
 
 if {[info exist mom_attr_TOOL_VYLET  ] } {
 set s $mom_attr_TOOL_VYLET
-
 return $s
- }
 
- #catch { unset mom_attr_TOOL_VYLET}
+
+ }  else {
+
+
+    global mom_tool_holder_overall_length
+
+ if {$mom_tool_holder_overall_length < 0.001} {
+
 return "0"
+ } else {
+
+
+global mom_tool_length
+global mom_tool_holder_offset
+global mom_tool_tapered_shank_length
+global mom_tool_use_tapered_shank
+
+global extension
+set tool_length $mom_tool_length
+set holder_offset $mom_tool_holder_offset
+
+if {[COMPARE__TEXT_TEXT "$mom_tool_use_tapered_shank" "Yes"]} {
+         set shank_length $mom_tool_tapered_shank_length
+} else {
+        set shank_length 0
+        }
+
+set extension [expr $tool_length + $shank_length - $holder_offset]
+set output [format "%0.0f" $extension]
+
+return $output
+
+
+ }
+  }
+
+
+
+
+ return "0"
+
 }
 
 
@@ -3241,8 +3279,8 @@ proc CHECK_ZERO_SPEED_AND_TOOL {} {
 global mom_path_name
 global mom_spindle_speed
 global mom_tool_number
-
-
+global mom_next_tool_status
+global mom_next_tool_number
 
  if { $mom_spindle_speed == 0 } {
      MOM_output_to_listing_device " "
@@ -3261,6 +3299,19 @@ global mom_tool_number
    #  MOM_abort " ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН! "
  }
 
+
+if { $mom_next_tool_status == "FIRST" } { return }
+
+if { $mom_next_tool_number == 0 } {
+      MOM_output_to_listing_device "not specify the next tool"
+  #    MOM_abort
+  MOM_output_to_listing_device " "
+     MOM_output_to_listing_device "   ======================================="
+     MOM_output_to_listing_device "    ВНИМАНИЕ !!! "
+     MOM_output_to_listing_device "    ОШИБКА: СЛЕДУЮЩИЙ ИНСТРУМЕНТ T0  !!!!!!!!"
+     MOM_output_to_listing_device "   ======================================="
+      return
+   }
 }
 
 #==============PROVERKI END=====================
@@ -4985,6 +5036,7 @@ proc PB_CMD_get_tool_info { } {
 
 global tool_name_list
 lappend tool_name_list "(T[GET_mom_tool_number] | [GET_mom_attr_TOOL_NAME_1] | [GET_mom_attr_TOOL_VYLET])"
+
 
 
 }
