@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Monday, June 21 2021, 09:26:59 +0300
+#  Created by d.trofimov @ Wednesday, June 23 2021, 13:39:15 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -4698,7 +4698,7 @@ proc PB_CMD_first_tool { } {
 
    set co $mom_sys_control_out
    set ci $mom_sys_control_in
-global mom_work_coordinate_number
+
 #MOM_output_literal "M1"
 MOM_output_literal "( INSTRUMENT: [GET_mom_attr_TOOL_NAME_1] )"
 MOM_output_literal "$co DIAMETR: [format %3.2f $mom_tool_diameter] $ci"
@@ -4707,7 +4707,12 @@ MOM_output_literal "$co FLUTE LENGTH: [format %3.2f $mom_tool_flute_length] $ci"
 
 MOM_output_literal  "T[GET_mom_tool_number] M6 "
 MOM_output_literal  "G53 G00 G90 Z0"
-MOM_output_literal  "G$mom_work_coordinate_number G90 G40 G80"
+
+
+#global mom_work_coordinate_number
+#MOM_output_literal  "G$mom_work_coordinate_number G90 G40 G80"
+
+MOM_output_literal  "G54 G90 G40 G80"
 
 }
 
@@ -5038,8 +5043,8 @@ set ofile [open $ptp_file_name w]
 
 
 puts $ofile "%"
-puts $ofile "[GET_mom_group_name]"
-
+#puts $ofile "[GET_mom_group_name]"
+puts $ofile "O00001"
 
 
 
@@ -7092,8 +7097,8 @@ global mom_pos
 set prev_z [format %0.3f $mom_pos(2)]
 
 
-global mom_work_coordinate_number
-set prev_mom_work_coordinate_number $mom_work_coordinate_number
+#global mom_work_coordinate_number
+#set prev_mom_work_coordinate_number $mom_work_coordinate_number
 
 
 

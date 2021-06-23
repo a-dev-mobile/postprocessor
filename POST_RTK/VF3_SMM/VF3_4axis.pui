@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Monday, June 21 2021, 09:26:59 +0300
+#  Created by d.trofimov @ Wednesday, June 23 2021, 13:39:15 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -457,6 +457,9 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 0
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 09:07:33 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 09:07:48 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, June 21 2021, 09:26:59 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, June 23 2021, 13:35:44 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, June 23 2021, 13:37:51 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, June 23 2021, 13:39:15 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -1419,6 +1422,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_before_output" "" "Custom Command"} \
       {"PB_CMD_cal_feedrate_by_pitch_and_ss" "" "Custom Command"} \
       {"PB_CMD_cancel_suppress_force_once_per_event" "" "Custom Command"} \
+      {"PB_CMD_check_prev_mom_work_coordinate_number" "" "Custom Command"} \
       {"PB_CMD_check_shpin" "" "Custom Command"} \
       {"PB_CMD_circle_force" "" "Custom Command"} \
       {"PB_CMD_clamp_fifth_axis" "" "Custom Command"} \
@@ -1518,8 +1522,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
       {"PB_CMD_unset" "" "Custom Command"} \
-      {"PB_CMD_view_G40" "" "Custom Command"} \
-      {"PB_CMD_check_prev_mom_work_coordinate_number" "" "Custom Command"}
+      {"PB_CMD_view_G40" "" "Custom Command"}
 {Operator_Message} \
       {"" "" ""}
 {PB_Spindle} \

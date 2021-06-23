@@ -481,19 +481,19 @@ proc GET_mom_attr_TOOL {arg_1} {
 #==============================
 #HOLDER_NAME_1
 #HOLDER_NAME_2
-#Базовый держатель Garant 301070_22 A=160 SK40
+#Р‘Р°Р·РѕРІС‹Р№ РґРµСЂР¶Р°С‚РµР»СЊ Garant 301070_22 A=160 SK40
 
 #ADAPTER_NAME_1
 #ADAPTER_NAME_2
-#Державка Multi-Master Iscar твердосплавная D9,6 MM S-A-L110-C16-T10C
+#Р”РµСЂР¶Р°РІРєР° Multi-Master Iscar С‚РІРµСЂРґРѕСЃРїР»Р°РІРЅР°СЏ D9,6 MM S-A-L110-C16-T10C
 
 #TOOL_NAME_1
 #TOOL_NAME_2
-#Фрезерная головка HM90 E90A D20-3-ММT12
+#Р¤СЂРµР·РµСЂРЅР°СЏ РіРѕР»РѕРІРєР° HM90 E90A D20-3-РњРњT12
 
 #INSERT_NAME_1
 #INSERT_NAME_2
-#Пластина ZCC-CT ANGX150608PNR-GM YBG205
+#РџР»Р°СЃС‚РёРЅР° ZCC-CT ANGX150608PNR-GM YBG205
 
 
 
@@ -641,7 +641,7 @@ set tool_name_list1 [LIST_DEL_DUBLI $tool_name_list]
 foreach name $tool_name_list1 {
 
 
-#если инструмент токарный то вылет не указываем -- неработает
+#РµСЃР»Рё РёРЅСЃС‚СЂСѓРјРµРЅС‚ С‚РѕРєР°СЂРЅС‹Р№ С‚Рѕ РІС‹Р»РµС‚ РЅРµ СѓРєР°Р·С‹РІР°РµРј -- РЅРµСЂР°Р±РѕС‚Р°РµС‚
 #if {[COMPARE__TEXT_TEXT "$ARR6($name)" "Turning Tool-Standard"]}  {
 #lappend all_text "$ARR6($name)"
 #set arg1 0
@@ -1146,7 +1146,7 @@ if {[info exist mom_operator_message] } { return $mom_operator_message   }
 return "NULL mom_operator_message"
 }
 #===================================
-# получить символ комментария  в начале
+# РїРѕР»СѓС‡РёС‚СЊ СЃРёРјРІРѕР» РєРѕРјРјРµРЅС‚Р°СЂРёСЏ  РІ РЅР°С‡Р°Р»Рµ
 proc GET_mom_sys_control_out { } {
 #===================================
 global mom_sys_control_out
@@ -1154,7 +1154,7 @@ if {[info exist mom_sys_control_out] } { return $mom_sys_control_out   }
 return "NULL mom_sys_control_out"
 }
 #===================================
-# получить символ комментария  в конце
+# РїРѕР»СѓС‡РёС‚СЊ СЃРёРјРІРѕР» РєРѕРјРјРµРЅС‚Р°СЂРёСЏ  РІ РєРѕРЅС†Рµ
 proc GET_mom_sys_control_in { } {
 #===================================
 global mom_sys_control_in
@@ -1194,7 +1194,7 @@ global mom_sys_cutcom_code
 #return "NULL mom_sys_cutcom_code"
 return "$mom_sys_cutcom_code(OFF) "
 }
-# получить обороты
+# РїРѕР»СѓС‡РёС‚СЊ РѕР±РѕСЂРѕС‚С‹
 proc GET_mom_spindle_rpm { } {
 #===================================
 global mom_spindle_rpm
@@ -1223,7 +1223,7 @@ global mom_logname
           ($mom_cutcom_status == "RIGHT" || \
               $mom_cutcom_status == "LEFT" ) && \
            [string match "*rapid*" $mom_current_motion]} {
-      PAUSE "!! МИНУС KPI  программисту $mom_logname !! \n Врезание с коррекцией на ускоренном ходу \n в операции $mom_operation_name."
+      PAUSE "!! РњРРќРЈРЎ KPI  РїСЂРѕРіСЂР°РјРјРёСЃС‚Сѓ $mom_logname !! \n Р’СЂРµР·Р°РЅРёРµ СЃ РєРѕСЂСЂРµРєС†РёРµР№ РЅР° СѓСЃРєРѕСЂРµРЅРЅРѕРј С…РѕРґСѓ \n РІ РѕРїРµСЂР°С†РёРё $mom_operation_name."
        MOM_abort "USER EXIT"
     }
 }
@@ -1231,7 +1231,7 @@ global mom_logname
 proc CHECK_from_pos    { } {
 global mom_from_pos
 if [info exist mom_from_pos(0)] {
-  PAUSE "!! В операции [GET_mom_operation_name] используется движение FROM. Данный постпроцессор не поддерживает данный вид движений. Следует переделать операцию"
+  PAUSE "!! Р’ РѕРїРµСЂР°С†РёРё [GET_mom_operation_name] РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґРІРёР¶РµРЅРёРµ FROM. Р”Р°РЅРЅС‹Р№ РїРѕСЃС‚РїСЂРѕС†РµСЃСЃРѕСЂ РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚ РґР°РЅРЅС‹Р№ РІРёРґ РґРІРёР¶РµРЅРёР№. РЎР»РµРґСѓРµС‚ РїРµСЂРµРґРµР»Р°С‚СЊ РѕРїРµСЂР°С†РёСЋ"
    MOM_abort "USER EXIT"
 
     }
@@ -1241,7 +1241,7 @@ proc CHECK_SPEED_SPINDLE  {min_sp max_sp} {
 
   if {[GET_mom_spindle_rpm] > $max_sp }
               {
-      PAUSE "!! Проверь обороты \n  в операции [GET_mom_operation_name]"
+      PAUSE "!! РџСЂРѕРІРµСЂСЊ РѕР±РѕСЂРѕС‚С‹ \n  РІ РѕРїРµСЂР°С†РёРё [GET_mom_operation_name]"
        MOM_abort "USER EXIT"
     }
 
@@ -1260,18 +1260,18 @@ global mom_next_tool_number
  if { $mom_spindle_speed == 0 } {
      MOM_output_to_listing_device " "
      MOM_output_to_listing_device "   ======================================="
-     MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
-     MOM_output_to_listing_device "    ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ !!!!!!!!"
+     MOM_output_to_listing_device "    Р’РќРРњРђРќРР• !!! РћРџР•Р РђР¦РРЇ: $mom_path_name"
+     MOM_output_to_listing_device "    РћРЁРР‘РљРђ: РќРЈР›Р•Р’РћР• Р’Р РђР©Р•РќРР• !!!!!!!!"
      MOM_output_to_listing_device "   ======================================="
-   #  MOM_abort " "ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ ДОПУСКАЕТСЯ!" "
+   #  MOM_abort " "РћРЁРР‘РљРђ: РќРЈР›Р•Р’РћР• Р’Р РђР©Р•РќРР• РќР• Р”РћРџРЈРЎРљРђР•РўРЎРЇ!" "
  }
  if { $mom_tool_number == 0 } {
      MOM_output_to_listing_device " "
      MOM_output_to_listing_device "   ======================================="
-     MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
-     MOM_output_to_listing_device "    ОШИБКА: ИНСТРУМЕНТ T0  !!!!!!!!"
+     MOM_output_to_listing_device "    Р’РќРРњРђРќРР• !!! РћРџР•Р РђР¦РРЇ: $mom_path_name"
+     MOM_output_to_listing_device "    РћРЁРР‘РљРђ: РРќРЎРўР РЈРњР•РќРў T0  !!!!!!!!"
      MOM_output_to_listing_device "   ======================================="
-   #  MOM_abort " ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН! "
+   #  MOM_abort " РћРЁРР‘РљРђ: РРќРЎРўР РЈРњР•РќРў T0 РќР• Р РђР—Р Р•РЁР•Рќ! "
  }
 
 
@@ -1282,8 +1282,8 @@ if { $mom_next_tool_number == 0 } {
   #    MOM_abort
   MOM_output_to_listing_device " "
      MOM_output_to_listing_device "   ======================================="
-     MOM_output_to_listing_device "    ВНИМАНИЕ !!! "
-     MOM_output_to_listing_device "    ОШИБКА: СЛЕДУЮЩИЙ ИНСТРУМЕНТ T0  !!!!!!!!"
+     MOM_output_to_listing_device "    Р’РќРРњРђРќРР• !!! "
+     MOM_output_to_listing_device "    РћРЁРР‘РљРђ: РЎР›Р•Р”РЈР®Р©РР™ РРќРЎРўР РЈРњР•РќРў T0  !!!!!!!!"
      MOM_output_to_listing_device "   ======================================="
       return
    }
@@ -1313,7 +1313,7 @@ set size "[llength $arg_array_type]"
      while { $i < $size } {
 
     set a  "[lindex $arg_array_type $i]"
-    set return_value  [MOM_display_message "Исполнения обозначаются в начале названий обработки и разделяются знаком \".\"\nВыберите нужное: $type" "Найдено несколько исполнений в названий обработки" "Q" "Отмена" "$a" "Следующее"]
+    set return_value  [MOM_display_message "РСЃРїРѕР»РЅРµРЅРёСЏ РѕР±РѕР·РЅР°С‡Р°СЋС‚СЃСЏ РІ РЅР°С‡Р°Р»Рµ РЅР°Р·РІР°РЅРёР№ РѕР±СЂР°Р±РѕС‚РєРё Рё СЂР°Р·РґРµР»СЏСЋС‚СЃСЏ Р·РЅР°РєРѕРј \".\"\nР’С‹Р±РµСЂРёС‚Рµ РЅСѓР¶РЅРѕРµ: $type" "РќР°Р№РґРµРЅРѕ РЅРµСЃРєРѕР»СЊРєРѕ РёСЃРїРѕР»РЅРµРЅРёР№ РІ РЅР°Р·РІР°РЅРёР№ РѕР±СЂР°Р±РѕС‚РєРё" "Q" "РћС‚РјРµРЅР°" "$a" "РЎР»РµРґСѓСЋС‰РµРµ"]
     if {$return_value == "1" } {
 
     MOM_abort "USER EXIT"
@@ -1330,7 +1330,7 @@ set size "[llength $arg_array_type]"
 }
 
 }
-return " нет исполнения"
+return " РЅРµС‚ РёСЃРїРѕР»РЅРµРЅРёСЏ"
 #return "$a"
 
 
