@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Tuesday, June 08 2021, 11:06:31 +0300
+#  Created by d.trofimov @ Thursday, June 24 2021, 08:55:35 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -2662,16 +2662,54 @@ return "O00001"
 
 proc GET_mom_attr_TOOL_VYLET { } {
 #===================================
+
 global mom_attr_TOOL_VYLET
 
 if {[info exist mom_attr_TOOL_VYLET  ] } {
 set s $mom_attr_TOOL_VYLET
-
 return $s
- }
 
- #catch { unset mom_attr_TOOL_VYLET}
+
+ }  else {
+
+
+    global mom_tool_holder_overall_length
+
+ if {$mom_tool_holder_overall_length < 0.001} {
+
 return "0"
+ } else {
+
+
+global mom_tool_length
+global mom_tool_holder_offset
+global mom_tool_tapered_shank_length
+global mom_tool_use_tapered_shank
+
+global extension
+set tool_length $mom_tool_length
+set holder_offset $mom_tool_holder_offset
+
+if {[COMPARE__TEXT_TEXT "$mom_tool_use_tapered_shank" "Yes"]} {
+         set shank_length $mom_tool_tapered_shank_length
+} else {
+        set shank_length 0
+        }
+
+set extension [expr $tool_length + $shank_length - $holder_offset]
+set output [format "%0.0f" $extension]
+
+return $output
+
+
+ }
+  }
+
+
+
+
+ return "0"
+
 }
 
 
