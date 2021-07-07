@@ -4,7 +4,7 @@
 #
 #    This is a 3-Axis Milling Machine.
 #
-#  Created by d.trofimov @ Friday, March 12 2021, 15:21:33 +0300
+#  Created by d.trofimov @ Tuesday, June 29 2021, 15:28:19 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -2088,7 +2088,7 @@ set a5 [SET_comment  "Machine: Haas VF-3 or SMM"]
 set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 
 #set a "$a0`$a2`$a21`$a3`$a4`$a0"
-set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
+set a "$a0`$a1`$a2`$a3`$a4`$a5"
 return  [SPLIT_TEXT $a]
 }
 if { $arg_1 == 28 } {
@@ -2102,9 +2102,26 @@ set a5 [SET_comment  "Machine: X.mill 1100L CNC"]
 set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 
 #set a "$a0`$a2`$a21`$a3`$a4`$a0"
-set a "$a0`$a1`$a2`$a3`$a4`$a5`$a6"
+set a "$a0`$a2`$a3`$a4`$a5`$a6"
 return  [SPLIT_TEXT $a]
 }
+
+
+if { $arg_1 == 29 } {
+
+set a0 [SET_comment "---"]
+set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a2 [SET_comment "Det: [GET_mom_part_name]" ]
+set a3 [SET_comment  "Date: [GET_mom_date]"]
+set a4 [SET_comment  "User:[GET_mom_logname]"]
+set a5 [SET_comment  "Machine: X.mill 1100L CNC"]
+
+
+
+set a "$a0`$a2`$a3`$a4`$a5"
+return  [SPLIT_TEXT $a]
+}
+
 
 if { $arg_1 == 21 } {
 
@@ -2438,7 +2455,6 @@ global ARR3
 global ARR4
 global ARR5
 global ARR6
-global ARR7
 global tool_name_list
 
 
@@ -2457,9 +2473,8 @@ set ARR1([GET_mom_tool_name]) $listt
 set ARR2([GET_mom_tool_name]) [GET_mom_attr_TOOL_VYLET]
 set ARR3([GET_mom_tool_name]) [GET_mom_attr_TOOL_NAME_1]
 set ARR4([GET_mom_tool_name]) [GET_mom_tool_number]
-set ARR5([GET_mom_tool_name]) [GET_mom_tool_diameter]
-set ARR6([GET_mom_tool_name]) [GET_mom_tool_corner_radius]
-set ARR7([GET_mom_tool_name]) [GET_mom_tool_flute_length]
+set ARR5([GET_mom_tool_name])  [GET_mom_tool_corner_radius]
+set ARR6([GET_mom_tool_name]) [GET_mom_tool_type]
 }
 if { [GET_mom_next_oper_has_tool_change] == "YES" } {
 set status_tool "YES"
@@ -2494,7 +2509,6 @@ global ARR3
 global ARR4
 global ARR5
 global ARR6
-global ARR7
 set all_text [list]
 set tool_name_list1 [LIST_DEL_DUBLI $tool_name_list]
 
@@ -2507,37 +2521,9 @@ foreach name $tool_name_list1 {
 #set arg1 0
 #}
 if {$arg1 == 1} {
-
-set nameTool [lindex $ARR1($name) 4]
-
-if {$nameTool == ""} {
-set nameTool $ARR3($name)
-  }
-
-
-
-
-
-lappend all_text  "*"
-lappend all_text  "*"
-lappend all_text  "******************************"
-lappend all_text  "T$ARR4($name) = $nameTool"
+lappend all_text  "-"
+lappend all_text  "T$ARR4($name)"
 lappend all_text  "VYLET = $ARR2($name)"
-lappend all_text  "*"
-lappend all_text  "DIAMETER  - $ARR5($name)"
-lappend all_text  "COR RAD   - $ARR6($name)"
-lappend all_text  "FLUTE LEN - $ARR7($name)"
-lappend all_text  "*"
-
-
-
-
-
-}
-
-
-foreach name1 $ARR1($name) {
- lappend all_text $name1
 }
 
 
@@ -2550,7 +2536,9 @@ lappend all_text  "T$ARR4($name) = $ARR3($name)"
 }
 
 
-
+foreach name1 $ARR1($name) {
+ lappend all_text $name1
+}
 }
 return  "$all_text "
 }
@@ -2562,11 +2550,6 @@ return $arg
   }
 return ""
 }
-
-
-
-
-
 
 #===================================
 proc GET_title_and_comment {arg_text1 arg_text2} {
@@ -2635,15 +2618,57 @@ return "O00001"
 
 proc GET_mom_attr_TOOL_VYLET { } {
 #===================================
+
 global mom_attr_TOOL_VYLET
 
 if {[info exist mom_attr_TOOL_VYLET  ] } {
 set s $mom_attr_TOOL_VYLET
-unset mom_attr_TOOL_VYLET
 return $s
-  }
+
+
+ }  else {
+
+
+    global mom_tool_holder_overall_length
+
+ if {$mom_tool_holder_overall_length < 0.001} {
+
 return "0"
+ } else {
+
+
+global mom_tool_length
+global mom_tool_holder_offset
+global mom_tool_tapered_shank_length
+global mom_tool_use_tapered_shank
+
+global extension
+set tool_length $mom_tool_length
+set holder_offset $mom_tool_holder_offset
+
+if {[COMPARE__TEXT_TEXT "$mom_tool_use_tapered_shank" "Yes"]} {
+         set shank_length $mom_tool_tapered_shank_length
+} else {
+        set shank_length 0
+        }
+
+set extension [expr $tool_length + $shank_length - $holder_offset]
+set output [format "%0.0f" $extension]
+
+return $output
+
+
+ }
+  }
+
+
+
+
+ return "0"
+
 }
+
+
 
 #===================================
 proc GET_mom_parent_group_name { } {
@@ -2729,7 +2754,7 @@ switch [GET_mom_tool_type] {
  }
 
 
-  return [format "%0.2f" $a]
+  return $a
 
   }
 
@@ -2790,8 +2815,8 @@ return "" }
 proc GET_mom_tool_flute_length  { } {
 #===================================
 global mom_tool_flute_length
-if {[info exist mom_tool_flute_length    ] } { return [format "%0.2f" $mom_tool_flute_length]   }
-return "0" }
+if {[info exist mom_tool_flute_length    ] } { return $mom_tool_flute_length   }
+return "null mom_tool_flute_length" }
 #===================================
 
 #===================================
@@ -2943,8 +2968,8 @@ return "NULL mom_next_tool_status"
 proc GET_mom_tool_diameter        { } {
 #===================================
 global mom_tool_diameter
-if {[info exist mom_tool_diameter  ] } { return [format "%0.2f" $mom_tool_diameter]    }
-return "0"
+if {[info exist mom_tool_diameter  ] } { return $mom_tool_diameter     }
+return "NULL mom_tool_diameter"
 }
 #===================================
 proc GET_mom_tool_number        { } {
@@ -3141,8 +3166,8 @@ proc CHECK_ZERO_SPEED_AND_TOOL {} {
 global mom_path_name
 global mom_spindle_speed
 global mom_tool_number
-
-
+global mom_next_tool_status
+global mom_next_tool_number
 
  if { $mom_spindle_speed == 0 } {
      MOM_output_to_listing_device " "
@@ -3161,6 +3186,19 @@ global mom_tool_number
    #  MOM_abort " ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН! "
  }
 
+
+if { $mom_next_tool_status == "FIRST" } { return }
+
+if { $mom_next_tool_number == 0 } {
+      MOM_output_to_listing_device "not specify the next tool"
+  #    MOM_abort
+  MOM_output_to_listing_device " "
+     MOM_output_to_listing_device "   ======================================="
+     MOM_output_to_listing_device "    ВНИМАНИЕ !!! "
+     MOM_output_to_listing_device "    ОШИБКА: СЛЕДУЮЩИЙ ИНСТРУМЕНТ T0  !!!!!!!!"
+     MOM_output_to_listing_device "   ======================================="
+      return
+   }
 }
 
 #==============PROVERKI END=====================
@@ -3301,7 +3339,6 @@ return $name
 }
 
 }
-
 
 
 

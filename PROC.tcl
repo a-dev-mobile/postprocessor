@@ -249,6 +249,23 @@ set a "$a0`$a2`$a3`$a4`$a5`$a6"
 return  [SPLIT_TEXT $a]
 }
 
+
+if { $arg_1 == 29 } {
+
+set a0 [SET_comment "---"]
+set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a2 [SET_comment "Det: [GET_mom_part_name]" ]
+set a3 [SET_comment  "Date: [GET_mom_date]"]
+set a4 [SET_comment  "User:[GET_mom_logname]"]
+set a5 [SET_comment  "Machine: X.mill 1100L CNC"]
+
+
+
+set a "$a0`$a2`$a3`$a4`$a5"
+return  [SPLIT_TEXT $a]
+}
+
+
 if { $arg_1 == 21 } {
 
 set a0 [SET_comment $CONSTANT_ARRAY(separator)]

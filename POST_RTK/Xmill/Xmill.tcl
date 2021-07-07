@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Thursday, June 24 2021, 08:55:35 +0300
+#  Created by d.trofimov @ Friday, June 25 2021, 18:52:40 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1795,7 +1795,7 @@ MOM_output_literal "G53 H0 Z0.0"
 MOM_output_literal "G53 Y0.0"
 
 
-foreach name [ARRAY_INFO_START_PROGRAMM 28] {
+foreach name [ARRAY_INFO_START_PROGRAMM 29] {
 MOM_output_literal $name
 }
 
@@ -2166,6 +2166,23 @@ set a6 [SET_comment  "File: [GET_mom_output_file_full_name]"]
 set a "$a0`$a2`$a3`$a4`$a5`$a6"
 return  [SPLIT_TEXT $a]
 }
+
+
+if { $arg_1 == 29 } {
+
+set a0 [SET_comment "---"]
+set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a2 [SET_comment "Det: [GET_mom_part_name]" ]
+set a3 [SET_comment  "Date: [GET_mom_date]"]
+set a4 [SET_comment  "User:[GET_mom_logname]"]
+set a5 [SET_comment  "Machine: X.mill 1100L CNC"]
+
+
+
+set a "$a0`$a2`$a3`$a4`$a5"
+return  [SPLIT_TEXT $a]
+}
+
 
 if { $arg_1 == 21 } {
 

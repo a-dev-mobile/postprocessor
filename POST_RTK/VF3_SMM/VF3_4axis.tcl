@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, June 23 2021, 15:37:34 +0300
+#  Created by d.trofimov @ Thursday, July 01 2021, 11:43:12 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1869,10 +1869,10 @@ MOM_output_text $name
 }
 
 MOM_output_text "( --- )"
-MOM_output_text "(--TOOL_LIST--)"
-foreach name [ARRAY_GET_ALL_FROM_SUB_POST_TEXT] {
-MOM_output_text "($name)"
-}
+#MOM_output_text "(--TOOL_LIST--)"
+#foreach name [ARRAY_GET_ALL_FROM_SUB_POST_TEXT] {
+#MOM_output_text "($name)"
+#}
 
 
 
