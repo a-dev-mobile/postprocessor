@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Thursday, July 01 2021, 11:43:12 +0300
+#  Created by d.trofimov @ Wednesday, July 14 2021, 20:07:18 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -2236,6 +2236,23 @@ set a "$a0`$a2`$a3`$a4`$a5`$a6"
 return  [SPLIT_TEXT $a]
 }
 
+
+if { $arg_1 == 29 } {
+
+set a0 [SET_comment "---"]
+set a1 [SET_comment "Program: [GET_mom_group_name]" ]
+set a2 [SET_comment "Det: [GET_mom_part_name]" ]
+set a3 [SET_comment  "Date: [GET_mom_date]"]
+set a4 [SET_comment  "User:[GET_mom_logname]"]
+set a5 [SET_comment  "Machine: X.mill 1100L CNC"]
+
+
+
+set a "$a0`$a2`$a3`$a4`$a5"
+return  [SPLIT_TEXT $a]
+}
+
+
 if { $arg_1 == 21 } {
 
 set a0 [SET_comment $CONSTANT_ARRAY(separator)]
@@ -2634,9 +2651,25 @@ foreach name $tool_name_list1 {
 #set arg1 0
 #}
 if {$arg1 == 1} {
-lappend all_text  "-"
-lappend all_text  "T$ARR4($name)"
-lappend all_text  "VYLET = $ARR2($name)"
+lappend all_text  "\n==============="
+# set tool ""
+
+# # проверяем если нет атрибута TOOLS_NAME_1
+# if {[info exist $ARR3($name) ] } {
+# set tool $ARR3($name)
+#   } else {
+# set tool $name
+# }
+# N135 ( INSTRUMENT: MILL_6MM )
+# N140 ( DIAMETR: 6.00 )
+# N145 ( FLUTE LENGTH: 50.00 )GET_mom_tool_flute_length
+
+
+
+lappend all_text  "T$ARR4($name) = $name"
+lappend all_text  "VYLET = $ARR2($name)\n"
+
+# lappend all_text  "DIAMETR = [isNull $ARR3($name)]"
 }
 
 
@@ -2645,7 +2678,7 @@ lappend all_text  "\nD = [isNull $ARR3($name)] | R = [isNull $ARR5($name)] | L =
 }
 if {$arg1 == 0} {
 lappend all_text  "-"
-lappend all_text  "T$ARR4($name) = $ARR3($name)"
+lappend all_text  "T $ARR4($name) = $ARR3($name)"
 }
 
 
@@ -2679,8 +2712,14 @@ global mom_attr_TOOL_TOOL_NAME_1
 
 if {[info exist mom_attr_TOOL_TOOL_NAME_1  ] } {
 set s $mom_attr_TOOL_TOOL_NAME_1
+
+
+
 return $s
   }
+
+
+
 return [GET_mom_tool_name]
 }
 
@@ -2862,7 +2901,7 @@ switch [GET_mom_tool_type] {
   "Spot Drill" \
  { set a 0 } \
   "default"     \
-  { set a  "[GET_mom_tool_corner1_radius]" } \
+  { set a  "[GET_mom_tool_corner1_radius]" } \""
 
  }
 
@@ -2929,7 +2968,7 @@ proc GET_mom_tool_flute_length  { } {
 #===================================
 global mom_tool_flute_length
 if {[info exist mom_tool_flute_length    ] } { return $mom_tool_flute_length   }
-return "null mom_tool_flute_length" }
+return "" }
 #===================================
 
 #===================================
@@ -3288,7 +3327,7 @@ global mom_next_tool_number
      MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
      MOM_output_to_listing_device "    ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ !!!!!!!!"
      MOM_output_to_listing_device "   ======================================="
-   #  MOM_abort " "ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ ДОПУСКАЕТСЯ!" "
+     MOM_abort " "ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ ДОПУСКАЕТСЯ!" "
  }
  if { $mom_tool_number == 0 } {
      MOM_output_to_listing_device " "
@@ -3296,7 +3335,7 @@ global mom_next_tool_number
      MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
      MOM_output_to_listing_device "    ОШИБКА: ИНСТРУМЕНТ T0  !!!!!!!!"
      MOM_output_to_listing_device "   ======================================="
-   #  MOM_abort " ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН! "
+     MOM_abort " ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН! "
  }
 
 
@@ -5039,6 +5078,10 @@ lappend tool_name_list "(T[GET_mom_tool_number] | [GET_mom_attr_TOOL_NAME_1] | [
 
 
 
+global mom_attr_TOOL_TOOL_NAME_1
+if {[info exist mom_attr_TOOL_TOOL_NAME_1  ] } {
+unset mom_attr_TOOL_TOOL_NAME_1
+}
 }
 
 
