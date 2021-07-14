@@ -1356,13 +1356,22 @@ global mom_tool_number
 global mom_next_tool_status
 global mom_next_tool_number
 
+
+
+
+
+
+
+
+
  if { $mom_spindle_speed == 0 } {
      MOM_output_to_listing_device " "
      MOM_output_to_listing_device "   ======================================="
      MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
      MOM_output_to_listing_device "    ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ !!!!!!!!"
      MOM_output_to_listing_device "   ======================================="
-     MOM_abort " "ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ ДОПУСКАЕТСЯ!" "
+     PAUSE "ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name \n  ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ "
+    #  MOM_abort " ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ ДОПУСКАЕТСЯ! "
  }
  if { $mom_tool_number == 0 } {
      MOM_output_to_listing_device " "
@@ -1370,7 +1379,7 @@ global mom_next_tool_number
      MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
      MOM_output_to_listing_device "    ОШИБКА: ИНСТРУМЕНТ T0  !!!!!!!!"
      MOM_output_to_listing_device "   ======================================="
-     MOM_abort " ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН! "
+    PAUSE "ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name \n  ОШИБКА: ИНСТРУМЕНТ T0 "
  }
 
 

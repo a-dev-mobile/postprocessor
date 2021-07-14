@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, July 14 2021, 20:06:23 +0300
+#  Created by d.trofimov @ Wednesday, July 14 2021, 20:57:22 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -2504,6 +2504,7 @@ array set ARR3 {}
 array set ARR4 {}
 array set ARR5 {}
 array set ARR6 {}
+array set ARR7 {}
 return ""
 }
 #==============================
@@ -2516,6 +2517,7 @@ global ARR3
 global ARR4
 global ARR5
 global ARR6
+global ARR7
 global tool_name_list
 
 
@@ -2534,8 +2536,9 @@ set ARR1([GET_mom_tool_name]) $listt
 set ARR2([GET_mom_tool_name]) [GET_mom_attr_TOOL_VYLET]
 set ARR3([GET_mom_tool_name]) [GET_mom_attr_TOOL_NAME_1]
 set ARR4([GET_mom_tool_name]) [GET_mom_tool_number]
-set ARR5([GET_mom_tool_name])  [GET_mom_tool_corner_radius]
+set ARR5([GET_mom_tool_name]) [GET_mom_tool_flute_length]
 set ARR6([GET_mom_tool_name]) [GET_mom_tool_type]
+set ARR7([GET_mom_tool_name]) [GET_mom_tool_diameter]
 }
 if { [GET_mom_next_oper_has_tool_change] == "YES" } {
 set status_tool "YES"
@@ -2570,6 +2573,7 @@ global ARR3
 global ARR4
 global ARR5
 global ARR6
+global ARR7
 set all_text [list]
 set tool_name_list1 [LIST_DEL_DUBLI $tool_name_list]
 
@@ -2597,8 +2601,11 @@ lappend all_text  "\n==============="
 
 
 
-lappend all_text  "T$ARR4($name) = $name"
+lappend all_text  "T$ARR4($name) = $ARR3($name)"
 lappend all_text  "VYLET = $ARR2($name)\n"
+lappend all_text  "Type = $ARR6($name) "
+lappend all_text  "Diameter = [format "%0.1f" $ARR7($name)] mm"
+lappend all_text  "Flute length = [format "%0.1f" $ARR5($name)] mm\n"
 
 # lappend all_text  "DIAMETR = [isNull $ARR3($name)]"
 }
@@ -2607,9 +2614,24 @@ lappend all_text  "VYLET = $ARR2($name)\n"
 if {$arg1 == 2} {
 lappend all_text  "\nD = [isNull $ARR3($name)] | R = [isNull $ARR5($name)] | L = [isNull $ARR2($name)] | T = [isNull $ARR4($name)] | $name"
 }
+
+
+
+# set ARR1([GET_mom_tool_name]) $listt
+# set ARR2([GET_mom_tool_name]) [GET_mom_attr_TOOL_VYLET]
+# set ARR3([GET_mom_tool_name]) [GET_mom_attr_TOOL_NAME_1]
+# set ARR4([GET_mom_tool_name]) [GET_mom_tool_number]
+# set ARR5([GET_mom_tool_name]) [GET_mom_tool_flute_length]
+# set ARR6([GET_mom_tool_name]) [GET_mom_tool_type]
+# set ARR7([GET_mom_tool_name]) [GET_mom_tool_diameter]
+
+
 if {$arg1 == 0} {
 lappend all_text  "-"
 lappend all_text  "T $ARR4($name) = $ARR3($name)"
+lappend all_text  "Type = $ARR6($name) "
+lappend all_text  "Diameter = $ARR7($name) "
+lappend all_text  "Flute length = $ARR5($name) "
 }
 
 
@@ -3258,7 +3280,8 @@ global mom_next_tool_number
      MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
      MOM_output_to_listing_device "    ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ !!!!!!!!"
      MOM_output_to_listing_device "   ======================================="
-     MOM_abort " "ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ ДОПУСКАЕТСЯ!" "
+     PAUSE "ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name \n  ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ "
+    #  MOM_abort " ОШИБКА: НУЛЕВОЕ ВРАЩЕНИЕ НЕ ДОПУСКАЕТСЯ! "
  }
  if { $mom_tool_number == 0 } {
      MOM_output_to_listing_device " "
@@ -3266,7 +3289,7 @@ global mom_next_tool_number
      MOM_output_to_listing_device "    ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name"
      MOM_output_to_listing_device "    ОШИБКА: ИНСТРУМЕНТ T0  !!!!!!!!"
      MOM_output_to_listing_device "   ======================================="
-     MOM_abort " ОШИБКА: ИНСТРУМЕНТ T0 НЕ РАЗРЕШЕН! "
+    PAUSE "ВНИМАНИЕ !!! ОПЕРАЦИЯ: $mom_path_name \n  ОШИБКА: ИНСТРУМЕНТ T0 "
  }
 
 
@@ -4208,6 +4231,7 @@ proc PB_CMD_cancel_suppress_force_once_per_event { } {
 proc PB_CMD_check { } {
 #=============================================================
 set a [CHECK_ZERO_SPEED_AND_TOOL]
+
 }
 
 
