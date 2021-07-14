@@ -664,9 +664,25 @@ foreach name $tool_name_list1 {
 #set arg1 0
 #}
 if {$arg1 == 1} {
-lappend all_text  "-"
-lappend all_text  "T$ARR4($name)"
-lappend all_text  "VYLET = $ARR2($name)"
+lappend all_text  "\n==============="
+# set tool ""
+
+# # проверяем если нет атрибута TOOLS_NAME_1
+# if {[info exist $ARR3($name) ] } {
+# set tool $ARR3($name)
+#   } else {
+# set tool $name
+# }
+# N135 ( INSTRUMENT: MILL_6MM )
+# N140 ( DIAMETR: 6.00 )
+# N145 ( FLUTE LENGTH: 50.00 )GET_mom_tool_flute_length
+
+
+
+lappend all_text  "T$ARR4($name) = $name"
+lappend all_text  "VYLET = $ARR2($name)\n"
+
+# lappend all_text  "DIAMETR = [isNull $ARR3($name)]"
 }
 
 
@@ -675,7 +691,7 @@ lappend all_text  "\nD = [isNull $ARR3($name)] | R = [isNull $ARR5($name)] | L =
 }
 if {$arg1 == 0} {
 lappend all_text  "-"
-lappend all_text  "T$ARR4($name) = $ARR3($name)"
+lappend all_text  "T $ARR4($name) = $ARR3($name)"
 }
 
 
@@ -959,7 +975,7 @@ proc GET_mom_tool_flute_length  { } {
 #===================================
 global mom_tool_flute_length
 if {[info exist mom_tool_flute_length    ] } { return $mom_tool_flute_length   }
-return "null mom_tool_flute_length" }
+return "" }
 #===================================
 
 #===================================
