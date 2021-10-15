@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Wednesday, July 14 2021, 20:58:46 +0300
+#  Created by d.trofimov @ Thursday, July 15 2021, 17:48:26 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -498,6 +498,7 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, July 01 2021,
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, July 14 2021, 20:07:18 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, July 14 2021, 20:57:54 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Wednesday, July 14 2021, 20:58:46 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Thursday, July 15 2021, 17:48:26 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -763,7 +764,7 @@ Text              ""  0  "Text String"  0
 #Operation Start Sequence Start
 {Start of Path}            {MOM_set_seq_on PB_CMD_check_shpin PB_CMD_MY_oper_name PB_CMD_start_of_operation_force_addresses PB_CMD_MY_start_programm_1 PB_CMD_tool_name PB_CMD_output_next_tool PB_CMD_tool_change_force_addresses PB_CMD_cycle_hole_counter_reset}  {$gPB(event,opr_start,start_path,name)}
 {From Move}                {}  {$gPB(event,opr_start,from_move,name)}
-{First Tool}               {PB_CMD_get_tool_info}  {$gPB(event,opr_start,fst_tool,name)}
+{First Tool}               {}  {$gPB(event,opr_start,fst_tool,name)}
 {Auto Tool Change}         {PB_CMD_first_tool PB_CMD_get_tool_info PB_CMD_create_tool_list}  {$gPB(event,opr_start,auto_tc,name)}
 {Manual Tool Change}       {stop PB_CMD_m0_smena_instrum}  {$gPB(event,opr_start,manual_tc,name)}
 {Initial Move}             {spindle_rpm PB_CMD_output_init_position PB_CMD_if_repeat_tool_first_move PB_CMD_output_machine_mode PB_CMD_force_output init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,init_move,name)}
