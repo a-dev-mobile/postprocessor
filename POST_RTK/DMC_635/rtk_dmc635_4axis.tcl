@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Wednesday, July 14 2021, 21:01:07 +0300
+#  Created by d.trofimov @ Friday, November 12 2021, 09:24:28 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1541,7 +1541,7 @@ proc MOM_first_tool { } {
 
    set mom_sys_first_tool_handled 1
 
-   PB_CMD_Header_tool_list
+   PB_CMD_get_tool_info
    PB_CMD_goto_Z_ref
    PB_CMD_name_tool
    PB_CMD_msg_oper_and_tool
@@ -2263,7 +2263,7 @@ proc PB_auto_tool_change { } {
       set mom_next_tool_number $mom_tool_number
    }
 
-   PB_CMD_Header_tool_list
+   PB_CMD_get_tool_info
    PB_CMD_msg_oper_and_tool
    PB_CMD_goto_Z_ref
    PB_CMD_name_tool
@@ -2414,25 +2414,6 @@ proc PB_CMD_FEEDRATE_SET { } {
         PB_CMD_define_feedrate_format
      }
   }
-}
-
-
-#=============================================================
-proc PB_CMD_Header_tool_list { } {
-#=============================================================
-uplevel #0 {
-
-global tool_name_list
-lappend tool_name_list "; [GET_mom_attr_TOOL_NAME_1] | [GET_mom_attr_TOOL_VYLET] "
-}
-
-
-
-
-global mom_attr_TOOL_TOOL_NAME_1
-if {[info exist mom_attr_TOOL_TOOL_NAME_1  ] } {
-unset mom_attr_TOOL_TOOL_NAME_1
-}
 }
 
 
@@ -3285,8 +3266,6 @@ global mom_attr_TOOL_TOOL_NAME_1
 if {[info exist mom_attr_TOOL_TOOL_NAME_1  ] } {
 set s $mom_attr_TOOL_TOOL_NAME_1
 
-
-
 return $s
   }
 
@@ -4064,6 +4043,7 @@ return $name
 }
 
 }
+
 
 
 
@@ -8149,6 +8129,22 @@ proc PB_CMD_get_feed_value { } {
 
 
 #=============================================================
+proc PB_CMD_get_tool_info { } {
+#=============================================================
+uplevel #0 {
+
+global tool_name_list
+lappend tool_name_list "; [GET_mom_attr_TOOL_NAME_1] | [GET_mom_attr_TOOL_VYLET] "
+}
+
+
+
+
+
+}
+
+
+#=============================================================
 proc PB_CMD_goto_ZYX_ref { } {
 #=============================================================
 MOM_output_literal "SUPA G0 Z=_Z_HOME D0"
@@ -10162,7 +10158,10 @@ proc PB_CMD_move_force_addresses { } {
 #=============================================================
 proc PB_CMD_msg_oper_and_tool { } {
 #=============================================================
-MOM_output_literal "MSG (\"[GET_mom_operation_name] | [GET_mom_attr_TOOL_NAME_1]\")"
+global mom_tool_name
+
+
+MOM_output_literal "MSG (\"[GET_mom_operation_name] | [GET_mom_oper_method] | $mom_tool_name\")"
 
 }
 
@@ -10179,10 +10178,7 @@ MOM_output_literal "M6"
 
 
 
-global mom_attr_TOOL_TOOL_NAME_1
-if {[info exist mom_attr_TOOL_TOOL_NAME_1  ] } {
-unset mom_attr_TOOL_TOOL_NAME_1
-}
+
 }
 
 
@@ -10336,9 +10332,7 @@ MOM_output_text ";------"
 MOM_output_text "M1"
 MOM_output_text ";------"
 MOM_output_text "; [GET_mom_operation_name ]"
-MOM_output_text "; [GET_mom_oper_method]"
-MOM_output_text ";-"
-MOM_output_text "; [GET_mom_tool_name]"
+# MOM_output_text "; [GET_mom_tool_name]"
 #MOM_output_text "; VYLET = [GET_mom_attr_TOOL_VYLET]"
 MOM_output_text ";------"
 
@@ -12002,6 +11996,11 @@ set prev_mom_out_angle_pos $mom_out_angle_pos(0)
 
 global mom_pos
 set prev_z [format %0.3f $mom_pos(2)]
+}
+
+global mom_attr_TOOL_TOOL_NAME_1
+if {[info exist mom_attr_TOOL_TOOL_NAME_1  ] } {
+unset mom_attr_TOOL_TOOL_NAME_1
 }
 }
 

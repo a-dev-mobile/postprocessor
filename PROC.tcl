@@ -748,8 +748,6 @@ global mom_attr_TOOL_TOOL_NAME_1
 if {[info exist mom_attr_TOOL_TOOL_NAME_1  ] } {
 set s $mom_attr_TOOL_TOOL_NAME_1
 
-
-
 return $s
   }
 
@@ -814,8 +812,8 @@ return $s
 
 
  }  else {
-   
-   
+
+
     global mom_tool_holder_overall_length
 
  if {$mom_tool_holder_overall_length < 0.001} {
@@ -850,7 +848,7 @@ return $output
 
 
 
- 
+
  return "0"
 
 }
@@ -1085,9 +1083,9 @@ return "null mom_tool_z_offset_defined        " }
 proc GET_mom_tool_zmount               { } {
 #===================================
 global mom_tool_zmount
-if {[info exist mom_tool_zmount              ] } { 
+if {[info exist mom_tool_zmount              ] } {
 return [format "%0.0f" $mom_tool_zmount]             }
-return "0" 
+return "0"
 }
 
 
@@ -1356,14 +1354,6 @@ global mom_tool_number
 global mom_next_tool_status
 global mom_next_tool_number
 
-
-
-
-
-
-
-
-
  if { $mom_spindle_speed == 0 } {
      MOM_output_to_listing_device " "
      MOM_output_to_listing_device "   ======================================="
@@ -1535,6 +1525,7 @@ return $name
 }
 
 }
+
 
 
 
