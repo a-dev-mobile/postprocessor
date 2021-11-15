@@ -8,7 +8,7 @@
 #  <WARNING> The contents of this file should not be modified!               #
 #                                                                            #
 ##############################################################################
-#  Created by d.trofimov @ Monday, November 15 2021, 14:07:31 +0300
+#  Created by d.trofimov @ Monday, November 15 2021, 15:10:28 +0300
 #  with Post Builder version 12.0.2.
 #============================================================================#
 
@@ -518,6 +518,10 @@ Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, November 15 202
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, November 15 2021, 14:01:00 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, November 15 2021, 14:04:33 +0300 by d.trofimov.
 Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, November 15 2021, 14:07:31 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, November 15 2021, 15:05:30 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, November 15 2021, 15:09:14 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, November 15 2021, 15:10:23 +0300 by d.trofimov.
+Saved VF3_4axis with NX/Post Builder Version 12.0.2.1 on Monday, November 15 2021, 15:10:28 +0300 by d.trofimov.
 #  HISTORY END
 ## POST INFORMATION END
 
@@ -787,7 +791,7 @@ Text              ""  0  "Text String"  0
 {Auto Tool Change}         {PB_CMD_first_tool PB_CMD_get_tool_info PB_CMD_create_tool_list}  {$gPB(event,opr_start,auto_tc,name)}
 {Manual Tool Change}       {stop PB_CMD_m0_smena_instrum}  {$gPB(event,opr_start,manual_tc,name)}
 {Initial Move}             {fourth_axis_rotate_move spindle_rpm PB_CMD_output_init_position PB_CMD_if_repeat_tool_first_move PB_CMD_output_machine_mode PB_CMD_force_output init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,init_move,name)}
-{First Move}               {fourth_axis_rotate_move spindle_rpm PB_CMD_if_Z_small PB_CMD_if_repeat_tool_first_move PB_CMD_output_machine_mode PB_CMD_force_output PB_CMD_output_init_position init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,fst_move,name)}
+{First Move}               {PB_CMD_view_A fourth_axis_rotate_move spindle_rpm PB_CMD_if_Z_small PB_CMD_if_repeat_tool_first_move PB_CMD_output_machine_mode PB_CMD_force_output PB_CMD_output_init_position init_move_adjust_len PB_CMD_SOG}  {$gPB(event,opr_start,fst_move,name)}
 {Approach Move}            {}  {$gPB(event,opr_start,appro_move,name)}
 {Engage Move}              {}  {$gPB(event,opr_start,engage_move,name)}
 {First Cut}                {}  {$gPB(event,opr_start,fst_cut,name)}
@@ -860,7 +864,7 @@ Text              ""  0  "Text String"  0
 {Retract Move}             {}  {$gPB(event,opr_end,ret_move,name)}
 {Return Move}              {}  {$gPB(event,opr_end,rtn_move,name)}
 {Gohome Move}              {}  {$gPB(event,opr_end,goh_move,name)}
-{End of Path}              {PB_CMD_end_of_path PB_CMD_set_prev_Z PB_CMD_reset_all_motion_variables_to_zero PB_CMD_tool_number PB_CMD_UNSET}  {$gPB(event,opr_end,end_path,name)}
+{End of Path}              {PB_CMD_end_of_path PB_CMD_set_prev_Z PB_CMD_set_prev_a PB_CMD_reset_all_motion_variables_to_zero PB_CMD_tool_number PB_CMD_UNSET}  {$gPB(event,opr_end,end_path,name)}
 #Operation End Sequence End
 
 #Program End Sequence Start
@@ -879,8 +883,8 @@ Text              ""  0  "Text String"  0
         {1 NULL 0 {S M_spindle}} \
         {6 NULL 0 {G_adjust Z}}
 {First Move} \
-        {1 NULL 0 {S M_spindle}} \
-        {7 NULL 0 {Z}}
+        {2 NULL 0 {S M_spindle}} \
+        {8 NULL 0 {Z}}
 {Spindle RPM} \
         {0 NULL 0 {S M_spindle}}
 {Cutcom Off} \
@@ -1468,6 +1472,7 @@ Text              ""  0  "Text String"  0
       {"PB_CMD___log_revisions" "" "Custom Command"} \
       {"PB_CMD__catch_warning" "" "Custom Command"} \
       {"PB_CMD__check_block_check_retract_setting" "" "Custom Command"} \
+      {"PB_CMD__check_block_fourth_axis_rotate_move" "" "Custom Command"} \
       {"PB_CMD__choose_preferred_solution" "" "Custom Command"} \
       {"PB_CMD__config_post_options" "" "Custom Command"} \
       {"PB_CMD__manage_part_attributes" "" "Custom Command"} \
@@ -1581,7 +1586,8 @@ Text              ""  0  "Text String"  0
       {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"} \
       {"PB_CMD_unset" "" "Custom Command"} \
       {"PB_CMD_view_G40" "" "Custom Command"} \
-      {"PB_CMD__check_block_fourth_axis_rotate_move" "" "Custom Command"}
+      {"PB_CMD_view_A" "" "Custom Command"} \
+      {"PB_CMD_set_prev_a" "" "Custom Command"}
 {Operator_Message} \
       {"" "" ""}
 {PB_Spindle} \

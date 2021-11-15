@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Monday, November 15 2021, 12:58:33 +0300
+#  Created by d.trofimov @ Monday, November 15 2021, 14:48:35 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1854,6 +1854,14 @@ proc USER_DEF_AXIS_LIMIT_ACTION { args } {
 
 
 #=============================================================
+proc PB_CMD_CHECK_4_AXIS { } {
+#=============================================================
+set b [CHECK_4_AXIS]
+
+}
+
+
+#=============================================================
 proc PB_CMD_END_PROGRAMM { } {
 #=============================================================
 
@@ -2734,8 +2742,6 @@ global mom_attr_TOOL_TOOL_NAME_1
 if {[info exist mom_attr_TOOL_TOOL_NAME_1  ] } {
 set s $mom_attr_TOOL_TOOL_NAME_1
 
-
-
 return $s
   }
 
@@ -3333,6 +3339,25 @@ proc CHECK_SPEED_SPINDLE  {min_sp max_sp} {
 }
 #---------------------------
 
+proc CHECK_4_AXIS {} {
+
+global mom_out_angle_pos
+if [info exist $mom_out_angle_pos(0)] {
+
+
+   if { $mom_out_angle_pos(0) < 0 } {
+
+
+  PAUSE "!!Используется 4 ось в [GET_mom_operation_name] Данный постпроцессор не поддерживает данный вид движений."
+            }
+
+    }
+
+
+
+
+}
+
 
 proc CHECK_ZERO_SPEED_AND_TOOL {} {
 
@@ -3513,6 +3538,7 @@ return $name
 }
 
 }
+
 
 
 
@@ -4345,6 +4371,11 @@ MOM_output_literal  "G$mom_work_coordinate_number (change G$prev_mom_work_coordi
 proc PB_CMD_check_shpin { } {
 #=============================================================
 set a [CHECK_ZERO_SPEED_AND_TOOL]
+
+
+
+
+
 }
 
 

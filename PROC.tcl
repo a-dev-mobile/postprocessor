@@ -1345,6 +1345,25 @@ proc CHECK_SPEED_SPINDLE  {min_sp max_sp} {
 }
 #---------------------------
 
+proc CHECK_4_AXIS {} {
+
+global mom_out_angle_pos
+if [info exist $mom_out_angle_pos(0)] {
+
+
+   if { $mom_out_angle_pos(0) < 0 } {
+   
+              
+  PAUSE "!!Используется 4 ось в [GET_mom_operation_name] Данный постпроцессор не поддерживает данный вид движений."
+            }
+
+    }
+
+
+
+
+}
+
 
 proc CHECK_ZERO_SPEED_AND_TOOL {} {
 

@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Monday, November 15 2021, 14:07:31 +0300
+#  Created by d.trofimov @ Monday, November 15 2021, 15:10:28 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -1160,6 +1160,7 @@ proc MOM_end_of_path { } {
 
    PB_CMD_end_of_path
    PB_CMD_set_prev_Z
+   PB_CMD_set_prev_a
    PB_CMD_reset_all_motion_variables_to_zero
    PB_CMD_tool_number
    PB_CMD_UNSET
@@ -1181,6 +1182,8 @@ proc MOM_first_move { } {
   global mom_kin_max_fpm mom_motion_event
 
    COOLANT_SET ; CUTCOM_SET ; SPINDLE_SET ; RAPID_SET
+
+   PB_CMD_view_A
 
    MOM_do_template fourth_axis_rotate_move
 
@@ -7256,6 +7259,15 @@ set prev_z [format %0.3f $mom_pos(2)]
 
 
 #=============================================================
+proc PB_CMD_set_prev_a { } {
+#=============================================================
+uplevel #0 {
+set prev_mom_out_angle_pos $mom_out_angle_pos(0)
+}
+}
+
+
+#=============================================================
 proc PB_CMD_set_principal_axis { } {
 #=============================================================
 # This command can be used to determine the principal axis.
@@ -7846,6 +7858,39 @@ global mom_group_name mom_sys_group_output mom_parent_group_name
 unset mom_group_name
 #unset mom_sys_group_output
 #unset mom_parent_group_name
+}
+
+
+#=============================================================
+proc PB_CMD_view_A { } {
+#=============================================================
+global mom_out_angle_pos
+global prev_mom_out_angle_pos
+
+
+
+#MOM_output_text "==G0 [format "%0.3f" $mom_out_angle_pos(0)]"
+
+
+
+
+
+set a ""
+if {[info exist prev_mom_out_angle_pos  ] } {
+
+if {[COMPARE__TEXT_TEXT "$prev_mom_out_angle_pos" "$mom_out_angle_pos(0)"]} {
+set a "--odinak A--"
+
+  } else {
+MOM_output_literal "(POVOROT A)"
+MOM_output_literal "G53 G00 G90 Z0"
+MOM_output_literal "G54 G90 G40 G80"
+
+#MOM_output_literal "SUPA G0 Y=_Y_HOME D0"
+#MOM_output_literal "SUPA G0 X=_X_HOME D0"
+set a "--not A--"
+}}
+
 }
 
 
