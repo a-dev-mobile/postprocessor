@@ -1,11 +1,11 @@
 ########################## TCL Event Handlers ##########################
 #
-#  VF3_4axis.tcl - 4_axis_table
+#  VF3_3axis.tcl - 4_axis_table
 #
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Monday, November 15 2021, 14:07:31 +0300
+#  Created by d.trofimov @ Monday, November 15 2021, 12:58:33 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -160,7 +160,7 @@ proc PB_CMD___log_revisions { } {
 
 
   set mom_sys_use_default_unit_fragment         "ON"
-  set mom_sys_alt_unit_post_name                "VF3_4axis__IN.pui"
+  set mom_sys_alt_unit_post_name                "VF3_3axis__IN.pui"
 
 
 ########## SYSTEM VARIABLE DECLARATIONS ##############
@@ -1182,8 +1182,6 @@ proc MOM_first_move { } {
 
    COOLANT_SET ; CUTCOM_SET ; SPINDLE_SET ; RAPID_SET
 
-   MOM_do_template fourth_axis_rotate_move
-
    MOM_force Once S M_spindle
    MOM_do_template spindle_rpm
    PB_CMD_if_Z_small
@@ -1252,8 +1250,6 @@ proc MOM_initial_move { } {
   global mom_kin_max_fpm mom_motion_event
 
    COOLANT_SET ; CUTCOM_SET ; SPINDLE_SET ; RAPID_SET
-
-   MOM_do_template fourth_axis_rotate_move
 
    MOM_force Once S M_spindle
    MOM_do_template spindle_rpm
@@ -1356,14 +1352,16 @@ proc MOM_rapid_move { } {
 
    RAPID_SET
 
+   MOM_do_template rapid_move
+
    set rapid_spindle_blk {G_motion G_adjust X Y Z H S M_spindle M_coolant}
    set rapid_spindle_x_blk {G_motion G_adjust X H S M_spindle M_coolant}
    set rapid_spindle_y_blk {G_motion G_adjust Y H S M_spindle M_coolant}
    set rapid_spindle_z_blk {G_motion G_adjust Z H S M_spindle M_coolant}
-   set rapid_traverse_blk {G_motion X Y Z fourth_axis}
-   set rapid_traverse_xy_blk {G_motion X Y fourth_axis}
-   set rapid_traverse_yz_blk {G_motion Y Z fourth_axis}
-   set rapid_traverse_xz_blk {G_motion X Z fourth_axis}
+   set rapid_traverse_blk {G_motion X Y Z}
+   set rapid_traverse_xy_blk {G_motion X Y}
+   set rapid_traverse_yz_blk {G_motion Y Z}
+   set rapid_traverse_xz_blk {G_motion X Z}
    set rapid_traverse_mod {}
    set rapid_spindle_mod {}
 
@@ -3711,55 +3709,6 @@ return 0
   MOM_force Once tap_string F R dwell cycle_step
 return 1
   }
-}
-
-
-#=============================================================
-proc PB_CMD__check_block_fourth_axis_rotate_move { } {
-#=============================================================
-# Validate legitimate motion for 4-axis post -
-#
-# => "mom_spindle_axis" accounts for the direction change resulted from the angled-head attachment added to the spindle.
-#
-# For a 4-axis Table - The spindle axis (Vs) and tool axis (Vt) should be either co-linear '||'
-#                      BOTH on the plane of rotation (Vp).
-# For a 4-axis Head  - The spindle axis (Vs) MUST lie ON the plane of rotation (Vp) '&&'
-#                      identical to the tool axis (Vt).
-#
-# - The max/min of the rotary axis will further constraint the reachability.
-# - Vectors' DOT product will be 0 or +/-1. (Vt.Vp => 0 || +/-1)
-#
-#-------------------------------------------------------------
-# 04-29-2015 gsl - Carved out of LOCK_AXIS_MOTION to be called in MOM_before_motion
-#
-
-   if { [string match "4_axis_table" $::mom_kin_machine_type] } {
-
-      if { !( [EQ_is_equal [expr abs( [VEC3_dot ::mom_sys_spindle_axis ::mom_tool_axis] )] 1.0] || \
-              ( [EQ_is_equal [VEC3_dot ::mom_sys_spindle_axis ::mom_kin_4th_axis_vector] 0.0] && \
-                [EQ_is_equal [VEC3_dot ::mom_tool_axis        ::mom_kin_4th_axis_vector] 0.0] ) ) } {
-
-         CATCH_WARNING "Illegal motion for 4-axis table machine"
-         MOM_abort_event
-
-         return 0
-      }
-   }
-
-   if { [string match "4_axis_head" $::mom_kin_machine_type] } {
-
-      if { !( [EQ_is_equal [VEC3_dot ::mom_sys_spindle_axis ::mom_kin_4th_axis_vector] 0.0] && \
-              [EQ_is_equal [VEC3_dot ::mom_sys_spindle_axis ::mom_tool_axis] 1.0] ) } {
-
-         CATCH_WARNING "Illegal motion for 4-axis head machine"
-         MOM_abort_event
-
-         return 0
-      }
-   }
-
-   return 1
-
 }
 
 
@@ -7611,9 +7560,8 @@ MOM_output_literal "(PROGRAMM TIME: MINUTES:$minutes)"
 #=============================================================
 proc PB_CMD_tool_change_force_addresses { } {
 #=============================================================
-
-
-MOM_force once S M_spindle X Y Z fourth_axis fifth_axis F
+   #MOM_force once X Y Z S fourth_axis fifth_axis
+MOM_force once X Y Z S
 }
 
 

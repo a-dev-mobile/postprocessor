@@ -960,7 +960,6 @@ FORMATTING
   BLOCK_TEMPLATE fourth_axis_rotate_move
   {
        G_motion[$mom_sys_rapid_code]
-       fourth_axis[$mom_out_angle_pos(0)]
   }
 
   BLOCK_TEMPLATE from
@@ -1109,7 +1108,6 @@ FORMATTING
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
        Z[$mom_pos(2)]
-       fourth_axis[$mom_out_angle_pos(0)]
        F[$feed]
        D[$mom_cutcom_adjust_register]\opt
        S[$mom_spindle_speed]
@@ -1161,6 +1159,14 @@ FORMATTING
   BLOCK_TEMPLATE prefun
   {
        G[$mom_prefun]
+  }
+
+  BLOCK_TEMPLATE rapid_move
+  {
+       G_motion[$mom_sys_rapid_code]
+       X[$mom_pos(0)]
+       Y[$mom_pos(1)]
+       Z[$mom_pos(2)]
   }
 
   BLOCK_TEMPLATE rapid_rotary
@@ -1222,7 +1228,6 @@ FORMATTING
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
        Z[$mom_pos(2)]
-       fourth_axis[$mom_out_angle_pos(0)]
   }
 
   BLOCK_TEMPLATE rapid_traverse_xy
@@ -1230,7 +1235,6 @@ FORMATTING
        G_motion[$mom_sys_rapid_code]\opt
        X[$mom_pos(0)]
        Y[$mom_pos(1)]
-       fourth_axis[$mom_out_angle_pos(0)]
   }
 
   BLOCK_TEMPLATE rapid_traverse_yz
@@ -1238,7 +1242,6 @@ FORMATTING
        G_motion[$mom_sys_rapid_code]\opt
        Y[$mom_pos(1)]
        Z[$mom_pos(2)]
-       fourth_axis[$mom_out_angle_pos(0)]
   }
 
   BLOCK_TEMPLATE rapid_traverse_xz
@@ -1246,7 +1249,6 @@ FORMATTING
        G_motion[$mom_sys_rapid_code]\opt
        X[$mom_pos(0)]
        Z[$mom_pos(2)]
-       fourth_axis[$mom_out_angle_pos(0)]
   }
 
   BLOCK_TEMPLATE return_c
