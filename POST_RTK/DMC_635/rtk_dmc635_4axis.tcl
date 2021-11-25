@@ -5,7 +5,7 @@
 #    This is a 4-Axis Milling Machine With
 #     Rotary Table.
 #
-#  Created by d.trofimov @ Friday, November 12 2021, 09:24:28 +0300
+#  Created by d.trofimov @ Thursday, November 25 2021, 08:51:49 +0300
 #  with Post Builder version 12.0.2.
 #
 ########################################################################
@@ -3862,6 +3862,25 @@ proc CHECK_SPEED_SPINDLE  {min_sp max_sp} {
 
 }
 #---------------------------
+
+proc CHECK_4_AXIS {} {
+
+global mom_out_angle_pos
+if [info exist $mom_out_angle_pos(0)] {
+
+
+   if { $mom_out_angle_pos(0) < 0 } {
+
+
+  PAUSE "!!Используется 4 ось в [GET_mom_operation_name] Данный постпроцессор не поддерживает данный вид движений."
+            }
+
+    }
+
+
+
+
+}
 
 
 proc CHECK_ZERO_SPEED_AND_TOOL {} {
@@ -10666,13 +10685,15 @@ proc PB_CMD_output_start_program { } {
         }
      }
      MOM_output_literal "DEF REAL _X_HOME, _Y_HOME, _Z_HOME, _A_HOME"
-   #  MOM_output_literal "G40 G17 G710 G94 G90 G60 G601 FNORM"
+
     MOM_output_literal ";------"
-     MOM_force Once G_cutcom G_plane G F_control G_stopping G_feed G_unit G_mode
 
     MOM_output_literal "_X_HOME=-630. _Y_HOME=-5. _Z_HOME=-5."
     MOM_output_literal "_A_HOME=0"
     MOM_output_literal ";------"
+   #MOM_output_literal "G40 G17"
+ # MOM_force Once G_cutcom G_plane G F_control G_stopping G_feed G_unit G_mode
+
 MOM_do_template start_of_program
 
   }
